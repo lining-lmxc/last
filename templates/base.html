@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>中华茶文化数字可视化平台</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/song_style.css') }}">
+    <script src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="{{ url_for('static', filename='images/seal.png') }}" class="seal">
+        <h1>中华茶文化数字典藏（先秦-1911）</h1>
+        <nav>
+            <a href="/">茶价演变</a>
+            <a href="/trade_flow">茶马古道</a>
+            <a href="/song_production">宋茶工艺</a>
+            <a href="/culture_spread">文化传播</a>
+        </nav>
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="footer">
+        <p>数据来源：中国历代茶政文献数字工程</p>
+        <p>技术支持：Python/Flask/ECharts</p>
+    </div>
+</body>
+</html>

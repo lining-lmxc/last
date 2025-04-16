@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="historical-price">
+    <div class="chart-container">
+        <div id="priceChart" style="width: 800px;height:500px;"></div>
+    </div>
+
+    <div class="historical-context">
+        <h2>历代茶政要录</h2>
+        <ul>
+            {% for item in price_data %}
+            <li>
+                <span class="dynasty">{{ item.dynasty }}</span>
+                <span class="year">{{ item.year }}年</span>
+                <span class="event">{{ item.tea_type }} 官价 {{ item.price_liang }}两/斤
+                    <em class="source">《{{ item.source }}》</em>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<script>
+    var priceData = {{ price_data|tojson }};
+
+    var chart = echarts.init(document.getElementById('priceChart'));
+    var option = {
+        title: {
+            text: '历代茶叶官价变化（唐-清）',
+            textStyle: { fontFamily: 'Calligraphy' }
+        },
+        tooltip: {
+            formatter: function(params) {
+                return `${params.data.dynasty} ${params.data.year}年<br>
+                ${params.data.tea_type}<br>
+                官价：${params.data.price_liang}两/斤<br>
+                出处：${params.data.source}`;
+            }
+        },
+        xAxis: {
+            type: 'category',
+            data: priceData.map(d => d.year),
+            axisLabel: { rotate: 45 }
+        },
+        yAxis: { type: 'value', name: '价格（两/斤）' },
+        series: [{
+            data: priceData.map(d => ({
+                value: d.price_liang,
+                dynasty: d.dynasty,
+                year: d.year,
+                tea_type: d.tea_type,
+                source: d.source
+            })),
+            type: 'line',
+            smooth: true,
+            lineStyle: { color: '#4a6144', width: 3 },
+            symbol: 'circle',
+            symbolSize: 10
+        }]
+    };
+    chart.setOption(option);
+</script>
+{% endblock %}

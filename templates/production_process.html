@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="production-process">
+    <div class="timeline">
+        {% for step in process %}
+        <div class="timeline-item">
+            <div class="timeline-icon">{{ step.step }}</div>
+            <div class="timeline-content">
+                <h3>{{ step.name }}</h3>
+                <p class="duration">{{ step.duration }}</p>
+                <div class="tool">
+                    <img src="{{ url_for('static', filename='images/tool_' + step.step|string + '.png') }}">
+                    <p>{{ step.tool }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="process-chart">
+        <div id="processChart" style="width: 600px;height:400px;"></div>
+    </div>
+</div>
+
+<script>
+    var processData = {{ process|tojson }};
+
+    var chart = echarts.init(document.getElementById('processChart'));
+    var option = {
+        title: { text: '宋代团茶制作工序', textStyle: { fontFamily: 'Calligraphy' } },
+        tooltip: { trigger: 'item' },
+        series: [{
+            type: 'pie',
+            radius: [20, 120],
+            roseType: 'area',
+            data: processData.map(d => ({
+                value: d.step,
+                name: d.name,
+                tooltip: `${d.name}<br>耗时：${d.duration}<br>器具：${d.tool}`
+            }))
+        }]
+    };
+    chart.setOption(option);
+</script>
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>宋代茶贸路线</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/song_style.css') }}">
+    <script src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>茶马古道贸易流向（1080-1120）</h1>
+        <p class="source">数据来源：宋《元丰九域志》</p>
+    </div>
+
+    <div id="sankeyChart" style="width: 1000px;height:600px;"></div>
+
+    <script>
+        var nodes = {{ nodes|safe }};
+        var links = {{ links|safe }};
+
+        var chart = echarts.init(document.getElementById('sankeyChart'));
+        var option = {
+            tooltip: {
+                formatter: function(params) {
+                    return `${params.data.source} → ${params.data.target}<br>
+                    年交易量：${params.data.value}担<br>
+                    记载文献：${params.data.record}`;
+                }
+            },
+            series: [{
+                type: 'sankey',
+                data: nodes,
+                links: links,
+                emphasis: {
+                    focus: 'adjacency'
+                },
+                levels: [{
+                    depth: 0,
+                    itemStyle: { color: '#8a7ca3' },
+                    lineStyle: { color: 'source', opacity: 0.6 }
+                }],
+                label: {
+                    fontFamily: 'Calligraphy',
+                    fontSize: 14
+                }
+            }]
+        };
+        chart.setOption(option);
+    </script>
+</body>
+</html>
