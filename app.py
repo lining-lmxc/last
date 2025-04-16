@@ -45,13 +45,27 @@ def load_data():
         # 加载文化传播数据
         try:
             spread = load_json(data_dir / 'culture_spread.json')
-            # 添加地图配置
-            spread['map_config'] = {
-                'map': 'world',
-                'roam': True,
-                'itemStyle': {'areaColor': '#e6f3e6'},
-                'emphasis': {'itemStyle': {'areaColor': '#c4d8c4'}}
-            }
+            # 处理路线数据
+            processed_routes = []
+            for route in spread.get('routes', []):
+                processed_route = {
+                    'coords': route['path'],
+                    'lineStyle': {
+                        'color': '#7b8d6d',
+                        'width': 2,
+                        'curveness': 0.2
+                    },
+                    'effect': {
+                        'show': True,
+                        'period': 6,
+                        'trailLength': 0.7,
+                        'color': '#fff',
+                        'symbolSize': 3
+                    }
+                }
+                processed_routes.append(processed_route)
+            
+            spread['processed_routes'] = processed_routes
             logger.info("成功加载文化传播数据")
         except Exception as e:
             logger.error(f"加载文化传播数据失败: {str(e)}")

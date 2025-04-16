@@ -174,3 +174,99 @@ nav a:hover {
     margin: 20px auto;
     max-width: 1200px;
 }
+
+.map-container {
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.historical-context {
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.historical-context h2 {
+    color: #4a6144;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Calligraphy';
+}
+
+.timeline {
+    position: relative;
+    padding: 20px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 30px;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background: #7b8d6d;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Calligraphy';
+}
+
+.timeline-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.timeline-content h3 {
+    color: #4a6144;
+    margin: 0 0 10px 0;
+    font-family: 'Calligraphy';
+}
+
+.timeline-content p {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.page-header {
+    text-align: center;
+    padding: 30px 0;
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.page-header h1 {
+    color: #4a6144;
+    font-family: 'Calligraphy';
+    margin-bottom: 10px;
+}
+
+.page-header .period {
+    color: #7b8d6d;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.page-header .source {
+    color: #666;
+    font-style: italic;
+}
