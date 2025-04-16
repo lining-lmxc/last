@@ -64,3 +64,113 @@ nav a:hover {
     margin-top: 50px;
     color: #666;
 }
+
+.error-container {
+    text-align: center;
+    padding: 50px;
+    margin: 50px auto;
+    max-width: 800px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.error-container h2 {
+    color: #d32f2f;
+    margin-bottom: 20px;
+}
+
+.error-image {
+    max-width: 300px;
+    margin: 20px 0;
+}
+
+.error-container a {
+    color: #2196f3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.error-container a:hover {
+    text-decoration: underline;
+}
+
+.trade-flow {
+    padding: 20px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px;
+    margin: 40px 0;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 30px;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background: #7b8d6d;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Calligraphy';
+}
+
+.timeline-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.timeline-content h3 {
+    color: #4a6144;
+    margin: 0 0 10px 0;
+}
+
+.timeline-content .duration {
+    color: #666;
+    font-style: italic;
+}
+
+.tool {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.tool img {
+    max-width: 100px;
+    margin-bottom: 5px;
+}
+
+.tool p {
+    color: #4a6144;
+    font-size: 0.9em;
+}
+
+.process-chart {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.spread-map {
+    padding: 20px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+}

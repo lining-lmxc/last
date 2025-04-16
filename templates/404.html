@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="error-container">
+    <h2>404 - 页面未找到</h2>
+    <p>抱歉，您访问的页面不存在。</p>
+    <img src="{{ url_for('static', filename='images/404.png') }}" alt="404错误" class="error-image">
+    <p><a href="/">返回首页</a></p>
+</div>
+{% endblock %} 
