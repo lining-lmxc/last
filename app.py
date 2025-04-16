@@ -20,11 +20,12 @@ app = Flask(__name__)
 # 配置静态文件目录
 app.static_folder = 'static'
 
+
 # 数据加载函数
 def load_data():
     try:
         data_dir = Path(__file__).parent / 'data'
-        
+
         # 加载历史价格数据
         try:
             prices = pd.read_csv(data_dir / 'historical_prices.csv', encoding='utf-8').to_dict('records')
@@ -32,7 +33,7 @@ def load_data():
         except Exception as e:
             logger.error(f"加载历史价格数据失败: {str(e)}")
             prices = []
-        
+
         # 加载茶道数据
         try:
             routes = load_json(data_dir / 'tea_routes.json')
@@ -40,7 +41,7 @@ def load_data():
         except Exception as e:
             logger.error(f"加载茶道数据失败: {str(e)}")
             routes = {"nodes": [], "links": []}
-        
+
         # 加载文化传播数据
         try:
             spread = load_json(data_dir / 'culture_spread.json')
@@ -55,7 +56,7 @@ def load_data():
         except Exception as e:
             logger.error(f"加载文化传播数据失败: {str(e)}")
             spread = {}
-        
+
         # 加载宋代茶叶生产数据
         try:
             song_production = pd.read_csv(data_dir / 'song_tea_production.csv', encoding='utf-8').to_dict('records')
@@ -63,7 +64,7 @@ def load_data():
         except Exception as e:
             logger.error(f"加载宋代茶叶生产数据失败: {str(e)}")
             song_production = []
-        
+
         return {
             'prices': prices,
             'routes': routes,
