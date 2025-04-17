@@ -1,24 +1,68 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="spread-map">
+<div class="spread-container">
     <div class="page-header">
         <h1>{{ spread_data.title }}</h1>
         <p class="period">{{ spread_data.period }}</p>
-        <p class="source">数据来源：{{ spread_data.data_source }}</p>
     </div>
 
-    <div class="map-container">
-        <div id="spreadChart" style="width: 1000px;height:600px;"></div>
+    <div class="route-map">
+        <div class="route-container">
+            <div class="route-item land">
+                <h3>陆路传播</h3>
+                <div class="route-path">
+                    <div class="node" data-info="唐代茶马古道起点，茶叶贸易中心">长安</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="丝绸之路重要节点，茶叶中转站">敦煌</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="连接中亚的贸易通道">西域</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="波斯商人将茶叶引入中东">波斯</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="阿拉伯商人将茶叶传入欧洲">阿拉伯</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="17世纪茶叶成为欧洲贵族饮品">欧洲</div>
+                </div>
+            </div>
+
+            <div class="route-item sea">
+                <h3>海路传播</h3>
+                <div class="route-path">
+                    <div class="node" data-info="宋代海上丝绸之路起点">泉州</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="重要对外贸易港口">广州</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="茶叶贸易中转站">东南亚</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="英国东印度公司贸易中心">印度</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="18世纪茶叶成为英国国民饮品">欧洲</div>
+                </div>
+            </div>
+
+            <div class="route-item east">
+                <h3>东方传播</h3>
+                <div class="route-path">
+                    <div class="node" data-info="南宋茶文化中心">杭州</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="中日贸易重要港口">宁波</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="唐代遣唐使带回茶种">日本</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="高丽时期引入茶道">韩国</div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="historical-context">
-        <h2>茶文化传播历史</h2>
-        <div class="timeline">
+
+    <div class="historical-events">
+        <h2>重要历史事件</h2>
+        <div class="event-list">
             {% for event in spread_data.historical_events %}
-            <div class="timeline-item">
-                <div class="timeline-icon">{{ event.year }}</div>
-                <div class="timeline-content">
+            <div class="event-item">
+                <div class="event-year">{{ event.year }}</div>
+                <div class="event-content">
                     <h3>{{ event.event }}</h3>
                     <p>{{ event.impact }}</p>
                 </div>
@@ -28,73 +72,214 @@
     </div>
 </div>
 
+<style>
+.spread-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    color: #8B4513;
+    font-family: 'Calligraphy';
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.period {
+    color: #666;
+    font-size: 18px;
+}
+
+.route-map {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+    margin-bottom: 40px;
+}
+
+.route-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.route-item {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.route-item h3 {
+    color: #8B4513;
+    font-family: 'Calligraphy';
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.route-path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
+}
+
+.node {
+    background: #f9f7f0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #D2B48C;
+    color: #8B4513;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.arrow {
+    color: #8B4513;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.route-item.land {
+    background: linear-gradient(135deg, #f9f7f0 0%, #e8e6d9 100%);
+    border: 2px solid #D2B48C;
+}
+
+.route-item.sea {
+    background: linear-gradient(135deg, #e8e6d9 0%, #f9f7f0 100%);
+    border: 2px solid #8B4513;
+}
+
+.route-item.east {
+    background: linear-gradient(135deg, #f9f7f0 0%, #e8e6d9 100%);
+    border: 2px solid #A0522D;
+}
+
+.historical-events {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+}
+
+.historical-events h2 {
+    color: #8B4513;
+    font-family: 'Calligraphy';
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-item {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    background: #f9f7f0;
+    border-radius: 8px;
+    border: 1px solid #D2B48C;
+}
+
+.event-year {
+    background: #8B4513;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Calligraphy';
+    font-size: 18px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.event-content {
+    flex: 1;
+}
+
+.event-content h3 {
+    color: #8B4513;
+    font-family: 'Calligraphy';
+    margin-bottom: 5px;
+}
+
+.event-content p {
+    color: #666;
+    margin: 0;
+}
+
+.node::after {
+    content: attr(data-info);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #D2B48C;
+    border-radius: 8px;
+    color: #8B4513;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.node:hover::after {
+    opacity: 1;
+}
+
+.route-path::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.route-path:hover::before {
+    background: rgba(255, 255, 255, 0.2);
+}
+</style>
+
 <script>
-    var spreadData = {{ spread_data|tojson }};
-    
-    var chart = echarts.init(document.getElementById('spreadChart'));
-    var option = {
-        title: { 
-            text: '中华茶文化传播路线（7-19世纪）', 
-            textStyle: { fontFamily: 'Calligraphy' }
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: function(params) {
-                if (params.dataType === 'node') {
-                    return `${params.data.name}<br>时代：${params.data.era}<br>角色：${params.data.role}`;
-                }
-                return '';
-            }
-        },
-        geo: {
-            map: 'world',
-            roam: true,
-            itemStyle: {
-                areaColor: '#e6f3e6',
-                borderColor: '#7b8d6d'
-            },
-            emphasis: {
-                itemStyle: {
-                    areaColor: '#c4d8c4'
-                }
-            }
-        },
-        series: [
-            {
-                type: 'scatter',
-                coordinateSystem: 'geo',
-                data: spreadData.nodes,
-                symbolSize: 10,
-                label: {
-                    show: true,
-                    formatter: '{b}',
-                    position: 'right',
-                    fontFamily: 'Calligraphy'
-                },
-                itemStyle: {
-                    color: '#4a6144'
-                }
-            },
-            {
-                type: 'lines',
-                coordinateSystem: 'geo',
-                data: spreadData.processed_routes,
-                polyline: true,
-                lineStyle: {
-                    color: '#7b8d6d',
-                    width: 2,
-                    curveness: 0.2
-                },
-                effect: {
-                    show: true,
-                    period: 6,
-                    trailLength: 0.7,
-                    color: '#fff',
-                    symbolSize: 3
-                }
-            }
-        ]
-    };
-    chart.setOption(option);
+document.addEventListener('DOMContentLoaded', function() {
+    // 为节点添加点击效果
+    const nodes = document.querySelectorAll('.node');
+    nodes.forEach(node => {
+        node.addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
+    });
+
+    // 为路线添加悬停效果
+    const routes = document.querySelectorAll('.route-item');
+    routes.forEach(route => {
+        route.addEventListener('mouseenter', function() {
+            this.classList.add('highlight');
+        });
+        route.addEventListener('mouseleave', function() {
+            this.classList.remove('highlight');
+        });
+    });
+});
 </script>
 {% endblock %}
