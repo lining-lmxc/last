@@ -3,61 +3,366 @@
 {% block content %}
 <div class="historical-price">
     <div class="chart-container">
-        <div id="priceChart" style="width: 800px;height:500px;"></div>
+        <div id="priceChart" style="width: 100%; height: 500px;"></div>
     </div>
 
     <div class="historical-context">
         <h2>历代茶政要录</h2>
-        <div class="timeline">
-            {% for item in price_data %}
-            <div class="timeline-item">
-                <div class="timeline-icon">{{ item.year }}</div>
-                <div class="timeline-content">
-                    <h3>{{ item.dynasty }} - {{ item.tea_type }}</h3>
-                    <p class="price">官价：{{ item.price_liang }}两/斤</p>
-                    <p class="source">出处：《{{ item.source }}》</p>
+        <div class="scroll-container">
+            <div class="timeline">
+                {% for item in price_data %}
+                <div class="timeline-item">
+                    <div class="timeline-icon">{{ item.year }}</div>
+                    <div class="timeline-content">
+                        <h3>{{ item.dynasty }} - {{ item.tea_type }}</h3>
+                        <p class="price">官价：{{ item.price_liang }}两/斤</p>
+                        <p class="source">出处：《{{ item.source }}》</p>
+                        <div class="additional-info">
+                            <h4>历史背景</h4>
+                            <p class="historical-context-content" data-year="{{ item.year }}" data-dynasty="{{ item.dynasty }}"></p>
+                            <h4>茶叶特点</h4>
+                            <p class="tea-description-content" data-tea-type="{{ item.tea_type }}"></p>
+                            <h4>产区信息</h4>
+                            <p class="production-area-content" data-tea-type="{{ item.tea_type }}"></p>
+                        </div>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>
 
+<style>
+.historical-price {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.chart-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.historical-context {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.historical-context h2 {
+    color: #8B4513;
+    font-family: 'Calligraphy';
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #D2B48C;
+    padding-bottom: 10px;
+}
+
+.scroll-container {
+    height: 600px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #E8E6D9;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(135deg, #F9F7F0 0%, #E8E6D9 100%);
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 2px;
+    background: #D2B48C;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding-left: 50px;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #8B4513, #D2B48C);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Calligraphy';
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-content h3 {
+    color: #8B4513;
+    margin: 0 0 10px 0;
+    font-family: 'Calligraphy';
+}
+
+.timeline-content .price {
+    font-weight: bold;
+    color: #4A6144;
+    margin: 5px 0;
+}
+
+.timeline-content .source {
+    color: #666;
+    font-style: italic;
+    margin: 5px 0;
+}
+
+.additional-info {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #D2B48C;
+}
+
+.additional-info h4 {
+    color: #8B4513;
+    margin: 10px 0 5px 0;
+    font-size: 16px;
+}
+
+.additional-info p {
+    color: #666;
+    margin: 5px 0 10px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 滚动条样式优化 */
+.scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #F1F1F1;
+    border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #D2B48C;
+    border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #8B4513;
+}
+</style>
+
 <script>
+    // 历史背景信息函数
+    function getHistoricalContext(year, dynasty) {
+        const historyData = {
+            '唐': {
+                base: '唐代（618-907年）是中国茶文化繁荣发展的重要时期，陆羽《茶经》在此时问世，系统总结了唐代茶事。',
+                '758': '此时正值唐玄宗晚期，茶已成为宫廷贡品，顾渚紫笋为贡茶之一。',
+                '780': '此时为德宗时期，陆羽《茶经》已经完成，阳羡茶为当时高品质茶叶。',
+                '805': '唐宪宗年间，茶税开始成为政府重要财政来源。',
+                '850': '唐宣宗时期，制茶技术已相当成熟，蜀地茶园广泛建立。'
+            },
+            '宋': {
+                base: '宋代（960-1279年）是中国茶文化的黄金时期，点茶法盛行，团茶、散茶并举，并设立专门的茶产区。',
+                '1020': '宋仁宗时期，茶已成为与盐、铁并重的国家专卖商品，建茗为当时名贵茶品。',
+                '1068': '宋神宗年间，王安石变法期间，加强茶专卖制度，北苑贡茶价格昂贵。',
+                '1106': '宋徽宗时期，龙团茶成为最高级贡茶，《大观茶论》问世。',
+                '1162': '宋高宗时期，日铸茶为与金国贸易的重要物品。',
+                '1200': '宋宁宗年间，南宋茶产业繁荣，密云茶为北方贸易重要商品。',
+                '1265': '宋度宗时期，蒙古威胁下茶叶贸易仍然活跃，蒙顶茶价格较为稳定。'
+            },
+            '元': {
+                base: '元代（1271-1368年）茶叶贸易由官营转向民营，茶马贸易成为通行制度。',
+                '1320': '元英宗时期，松萝茶为宫廷贡茶，价格由于民营化有所下降。',
+                '1368': '元朝末年，茶叶贸易秩序松动，峨眉雪芽价格波动较大。'
+            },
+            '明': {
+                base: '明代（1368-1644年）是中国茶叶制作工艺发展的重要时期，炒青工艺取代蒸青，为中国茶叶加工史上的一次革命。',
+                '1391': '明太祖朱元璋在位晚期，对茶叶征收严格税收，武夷岩茶成为贡茶。',
+                '1424': '明仁宗时期，龙井茶已是名茶，官定价格较高。',
+                '1462': '明英宗时期，安溪铁观音开始名声鹊起。',
+                '1505': '明武宗时期，碧螺春价格因品质精良而昂贵。',
+                '1563': '明世宗晚期，黄山毛峰茶叶品质提升。',
+                '1602': '明神宗时期，茶叶外销兴盛，洞庭碧螺春为贡茶。',
+                '1636': '明崇祯末年，动荡局势下祁门红茶价格相对稳定。'
+            },
+            '清': {
+                base: '清代（1644-1911年）茶叶生产呈现全面繁荣局面，茶叶品种多样化，并开始大量外销欧美。',
+                '1670': '康熙初期，普洱茶因运输困难价格适中。',
+                '1723': '雍正初年，六安瓜片为宫廷贡茶之一。',
+                '1756': '乾隆盛世，蒙顶甘露作为高档贡茶价格昂贵。',
+                '1801': '嘉庆时期，信阳毛尖品质优良，官定价格较高。',
+                '1845': '道光晚期，君山银针产量稀少，价格高昂。',
+                '1872': '同治末年，都匀毛尖成为贵州著名茶品。',
+                '1895': '光绪中期，福鼎白茶因特殊工艺和药用价值，官价较高。'
+            }
+        };
+
+        // 获取特定年份的历史背景，如果没有则返回朝代基本信息
+        return historyData[dynasty][year] || historyData[dynasty]['base'] || `${dynasty}（${year}年）茶叶贸易活跃，各地茶叶均有详细价格记载。`;
+    }
+
+    // 茶叶描述函数
+    function getTeaDescription(teaType) {
+        const teaData = {
+            '顾渚紫笋': '产于浙江长兴顾渚山，紫笋为芽茶，色泽紫绿，形如笋尖，味道清爽，唐代名茶之一。',
+            '阳羡茶': '产于江苏宜兴阳羡一带，芽叶肥壮，汤色碧绿，香气高雅，为陆羽所推崇的名茶。',
+            '贡茶': '专供皇室使用的茶叶，品质极高，多采自名山，制作精良，口感上乘。',
+            '蜀茶': '四川茶叶总称，芽叶肥厚，香气浓郁，耐泡度高，唐代已闻名全国。',
+            '建茗': '福建建州（今建瓯）所产茶叶，为宋代贡茶代表，制成龙凤团茶，香气馥郁。',
+            '北苑贡茶': '产自福建建州北苑，为宋代最高级贡茶，色泽乌润，香气清高，滋味甘醇。',
+            '龙团茶': '宋徽宗时期贡茶，产自福建，压制成龙形团块，内质香醇，茶性温和。',
+            '日铸茶': '宋代名茶，每日新制，故名"日铸"，品质上乘，常作为外交礼品。',
+            '密云茶': '产自北方，叶片肥厚，耐寒性强，宋代北方流通的主要茶品。',
+            '蒙顶茶': '产自四川蒙山，属绿茶类，清香持久，滋味甘醇，始创于周代，历代为贡品。',
+            '松萝茶': '原产自湖南，属于黄茶类，滋味醇和，元代宫廷珍品。',
+            '峨眉雪芽': '产自四川峨眉山，芽头银白如雪，故名雪芽，口感鲜爽，香气持久。',
+            '武夷岩茶': '产自福建武夷山，属乌龙茶类，岩韵明显，香气高锐持久，滋味醇厚。',
+            '龙井茶': '产自浙江杭州西湖，扁平光滑，色泽嫩绿，香郁味甘，唐代已负盛名。',
+            '安溪铁观音': '产自福建安溪，属乌龙茶，香气馥郁持久，滋味醇厚回甘，明代始创。',
+            '碧螺春': '产自江苏苏州洞庭山，芽叶细嫩，白毫显露，形似螺旋，清香持久。',
+            '黄山毛峰': '产自安徽黄山，外形似雀舌，色泽翠绿，香气如兰，滋味甘醇。',
+            '洞庭碧螺春': '产自江苏洞庭山，芽身细圆，有白毫，清香持久，甘醇爽口。',
+            '祁门红茶': '产自安徽祁门，形细而紧，色泽乌润，香气馥郁似兰花香，滋味醇厚。',
+            '普洱茶': '产自云南普洱地区，可长期存放，越陈越香，具有独特的陈香，滋味醇厚回甘。',
+            '六安瓜片': '产自安徽六安，精选单片嫩叶，不含芽和梗，形似瓜子，滋味鲜爽。',
+            '蒙顶甘露': '产自四川蒙山，芽头肥壮，覆白毫，汤色黄绿明亮，滋味甘醇爽口。',
+            '信阳毛尖': '产自河南信阳，外形细直如针，满披白毫，香高持久，滋味鲜醇。',
+            '君山银针': '产自湖南岳阳君山，属黄茶类，外形似针，满披白毫，汤色杏黄，滋味醇和。',
+            '都匀毛尖': '产自贵州都匀，形如雀舌，色翠芽尖，白毫显露，香气高锐持久。',
+            '福鼎白茶': '产自福建福鼎，采用自然萎凋工艺，不经杀青，满披白毫，滋味清甜，有药用价值。'
+        };
+
+        return teaData[teaType] || `${teaType}是中国传统名茶，具有独特的风味和品质特点。`;
+    }
+
+    // 产区信息函数
+    function getProductionArea(teaType) {
+        const areaData = {
+            '顾渚紫笋': '产自浙江长兴顾渚山，海拔约500米，土壤肥沃，雨量充足，气候温和，适宜茶树生长。',
+            '阳羡茶': '产自江苏宜兴阳羡（今宜兴市阳羡茶场一带），地处太湖流域，气候湿润，土壤为红壤，富含矿物质。',
+            '贡茶': '贡茶产区多在名山，如浙江、福建、四川等地，这些地区多为山区，海拔适中，云雾环绕，昼夜温差大。',
+            '蜀茶': '四川盆地及周边山区，地势高峻，气候温和湿润，土壤肥沃，是中国最早的产茶区之一。',
+            '建茗': '产自福建建瓯北苑一带，山峦起伏，溪流纵横，云雾缭绕，气候温和湿润。',
+            '北苑贡茶': '福建建州北苑（今建瓯市），地势较高，云雾常年环绕，昼夜温差大，土壤富含矿物质。',
+            '龙团茶': '主产于福建建州一带，山地丘陵地形，气候温暖湿润，土壤以红黄壤为主。',
+            '日铸茶': '多产自江南地区优质茶区，如浙江、福建等地，气候温和，雨量充沛。',
+            '密云茶': '河北密云一带，属于北方茶区，气候较为寒冷，茶树品种适应性强。',
+            '蒙顶茶': '四川蒙山，海拔约1000米，气候温和湿润，云雾弥漫，昼夜温差大，土壤肥沃。',
+            '松萝茶': '湖南西部山区，海拔适中，气候温和，雨量充沛，土壤富含有机质。',
+            '峨眉雪芽': '四川峨眉山，海拔约800-1200米，云雾环绕，气候温和湿润，水质清冽。',
+            '武夷岩茶': '福建武夷山，生长于岩缝之中，海拔约500-800米，独特的"岩骨花香"与当地特殊的土壤和气候密切相关。',
+            '龙井茶': '浙江杭州西湖龙井村一带，山环水绕，云雾缭绕，昼夜温差大，土壤为红壤，富含铁质。',
+            '安溪铁观音': '福建安溪县西坪、虎邱等地，海拔约600-800米，气候温和，雨量充沛，土壤矿物质丰富。',
+            '碧螺春': '江苏苏州洞庭山太湖沿岸，气候温和，雨量充沛，土壤肥沃，桃树与茶树间作。',
+            '黄山毛峰': '安徽黄山一带，海拔约800米以上，云雾缭绕，气候温和湿润，土壤为黄壤，富含矿物质。',
+            '洞庭碧螺春': '江苏苏州洞庭山东、西山地区，临近太湖，气候湿润，雨量充沛，土壤肥沃。',
+            '祁门红茶': '安徽祁门县，山区丘陵地形，气候温和湿润，昼夜温差大，土壤为黄红壤。',
+            '普洱茶': '云南西双版纳、普洱、临沧等地，地处亚热带，属古茶树原产地，树龄可达千年，气候温和湿润。',
+            '六安瓜片': '安徽六安市金寨、霍山一带，山区地形，气候温和，雨量充沛，土壤肥沃。',
+            '蒙顶甘露': '四川蒙山甘露寺一带，海拔约1000米，气候温润，云雾常年环绕，土壤肥沃。',
+            '信阳毛尖': '河南信阳市浉河区、商城县等地，地处大别山北麓，气候温和，雨量充沛，土壤为红黄壤。',
+            '君山银针': '湖南岳阳洞庭湖中的君山，四面环水，气候湿润，日照适宜，土壤富含矿物质。',
+            '都匀毛尖': '贵州都匀市周边山区，海拔约1200米，气候温和湿润，云雾环绕，土壤为红壤，富含有机质。',
+            '福鼎白茶': '福建福鼎市太姥山一带，临近东海，气候温和湿润，雨量充沛，土壤为红壤，富含矿物质。'
+        };
+
+        return areaData[teaType] || `${teaType}的传统产区拥有适合茶树生长的自然环境，包括适宜的海拔、温度、湿度和土壤条件。`;
+    }
+
     var priceData = {{ price_data|tojson }};
 
+    // 价格图表
     var chart = echarts.init(document.getElementById('priceChart'));
     var option = {
         title: {
             text: '历代茶叶官价变化（唐-清）',
-            textStyle: { fontFamily: 'Calligraphy' }
+            textStyle: { fontFamily: 'Calligraphy', color: '#8B4513' }
         },
         tooltip: {
+            trigger: 'axis',
             formatter: function(params) {
-                return `${params.data.dynasty} ${params.data.year}年<br>
-                ${params.data.tea_type}<br>
-                官价：${params.data.price_liang}两/斤<br>
-                出处：${params.data.source}`;
+                var param = params[0];
+                return `${param.data.dynasty} ${param.data.year}年<br>
+                ${param.data.tea_type}<br>
+                官价：${param.data.value}两/斤<br>
+                出处：${param.data.source}`;
             }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
         },
         xAxis: {
             type: 'category',
             data: priceData.map(d => d.year),
             axisLabel: { 
                 rotate: 45,
-                fontFamily: 'Calligraphy'
+                fontFamily: 'Calligraphy',
+                color: '#666'
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#D2B48C'
+                }
             }
         },
         yAxis: { 
             type: 'value', 
             name: '价格（两/斤）',
             nameTextStyle: {
-                fontFamily: 'Calligraphy'
+                fontFamily: 'Calligraphy',
+                color: '#666'
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#D2B48C'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#F1F1F1'
+                }
             }
         },
         series: [{
             data: priceData.map(d => ({
-                value: d.price_liang,
+                value: parseFloat(d.price_liang),
                 dynasty: d.dynasty,
                 year: d.year,
                 tea_type: d.tea_type,
@@ -65,14 +370,55 @@
             })),
             type: 'line',
             smooth: true,
-            lineStyle: { color: '#4a6144', width: 3 },
+            lineStyle: { color: '#8B4513', width: 3 },
             symbol: 'circle',
             symbolSize: 10,
             itemStyle: {
-                color: '#7b8d6d'
+                color: '#D2B48C',
+                borderColor: '#8B4513',
+                borderWidth: 2
+            },
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: 'rgba(210, 180, 140, 0.3)'
+                    }, {
+                        offset: 1, color: 'rgba(210, 180, 140, 0)'
+                    }]
+                }
             }
         }]
     };
     chart.setOption(option);
+    
+    // 自适应大小
+    window.addEventListener('resize', function() {
+        chart.resize();
+    });
+    
+    // 页面加载完成后填充数据
+    document.addEventListener('DOMContentLoaded', function() {
+        // 填充历史背景信息和产区信息
+        document.querySelectorAll('.historical-context-content').forEach(function(element) {
+            const year = element.dataset.year;
+            const dynasty = element.dataset.dynasty;
+            element.textContent = getHistoricalContext(year, dynasty);
+        });
+        
+        document.querySelectorAll('.tea-description-content').forEach(function(element) {
+            const teaType = element.dataset.teaType;
+            element.textContent = getTeaDescription(teaType);
+        });
+        
+        document.querySelectorAll('.production-area-content').forEach(function(element) {
+            const teaType = element.dataset.teaType;
+            element.textContent = getProductionArea(teaType);
+        });
+    });
 </script>
 {% endblock %}
