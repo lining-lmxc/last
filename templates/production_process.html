@@ -2,45 +2,395 @@
 
 {% block content %}
 <div class="production-process">
-    <div class="timeline">
+    <h1 class="page-title">宋代团茶制作工艺</h1>
+    
+    <!-- 横向步骤时间轴 -->
+    <div class="steps-timeline">
         {% for step in process %}
-        <div class="timeline-item">
-            <div class="timeline-icon">{{ step.step }}</div>
-            <div class="timeline-content">
+        <div class="step-item" id="step-{{ step.step }}" data-step="{{ step.step }}">
+            <div class="step-icon">{{ step.step }}</div>
+            <div class="step-content">
                 <h3>{{ step.name }}</h3>
-                <p class="duration">{{ step.duration }}</p>
-                <div class="tool">
-                    <img src="{{ url_for('static', filename='images/tool_' + step.step|string + '.png') }}">
-                    <p>{{ step.tool }}</p>
-                </div>
+                <p class="step-brief">{{ step.duration }}</p>
             </div>
         </div>
         {% endfor %}
     </div>
-
-    <div class="process-chart">
-        <div id="processChart" style="width: 600px;height:400px;"></div>
+    
+    <!-- 视频展示区域 -->
+    <div class="video-container">
+        <div class="video-wrapper">
+            <video id="tea-process-video" controls>
+                <source src="{{ url_for('static', filename='videos/tea_process_intro.mp4') }}" type="video/mp4">
+                您的浏览器不支持视频播放。
+            </video>
+        </div>
+        
+        <div class="video-controls">
+            <button class="play-step-btn" data-video="tea_process_cacha.mp4">观看采茶过程</button>
+            <button class="play-step-btn" data-video="tea_process_zhengqing.mp4">观看蒸青过程</button>
+            <button class="play-step-btn" data-video="tea_process_yangao.mp4">观看研膏过程</button>
+        </div>
+    </div>
+    
+    <!-- 详细步骤说明 -->
+    <div class="step-details">
+        <div class="step-detail-card active" id="detail-1">
+            <div class="detail-header">
+                <h3>采茶</h3>
+                <div class="detail-meta">
+                    <span class="duration">工序时间: {{ process[0].duration }}</span>
+                    <span class="tool">使用工具: {{ process[0].tool }}</span>
+                </div>
+            </div>
+            <div class="detail-content">
+                <p>{{ process[0].details }}</p>
+            </div>
+        </div>
+        
+        <div class="step-detail-card" id="detail-2">
+            <div class="detail-header">
+                <h3>蒸青</h3>
+                <div class="detail-meta">
+                    <span class="duration">工序时间: {{ process[1].duration }}</span>
+                    <span class="tool">使用工具: {{ process[1].tool }}</span>
+                </div>
+            </div>
+            <div class="detail-content">
+                <p>{{ process[1].details }}</p>
+            </div>
+        </div>
+        
+        <div class="step-detail-card" id="detail-3">
+            <div class="detail-header">
+                <h3>研膏</h3>
+                <div class="detail-meta">
+                    <span class="duration">工序时间: {{ process[2].duration }}</span>
+                    <span class="tool">使用工具: {{ process[2].tool }}</span>
+                </div>
+            </div>
+            <div class="detail-content">
+                <p>{{ process[2].details }}</p>
+            </div>
+        </div>
     </div>
 </div>
 
+<style>
+/* 整体布局样式 */
+.production-process {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    font-family: 'Calligraphy', sans-serif;
+}
+
+.page-title {
+    text-align: center;
+    color: #8B4513;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: normal;
+    border-bottom: 2px solid #D2B48C;
+    padding-bottom: 15px;
+}
+
+/* 横向时间轴样式 */
+.steps-timeline {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    position: relative;
+    padding: 20px 0;
+}
+
+.steps-timeline:before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #D2B48C;
+    z-index: 0;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.333%;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-5px);
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #8B4513, #D2B48C);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border: 3px solid #FFF;
+    transition: all 0.3s ease;
+}
+
+.step-item.active .step-icon,
+.step-item:hover .step-icon {
+    background: linear-gradient(45deg, #6B3E00, #B08C5B);
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.step-content {
+    text-align: center;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+.step-content h3 {
+    margin: 0 0 5px 0;
+    color: #8B4513;
+    font-size: 18px;
+}
+
+.step-brief {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* 视频区域样式 */
+.video-container {
+    margin: 40px 0;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-wrapper {
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9比例 */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: #000;
+    border-radius: 8px;
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.video-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.play-step-btn {
+    background: linear-gradient(to bottom, #4A6144, #5D7A57);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Calligraphy';
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.play-step-btn:hover {
+    background: linear-gradient(to bottom, #3E5138, #4E6647);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 详细步骤卡片 */
+.step-details {
+    margin-top: 40px;
+}
+
+.step-detail-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    display: none;
+    border-left: 5px solid #D2B48C;
+}
+
+.step-detail-card.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.detail-header h3 {
+    margin: 0;
+    color: #8B4513;
+    font-size: 22px;
+}
+
+.detail-meta {
+    color: #666;
+    font-size: 14px;
+}
+
+.detail-meta span {
+    margin-left: 15px;
+}
+
+.detail-content {
+    line-height: 1.6;
+    color: #333;
+    text-align: justify;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .steps-timeline {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .steps-timeline:before {
+        display: none;
+    }
+    
+    .step-item {
+        width: 100%;
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    .step-content {
+        text-align: left;
+        width: auto;
+    }
+    
+    .video-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .play-step-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .detail-meta {
+        margin-top: 10px;
+    }
+    
+    .detail-meta span {
+        display: block;
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+}
+</style>
+
 <script>
     var processData = {{ process|tojson }};
-
-    var chart = echarts.init(document.getElementById('processChart'));
-    var option = {
-        title: { text: '宋代团茶制作工序', textStyle: { fontFamily: 'Calligraphy' } },
-        tooltip: { trigger: 'item' },
-        series: [{
-            type: 'pie',
-            radius: [20, 120],
-            roseType: 'area',
-            data: processData.map(d => ({
-                value: d.step,
-                name: d.name,
-                tooltip: `${d.name}<br>耗时：${d.duration}<br>器具：${d.tool}`
-            }))
-        }]
-    };
-    chart.setOption(option);
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const videoElement = document.getElementById('tea-process-video');
+        const stepItems = document.querySelectorAll('.step-item');
+        const stepDetailCards = document.querySelectorAll('.step-detail-card');
+        const playButtons = document.querySelectorAll('.play-step-btn');
+        
+        // 设置默认活动步骤
+        setActiveStep(1);
+        
+        // 步骤点击事件
+        stepItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                const step = parseInt(this.getAttribute('data-step'));
+                setActiveStep(step);
+                
+                // 播放对应视频
+                const videoFileName = `tea_process_${step === 1 ? 'cacha' : step === 2 ? 'zhengqing' : 'yangao'}.mp4`;
+                changeVideo(videoFileName);
+            });
+        });
+        
+        // 视频按钮点击事件
+        playButtons.forEach(function(button, index) {
+            button.addEventListener('click', function() {
+                // 设置活动步骤
+                setActiveStep(index + 1);
+                
+                // 播放对应视频
+                const videoFileName = this.getAttribute('data-video');
+                changeVideo(videoFileName);
+            });
+        });
+        
+        // 设置活动步骤
+        function setActiveStep(step) {
+            // 更新步骤样式
+            stepItems.forEach(function(item) {
+                item.classList.remove('active');
+            });
+            document.getElementById(`step-${step}`).classList.add('active');
+            
+            // 更新详情卡片
+            stepDetailCards.forEach(function(card) {
+                card.classList.remove('active');
+            });
+            document.getElementById(`detail-${step}`).classList.add('active');
+        }
+        
+        // 更换视频源
+        function changeVideo(videoFileName) {
+            const videoPath = `{{ url_for('static', filename='videos/') }}${videoFileName}`;
+            videoElement.src = videoPath;
+            videoElement.load();
+            videoElement.play();
+        }
+    });
 </script>
 {% endblock %}

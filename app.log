@@ -2536,3 +2536,286 @@
 2025-04-17 17:13:56,076 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:13:56] "[36mGET /static/images/tool_3.png HTTP/1.1[0m" 304 -
 2025-04-17 17:13:56,079 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:13:56] "[36mGET /static/images/tool_2.png HTTP/1.1[0m" 304 -
 2025-04-17 17:13:56,224 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:13:56] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:19:23,940 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 17:19:23,940 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 17:19:23,942 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 17:19:24,464 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 17:19:24,468 - werkzeug - INFO -  * Debugger PIN: 111-947-620
+2025-04-17 17:19:26,011 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:19:26,011 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:19:26,012 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:19:26,014 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:19:26,022 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:26] "GET / HTTP/1.1" 200 -
+2025-04-17 17:19:26,050 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:19:26,052 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:26] "[33mGET /static/images/seal.png HTTP/1.1[0m" 404 -
+2025-04-17 17:19:26,150 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:26] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:19:26,150 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:26] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:19:26,413 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:26] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:19:29,577 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:19:29,578 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:19:29,578 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:19:29,579 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:19:29,582 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:29] "GET /song_production HTTP/1.1" 200 -
+2025-04-17 17:19:29,610 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:29] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:19:29,611 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:29] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:19:29,611 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:19:29,612 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:29] "[33mGET /static/images/seal.png HTTP/1.1[0m" 404 -
+2025-04-17 17:19:29,613 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:29] "[36mGET /static/images/tool_1.png HTTP/1.1[0m" 304 -
+2025-04-17 17:19:29,677 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:29] "[36mGET /static/images/tool_2.png HTTP/1.1[0m" 304 -
+2025-04-17 17:19:29,678 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:29] "[36mGET /static/images/tool_3.png HTTP/1.1[0m" 304 -
+2025-04-17 17:19:29,820 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:19:29] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:31:40,513 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 17:31:40,514 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 17:31:40,515 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 17:31:41,054 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 17:31:41,058 - werkzeug - INFO -  * Debugger PIN: 111-947-620
+2025-04-17 17:31:43,031 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:31:43,031 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:31:43,031 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:31:43,033 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:31:43,040 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:31:43] "GET / HTTP/1.1" 200 -
+2025-04-17 17:31:43,087 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:31:43,088 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:31:43] "[33mGET /static/images/seal.png HTTP/1.1[0m" 404 -
+2025-04-17 17:31:43,159 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:31:43] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:31:43,159 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:31:43] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:32:27,526 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 17:32:27,526 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 17:32:27,529 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 17:32:28,058 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 17:32:28,063 - werkzeug - INFO -  * Debugger PIN: 111-947-620
+2025-04-17 17:32:30,002 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:32:30,002 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:32:30,002 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:32:30,004 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:32:30,013 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:32:30] "GET / HTTP/1.1" 200 -
+2025-04-17 17:32:30,237 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:32:30,239 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:32:30] "[33mGET /static/images/seal.png HTTP/1.1[0m" 404 -
+2025-04-17 17:32:30,321 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:32:30] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:32:30,321 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:32:30] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:32:51,304 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:32:51] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:32:51,861 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:32:51,862 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:32:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-17 17:33:07,513 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:33:07,513 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:33:07,513 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:33:07,516 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:33:07,524 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:07] "GET /song_production HTTP/1.1" 200 -
+2025-04-17 17:33:07,554 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:07] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:33:07,555 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:33:07,557 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:07] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:33:07,559 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:07] "[33mGET /static/images/seal.png HTTP/1.1[0m" 404 -
+2025-04-17 17:33:07,560 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:07] "[36mGET /static/images/tool_1.png HTTP/1.1[0m" 304 -
+2025-04-17 17:33:07,776 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:07] "[36mGET /static/images/tool_3.png HTTP/1.1[0m" 304 -
+2025-04-17 17:33:07,777 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:07] "[36mGET /static/images/tool_2.png HTTP/1.1[0m" 304 -
+2025-04-17 17:33:07,826 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:33:07,827 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:07] "[33mGET /static/images/tea_process_intro.png HTTP/1.1[0m" 404 -
+2025-04-17 17:33:26,689 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:33:26,689 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:33:26,689 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:33:26,691 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:33:26,693 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:26] "GET /trade_flow HTTP/1.1" 200 -
+2025-04-17 17:33:26,720 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:26] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:33:26,723 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:33:26,723 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:26] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:33:26,724 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:26] "[33mGET /static/images/seal.png HTTP/1.1[0m" 404 -
+2025-04-17 17:33:28,553 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:28] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:33:31,468 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:33:31,469 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:33:31,469 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:33:31,472 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:33:31,472 - __main__ - INFO - ´«µİÎÄ»¯´«²¥Êı¾İµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:33:31,500 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:31] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-17 17:33:31,528 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:31] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:33:31,529 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:31] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:33:31,531 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:33:31,532 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:31] "[33mGET /static/images/seal.png HTTP/1.1[0m" 404 -
+2025-04-17 17:33:37,390 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:33:37,391 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:33:37,391 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:33:37,393 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:33:37,394 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:37] "GET /song_production HTTP/1.1" 200 -
+2025-04-17 17:33:37,422 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:37] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:33:37,425 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:33:37,426 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:37] "[33mGET /static/images/seal.png HTTP/1.1[0m" 404 -
+2025-04-17 17:33:37,426 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:37] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:33:37,428 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:37] "[36mGET /static/images/tool_1.png HTTP/1.1[0m" 304 -
+2025-04-17 17:33:37,485 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:37] "[36mGET /static/images/tool_2.png HTTP/1.1[0m" 304 -
+2025-04-17 17:33:37,486 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:37] "[36mGET /static/images/tool_3.png HTTP/1.1[0m" 304 -
+2025-04-17 17:33:37,493 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:33:37,494 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:33:37] "[33mGET /static/images/tea_process_intro.png HTTP/1.1[0m" 404 -
+2025-04-17 17:34:35,692 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:34:35] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:35:32,110 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:35:32,110 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:35:32,110 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:35:32,111 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:35:32,112 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:35:32] "GET /song_production HTTP/1.1" 200 -
+2025-04-17 17:35:32,141 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:35:32] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:35:32,143 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:35:32] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:35:32,145 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:35:32] "GET /static/images/seal.png HTTP/1.1" 200 -
+2025-04-17 17:35:32,145 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:35:32] "[36mGET /static/images/tool_1.png HTTP/1.1[0m" 304 -
+2025-04-17 17:35:32,294 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:35:32] "[36mGET /static/images/tool_2.png HTTP/1.1[0m" 304 -
+2025-04-17 17:35:32,295 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:35:32] "[36mGET /static/images/tool_3.png HTTP/1.1[0m" 304 -
+2025-04-17 17:35:32,353 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:35:32,353 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:35:32] "[33mGET /static/images/tea_process_intro.png HTTP/1.1[0m" 404 -
+2025-04-17 17:40:35,891 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 17:40:35,891 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 17:40:35,893 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 17:40:36,421 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 17:40:36,426 - werkzeug - INFO -  * Debugger PIN: 111-947-620
+2025-04-17 17:40:37,940 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:40:37,940 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:40:37,941 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:40:37,942 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:40:37,951 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:40:37] "GET / HTTP/1.1" 200 -
+2025-04-17 17:40:38,154 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:40:38] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:40:38,155 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:40:38] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-17 17:40:38,156 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:40:38] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:40:59,115 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:40:59] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:40:59,666 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:40:59,669 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:40:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-17 17:41:14,478 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:41:14,478 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:41:14,479 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:41:14,481 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:41:14,491 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:41:14] "GET /song_production HTTP/1.1" 200 -
+2025-04-17 17:41:14,521 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:41:14] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:41:14,522 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:41:14] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:41:14,523 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:41:14] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-17 17:41:35,527 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:41:35] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:41:35,550 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:41:35,551 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:41:35] "[33mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:41:42,786 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:41:42,787 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:41:42] "[33mGET /static/videos/tea_process_zhengqing.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:41:44,959 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:41:44,960 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:41:44] "[33mGET /static/videos/tea_process_yangao.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:41:49,224 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:41:49,225 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:41:49] "[33mGET /static/videos/tea_process_cacha.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:41:49,751 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:41:49,752 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:41:49] "[33mGET /static/videos/tea_process_zhengqing.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:41:50,151 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:41:50,151 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:41:50] "[33mGET /static/videos/tea_process_yangao.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:42:05,532 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:42:05,533 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:42:05,534 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:42:05,536 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:42:05,537 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:05] "GET / HTTP/1.1" 200 -
+2025-04-17 17:42:05,565 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:05] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:42:05,569 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:05] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-17 17:42:05,570 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:05] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:42:06,075 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:06] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:42:16,017 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:42:16,017 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:42:16,018 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:42:16,020 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:42:16,024 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:16] "GET /trade_flow HTTP/1.1" 200 -
+2025-04-17 17:42:16,054 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:16] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:42:16,057 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:16] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:42:16,057 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:16] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-17 17:42:16,240 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:16] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:42:18,266 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:42:18,267 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:42:18,268 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:42:18,270 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:42:18,271 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:18] "GET /song_production HTTP/1.1" 200 -
+2025-04-17 17:42:18,302 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:18] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:42:18,306 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:18] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:42:18,306 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:18] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-17 17:42:46,370 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:42:46,370 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:46] "[33mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:42:51,838 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:42:51,839 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:42:51] "[33mGET /static/videos/tea_process_zhengqing.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:43:55,007 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:43:55,007 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:43:55] "[33mGET /static/videos/tea_process_yangao.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:43:56,955 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:43:56,955 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:43:56] "[33mGET /static/videos/tea_process_zhengqing.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:43:58,301 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:43:58,301 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:43:58] "[33mGET /static/videos/tea_process_cacha.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:52:36,383 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 17:52:36,383 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 17:52:36,386 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 17:52:36,928 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 17:52:36,931 - werkzeug - INFO -  * Debugger PIN: 111-947-620
+2025-04-17 17:52:39,129 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:52:39,130 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:52:39,130 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:52:39,133 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:52:39,144 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:39] "GET / HTTP/1.1" 200 -
+2025-04-17 17:52:39,299 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:39] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:52:39,300 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:39] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:52:39,301 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:39] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-17 17:52:39,553 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:39] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:52:44,546 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:52:44,546 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:52:44,547 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:52:44,549 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:52:44,553 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:44] "GET /trade_flow HTTP/1.1" 200 -
+2025-04-17 17:52:44,580 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:44] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:52:44,582 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:44] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:52:44,584 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:44] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-17 17:52:44,794 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:44] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:52:52,336 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:52:52,337 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:52:52,337 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:52:52,339 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:52:52,348 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:52] "GET /song_production HTTP/1.1" 200 -
+2025-04-17 17:52:52,375 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:52] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:52:52,377 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:52] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:52:52,378 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:52] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-17 17:52:52,618 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:52:52,629 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:52] "[33mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:52:54,822 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:52:54,822 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:52:54,823 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:52:54,827 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:52:54,827 - __main__ - INFO - ´«µİÎÄ»¯´«²¥Êı¾İµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:52:54,846 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:54] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-17 17:52:54,875 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:54] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:52:54,876 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:54] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:52:54,878 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:52:54] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-17 17:54:31,733 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 17:54:31,733 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 17:54:31,735 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 17:54:32,272 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 17:54:32,276 - werkzeug - INFO -  * Debugger PIN: 111-947-620
+2025-04-17 17:54:34,088 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:54:34,088 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:54:34,089 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:54:34,092 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:54:34,102 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:54:34] "GET / HTTP/1.1" 200 -
+2025-04-17 17:54:34,253 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:54:34] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-17 17:54:34,257 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:54:34] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:54:34,258 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:54:34] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:54:34,540 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:54:34] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:54:37,423 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ
+2025-04-17 17:54:37,423 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ
+2025-04-17 17:54:37,424 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-17 17:54:37,425 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ
+2025-04-17 17:54:37,430 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:54:37] "GET /song_production HTTP/1.1" 200 -
+2025-04-17 17:54:37,462 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:54:37] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-17 17:54:37,463 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:54:37] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-17 17:54:37,464 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:54:37] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-17 17:54:37,673 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:54:37] "[36mGET /static/images/tea_back.jpg HTTP/1.1[0m" 304 -
+2025-04-17 17:54:37,697 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:54:37,700 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:54:37] "[33mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:55:03,094 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:55:03,094 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:55:03] "[33mGET /static/videos/tea_process_yangao.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 17:55:31,216 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 17:55:31,216 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 17:55:31] "[33mGET /static/videos/tea_process_cacha.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 18:02:31,209 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 18:02:31,210 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 18:02:31] "[33mGET /static/videos/tea_process_zhengqing.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 18:02:38,301 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 18:02:38,301 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 18:02:38] "[33mGET /static/videos/tea_process_cacha.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 18:02:45,677 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 18:02:45,678 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 18:02:45] "[33mGET /static/videos/tea_process_zhengqing.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 18:02:50,809 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 18:02:50,810 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 18:02:50] "[33mGET /static/videos/tea_process_yangao.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 18:23:11,179 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 18:23:11,179 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 18:23:11] "[33mGET /static/videos/tea_process_zhengqing.mp4 HTTP/1.1[0m" 404 -
+2025-04-17 18:23:17,031 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-17 18:23:17,032 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 18:23:17] "[33mGET /static/videos/tea_process_yangao.mp4 HTTP/1.1[0m" 404 -
