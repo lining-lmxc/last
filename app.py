@@ -45,6 +45,21 @@ def load_data():
         # 加载文化传播数据
         try:
             spread = load_json(data_dir / 'culture_spread.json')
+            
+            # 确保spread数据包含所有必要的字段
+            if 'title' not in spread:
+                spread['title'] = "中华茶文化全球传播路线"
+            if 'period' not in spread:
+                spread['period'] = "7-19世纪"
+            if 'data_source' not in spread:
+                spread['data_source'] = "《丝绸之路考古纪年》+《海疆通志》"
+            if 'nodes' not in spread:
+                spread['nodes'] = []
+            if 'routes' not in spread:
+                spread['routes'] = []
+            if 'historical_events' not in spread:
+                spread['historical_events'] = []
+                
             # 处理路线数据
             processed_routes = []
             for route in spread.get('routes', []):
@@ -66,10 +81,19 @@ def load_data():
                 processed_routes.append(processed_route)
             
             spread['processed_routes'] = processed_routes
-            logger.info("成功加载文化传播数据")
+            
+            # 记录日志
+            logger.info(f"成功加载文化传播数据：{len(spread.get('nodes', []))}个节点，{len(spread.get('routes', []))}条路线")
         except Exception as e:
             logger.error(f"加载文化传播数据失败: {str(e)}")
-            spread = {}
+            spread = {
+                'title': "中华茶文化全球传播路线",
+                'period': "7-19世纪",
+                'data_source': "《丝绸之路考古纪年》+《海疆通志》",
+                'nodes': [],
+                'routes': [],
+                'historical_events': []
+            }
 
         # 加载宋代茶叶生产数据
         try:
@@ -128,6 +152,11 @@ def song_production():
 @app.route('/culture_spread')
 def culture_spread():
     data = load_data()
+    if data is None or 'spread' not in data:
+        logger.error("无法加载文化传播数据")
+        return render_template('500.html'), 500
+    
+    logger.info(f"传递文化传播数据到模板：{len(data['spread'].get('nodes', []))}个节点，{len(data['spread'].get('routes', []))}条路线")
     return render_template('culture_spread.html', spread_data=data['spread'])
 
 
