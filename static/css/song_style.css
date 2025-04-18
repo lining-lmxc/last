@@ -1,6 +1,56 @@
+@font-face {
+    font-family: '衡山毛笔行书';
+    src: url('../fonts/三极行楷简体-粗.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 全局标题和重要元素使用衡山毛笔行书字体 */
+h1, h2, h3, h4, h5, h6, 
+.header h1, 
+.header nav a, 
+.page-header h1, 
+.page-header .period, 
+.page-header .source,
+.historical-context h2,
+.timeline-content h3 {
+    font-family: '衡山毛笔行书', 'Calligraphy', serif;
+}
+
+/* 针对毛笔字体的特殊调整 */
+h1 {
+    font-size: 2.2em;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+}
+
+h2 {
+    font-size: 1.8em;
+    letter-spacing: 0.03em;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 1.5em;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+}
+
+.header nav a {
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+}
+
+/* 正文文字稍微调小，提高可读性 */
+p, li, .timeline-content p, .historical-context p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+}
+
 body {
     background: #f0f0e1 url('../images/tea_pattern.jpg');
-    font-family: 'Calligraphy', serif;
+    font-family: '衡山毛笔行书', 'Calligraphy', serif;
     color: #3a3a3a;
 }
 
@@ -127,7 +177,7 @@ nav a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Calligraphy';
+    font-family: '衡山毛笔行书', 'Calligraphy';
 }
 
 .timeline-content {
@@ -140,6 +190,7 @@ nav a:hover {
 .timeline-content h3 {
     color: #4a6144;
     margin: 0 0 10px 0;
+    font-family: '衡山毛笔行书', 'Calligraphy';
 }
 
 .timeline-content .duration {
@@ -196,7 +247,7 @@ nav a:hover {
     color: #4a6144;
     text-align: center;
     margin-bottom: 30px;
-    font-family: 'Calligraphy';
+    font-family: '衡山毛笔行书', 'Calligraphy';
 }
 
 .timeline {
@@ -222,7 +273,7 @@ nav a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Calligraphy';
+    font-family: '衡山毛笔行书', 'Calligraphy';
 }
 
 .timeline-content {
@@ -235,7 +286,7 @@ nav a:hover {
 .timeline-content h3 {
     color: #4a6144;
     margin: 0 0 10px 0;
-    font-family: 'Calligraphy';
+    font-family: '衡山毛笔行书', 'Calligraphy';
 }
 
 .timeline-content p {
@@ -256,7 +307,7 @@ nav a:hover {
 
 .page-header h1 {
     color: #4a6144;
-    font-family: 'Calligraphy';
+    font-family: '衡山毛笔行书', 'Calligraphy';
     margin-bottom: 10px;
 }
 
