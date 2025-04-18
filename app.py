@@ -1,8 +1,25 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, session
 import pandas as pd
 import json
 import logging
 from pathlib import Path
+import os
+from flask_mysqldb import MySQL
+
+app = Flask(__name__)
+
+# 配置密钥用于session
+app.secret_key = os.urandom(24)
+
+# MySQL配置
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = '0909llll..'
+app.config['MYSQL_DB'] = 'user_imformation'
+mysql = MySQL(app)
+
+# 将mysql实例添加到app.extensions中，以便在Blueprint中访问
+app.extensions['mysql'] = mysql
 
 # 配置日志
 logging.basicConfig(
@@ -15,10 +32,39 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-app = Flask(__name__)
-
 # 配置静态文件目录
 app.static_folder = 'static'
+
+# 导入路由，避免循环导入问题
+from routes import login_routes, register_routes, logout_route
+
+# 注册Blueprint
+app.register_blueprint(login_routes.bp)
+app.register_blueprint(register_routes.bp)
+app.register_blueprint(logout_route.bp)
+
+
+# 创建数据库表函数
+def create_tables():
+    cur = None
+    try:
+        cur = mysql.connection.cursor()
+        # 检查表是否存在
+        cur.execute('''
+            CREATE TABLE IF NOT EXISTS users (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(100) NOT NULL,
+                email VARCHAR(100) NOT NULL UNIQUE,
+                password VARCHAR(100) NOT NULL
+            )
+        ''')
+        mysql.connection.commit()
+        logger.info("数据库表创建成功")
+    except Exception as e:
+        logger.error(f"创建数据库表时出错: {str(e)}")
+    finally:
+        if cur:
+            cur.close()
 
 
 # 数据加载函数
@@ -149,33 +195,46 @@ def load_json(path):
 # 路由配置
 @app.route('/')
 def index():
+    if 'name' not in session:
+        return render_template('login.html')
+    
     data = load_data()
-    return render_template('index.html', price_data=data['prices'])
+    return render_template('index.html', price_data=data['prices'], user_name=session.get('name'))
 
 
 @app.route('/trade_flow')
 def trade_flow():
+    if 'name' not in session:
+        return render_template('login.html')
+    
     data = load_data()
     return render_template('trade_flow.html',
                            nodes=json.dumps(data['routes']['nodes']),
-                           links=json.dumps(data['routes']['links']))
+                           links=json.dumps(data['routes']['links']),
+                           user_name=session.get('name'))
 
 
 @app.route('/song_production')
 def song_production():
+    if 'name' not in session:
+        return render_template('login.html')
+    
     data = load_data()
-    return render_template('production_process.html', process=data['process'])
+    return render_template('production_process.html', process=data['process'], user_name=session.get('name'))
 
 
 @app.route('/culture_spread')
 def culture_spread():
+    if 'name' not in session:
+        return render_template('login.html')
+    
     data = load_data()
     if data is None or 'spread' not in data:
         logger.error("无法加载文化传播数据")
         return render_template('500.html'), 500
     
     logger.info(f"传递文化传播数据到模板：{len(data['spread'].get('nodes', []))}个节点，{len(data['spread'].get('routes', []))}条路线")
-    return render_template('culture_spread.html', spread_data=data['spread'])
+    return render_template('culture_spread.html', spread_data=data['spread'], user_name=session.get('name'))
 
 
 @app.errorhandler(404)
@@ -191,4 +250,7 @@ def internal_server_error(e):
 
 
 if __name__ == '__main__':
+    # 在应用上下文中创建数据库表
+    with app.app_context():
+        create_tables()
     app.run(debug=True, port=5000)
