@@ -2,32 +2,21 @@
 
 {% block content %}
 <div class="historical-price">
-    <div class="chart-container">
-        <div id="priceChart" style="width: 100%; height: 500px;"></div>
+    <div class="content-section chart-container">
+        <div id="priceChart" style="width: 100%; height: 600px;"></div>
     </div>
 
-    <div class="historical-context">
+    <!-- 砖块布局 -->
+    <div class="content-section historical-context">
         <h2>历代茶政要录</h2>
-        <div class="scroll-container">
-            <div class="timeline">
-                {% for item in price_data %}
-                <div class="timeline-item">
-                    <div class="timeline-icon">{{ item.year }}</div>
-                    <div class="timeline-content">
-                        <h3>{{ item.dynasty }} - {{ item.tea_type }}</h3>
-                        <p class="price">官价：{{ item.price_liang }}两/斤</p>
-                        <p class="source">出处：《{{ item.source }}》</p>
-                        <div class="additional-info">
-                            <h4>历史背景</h4>
-                            <p class="historical-context-content" data-year="{{ item.year }}" data-dynasty="{{ item.dynasty }}"></p>
-                            <h4>茶叶特点</h4>
-                            <p class="tea-description-content" data-tea-type="{{ item.tea_type }}"></p>
-                            <h4>产区信息</h4>
-                            <p class="production-area-content" data-tea-type="{{ item.tea_type }}"></p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+        <div class="brick-container" id="brick-container">
+            <!-- 砖块布局将由JavaScript生成 -->
+        </div>
+        <div class="detail-card" id="detail-card">
+            <div class="card-content">
+                <span class="close-btn">&times;</span>
+                <h3 class="detail-title">点击时间砖块查看详情</h3>
+                <div class="detail-body"></div>
             </div>
         </div>
     </div>
@@ -39,148 +28,259 @@
     flex-direction: column;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 0; /* 移除左右padding */
 }
 
-.chart-container {
+.content-section {
     background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1200px; /* 新增最大宽度限制 */
+    margin-left: auto; /* 新增居中 */
+    margin-right: auto; /* 新增居中 */
+}
+
+/* 分别为上下部分设置不同的padding */
+.chart-container {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .historical-context {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding: 20px 0 0 0; /* 只保留顶部padding，移除左右和底部padding */
+    width: 100%;
+    box-sizing: border-box; /* 确保padding不影响实际宽度 */
 }
 
 .historical-context h2 {
     color: #8B4513;
-    font-family: 'Calligraphy';
-    text-align: center;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #D2B48C;
+    font-family: '衡山毛笔行书', 'Calligraphy';
+    text-align: left;
+    font-size: 20px;
+    margin: 0 20px 20px; /* 使用margin代替padding，保持内容对齐 */
     padding-bottom: 10px;
+    border-bottom: 1px solid #D2B48C; /* 减小底部边框厚度 */
 }
 
-.scroll-container {
-    height: 600px;
-    overflow-y: auto;
-    padding: 10px;
-    border: 1px solid #E8E6D9;
-    border-radius: 8px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-    background: linear-gradient(135deg, #F9F7F0 0%, #E8E6D9 100%);
-}
-
-.timeline {
-    position: relative;
-    padding: 20px 0;
-}
-
-.timeline:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 20px;
-    height: 100%;
-    width: 2px;
-    background: #D2B48C;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 30px;
-    padding-left: 50px;
-}
-
-.timeline-icon {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(45deg, #8B4513, #D2B48C);
-    color: white;
-    border-radius: 50%;
+/* 砖块布局样式 */
+.brick-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Calligraphy';
-    font-size: 14px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px 20px;
+    max-width: 1160px; /* 新增最大宽度限制 */
 }
 
-.timeline-content {
-    background: white;
-    padding: 20px;
+.dynasty-row {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    margin-bottom: 30px; /* 增加行间距 */
+    flex-wrap: nowrap; /* 防止换行 */
+}
+
+/* 给最后一行取消底部间距 */
+.dynasty-row:last-child {
+    margin-bottom: 0;
+}
+
+.dynasty-label {
+    font-family: '衡山毛笔行书', 'Calligraphy';
+    font-size: 22px;
+    color: #8B4513;
+    text-align: left; /* 左对齐与砖块对齐 */
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #D2B48C; /* 减小底部边框厚度 */
+    width: 100%; /* 确保标签占满整行 */
+}
+
+.tea-brick {
+    flex: 1;
+    min-width: 0; /* 允许flex项目缩小到小于内容宽度 */
+    height: 120px;
+    background: linear-gradient(45deg, #D2B48C, #E6D2B5);
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
-.timeline-content:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+.tea-brick:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.timeline-content h3 {
-    color: #8B4513;
-    margin: 0 0 10px 0;
-    font-family: 'Calligraphy';
+.tea-brick.active {
+    background: linear-gradient(45deg, #7b8d6d, #a8c0a0);
+    color: white;
 }
 
-.timeline-content .price {
+.tea-brick .tea-type {
+    font-family: '衡山毛笔行书', 'Calligraphy';
+    font-size: 18px;
     font-weight: bold;
-    color: #4A6144;
-    margin: 5px 0;
-}
-
-.timeline-content .source {
-    color: #666;
-    font-style: italic;
-    margin: 5px 0;
-}
-
-.additional-info {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px dashed #D2B48C;
-}
-
-.additional-info h4 {
     color: #8B4513;
-    margin: 10px 0 5px 0;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tea-brick.active .tea-type {
+    color: white;
+}
+
+.tea-brick .dynasty {
     font-size: 16px;
+    color: #4A6144;
+    margin-bottom: 5px;
 }
 
-.additional-info p {
-    color: #666;
-    margin: 5px 0 10px 0;
+.tea-brick.active .dynasty {
+    color: #f0f0f0;
+}
+
+.tea-brick .year {
     font-size: 14px;
-    line-height: 1.5;
+    color: #666;
 }
 
-/* 滚动条样式优化 */
-.scroll-container::-webkit-scrollbar {
-    width: 8px;
+.tea-brick.active .year {
+    color: #f0f0f0;
 }
 
-.scroll-container::-webkit-scrollbar-track {
-    background: #F1F1F1;
-    border-radius: 4px;
+.tea-brick .price {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.scroll-container::-webkit-scrollbar-thumb {
-    background: #D2B48C;
-    border-radius: 4px;
+.tea-brick.active .price {
+    color: #f0f0f0;
 }
 
-.scroll-container::-webkit-scrollbar-thumb:hover {
-    background: #8B4513;
+/* 详情卡片 */
+.detail-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    z-index: 100;
+    display: none;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.detail-card.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #8B4513;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #A52A2A;
+}
+
+.detail-title {
+    color: #8B4513;
+    font-family: '衡山毛笔行书', 'Calligraphy';
+    margin-bottom: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #D2B48C;
+}
+
+.detail-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail-section {
+    flex: 1 1 300px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.detail-section h4 {
+    color: #8B4513;
+    margin-bottom: 10px;
+    font-family: '衡山毛笔行书', 'Calligraphy';
+}
+
+.detail-section p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.price-info {
+    background: #f9f7f0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.price-info span {
+    color: #4A6144;
+    font-weight: bold;
+}
+
+/* 模态框背景 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    display: none;
+}
+
+.modal-overlay.show {
+    display: block;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out forwards;
 }
 </style>
 
@@ -304,13 +404,192 @@
     }
 
     var priceData = {{ price_data|tojson }};
+    
+    // 创建砖块布局
+    function createBrickLayout() {
+        const brickContainer = document.getElementById('brick-container');
+        
+        // 按朝代对数据进行分组
+        const dynastyGroups = {};
+        priceData.forEach(item => {
+            if (!dynastyGroups[item.dynasty]) {
+                dynastyGroups[item.dynasty] = [];
+            }
+            dynastyGroups[item.dynasty].push(item);
+        });
+        
+        // 按朝代顺序排列：唐、宋、元、明、清
+        const dynastyOrder = ['唐', '宋', '元', '明', '清'];
+        
+        // 为每个朝代创建砖块行
+        dynastyOrder.forEach(dynasty => {
+            if (dynastyGroups[dynasty] && dynastyGroups[dynasty].length > 0) {
+                // 创建朝代标签
+                const dynastyLabel = document.createElement('div');
+                dynastyLabel.className = 'dynasty-label';
+                dynastyLabel.textContent = dynasty + '代茶叶';
+                brickContainer.appendChild(dynastyLabel);
+                
+                // 按年份排序
+                const sortedItems = dynastyGroups[dynasty].sort((a, b) => parseInt(a.year) - parseInt(b.year));
+                
+                // 创建朝代行
+                const row = document.createElement('div');
+                row.className = 'dynasty-row';
+                
+                // 添加砖块
+                sortedItems.forEach(item => {
+                    const brick = createTeaBrick(item);
+                    row.appendChild(brick);
+                });
+                
+                brickContainer.appendChild(row);
+            }
+        });
+        
+        // 创建模态框背景
+        const overlay = document.createElement('div');
+        overlay.className = 'modal-overlay';
+        document.body.appendChild(overlay);
+        
+        // 点击模态框背景关闭详情
+        overlay.addEventListener('click', closeDetailCard);
+        
+        // 设置关闭按钮事件
+        document.querySelector('.close-btn').addEventListener('click', closeDetailCard);
+    }
+    
+    // 创建茶砖块
+    function createTeaBrick(item) {
+        const brick = document.createElement('div');
+        brick.className = 'tea-brick';
+        brick.dataset.year = item.year;
+        
+        // 添加茶叶类型（现在是主要显示的内容）
+        const teaType = document.createElement('div');
+        teaType.className = 'tea-type';
+        teaType.textContent = item.tea_type;
+        teaType.title = item.tea_type; // 添加提示框，鼠标悬停时显示完整名称
+        brick.appendChild(teaType);
+        
+        // 添加朝代（现在是次要显示的内容）
+        const dynasty = document.createElement('div');
+        dynasty.className = 'dynasty';
+        dynasty.textContent = item.dynasty + '代';
+        brick.appendChild(dynasty);
+        
+        // 添加年份
+        const year = document.createElement('div');
+        year.className = 'year';
+        year.textContent = item.year + '年';
+        brick.appendChild(year);
+        
+        // 添加价格
+        const price = document.createElement('div');
+        price.className = 'price';
+        price.textContent = `官价: ${item.price_liang}两/斤`;
+        brick.appendChild(price);
+        
+        // 添加点击事件
+        brick.addEventListener('click', () => {
+            // 移除所有活跃状态
+            document.querySelectorAll('.tea-brick').forEach(b => {
+                b.classList.remove('active');
+            });
+            
+            // 设置当前砖块为活跃状态
+            brick.classList.add('active');
+            
+            // 显示详情
+            showDetailCard(item);
+        });
+        
+        return brick;
+    }
+    
+    // 显示详情卡片
+    function showDetailCard(item) {
+        const detailCard = document.getElementById('detail-card');
+        const detailTitle = detailCard.querySelector('.detail-title');
+        const detailBody = detailCard.querySelector('.detail-body');
+        const overlay = document.querySelector('.modal-overlay');
+        
+        // 设置标题 - 调整标题顺序，茶叶名称在前，朝代在后
+        detailTitle.textContent = `${item.tea_type} - ${item.dynasty}（${item.year}年）`;
+        
+        // 设置内容
+        detailBody.innerHTML = `
+            <div class="detail-section">
+                <div class="price-info">
+                    <p>官价：<span>${item.price_liang}两/斤</span></p>
+                    <p>出处：《${item.source}》</p>
+                </div>
+                <h4>历史背景</h4>
+                <p>${getHistoricalContext(item.year, item.dynasty)}</p>
+            </div>
+            <div class="detail-section">
+                <h4>茶叶特点</h4>
+                <p>${getTeaDescription(item.tea_type)}</p>
+                <h4>产区信息</h4>
+                <p>${getProductionArea(item.tea_type)}</p>
+            </div>
+        `;
+        
+        // 显示模态框和详情卡片
+        overlay.classList.add('show');
+        detailCard.classList.add('show');
+    }
+    
+    // 关闭详情卡片
+    function closeDetailCard() {
+        const detailCard = document.getElementById('detail-card');
+        const overlay = document.querySelector('.modal-overlay');
+        
+        // 移除所有活跃状态
+        document.querySelectorAll('.tea-brick').forEach(brick => {
+            brick.classList.remove('active');
+        });
+        
+        // 隐藏模态框和详情卡片
+        overlay.classList.remove('show');
+        detailCard.classList.remove('show');
+    }
+    
+    // 从图表点击跳转到相应砖块
+    function highlightBrickByYear(year) {
+        const bricks = document.querySelectorAll('.tea-brick');
+        
+        // 移除所有高亮
+        bricks.forEach(brick => {
+            brick.classList.remove('active');
+        });
+        
+        // 找到对应年份的砖块并高亮
+        const targetBrick = Array.from(bricks).find(brick => brick.dataset.year === year);
+        if (targetBrick) {
+            // 滚动到砖块位置
+            targetBrick.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // 高亮砖块
+            targetBrick.classList.add('active');
+            
+            // 找到对应的数据项
+            const item = priceData.find(data => data.year === year);
+            if (item) {
+                showDetailCard(item);
+            }
+        }
+    }
 
     // 价格图表
     var chart = echarts.init(document.getElementById('priceChart'));
     var option = {
         title: {
             text: '历代茶叶官价变化（唐-清）',
-            textStyle: { fontFamily: 'Calligraphy', color: '#8B4513' }
+            textStyle: { fontFamily: "'衡山毛笔行书', 'Calligraphy', serif", color: '#8B4513' },
+            left: 'left',  // 左对齐与下方内容保持一致
+            top: 0,        // 调整顶部距离
+            padding: [0, 0, 20, 0]  // 增加底部padding
         },
         tooltip: {
             trigger: 'axis',
@@ -323,9 +602,10 @@
             }
         },
         grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
+            left: 20,  // 使用像素值以便与下方内容完全对齐
+            right: 20,
+            bottom: '10%',
+            top: 80,   // 为标题留出足够空间
             containLabel: true
         },
         xAxis: {
@@ -333,7 +613,7 @@
             data: priceData.map(d => d.year),
             axisLabel: { 
                 rotate: 45,
-                fontFamily: 'Calligraphy',
+                fontFamily: "'衡山毛笔行书', 'Calligraphy', serif",
                 color: '#666'
             },
             axisLine: {
@@ -346,7 +626,7 @@
             type: 'value', 
             name: '价格（两/斤）',
             nameTextStyle: {
-                fontFamily: 'Calligraphy',
+                fontFamily: "'衡山毛笔行书', 'Calligraphy', serif",
                 color: '#666'
             },
             axisLine: {
@@ -396,29 +676,20 @@
     };
     chart.setOption(option);
     
+    // 图表点击事件
+    chart.on('click', function(params) {
+        highlightBrickByYear(params.name);
+    });
+    
     // 自适应大小
     window.addEventListener('resize', function() {
         chart.resize();
     });
     
-    // 页面加载完成后填充数据
+    // 页面加载完成后初始化
     document.addEventListener('DOMContentLoaded', function() {
-        // 填充历史背景信息和产区信息
-        document.querySelectorAll('.historical-context-content').forEach(function(element) {
-            const year = element.dataset.year;
-            const dynasty = element.dataset.dynasty;
-            element.textContent = getHistoricalContext(year, dynasty);
-        });
-        
-        document.querySelectorAll('.tea-description-content').forEach(function(element) {
-            const teaType = element.dataset.teaType;
-            element.textContent = getTeaDescription(teaType);
-        });
-        
-        document.querySelectorAll('.production-area-content').forEach(function(element) {
-            const teaType = element.dataset.teaType;
-            element.textContent = getProductionArea(teaType);
-        });
+        // 创建砖块布局
+        createBrickLayout();
     });
 </script>
 {% endblock %}
