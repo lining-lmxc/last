@@ -43,8 +43,17 @@
                     <span class="tool">使用工具: {{ process[0].tool }}</span>
                 </div>
             </div>
+            <div class="ancient-text">
+                <h4>古籍原文 <span class="source">（{{ process[0].source }}）</span></h4>
+                <p class="wenyanwen">{{ process[0].ancient_text }}</p>
+            </div>
             <div class="detail-content">
+                <h4>白话译文</h4>
                 <p>{{ process[0].details }}</p>
+            </div>
+            <div class="analysis-section">
+                <h4>古今对比分析</h4>
+                <p>{{ process[0].analysis }}</p>
             </div>
         </div>
         
@@ -56,8 +65,17 @@
                     <span class="tool">使用工具: {{ process[1].tool }}</span>
                 </div>
             </div>
+            <div class="ancient-text">
+                <h4>古籍原文 <span class="source">（{{ process[1].source }}）</span></h4>
+                <p class="wenyanwen">{{ process[1].ancient_text }}</p>
+            </div>
             <div class="detail-content">
+                <h4>白话译文</h4>
                 <p>{{ process[1].details }}</p>
+            </div>
+            <div class="analysis-section">
+                <h4>古今对比分析</h4>
+                <p>{{ process[1].analysis }}</p>
             </div>
         </div>
         
@@ -69,8 +87,17 @@
                     <span class="tool">使用工具: {{ process[2].tool }}</span>
                 </div>
             </div>
+            <div class="ancient-text">
+                <h4>古籍原文 <span class="source">（{{ process[2].source }}）</span></h4>
+                <p class="wenyanwen">{{ process[2].ancient_text }}</p>
+            </div>
             <div class="detail-content">
+                <h4>白话译文</h4>
                 <p>{{ process[2].details }}</p>
+            </div>
+            <div class="analysis-section">
+                <h4>古今对比分析</h4>
+                <p>{{ process[2].analysis }}</p>
             </div>
         </div>
     </div>
@@ -249,38 +276,52 @@
     animation: fadeIn 0.5s ease;
 }
 
-.detail-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #EEE;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
+/* 新增样式：古籍原文和分析部分 */
+.ancient-text, .detail-content, .analysis-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
 }
 
-.detail-header h3 {
-    margin: 0;
-    color: #8B4513;
-    font-size: 22px;
-}
-
-.detail-meta {
-    color: #666;
-    font-size: 14px;
-}
-
-.detail-meta span {
-    margin-left: 15px;
+.ancient-text {
+    background-color: #F7F1E3;
+    border-left: 3px solid #8B4513;
 }
 
 .detail-content {
-    line-height: 1.6;
-    color: #333;
-    text-align: justify;
+    background-color: #F9F9F9;
+    border-left: 3px solid #5D7A57;
+}
+
+.analysis-section {
+    background-color: #EFF5ED;
+    border-left: 3px solid #4A6144;
+}
+
+h4 {
+    color: #8B4513;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.source {
+    font-size: 14px;
+    color: #666;
+    font-weight: normal;
+}
+
+.wenyanwen {
+    font-family: "FangSong", "STFangsong", serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+    margin: 0;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
