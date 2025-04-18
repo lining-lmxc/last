@@ -246,6 +246,30 @@ def culture_spread():
     return render_template('culture_spread.html', spread_data=data['spread'], user_name=session.get('name'))
 
 
+@app.route('/craft_evolution')
+def craft_evolution():
+    if 'name' not in session:
+        return render_template('login.html')
+    
+    return render_template('craft_evolution.html', user_name=session.get('name'))
+
+
+@app.route('/production_area')
+def production_area():
+    if 'name' not in session:
+        return render_template('login.html')
+    
+    return render_template('production_area.html', user_name=session.get('name'))
+
+
+@app.route('/tea_policy')
+def tea_policy():
+    if 'name' not in session:
+        return render_template('login.html')
+    
+    return render_template('tea_policy.html', user_name=session.get('name'))
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     logger.warning(f"访问了不存在的页面: {e}")

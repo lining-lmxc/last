@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="page-title">茶叶工艺迭代</h1>
+    
+    <div class="under-construction">
+        <div class="message">
+            <i class="icon">🏗️</i>
+            <h2>页面正在建设中</h2>
+            <p>我们正在为您准备有关中国茶叶工艺历史演变的精彩内容，敬请期待！</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.page-title {
+    text-align: center;
+    color: #8B4513;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: normal;
+    border-bottom: 2px solid #D2B48C;
+    padding-bottom: 15px;
+}
+
+.under-construction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.message {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.icon {
+    font-size: 60px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #4A6144;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+}
+</style>
+{% endblock %} 

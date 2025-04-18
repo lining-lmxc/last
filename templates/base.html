@@ -27,6 +27,14 @@
         .user-info a:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        nav a {
+            margin-right: 20px;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
@@ -38,6 +46,9 @@
             <a href="/trade_flow">茶马古道</a>
             <a href="/song_production">宋茶工艺</a>
             <a href="/culture_spread">文化传播</a>
+            <a href="/craft_evolution">工艺迭代</a>
+            <a href="/production_area">产地对比</a>
+            <a href="/tea_policy">茶叶政策</a>
         </nav>
         {% if user_name %}
         <div class="user-info">

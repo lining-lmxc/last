@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="page-title">历代茶叶政策</h1>
+    
+    <section style="position: relative; height: 800px;">
+        <video class="video-slide active" src="static/videos/splash.mp4" autoplay muted loop></video>
+        <div class="overlay"></div>
+        
+        <div class="policy-content">
+            <div class="keywords-section">
+                <div class="marquee-container">
+                    <marquee scrollamount="4">
+                        <span class="keyword light-blue">有力法治保障</span>
+                    </marquee>
+
+                    <marquee scrollamount="6">
+                        <span class="keyword light-green">绿色生态茶园</span>
+                        <span class="keyword light-blue">打造现代加工体系</span>
+                    </marquee>
+
+                    <marquee scrollamount="9">
+                        <span class="keyword powder-blue">多元发展</span>
+                        <span class="keyword light-blue">协同推进</span>
+                    </marquee>
+
+                    <marquee scrollamount="8">
+                        <span class="keyword large-text light-cyan">茶学高等教育</span>
+                        <span class="keyword medium-text light-green">技能水平提升</span>
+                        <span class="keyword white">支撑效应明显</span>
+                    </marquee>
+
+                    <marquee scrollamount="7">
+                        <span class="keyword light-purple">中国与"一带一路"共建国家茶叶进出口</span>
+                        <span class="keyword white">精准把握市场动态</span>
+                        <span class="keyword white">总占比高达35.89%</span>
+                    </marquee>
+
+                    <marquee scrollamount="7">
+                        <span class="keyword light-purple">相关法律研究</span>
+                        <span class="keyword white">保护茶文化立法</span>
+                        <span class="keyword white">借鉴国际先进经验</span>
+                    </marquee>
+
+                    <marquee scrollamount="5">
+                        <span class="keyword light-green">提升茶产业竞争力</span>
+                        <span class="keyword light-blue">农民增收脱贫攻坚</span>
+                    </marquee>
+
+                    <marquee scrollamount="9">
+                        <span class="keyword light-green">做强茶产业</span>
+                        <span class="keyword light-blue">救护机构</span>
+                    </marquee>
+                </div>
+            </div>
+            
+            <div class="policy-list">
+                <h3 class="policy-title">政策法规</h3>
+                <ul>
+                    <li><a href="https://www.samr.gov.cn/xw/mtjj/art/2023/art_0f2e600b7f484d44aee6940e2876616c.html" target="_blank">三部门出台指导意见</a></li>
+                    <li><a href="https://www.chinacoop.gov.cn/news.html?aid=1705865" target="_blank">中国茶产业十四五发展规划建议（2021—2025）</a></li>
+                    <li><a href="https://finance.sina.com.cn/roll/2023-12-08/doc-imzxhwts8177285.shtml" target="_blank">中国及31省市茶叶行业政策汇总及解读（全）</a></li>
+                    <li><a href="https://www.gov.cn/zhengce/2021-09/19/content_5638404.htm" target="_blank">《关于促进茶产业健康发展的指导意见》</a></li>
+                    <li><a href="https://library.ttcdw.com/dev/upload/webUploader/202310/1698466017a0fd74461502028c.pdf" target="_blank">茶文化保护的相关法律研究</a></li>
+                    <li><a href="https://www.sohu.com/a/292200891_307138" target="_blank">中国茶业法规标准研究报告</a></li>
+                    <li><a href="http://www.foodscn.cn/jujiao/12277" target="_blank">中国与"一带一路"共建国家茶叶进出口报告</a></li>
+                    <li><a href="https://www.foodjx.com/news/detail/151226.html" target="_blank">加快推动茶产业高质量发展的实施意见</a></li>
+                    <li><a href="https://www.henan.gov.cn/2023/11-30/2856590.html" target="_blank">河南省首部关于茶的法规——信阳毛尖保护条例明日起施行</a></li>
+                    <li><a href="https://27ducha.com/news.html?id=66" target="_blank">探索茶叶进出口政策的新篇章</a></li>
+                    <li><a href="http://www.gveaia.org/zhengcefagui/1970/0101/256.html" target="_blank">农业部关于抓住机遇做强茶产业的意见</a></li>
+                    <li><a href="https://www.wxifc.org.cn/article/480/18.html" target="_blank">食品安全国家标准茶叶（GB 31608-2023）</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-title {
+    text-align: center;
+    color: #8B4513;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: normal;
+    border-bottom: 2px solid #D2B48C;
+    padding-bottom: 15px;
+}
+
+.video-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.policy-content {
+    display: flex;
+    position: relative;
+    height: 100%;
+    z-index: 1;
+}
+
+.keywords-section {
+    width: 70%;
+    background-color: rgba(2, 179, 249, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.marquee-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.policy-list {
+    width: 30%;
+    background-color: rgba(12, 16, 54, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.policy-title {
+    color: #fff;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    background: url("{{ url_for('static', filename='images/titleioc.png') }}") left center no-repeat;
+    background-size: 24px;
+    height: 33px;
+    line-height: 33px;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+.policy-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.policy-list li {
+    border-bottom: 1px dashed #4B4F6C;
+    padding: 10px 0;
+}
+
+.policy-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+    display: block;
+}
+
+.policy-list a:hover {
+    color: #80ffff;
+}
+
+/* 关键词样式 */
+.keyword {
+    margin: 0 20px;
+    white-space: nowrap;
+}
+
+.light-blue { color: #80ffff; }
+.light-green { color: #e3f9cb; }
+.powder-blue { color: powderblue; }
+.light-cyan { color: #ddfbec; }
+.light-purple { color: #f1e5fc; }
+.white { color: #F2F2F2; }
+
+.large-text { font-size: 24px; }
+.medium-text { font-size: 18px; }
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    .policy-content {
+        flex-direction: column;
+    }
+    
+    .keywords-section, .policy-list {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+</style>
+{% endblock %}
