@@ -93,9 +93,9 @@ nav a:hover {
     padding: 20px;
     margin: 20px 0;
     position: relative;
-}
+} */
 
-.timeline-icon {
+/* /* .timeline-icon {
     background: #7b8d6d;
     color: #fff;
     width: 30px;
@@ -105,7 +105,7 @@ nav a:hover {
     position: absolute;
     left: -16px;
     top: 0;
-}
+} */
 
 .footer {
     text-align: center;
@@ -235,7 +235,7 @@ nav a:hover {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.historical-context {
+/* .historical-context {
     background: rgba(255,255,255,0.9);
     padding: 20px;
     border-radius: 10px;
@@ -248,7 +248,7 @@ nav a:hover {
     text-align: center;
     margin-bottom: 30px;
     font-family: '衡山毛笔行书', 'Calligraphy';
-}
+} */
 
 .timeline {
     position: relative;
