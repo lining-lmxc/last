@@ -121,55 +121,14 @@
         
         <!-- 添加文献查询面板 -->
         <div class="literature-panel">
-            <h3>古籍文献查询</h3>
+            <h3>搜索相关信息</h3>
             <div class="search-box">
-                <input type="text" id="literature-search" placeholder="输入关键词搜索文献...">
+                <input type="text" id="baidu-search" placeholder="输入关键词搜索...">
                 <button id="search-btn">搜索</button>
             </div>
-            <div class="literature-list">
-                <div class="literature-item" data-keywords="茶经 陆羽 唐代">
-                    <div class="literature-title">《茶经》</div>
-                    <div class="literature-info">
-                        <p>作者：陆羽</p>
-                        <p>年代：唐代</p>
-                        <p>主要内容：系统论述茶叶生产、加工、饮用等</p>
-                    </div>
-                    <div class="literature-quote">
-                        <p>"茶之为饮，发乎神农氏，闻于鲁周公。"</p>
-                    </div>
-                </div>
-                <div class="literature-item" data-keywords="大观茶论 宋徽宗 宋代">
-                    <div class="literature-title">《大观茶论》</div>
-                    <div class="literature-info">
-                        <p>作者：宋徽宗</p>
-                        <p>年代：宋代</p>
-                        <p>主要内容：论述宋代点茶技艺</p>
-                    </div>
-                    <div class="literature-quote">
-                        <p>"茶之为物，擅瓯闽之秀气，钟山川之灵禀。"</p>
-                    </div>
-                </div>
-                <div class="literature-item" data-keywords="茶录 蔡襄 宋代">
-                    <div class="literature-title">《茶录》</div>
-                    <div class="literature-info">
-                        <p>作者：蔡襄</p>
-                        <p>年代：宋代</p>
-                        <p>主要内容：记录宋代茶事</p>
-                    </div>
-                    <div class="literature-quote">
-                        <p>"茶色贵白，而饼茶多以珍膏油其面，故有青黄紫黑之异。"</p>
-                    </div>
-                </div>
-                <div class="literature-item" data-keywords="阳羡茗壶系 周高起 明代">
-                    <div class="literature-title">《阳羡茗壶系》</div>
-                    <div class="literature-info">
-                        <p>作者：周高起</p>
-                        <p>年代：明代</p>
-                        <p>主要内容：论述紫砂壶制作</p>
-                    </div>
-                    <div class="literature-quote">
-                        <p>"壶经久用，涤拭日加，自发黯然之光，入手可鉴。"</p>
-                    </div>
+            <div class="search-results">
+                <div id="search-results-container">
+                    <p class="search-tip">搜索结果将显示在这里...</p>
                 </div>
             </div>
         </div>
@@ -602,7 +561,7 @@
 
 .literature-panel h3 {
     color: #8B4513;
-    font-family: 'Calligraphy';
+    font-family: '衡山毛笔行书', 'Calligraphy';
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
@@ -614,7 +573,7 @@
     margin-bottom: 20px;
 }
 
-#literature-search {
+#baidu-search {
     flex: 1;
     padding: 10px 15px;
     border: 2px solid #D2B48C;
@@ -630,7 +589,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-family: 'Calligraphy';
+    font-family: '衡山毛笔行书', 'Calligraphy';
     transition: background 0.3s;
 }
 
@@ -638,69 +597,49 @@
     background: #A0522D;
 }
 
-.literature-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.literature-item {
-    background: #f9f7f0;
-    padding: 20px;
-    border-radius: 8px;
+.search-results {
     border: 1px solid #D2B48C;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+    height: 300px;
+    overflow: hidden;
+    background: #f9f7f0;
 }
 
-.literature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
+#search-results-container {
+    height: 100%;
+    overflow-y: auto;
+    padding: 15px;
 }
 
-.literature-title {
+.search-tip {
     color: #8B4513;
-    font-family: 'Calligraphy';
-    font-size: 20px;
-    margin-bottom: 10px;
     text-align: center;
-}
-
-.literature-info {
-    color: #666;
-    margin-bottom: 15px;
-    line-height: 1.6;
-}
-
-.literature-quote {
-    padding: 10px;
-    background: rgba(139, 69, 19, 0.05);
-    border-radius: 4px;
-    border-left: 3px solid #8B4513;
-}
-
-.literature-quote p {
-    color: #8B4513;
     font-style: italic;
-    margin: 0;
+    margin-top: 120px;
+}
+
+.search-result-item {
+    padding: 10px;
+    border-bottom: 1px solid #D2B48C;
+    margin-bottom: 10px;
+}
+
+.search-result-item h4 {
+    color: #4169E1;
+    margin-bottom: 5px;
+}
+
+.search-result-item p {
+    color: #666;
     font-size: 14px;
+    margin-bottom: 5px;
 }
 
-/* 添加搜索高亮样式 */
-.highlight {
-    background: rgba(139, 69, 19, 0.1);
-    border: 2px solid #8B4513;
-}
-
-/* 添加动画效果 */
-.literature-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
-}
-
-.literature-item.visible {
-    opacity: 1;
-    transform: translateY(0);
+.search-result-item a {
+    color: #008000;
+    font-size: 13px;
+    text-decoration: none;
+    word-break: break-all;
 }
 
 /* 添加茶马互市样式 */
@@ -1034,35 +973,85 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 添加文献搜索功能
-    const searchInput = document.getElementById('literature-search');
+    // 添加百度搜索功能
+    const searchInput = document.getElementById('baidu-search');
     const searchBtn = document.getElementById('search-btn');
+    const searchResultsContainer = document.getElementById('search-results-container');
     
     if (searchInput && searchBtn) {
-        const literatureItems = document.querySelectorAll('.literature-item');
-        
         function performSearch() {
-            console.log("执行搜索");
-            const searchTerm = searchInput.value.toLowerCase();
+            const searchTerm = searchInput.value.trim();
+            if (!searchTerm) {
+                searchResultsContainer.innerHTML = '<p class="search-tip">请输入搜索关键词...</p>';
+                return;
+            }
             
-            literatureItems.forEach(item => {
-                const keywords = item.dataset.keywords.toLowerCase();
-                const title = item.querySelector('.literature-title').textContent.toLowerCase();
-                const info = item.querySelector('.literature-info').textContent.toLowerCase();
-                const quote = item.querySelector('.literature-quote').textContent.toLowerCase();
+            searchResultsContainer.innerHTML = '<p class="search-tip">正在搜索中，请稍候...</p>';
+            
+            // 模拟搜索结果（实际应用中应该调用API或重定向到百度）
+            setTimeout(() => {
+                // 这里只是模拟结果，实际项目中应替换为真实的API调用
+                const results = [
+                    {
+                        title: searchTerm + ' - 中国茶文化历史研究',
+                        content: '中国茶文化历史源远流长，自唐代陆羽《茶经》问世至今，茶文化已深深融入中华民族的精神生活...',
+                        url: 'https://baike.baidu.com/item/中国茶文化'
+                    },
+                    {
+                        title: searchTerm + ' 相关古籍记载',
+                        content: '《茶经》《大观茶论》《茶录》等古籍中均有关于' + searchTerm + '的详细记载...',
+                        url: 'https://www.baidu.com/s?wd=' + encodeURIComponent(searchTerm + ' 古籍')
+                    },
+                    {
+                        title: '茶道与' + searchTerm + '的关系研究',
+                        content: '茶道作为一种仪式和精神追求，与' + searchTerm + '有着密切的联系...',
+                        url: 'https://www.baidu.com/s?wd=' + encodeURIComponent('茶道 ' + searchTerm)
+                    },
+                    {
+                        title: searchTerm + '在宋代的发展与演变',
+                        content: '宋代茶文化达到鼎盛，点茶法盛行，龙团凤饼等名贵茶品备受推崇...',
+                        url: 'https://www.baidu.com/s?wd=' + encodeURIComponent('宋代 ' + searchTerm)
+                    },
+                    {
+                        title: '明清时期' + searchTerm + '的特点',
+                        content: '明清时期，茶文化更加平民化，紫砂壶兴起，文人茶会盛行...',
+                        url: 'https://www.baidu.com/s?wd=' + encodeURIComponent('明清 ' + searchTerm)
+                    }
+                ];
                 
-                if (searchTerm === '' || 
-                    keywords.includes(searchTerm) || 
-                    title.includes(searchTerm) || 
-                    info.includes(searchTerm) || 
-                    quote.includes(searchTerm)) {
-                    item.style.display = 'block';
-                    item.classList.add('highlight');
-                } else {
-                    item.style.display = 'none';
-                    item.classList.remove('highlight');
+                // 清空并显示结果
+                searchResultsContainer.innerHTML = '';
+                
+                if (results.length === 0) {
+                    searchResultsContainer.innerHTML = '<p class="search-tip">没有找到相关结果</p>';
+                    return;
                 }
-            });
+                
+                results.forEach(result => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <h4>${result.title}</h4>
+                        <p>${result.content}</p>
+                        <a href="${result.url}" target="_blank">${result.url}</a>
+                    `;
+                    searchResultsContainer.appendChild(resultItem);
+                });
+                
+                // 添加前往百度的链接
+                const baiduLink = document.createElement('div');
+                baiduLink.className = 'search-result-item';
+                baiduLink.innerHTML = `
+                    <p style="text-align: center; margin-top: 20px;">
+                        <a href="https://www.baidu.com/s?wd=${encodeURIComponent(searchTerm)}" target="_blank" 
+                           style="color: #8B4513; font-weight: bold;">
+                           在百度上查看更多结果 →
+                        </a>
+                    </p>
+                `;
+                searchResultsContainer.appendChild(baiduLink);
+                
+            }, 500);
         }
         
         searchBtn.addEventListener('click', performSearch);
@@ -1072,7 +1061,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     } else {
-        console.error("未找到文献搜索元素");
+        console.error("未找到搜索元素");
     }
 
     // 添加节点悬停效果
