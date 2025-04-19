@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/song_style.css') }}">
     <script src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/map/js/world.js"></script>
+    <!-- 本地世界地图数据备份 -->
+    <script src="{{ url_for('static', filename='js/world.js') }}"></script>
     <style>
         .user-info {
             position: absolute;
@@ -46,7 +48,6 @@
             <a href="/trade_flow">茶马古道</a>
             <a href="/song_production">宋茶工艺</a>
             <a href="/culture_spread">文化传播</a>
-            <a href="/craft_evolution">工艺迭代</a>
             <a href="/production_area">产地对比</a>
             <a href="/tea_policy">茶叶政策</a>
         </nav>

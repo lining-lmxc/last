@@ -5428,3 +5428,395 @@ with app.app_context(). See the documentation for more information.
 2025-04-18 19:37:21,378 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:37:21] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
 2025-04-18 19:37:22,080 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:37:22] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
 2025-04-18 19:37:22,083 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:37:22] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 15:48:04,971 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-19 15:48:05,051 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-19 15:48:05,051 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-19 15:48:05,053 - werkzeug - INFO -  * Restarting with stat
+2025-04-19 15:48:05,597 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-19 15:48:05,607 - werkzeug - WARNING -  * Debugger is active!
+2025-04-19 15:48:05,610 - werkzeug - INFO -  * Debugger PIN: 137-478-092
+2025-04-19 15:48:08,814 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:08] "GET / HTTP/1.1" 200 -
+2025-04-19 15:48:09,249 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:09] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 15:48:09,587 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:09] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 15:48:09,878 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-19 15:48:09,881 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-19 15:48:10,377 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:10] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 15:48:10,379 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:10] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 15:48:21,074 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:21] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-19 15:48:21,085 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 15:48:21,085 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 15:48:21,086 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 15:48:21,088 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 15:48:21,093 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:21] "GET / HTTP/1.1" 200 -
+2025-04-19 15:48:21,122 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:21] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 15:48:21,124 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:21] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 15:48:21,125 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:21] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 15:48:21,127 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:21] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 15:48:21,390 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:21] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 15:48:21,460 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:21] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 15:48:37,882 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 15:48:37,883 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 15:48:37,883 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 15:48:37,886 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 15:48:37,890 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:37] "GET /trade_flow HTTP/1.1" 200 -
+2025-04-19 15:48:37,917 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:37] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 15:48:37,918 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:37] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 15:48:37,920 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:37] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 15:48:37,922 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:37] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 15:48:38,131 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:38] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 15:48:38,136 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:38] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 15:48:39,686 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 15:48:39,686 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 15:48:39,687 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 15:48:39,690 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 15:48:39,703 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:39] "GET /song_production HTTP/1.1" 200 -
+2025-04-19 15:48:39,730 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:39] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 15:48:39,731 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:39] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 15:48:39,733 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:39] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 15:48:39,733 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:39] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 15:48:39,953 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:39] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 15:48:39,954 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:39] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 15:48:40,011 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:40] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 15:48:40,036 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:40] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 15:48:40,141 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:40] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 15:48:40,145 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:40] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 15:48:40,153 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:40] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 15:48:43,620 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 15:48:43,620 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 15:48:43,621 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 15:48:43,624 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 15:48:43,624 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 15:48:43,637 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:43] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 15:48:43,665 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:43] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 15:48:43,668 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:43] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 15:48:43,668 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:43] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 15:48:43,669 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:43] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 15:48:48,824 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 15:48:48,825 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 15:48:48,825 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 15:48:48,828 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 15:48:48,828 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 15:48:48,829 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:48] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 15:48:48,853 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:48] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 15:48:48,854 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:48] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 15:48:48,856 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:48] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 15:48:48,858 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:48] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 15:48:52,392 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:52] "GET /craft_evolution HTTP/1.1" 200 -
+2025-04-19 15:48:52,416 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:52] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 15:48:52,419 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:52] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 15:48:52,420 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:52] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 15:48:52,421 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:52] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 15:48:54,677 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 15:48:54,678 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 15:48:54,679 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 15:48:54,682 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 15:48:54,683 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 15:48:54,685 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:54] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 15:48:54,709 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:54] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 15:48:54,711 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:54] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 15:48:54,714 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:54] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 15:48:54,714 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 15:48:54] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:29:29,364 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:29] "GET /craft_evolution HTTP/1.1" 200 -
+2025-04-19 16:29:29,389 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:29] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:29:29,391 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:29] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:29:29,392 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:29] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:29:29,394 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:29] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:29:29,729 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:29] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:29:29,729 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:29] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 16:29:33,018 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:29:33,019 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:29:33,020 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:29:33,023 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:29:33,023 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:29:33,024 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:33] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 16:29:33,049 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:33] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:29:33,051 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:33] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:29:33,052 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:33] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:29:33,053 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:29:33] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:30:37,060 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:30:37] "GET /craft_evolution HTTP/1.1" 200 -
+2025-04-19 16:30:37,089 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:30:37] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:30:37,090 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:30:37] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:30:37,090 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:30:37] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:30:37,090 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:30:37] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:30:44,003 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:30:44,003 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:30:44,004 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:30:44,004 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:30:44,004 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:30:44,004 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:30:44] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 16:30:44,037 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:30:44] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:30:44,040 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:30:44] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:30:44,042 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:30:44] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:30:44,042 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:30:44] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:32:22,832 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-19 16:32:22,847 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-19 16:32:22,847 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-19 16:32:22,848 - werkzeug - INFO -  * Restarting with stat
+2025-04-19 16:32:23,454 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-19 16:32:23,466 - werkzeug - WARNING -  * Debugger is active!
+2025-04-19 16:32:23,469 - werkzeug - INFO -  * Debugger PIN: 137-478-092
+2025-04-19 16:32:24,733 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:24] "GET / HTTP/1.1" 200 -
+2025-04-19 16:32:25,142 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:25] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:32:25,441 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:25] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:32:26,139 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:26] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:32:26,142 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:26] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:32:29,387 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:29] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-19 16:32:29,396 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:32:29,396 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:32:29,396 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:32:29,397 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:32:29,403 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:29] "GET / HTTP/1.1" 200 -
+2025-04-19 16:32:29,426 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:29] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:32:29,429 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:29] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:32:29,429 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:29] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:32:29,429 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:29] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:32:50,477 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:50] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 16:32:50,533 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:50] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:32:57,754 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:32:57,754 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:32:57,755 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:32:57,758 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:32:57,759 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:32:57,778 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:57] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 16:32:57,809 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:57] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:32:57,809 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:57] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:32:57,811 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:57] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:32:57,813 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:32:57] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:33:18,859 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:18] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:33:18,861 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:18] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 16:33:23,775 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:23] "GET /tea_policy HTTP/1.1" 200 -
+2025-04-19 16:33:23,808 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:23] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:33:23,811 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:23] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:33:23,814 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:23] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:33:23,817 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:23] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:33:44,845 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-19 16:33:44,846 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:44] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 16:33:44,847 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:44] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:33:44,847 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:44] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:33:44,849 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:44] "[33mGET /static/images/titleioc.png HTTP/1.1[0m" 404 -
+2025-04-19 16:33:45,196 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:45] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:33:47,838 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:47] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:33:47,841 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:47] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:33:59,976 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:33:59] "GET /production_area HTTP/1.1" 200 -
+2025-04-19 16:34:00,007 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:00] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:34:00,008 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:00] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:34:00,010 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:00] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:34:00,012 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:00] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:34:00,419 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:00] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:34:00,421 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:00] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 16:34:02,507 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:34:02,508 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:34:02,509 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:34:02,511 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:34:02,512 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:34:02,513 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:02] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 16:34:02,543 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:02] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:34:02,547 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:02] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:34:02,550 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:02] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:34:02,554 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:02] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:34:08,283 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:34:08,284 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:34:08,284 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:34:08,287 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:34:08,287 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:34:08,288 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:08] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 16:34:08,318 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:08] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:34:08,319 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:08] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:34:08,322 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:08] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:34:08,323 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:08] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:34:10,328 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:34:10,328 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:34:10,328 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:34:10,334 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:34:10,334 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:34:10,334 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:10] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 16:34:10,359 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:10] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:34:10,361 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:10] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:34:10,362 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:10] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:34:10,363 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:10] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:34:16,001 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:34:16,001 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:34:16,002 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:34:16,004 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:34:16,004 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:34:16,006 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:16] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 16:34:16,032 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:16] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:34:16,032 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:16] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:34:16,036 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:16] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:34:16,036 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:16] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:34:18,287 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:34:18,288 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:34:18,288 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:34:18,290 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:34:18,297 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:18] "GET /song_production HTTP/1.1" 200 -
+2025-04-19 16:34:18,328 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:18] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:34:18,330 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:18] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:34:18,331 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:18] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:34:18,332 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:18] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:34:18,588 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:18] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:34:18,623 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:18] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:34:18,731 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:18] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:34:18,736 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:18] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:34:18,744 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:18] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:34:27,373 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:34:27,374 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:34:27,374 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:34:27,377 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:34:27,382 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:27] "GET /trade_flow HTTP/1.1" 200 -
+2025-04-19 16:34:27,410 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:27] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:34:27,410 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:27] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:34:27,411 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:27] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:34:27,413 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:27] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:34:29,130 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:34:29,130 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:34:29,131 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:34:29,134 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:34:29,134 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:29] "GET / HTTP/1.1" 200 -
+2025-04-19 16:34:29,161 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:29] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:34:29,164 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:29] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:34:29,164 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:29] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:34:29,165 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:34:29] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:35:01,797 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:35:01,797 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:35:01,797 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:35:01,799 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:35:01,799 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:35:01,800 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:35:01] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 16:35:01,827 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:35:01] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:35:01,829 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:35:01] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:35:01,831 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:35:01] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:35:01,831 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:35:01] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:43:10,427 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-19 16:43:10,443 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-19 16:43:10,443 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-19 16:43:10,445 - werkzeug - INFO -  * Restarting with stat
+2025-04-19 16:43:10,948 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-19 16:43:10,961 - werkzeug - WARNING -  * Debugger is active!
+2025-04-19 16:43:10,964 - werkzeug - INFO -  * Debugger PIN: 137-478-092
+2025-04-19 16:43:12,676 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:12] "GET / HTTP/1.1" 200 -
+2025-04-19 16:43:13,117 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:13] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:43:13,479 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:13] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:43:14,219 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:14] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:43:14,222 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:14] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:43:17,365 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:17] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-19 16:43:17,376 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:43:17,376 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:43:17,376 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:43:17,377 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:43:17,382 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:17] "GET / HTTP/1.1" 200 -
+2025-04-19 16:43:17,404 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:17] "GET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1" 200 -
+2025-04-19 16:43:17,404 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:17] "GET /static/css/song_style.css HTTP/1.1" 200 -
+2025-04-19 16:43:17,404 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:17] "GET /static/js/echarts.min.js HTTP/1.1" 200 -
+2025-04-19 16:43:17,410 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:17] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-19 16:43:17,411 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:17] "GET /static/images/seal.png HTTP/1.1" 200 -
+2025-04-19 16:43:38,461 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:38] "GET /static/images/tea_pattern.jpg HTTP/1.1" 200 -
+2025-04-19 16:43:38,506 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:38] "GET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1" 200 -
+2025-04-19 16:43:43,884 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:43:43,884 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:43:43,885 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:43:43,889 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:43:43,889 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:43:43,920 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:43] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 16:43:43,959 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:43] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:43:43,960 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:43] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:43:43,965 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:43] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:43:43,967 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:43] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-19 16:43:43,967 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:43:43] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:44:05,015 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:44:05] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 16:44:05,019 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:44:05] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:48:21,542 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-19 16:48:21,557 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-19 16:48:21,557 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-19 16:48:21,562 - werkzeug - INFO -  * Restarting with stat
+2025-04-19 16:48:22,105 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-19 16:48:22,122 - werkzeug - WARNING -  * Debugger is active!
+2025-04-19 16:48:22,122 - werkzeug - INFO -  * Debugger PIN: 137-478-092
+2025-04-19 16:48:26,555 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:48:26] "GET / HTTP/1.1" 200 -
+2025-04-19 16:48:27,175 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:48:27] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:48:27,540 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:48:27] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:48:28,265 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:48:28] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:48:28,267 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:48:28] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:49:17,478 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:17] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-19 16:49:17,494 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:49:17,495 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:49:17,495 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:49:17,498 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:49:17,507 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:17] "GET / HTTP/1.1" 200 -
+2025-04-19 16:49:17,535 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:17] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:49:17,536 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:17] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:49:17,537 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:17] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:49:17,537 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:17] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-19 16:49:17,542 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:17] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:49:38,588 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:38] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 16:49:38,633 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:38] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:49:43,478 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:49:43,478 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:49:43,479 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:49:43,481 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:49:43,481 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:49:43,501 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:43] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 16:49:43,534 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:43] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:49:43,535 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:43] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:49:43,538 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:43] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-19 16:49:43,538 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:43] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:49:43,538 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:49:43] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:50:04,582 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:50:04] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 16:50:04,583 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:50:04] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:59:14,182 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-19 16:59:14,199 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-19 16:59:14,200 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-19 16:59:14,201 - werkzeug - INFO -  * Restarting with stat
+2025-04-19 16:59:14,667 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-19 16:59:14,680 - werkzeug - WARNING -  * Debugger is active!
+2025-04-19 16:59:14,683 - werkzeug - INFO -  * Debugger PIN: 137-478-092
+2025-04-19 16:59:24,585 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:24] "GET / HTTP/1.1" 200 -
+2025-04-19 16:59:24,969 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:24] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:59:25,272 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:25] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:59:26,138 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:26] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:59:26,140 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:26] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-19 16:59:27,966 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:27] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-19 16:59:27,974 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:59:27,975 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:59:27,975 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:59:27,976 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:59:27,982 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:27] "GET / HTTP/1.1" 200 -
+2025-04-19 16:59:28,008 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:28] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:59:28,008 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:28] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-19 16:59:28,009 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:28] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:59:28,010 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:28] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:59:28,012 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:28] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:59:38,077 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:38] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 16:59:38,133 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:38] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:59:48,428 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 16:59:48,428 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 16:59:48,429 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:59:48,431 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 16:59:48,431 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 16:59:48,463 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:48] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 16:59:48,505 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:48] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 16:59:48,506 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:48] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 16:59:48,510 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:48] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 16:59:48,513 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:48] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-19 16:59:48,513 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:48] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 16:59:48,727 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:48] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 16:59:48,730 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:48] "GET /static/images/map_back.png HTTP/1.1" 200 -
+2025-04-19 16:59:48,733 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 16:59:48] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-19 17:00:47,274 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý
+2025-04-19 17:00:47,275 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý
+2025-04-19 17:00:47,276 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 17:00:47,278 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý
+2025-04-19 17:00:47,278 - __main__ - INFO - ´«µÝÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-19 17:00:47,279 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 17:00:47] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-19 17:00:47,307 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 17:00:47] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-19 17:00:47,310 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 17:00:47] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-19 17:00:47,312 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 17:00:47] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-19 17:00:47,312 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 17:00:47] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-19 17:00:47,315 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 17:00:47] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-19 17:00:47,549 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 17:00:47] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-19 17:00:47,550 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 17:00:47] "[36mGET /static/images/map_back.png HTTP/1.1[0m" 304 -
+2025-04-19 17:00:47,552 - werkzeug - INFO - 127.0.0.1 - - [19/Apr/2025 17:00:47] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -

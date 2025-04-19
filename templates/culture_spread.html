@@ -8,6 +8,56 @@
         <p class="data-source">数据来源：{{ spread_data.data_source }}</p>
     </div>
 
+    <!-- 将朝代茶叶传播路径部分移动到这里 -->
+    <div class="dynasty-tea-routes">
+        <h1 class="section-title">历代茶叶传播路径</h1>
+        
+        <div class="dynasty-selector">
+            <button class="dynasty-btn active" data-dynasty="tang">唐</button>
+            <button class="dynasty-btn" data-dynasty="song">宋</button>
+            <button class="dynasty-btn" data-dynasty="yuan">元</button>
+            <button class="dynasty-btn" data-dynasty="ming">明</button>
+            <button class="dynasty-btn" data-dynasty="qing">清</button>
+        </div>
+        
+        <div class="map-container">
+            <div id="tea-route-map" style="width: 100%; height: 500px;"></div>
+        </div>
+        
+        <div class="route-info-panel">
+            <div class="dynasty-info tang-info active">
+                <h3>唐代茶叶传播 (618-907)</h3>
+                <p>主要路线：陆上丝绸之路、茶马古道雏形、海上航线</p>
+                <p>关键事件：日本僧人最澄、空海携茶籽归国，茶文化传入日本；文成公主入藏带去茶叶与茶具</p>
+                <p>特点：茶叶作为商品与丝绸并重，唐代煎茶法及茶具传入阿拉伯地区，茶饮成为贵族风尚</p>
+            </div>
+            <div class="dynasty-info song-info">
+                <h3>宋代茶叶传播 (960-1279)</h3>
+                <p>主要路线：海上丝绸之路兴盛、茶马古道制度化、北方草原茶路</p>
+                <p>关键事件：荣西禅师携茶种归日本，著《吃茶养生记》；设"茶马司"，以茶易马强化边疆经济纽带</p>
+                <p>特点：泉州港繁荣，茶叶经海路传播至东南亚、印度洋、东非；茶叶通过回纥商人传入草原游牧民族</p>
+            </div>
+            <div class="dynasty-info yuan-info">
+                <h3>元代茶叶传播 (1271-1368)</h3>
+                <p>主要路线：草原茶路扩展、海上贸易延续、宗教传播</p>
+                <p>关键事件：蒙古帝国打通欧亚陆路，泉州港成为"东方第一大港"</p>
+                <p>特点：砖茶成为游牧民族生活必需品；茶叶随蒙古军队西征传入中亚，与佛教仪轨结合</p>
+            </div>
+            <div class="dynasty-info ming-info">
+                <h3>明代茶叶传播 (1368-1644)</h3>
+                <p>主要路线：郑和下西洋与海上茶路、万里茶道形成、欧洲殖民航线</p>
+                <p>关键事件：黑茶、青砖茶通过驼队运往俄罗斯；葡萄牙(1557年澳门)、荷兰(1610年)开始从福建/广东运茶至欧洲</p>
+                <p>特点：茶叶成为郑和下西洋的外交礼品；广州、泉州、宁波成为茶叶集散地；茶叶在欧洲成为奢侈品</p>
+            </div>
+            <div class="dynasty-info qing-info">
+                <h3>清代茶叶传播 (1644-1911)</h3>
+                <p>主要路线：万里茶道鼎盛、海上全球化、殖民种植扩散</p>
+                <p>关键事件：英国东印度公司窃取茶种(1834年)，印度阿萨姆红茶取代中国垄断；1784年"中国皇后号"从广州直航纽约</p>
+                <p>特点：中国对俄茶叶出口占贸易总额80%以上；武夷红茶风靡英国；茶种传播至印度、锡兰和俄罗斯</p>
+            </div>
+        </div>
+    </div>
+
     <div class="historical-context">
         <div class="timeline-container">
             <h2>历史事件</h2>
@@ -1004,6 +1054,90 @@
         margin: 5px;
     }
 }
+
+/* 朝代茶叶传播路径部分的样式 */
+.dynasty-tea-routes {
+    background-color: rgba(244, 241, 236, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    text-align: center;
+    color: #8B4513;
+    margin-bottom: 20px;
+    font-family: "衡山毛笔行书", "Calligraphy", serif;
+    font-size: 32px;
+    border-bottom: 2px solid #D2B48C;
+    padding-bottom: 10px;
+}
+
+.dynasty-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.dynasty-btn {
+    background-color: #f5f0e6;
+    border: 2px solid #D2B48C;
+    color: #8B4513;
+    padding: 8px 20px;
+    margin: 0 10px;
+    font-size: 18px;
+    font-family: "衡山毛笔行书", "Calligraphy", serif;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.dynasty-btn:hover {
+    background-color: #e6d9c2;
+}
+
+.dynasty-btn.active {
+    background-color: #8B4513;
+    color: #fff;
+    border-color: #8B4513;
+}
+
+.map-container {
+    border: 2px solid #D2B48C;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: url("{{ url_for('static', filename='images/map_back.png') }}") no-repeat center center;
+    background-size: cover;
+}
+
+.route-info-panel {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #D2B48C;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.dynasty-info {
+    display: none;
+}
+
+.dynasty-info.active {
+    display: block;
+}
+
+.dynasty-info h3 {
+    color: #8B4513;
+    margin-bottom: 10px;
+    font-family: "衡山毛笔行书", "Calligraphy", serif;
+}
+
+.dynasty-info p {
+    margin: 5px 0;
+    color: #5a3d2b;
+    line-height: 1.6;
+}
 </style>
 
 <script>
@@ -1097,6 +1231,483 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1)';
             this.style.boxShadow = 'none';
         });
+    });
+});
+
+// 朝代茶叶传播路径的JavaScript代码
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化地图
+    var myChart = echarts.init(document.getElementById('tea-route-map'));
+    
+    // 朝代数据
+    var dynastyData = {
+        tang: {
+            title: '唐代茶叶传播路径 (618-907)',
+            routes: [
+                {
+                    name: '陆上丝绸之路',
+                    coords: [
+                        [108.94, 34.26], // 长安
+                        [112.45, 34.62], // 洛阳
+                        [94.66, 40.13],  // 敦煌
+                        [67.00, 39.70],  // 撒马尔罕
+                        [44.43, 33.31],  // 巴格达
+                        [28.97, 41.01]   // 东罗马帝国(君士坦丁堡)
+                    ],
+                    time: '7-9世纪',
+                    lineStyle: { color: '#d2691e', width: 3 }
+                },
+                {
+                    name: '茶马古道雏形',
+                    coords: [
+                        [103.00, 30.01], // 四川雅安
+                        [91.11, 29.97],  // 西藏拉萨
+                        [85.31, 27.70],  // 尼泊尔
+                        [77.21, 28.61]   // 印度
+                    ],
+                    time: '7-9世纪',
+                    lineStyle: { color: '#8b8878', width: 2 }
+                },
+                {
+                    name: '南海航线',
+                    coords: [
+                        [113.26, 23.13], // 广州
+                        [102.25, 2.19],  // 马六甲
+                        [72.89, 18.97]   // 印度孟买
+                    ],
+                    time: '唐代',
+                    lineStyle: { color: '#1e90ff', width: 2 }
+                },
+                {
+                    name: '东亚传播',
+                    coords: [
+                        [108.94, 34.26], // 长安
+                        [135.76, 35.01]  // 日本京都(最澄、空海)
+                    ],
+                    time: '805年',
+                    lineStyle: { color: '#9acd32', width: 2 }
+                }
+            ]
+        },
+        song: {
+            title: '宋代茶叶传播路径 (960-1279)',
+            routes: [
+                {
+                    name: '海上丝绸之路',
+                    coords: [
+                        [118.58, 24.91], // 泉州港
+                        [102.25, 2.19],  // 马六甲
+                        [79.86, 6.93],   // 斯里兰卡
+                        [39.18, 21.49]   // 东非/阿拉伯
+                    ],
+                    time: '10-13世纪',
+                    lineStyle: { color: '#4169e1', width: 3 }
+                },
+                {
+                    name: '东海航线',
+                    coords: [
+                        [120.17, 30.26], // 浙江杭州
+                        [118.08, 24.48], // 福建
+                        [126.98, 37.57], // 朝鲜半岛
+                        [135.76, 35.01]  // 日本京都(荣西禅师)
+                    ],
+                    time: '12世纪',
+                    lineStyle: { color: '#1e90ff', width: 2 }
+                },
+                {
+                    name: '茶马古道',
+                    coords: [
+                        [100.97, 22.78], // 云南普洱
+                        [91.11, 29.97],  // 西藏拉萨
+                        [77.21, 28.61],  // 印度
+                        [103.00, 30.01], // 四川雅安
+                        [101.96, 30.05]  // 康定
+                    ],
+                    time: '宋代',
+                    lineStyle: { color: '#8b4513', width: 3 }
+                },
+                {
+                    name: '北方草原茶路',
+                    coords: [
+                        [114.48, 38.03], // 河北
+                        [112.56, 37.87], // 山西
+                        [106.91, 47.92], // 蒙古高原
+                        [82.93, 55.01]   // 西伯利亚
+                    ],
+                    time: '12-13世纪',
+                    lineStyle: { color: '#556b2f', width: 2 }
+                }
+            ]
+        },
+        yuan: {
+            title: '元代茶叶传播路径 (1271-1368)',
+            routes: [
+                {
+                    name: '草原茶路扩展',
+                    coords: [
+                        [116.40, 39.91], // 元大都(北京)
+                        [106.91, 47.92], // 蒙古
+                        [82.93, 55.01],  // 西伯利亚
+                        [37.62, 55.75]   // 莫斯科
+                    ],
+                    time: '13-14世纪',
+                    lineStyle: { color: '#8a2be2', width: 3 }
+                },
+                {
+                    name: '海上贸易延续',
+                    coords: [
+                        [118.08, 24.48], // 福建
+                        [118.58, 24.91], // 泉州港
+                        [102.25, 2.19],  // 东南亚
+                        [50.56, 26.02]   // 波斯湾
+                    ],
+                    time: '13-14世纪',
+                    lineStyle: { color: '#1e90ff', width: 3 }
+                },
+                {
+                    name: '藏传佛教路线',
+                    coords: [
+                        [116.40, 39.91], // 元大都(北京)
+                        [91.11, 29.97],  // 西藏拉萨
+                        [67.00, 39.70]   // 中亚(撒马尔罕)
+                    ],
+                    time: '元代',
+                    lineStyle: { color: '#9932cc', width: 2 }
+                }
+            ]
+        },
+        ming: {
+            title: '明代茶叶传播路径 (1368-1644)',
+            routes: [
+                {
+                    name: '郑和下西洋',
+                    coords: [
+                        [118.08, 24.48], // 福建
+                        [120.17, 30.26], // 浙江
+                        [102.25, 2.19],  // 马六甲
+                        [77.21, 28.61],  // 印度
+                        [39.18, 21.49],  // 阿拉伯
+                        [39.25, -6.82]   // 东非
+                    ],
+                    time: '1405-1433年',
+                    lineStyle: { color: '#1e90ff', width: 4 }
+                },
+                {
+                    name: '万里茶道',
+                    coords: [
+                        [118.08, 24.48], // 福建武夷山
+                        [115.89, 28.68], // 江西
+                        [114.31, 30.59], // 湖北
+                        [113.66, 34.76], // 河南
+                        [112.56, 37.87], // 山西
+                        [115.32, 40.97], // 张家口
+                        [106.57, 50.42]  // 恰克图(中俄边境)
+                    ],
+                    time: '明代',
+                    lineStyle: { color: '#8b4513', width: 3 }
+                },
+                {
+                    name: '欧洲殖民航线',
+                    coords: [
+                        [118.08, 24.48], // 福建
+                        [113.26, 23.13], // 广东
+                        [113.54, 22.20], // 澳门(1557年)
+                        [-9.14, 38.71]   // 葡萄牙里斯本
+                    ],
+                    time: '16-17世纪',
+                    lineStyle: { color: '#ff8c00', width: 2 }
+                },
+                {
+                    name: '荷兰茶叶航线',
+                    coords: [
+                        [118.08, 24.48], // 福建
+                        [113.26, 23.13], // 广东
+                        [4.90, 52.37]    // 阿姆斯特丹(1610年)
+                    ],
+                    time: '1610年起',
+                    lineStyle: { color: '#ff4500', width: 2 }
+                }
+            ]
+        },
+        qing: {
+            title: '清代茶叶传播路径 (1644-1911)',
+            routes: [
+                {
+                    name: '万里茶道鼎盛',
+                    coords: [
+                        [118.08, 24.48], // 福建
+                        [112.98, 28.20], // 湖南
+                        [114.31, 30.59], // 汉口
+                        [115.32, 40.97], // 张家口
+                        [106.57, 50.42], // 恰克图
+                        [37.62, 55.75],  // 莫斯科
+                        [30.33, 59.94]   // 圣彼得堡
+                    ],
+                    time: '17-19世纪',
+                    lineStyle: { color: '#dc143c', width: 4 }
+                },
+                {
+                    name: '英国东印度公司航线',
+                    coords: [
+                        [113.26, 23.13], // 广州
+                        [77.21, 28.61],  // 印度
+                        [18.42, -34.08], // 好望角
+                        [-0.13, 51.51]   // 伦敦
+                    ],
+                    time: '18-19世纪',
+                    lineStyle: { color: '#191970', width: 3 }
+                },
+                {
+                    name: '北美航线',
+                    coords: [
+                        [113.26, 23.13], // 广州
+                        [-74.01, 40.71]  // 纽约
+                    ],
+                    time: '1784年起',
+                    lineStyle: { color: '#32cd32', width: 3 }
+                },
+                {
+                    name: '茶种殖民扩散',
+                    coords: [
+                        [118.08, 24.48], // 福建
+                        [91.79, 26.14],  // 印度阿萨姆
+                        [80.77, 7.87],   // 锡兰(斯里兰卡)
+                        [41.71, 44.78]   // 格鲁吉亚(1893年)
+                    ],
+                    time: '19世纪',
+                    lineStyle: { color: '#ff8c00', width: 2.5 }
+                }
+            ]
+        }
+    };
+    
+    // 城市坐标点
+    var cities = [
+        {name: '长安', value: [108.94, 34.26]},
+        {name: '洛阳', value: [112.45, 34.62]},
+        {name: '杭州', value: [120.17, 30.26]},
+        {name: '泉州', value: [118.58, 24.91]},
+        {name: '广州', value: [113.26, 23.13]},
+        {name: '敦煌', value: [94.66, 40.13]},
+        {name: '撒马尔罕', value: [67.00, 39.70]},
+        {name: '巴格达', value: [44.43, 33.31]},
+        {name: '马六甲', value: [102.25, 2.19]},
+        {name: '威尼斯', value: [12.33, 45.44]},
+        {name: '昆明', value: [103.83, 25.40]},
+        {name: '拉萨', value: [91.11, 29.97]},
+        {name: '大都', value: [116.40, 39.91]},
+        {name: '乌鲁木齐', value: [87.62, 43.82]},
+        {name: '莫斯科', value: [37.62, 55.75]},
+        {name: '麦加', value: [39.18, 21.49]},
+        {name: '东京', value: [139.69, 35.69]},
+        {name: '首尔', value: [126.98, 37.57]},
+        {name: '阿姆斯特丹', value: [4.90, 52.37]},
+        {name: '伦敦', value: [-0.13, 51.51]},
+        {name: '巴黎', value: [2.35, 48.86]},
+        {name: '纽约', value: [-74.01, 40.71]},
+        {name: '波士顿', value: [-71.06, 42.36]}
+    ];
+    
+    // 当前选择的朝代
+    var currentDynasty = 'tang';
+    
+    // 更新地图
+    function updateMap(dynasty) {
+        var data = dynastyData[dynasty];
+        
+        var series = [{
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            data: cities.map(function(item) {
+                return {
+                    name: item.name,
+                    value: item.value,
+                    symbolSize: 10,
+                    itemStyle: {
+                        color: '#8B4513',
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }
+                };
+            }),
+            label: {
+                show: true,
+                formatter: '{b}',
+                position: 'right',
+                fontSize: 12,
+                fontWeight: 'bold',
+                color: '#5a3d2b',
+                backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                padding: [3, 5],
+                borderRadius: 3
+            }
+        }];
+        
+        // 添加路线
+        data.routes.forEach(function(route, index) {
+            // 将路线加入series
+            series.push({
+                name: route.name,
+                type: 'lines',
+                coordinateSystem: 'geo',
+                effect: {
+                    show: true,
+                    period: 6,
+                    trailLength: 0.7,
+                    color: '#fff',
+                    symbolSize: 5
+                },
+                lineStyle: route.lineStyle || {
+                    color: '#8B4513',
+                    width: 2,
+                    curveness: 0.2
+                },
+                data: [{
+                    coords: route.coords,
+                    name: route.name
+                }]
+            });
+            
+            // 添加路线动效
+            series.push({
+                name: route.name + ' 动效',
+                type: 'lines',
+                coordinateSystem: 'geo',
+                zlevel: 2,
+                effect: {
+                    show: true,
+                    period: 6,
+                    trailLength: 0.5,
+                    symbol: 'arrow',
+                    symbolSize: 8
+                },
+                lineStyle: {
+                    color: route.lineStyle.color,
+                    width: 1,
+                    opacity: 0.6,
+                    curveness: 0.2
+                },
+                data: [{
+                    coords: route.coords,
+                    name: route.name
+                }]
+            });
+            
+            // 添加时间标注
+            var midIndex = Math.floor(route.coords.length / 2) - 1;
+            if (midIndex < 0) midIndex = 0;
+            
+            var midCoord = route.coords[midIndex];
+            var nextCoord = route.coords[midIndex + 1];
+            var labelPos = [
+                (midCoord[0] + nextCoord[0]) / 2,
+                (midCoord[1] + nextCoord[1]) / 2
+            ];
+            
+            series.push({
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                data: [{
+                    name: route.time,
+                    value: [labelPos[0], labelPos[1]],
+                    symbolSize: 0
+                }],
+                label: {
+                    show: true,
+                    formatter: route.time,
+                    position: 'middle',
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    padding: [5, 10],
+                    borderRadius: 4,
+                    fontSize: 14,
+                    color: '#8B4513',
+                    fontWeight: 'bold',
+                    borderColor: '#D2B48C',
+                    borderWidth: 1
+                }
+            });
+        });
+        
+        var option = {
+            title: {
+                text: data.title,
+                textStyle: {
+                    color: '#8B4513',
+                    fontSize: 18
+                },
+                left: 'center',
+                top: 10
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: function(params) {
+                    if (params.seriesType === 'lines') {
+                        return params.name + '<br>时间: ' + 
+                               dynastyData[currentDynasty].routes.find(r => r.name === params.name).time;
+                    } else {
+                        return params.name;
+                    }
+                }
+            },
+            geo: {
+                map: 'world',
+                roam: true,
+                center: [90, 30],
+                zoom: 2,
+                label: {
+                    show: false
+                },
+                emphasis: {
+                    label: {
+                        show: false
+                    },
+                    itemStyle: {
+                        areaColor: 'rgba(245, 245, 245, 0.5)'
+                    }
+                },
+                itemStyle: {
+                    areaColor: 'rgba(245, 222, 179, 0.3)',
+                    borderColor: 'rgba(210, 180, 140, 0.5)'
+                },
+                backgroundColor: 'transparent'
+            },
+            series: series
+        };
+        
+        myChart.setOption(option, true);
+    }
+    
+    // 切换朝代按钮事件
+    document.querySelectorAll('.dynasty-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var dynasty = this.getAttribute('data-dynasty');
+            
+            // 切换按钮样式
+            document.querySelectorAll('.dynasty-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // 切换信息面板
+            document.querySelectorAll('.dynasty-info').forEach(function(info) {
+                info.classList.remove('active');
+            });
+            document.querySelector('.' + dynasty + '-info').classList.add('active');
+            
+            // 更新当前朝代
+            currentDynasty = dynasty;
+            
+            // 更新地图
+            updateMap(dynasty);
+        });
+    });
+    
+    // 初始化显示唐代
+    updateMap('tang');
+    
+    // 响应窗口大小变化
+    window.addEventListener('resize', function() {
+        myChart.resize();
     });
 });
 </script>
