@@ -1,48 +1,419 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="trade-flow">
-    <div class="chart-container">
-        <div id="sankeyChart" style="width: 1000px;height:600px;"></div>
-    </div>
+<div class="tea-horse-trade">
+    <h2>茶马互市与民族交往</h2>
+    <div class="trade-container">
+        <div class="trade-map">
+            <div class="trade-route">
+                <div class="route-title">茶马古道</div>
+                <div class="route-path">
+                    <div class="node" data-info="茶叶产地，贸易起点">云南</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="重要中转站，民族聚居地">大理</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="藏族聚居区，马匹产地">西藏</div>
+                    <div class="arrow">→</div>
+                    <div class="node" data-info="贸易终点，连接中亚">青海</div>
+                </div>
+            </div>
+        </div>
 
-    <div class="historical-context">
-        <h2>茶马古道贸易流向（1080-1120）</h2>
-        <p class="source">数据来源：宋《元丰九域志》</p>
+        <div class="trade-history">
+            <div class="history-item">
+                <div class="era">唐代</div>
+                <div class="content">
+                    <p>设立茶马司，开始官方茶马贸易</p>
+                    <div class="source">《新唐书·食货志》："贞元中，吐蕃请茶，诏许之。"</div>
+                </div>
+            </div>
+            <div class="history-item">
+                <div class="era">宋代</div>
+                <div class="content">
+                    <p>茶马互市制度完善，设立榷场</p>
+                    <div class="source">《宋史·食货志》："凡茶之利，官得其七，商得其三。"</div>
+                </div>
+            </div>
+            <div class="history-item">
+                <div class="era">明代</div>
+                <div class="content">
+                    <p>茶马贸易达到鼎盛，形成固定路线</p>
+                    <div class="source">《明史·食货志》："茶马之政，所以驭番夷，制边陲。"</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cultural-exchange">
+            <h3>文化交流</h3>
+            <div class="exchange-items">
+                <div class="exchange-item">
+                    <div class="title">茶马古道</div>
+                    <div class="description">
+                        <p>连接汉藏文化的重要通道</p>
+                        <p>促进民族融合与文化交流</p>
+                    </div>
+                </div>
+                <div class="exchange-item">
+                    <div class="title">贸易往来</div>
+                    <div class="description">
+                        <p>茶叶换取马匹，互通有无</p>
+                        <p>形成稳定的经济联系</p>
+                    </div>
+                </div>
+                <div class="exchange-item">
+                    <div class="title">文化融合</div>
+                    <div class="description">
+                        <p>茶文化传播到少数民族地区</p>
+                        <p>形成独特的饮茶习俗</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 添加茶马古道智能问答区域 -->
+        <div class="tea-road-qa">
+            <h3>茶马古道智能问答</h3>
+            <div class="qa-description">
+                <p>您对茶马古道还有什么疑问？在下方输入您的问题，获取详细解答。</p>
+            </div>
+            <form id="questionForm" class="qa-form">
+                <textarea name="question" placeholder="例如：茶马古道的主要路线是什么？茶马互市对民族交流有何影响？..."></textarea>
+                <button type="submit">查询</button>
+            </form>
+            <div id="response" class="qa-response">
+                <p class="response-placeholder">问答结果将显示在这里...</p>
+            </div>
+        </div>
     </div>
 </div>
 
-<script>
-    var nodes = {{ nodes|safe }};
-    var links = {{ links|safe }};
+<style>
+.tea-horse-trade {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #f9f7f0 0%, #e8e6d9 100%);
+}
 
-    var chart = echarts.init(document.getElementById('sankeyChart'));
-    var option = {
-        tooltip: {
-            formatter: function(params) {
-                return `${params.data.source} → ${params.data.target}<br>
-                年交易量：${params.data.value}担<br>
-                记载文献：${params.data.record}`;
+.trade-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+}
+
+.trade-map {
+    margin-bottom: 30px;
+}
+
+.route-title {
+    color: #8B4513;
+    font-family: 'Calligraphy';
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.route-path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.node {
+    background: #f9f7f0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #D2B48C;
+    color: #8B4513;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.arrow {
+    color: #8B4513;
+    font-size: 24px;
+}
+
+.trade-history {
+    margin-bottom: 30px;
+}
+
+.history-item {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px dotted #D2B48C;
+    padding-bottom: 20px;
+}
+
+.history-item .era {
+    width: 100px;
+    color: #8B4513;
+    font-family: 'Calligraphy';
+    font-size: 24px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.history-item .content {
+    flex-grow: 1;
+}
+
+.history-item .content p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.history-item .source {
+    color: #8B4513;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.cultural-exchange h3 {
+    color: #8B4513;
+    font-family: 'Calligraphy';
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.exchange-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.exchange-item {
+    flex: 1;
+    min-width: 200px;
+    background: #f9f7f0;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #D2B48C;
+}
+
+.exchange-item .title {
+    color: #8B4513;
+    font-family: 'Calligraphy';
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.exchange-item .description p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* 茶马古道智能问答样式 */
+.tea-road-qa {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px dashed #D2B48C;
+}
+
+.tea-road-qa h3 {
+    color: #8B4513;
+    font-family: 'Calligraphy';
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.qa-description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.qa-form {
+    margin-bottom: 20px;
+}
+
+.qa-form textarea {
+    width: 100%;
+    height: 80px;
+    padding: 12px;
+    border: 2px solid #D2B48C;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #666;
+    resize: vertical;
+    margin-bottom: 15px;
+    background-color: #f9f7f0;
+    transition: border-color 0.3s;
+}
+
+.qa-form textarea:focus {
+    border-color: #8B4513;
+    outline: none;
+}
+
+.qa-form button {
+    background: linear-gradient(to bottom, #8B4513, #A0522D);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.qa-form button:hover {
+    background: linear-gradient(to bottom, #A0522D, #8B4513);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.qa-response {
+    background: #f9f7f0;
+    border: 1px solid #D2B48C;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 120px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    color: #5a3d2b;
+}
+
+.response-placeholder {
+    color: #999;
+    text-align: center;
+    font-style: italic;
+}
+
+/* 添加动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.qa-response.loading {
+    position: relative;
+}
+
+.qa-response.loading:after {
+    content: "正在思考...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #8B4513;
+    font-style: italic;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .exchange-items {
+        flex-direction: column;
+    }
+    
+    .history-item {
+        flex-direction: column;
+    }
+    
+    .history-item .era {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 问答功能
+    const questionForm = document.getElementById('questionForm');
+    const responseDiv = document.getElementById('response');
+    
+    questionForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const question = document.querySelector('textarea[name="question"]').value;
+        if (!question.trim()) {
+            responseDiv.innerHTML = "<p style='color: #A0522D; text-align: center;'>请输入您的问题</p>";
+            return;
+        }
+        
+        // 添加前置提示词，引导AI回答茶马古道相关问题
+        const enhancedQuestion = "我想了解关于茶马古道的以下问题，请提供详细、准确的回答：" + question;
+        
+        responseDiv.innerHTML = "<p>正在查询中，请稍候...</p>";
+        responseDiv.classList.add('loading');
+        
+        try {
+            const response = await fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ question: enhancedQuestion })
+            });
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let answer = '';
+            responseDiv.classList.remove('loading');
+
+            while(true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                const chunk = decoder.decode(value);
+                try {
+                    const data = JSON.parse(chunk);
+                    if (data.content) {
+                        answer += data.content;
+                        responseDiv.innerHTML = answer;
+                        responseDiv.style.animation = 'fadeIn 0.3s ease-in-out';
+                    }
+                    if (data.status === 'done') break;
+                } catch (e) {
+                    console.error('解析错误:', e);
+                }
             }
-        },
-        series: [{
-            type: 'sankey',
-            data: nodes,
-            links: links,
-            emphasis: {
-                focus: 'adjacency'
-            },
-            levels: [{
-                depth: 0,
-                itemStyle: { color: '#8a7ca3' },
-                lineStyle: { color: 'source', opacity: 0.6 }
-            }],
-            label: {
-                fontFamily: 'Calligraphy',
-                fontSize: 14
+        } catch (error) {
+            responseDiv.classList.remove('loading');
+            responseDiv.innerHTML = `<p style='color: #A0522D;'>查询失败: ${error}</p>`;
+        }
+    });
+
+    // 为节点添加悬停效果
+    const nodes = document.querySelectorAll('.node');
+    nodes.forEach(node => {
+        node.addEventListener('mouseenter', function() {
+            const info = this.getAttribute('data-info');
+            if (info) {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'node-tooltip';
+                tooltip.innerText = info;
+                this.appendChild(tooltip);
             }
-        }]
-    };
-    chart.setOption(option);
+        });
+        
+        node.addEventListener('mouseleave', function() {
+            const tooltip = this.querySelector('.node-tooltip');
+            if (tooltip) {
+                tooltip.remove();
+            }
+        });
+    });
+});
 </script>
 {% endblock %}

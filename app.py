@@ -1,10 +1,11 @@
-from flask import Flask, render_template, jsonify, session
+from flask import Flask, render_template, jsonify, session, request, Response
 import pandas as pd
 import json
 import logging
 from pathlib import Path
 import os
 from flask_mysqldb import MySQL
+import requests
 
 app = Flask(__name__)
 
@@ -91,7 +92,7 @@ def load_data():
         # 加载文化传播数据
         try:
             spread = load_json(data_dir / 'culture_spread.json')
-            
+
             # 确保spread数据包含所有必要的字段
             if 'title' not in spread:
                 spread['title'] = "中华茶文化全球传播路线"
@@ -105,7 +106,7 @@ def load_data():
                 spread['routes'] = []
             if 'historical_events' not in spread:
                 spread['historical_events'] = []
-                
+
             # 处理路线数据
             processed_routes = []
             for route in spread.get('routes', []):
@@ -125,11 +126,12 @@ def load_data():
                     }
                 }
                 processed_routes.append(processed_route)
-            
+
             spread['processed_routes'] = processed_routes
-            
+
             # 记录日志
-            logger.info(f"成功加载文化传播数据：{len(spread.get('nodes', []))}个节点，{len(spread.get('routes', []))}条路线")
+            logger.info(
+                f"成功加载文化传播数据：{len(spread.get('nodes', []))}个节点，{len(spread.get('routes', []))}条路线")
         except Exception as e:
             logger.error(f"加载文化传播数据失败: {str(e)}")
             spread = {
@@ -156,9 +158,9 @@ def load_data():
             'song_production': song_production,
             'process': [
                 {
-                    "step": 1, 
-                    "name": "采茶", 
-                    "duration": "清晨至午前", 
+                    "step": 1,
+                    "name": "采茶",
+                    "duration": "清晨至午前",
                     "tool": "金花银篓",
                     "ancient_text": "撷茶以黎明，见日则止。用爪断芽，不以指揉，虑气汗熏渍，茶不鲜洁。",
                     "source": "宋徽宗《大观茶论》",
@@ -166,9 +168,9 @@ def load_data():
                     "analysis": "古今对比可见，宋代的采茶工艺与现代高级茶叶采摘有诸多相似之处。宋人讲究在日出前采茶，避免阳光直射影响茶叶鲜嫩度，今日名茶产区仍保持此传统。宋代使用指甲而非指腹采茶，是为了避免手部汗液与茶叶接触，保持茶叶清洁，此做法在现代高档茶生产中亦有沿用，但现代茶农通常戴手套以确保卫生。宋代'金花银篓'的精细工艺精神在现代也体现为对茶叶初级处理器具的高标准要求。"
                 },
                 {
-                    "step": 2, 
-                    "name": "蒸青", 
-                    "duration": "三蒸三晾", 
+                    "step": 2,
+                    "name": "蒸青",
+                    "duration": "三蒸三晾",
                     "tool": "青铜甑釜",
                     "ancient_text": "蒸太生则芽滑，色清而味烈；过熟则芽烂，茶色赤而不胶。",
                     "source": "《大观茶论》",
@@ -176,9 +178,9 @@ def load_data():
                     "analysis": "蒸青是宋代团茶制作中的关键工序，这一工艺反映了古人对茶叶杀青温度与时间控制的精确把握。与现代制茶工艺相比，宋代蒸青法被现代的杀青工艺所替代，从蒸汽杀青发展为锅炒杀青，但核心原理相同——通过热处理破坏茶叶中的酶活性，防止氧化。宋代'三蒸三晾'法体现了精工细作的制茶理念，这种反复处理的做法虽在现代大规模生产中已少见，但在日本抹茶制作中仍有保留，可见宋代制茶技术对东亚茶文化的深远影响。"
                 },
                 {
-                    "step": 3, 
-                    "name": "研膏", 
-                    "duration": "昼夜捣研", 
+                    "step": 3,
+                    "name": "研膏",
+                    "duration": "昼夜捣研",
                     "tool": "青石茶臼",
                     "ancient_text": "小榨去水，大榨出膏。研膏以柯木杵、瓦盆，水研至细腻如膏。",
                     "source": "《北苑别录》",
@@ -206,7 +208,7 @@ def load_json(path):
 def index():
     if 'name' not in session:
         return render_template('login.html')
-    
+
     data = load_data()
     return render_template('index.html', price_data=data['prices'], user_name=session.get('name'))
 
@@ -215,7 +217,7 @@ def index():
 def trade_flow():
     if 'name' not in session:
         return render_template('login.html')
-    
+
     data = load_data()
     return render_template('trade_flow.html',
                            nodes=json.dumps(data['routes']['nodes']),
@@ -227,7 +229,7 @@ def trade_flow():
 def song_production():
     if 'name' not in session:
         return render_template('login.html')
-    
+
     data = load_data()
     return render_template('production_process.html', process=data['process'], user_name=session.get('name'))
 
@@ -236,23 +238,22 @@ def song_production():
 def culture_spread():
     if 'name' not in session:
         return render_template('login.html')
-    
+
     data = load_data()
     if data is None or 'spread' not in data:
         logger.error("无法加载文化传播数据")
         return render_template('500.html'), 500
-    
-    logger.info(f"传递文化传播数据到模板：{len(data['spread'].get('nodes', []))}个节点，{len(data['spread'].get('routes', []))}条路线")
+
+    logger.info(
+        f"传递文化传播数据到模板：{len(data['spread'].get('nodes', []))}个节点，{len(data['spread'].get('routes', []))}条路线")
     return render_template('culture_spread.html', spread_data=data['spread'], user_name=session.get('name'))
-
-
 
 
 @app.route('/production_area')
 def production_area():
     if 'name' not in session:
         return render_template('login.html')
-    
+
     return render_template('production_area.html', user_name=session.get('name'))
 
 
@@ -260,8 +261,53 @@ def production_area():
 def tea_policy():
     if 'name' not in session:
         return render_template('login.html')
-    
+
     return render_template('tea_policy.html', user_name=session.get('name'))
+
+
+@app.route('/ask', methods=['POST'])
+def ask():
+    question = request.get_json().get('question', '')
+    if not question:
+        return Response(json.dumps({"error": "问题不能为空"}), mimetype='application/json')
+
+    return Response(generate_stream(question), mimetype='application/json')
+
+
+def generate_stream(question):
+    """生成流式API请求"""
+    url = "https://spark-api-open.xf-yun.com/v1/chat/completions"
+    headers = {
+        "Authorization": "Bearer xbVfAtsErXfMhGzrRDAX:BqBjJTSElhuBuucFaAhw",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "max_tokens": 4096,
+        "top_k": 4,
+        "temperature": 0.5,
+        "messages": [
+            {"role": "system",
+             "content": "你是一个茶文化专家，尤其精通茶马古道的历史、路线、文化影响等知识。请尽量提供详实、准确的回答。"},
+            {"role": "user", "content": question}
+        ],
+        "model": "4.0Ultra",
+        "stream": True  # 启用流式传输
+    }
+
+    try:
+        with requests.post(url, headers=headers, json=payload, stream=True) as response:
+            for line in response.iter_lines():
+                if line:
+                    decoded_line = line.decode('utf-8')
+                    if decoded_line.startswith('data:'):
+                        json_data = json.loads(decoded_line[5:])
+                        if 'choices' in json_data:
+                            content = json_data['choices'][0]['delta'].get('content', '')
+                            yield json.dumps({"content": content})
+                        if json_data.get('choices')[0].get('finish_reason'):
+                            yield json.dumps({"status": "done"})
+    except Exception as e:
+        yield json.dumps({"error": f"API请求失败: {str(e)}"})
 
 
 @app.errorhandler(404)

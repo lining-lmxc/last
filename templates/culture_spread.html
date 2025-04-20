@@ -58,15 +58,15 @@
         </div>
     </div>
 
-
-    
-
     <div class="tea-ware-evolution">
         <h2>茶具演变历程</h2>
         <div class="evolution-container">
             <div class="era-section">
                 <div class="era-title">唐代茶具</div>
                 <div class="tea-ware-item">
+                    <div class="ware-image">
+                        <img src="{{ url_for('static', filename='images/tea_ware_tang_nian.jpg') }}" alt="鎏金银茶碾">
+                    </div>
                     <div class="ware-name">鎏金银茶碾</div>
                     <div class="ware-detail">
                         <p>法门寺地宫出土，用于碾碎茶饼</p>
@@ -74,6 +74,9 @@
                     </div>
                 </div>
                 <div class="tea-ware-item">
+                    <div class="ware-image">
+                        <img src="{{ url_for('static', filename='images/tea_ware_tang_luo.jpg') }}" alt="鎏金银茶罗">
+                    </div>
                     <div class="ware-name">鎏金银茶罗</div>
                     <div class="ware-detail">
                         <p>用于筛分茶末，确保茶粉细腻</p>
@@ -85,6 +88,9 @@
             <div class="era-section">
                 <div class="era-title">宋代茶具</div>
                 <div class="tea-ware-item">
+                    <div class="ware-image">
+                        <img src="{{ url_for('static', filename='images/tea_ware_song_zhan.jpg') }}" alt="建窑兔毫盏">
+                    </div>
                     <div class="ware-name">建窑兔毫盏</div>
                     <div class="ware-detail">
                         <p>黑釉茶盏，适合点茶斗茶</p>
@@ -92,6 +98,9 @@
                     </div>
                 </div>
                 <div class="tea-ware-item">
+                    <div class="ware-image">
+                        <img src="{{ url_for('static', filename='images/tea_ware_song_zhan.jpg') }}" alt="茶筅">
+                    </div>
                     <div class="ware-name">茶筅</div>
                     <div class="ware-detail">
                         <p>竹制，用于击拂茶汤</p>
@@ -103,6 +112,9 @@
             <div class="era-section">
                 <div class="era-title">明代茶具</div>
                 <div class="tea-ware-item">
+                    <div class="ware-image">
+                        <img src="{{ url_for('static', filename='images/tea_ware_ming_pot.jpg') }}" alt="紫砂壶">
+                    </div>
                     <div class="ware-name">紫砂壶</div>
                     <div class="ware-detail">
                         <p>宜兴紫砂，适合泡散茶</p>
@@ -110,6 +122,9 @@
                     </div>
                 </div>
                 <div class="tea-ware-item">
+                    <div class="ware-image">
+                        <img src="{{ url_for('static', filename='images/tea_ware_ming_gaiwan.jpg') }}" alt="青花盖碗">
+                    </div>
                     <div class="ware-name">青花盖碗</div>
                     <div class="ware-detail">
                         <p>景德镇瓷器，泡茶品饮</p>
@@ -129,77 +144,6 @@
             <div class="search-results">
                 <div id="search-results-container">
                     <p class="search-tip">搜索结果将显示在这里...</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="tea-horse-trade">
-        <h2>茶马互市与民族交往</h2>
-        <div class="trade-container">
-            <div class="trade-map">
-                <div class="trade-route">
-                    <div class="route-title">茶马古道</div>
-                    <div class="route-path">
-                        <div class="node" data-info="茶叶产地，贸易起点">云南</div>
-                        <div class="arrow">→</div>
-                        <div class="node" data-info="重要中转站，民族聚居地">大理</div>
-                        <div class="arrow">→</div>
-                        <div class="node" data-info="藏族聚居区，马匹产地">西藏</div>
-                        <div class="arrow">→</div>
-                        <div class="node" data-info="贸易终点，连接中亚">青海</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="trade-history">
-                <div class="history-item">
-                    <div class="era">唐代</div>
-                    <div class="content">
-                        <p>设立茶马司，开始官方茶马贸易</p>
-                        <div class="source">《新唐书·食货志》："贞元中，吐蕃请茶，诏许之。"</div>
-                    </div>
-                </div>
-                <div class="history-item">
-                    <div class="era">宋代</div>
-                    <div class="content">
-                        <p>茶马互市制度完善，设立榷场</p>
-                        <div class="source">《宋史·食货志》："凡茶之利，官得其七，商得其三。"</div>
-                    </div>
-                </div>
-                <div class="history-item">
-                    <div class="era">明代</div>
-                    <div class="content">
-                        <p>茶马贸易达到鼎盛，形成固定路线</p>
-                        <div class="source">《明史·食货志》："茶马之政，所以驭番夷，制边陲。"</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cultural-exchange">
-                <h3>文化交流</h3>
-                <div class="exchange-items">
-                    <div class="exchange-item">
-                        <div class="title">茶马古道</div>
-                        <div class="description">
-                            <p>连接汉藏文化的重要通道</p>
-                            <p>促进民族融合与文化交流</p>
-                        </div>
-                    </div>
-                    <div class="exchange-item">
-                        <div class="title">贸易往来</div>
-                        <div class="description">
-                            <p>茶叶换取马匹，互通有无</p>
-                            <p>形成稳定的经济联系</p>
-                        </div>
-                    </div>
-                    <div class="exchange-item">
-                        <div class="title">文化融合</div>
-                        <div class="description">
-                            <p>茶文化传播到少数民族地区</p>
-                            <p>形成独特的饮茶习俗</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -504,11 +448,31 @@
     border: 1px solid #D2B48C;
 }
 
+.ware-image {
+    text-align: center;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 4px;
+    height: 180px;
+}
+
+.ware-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.ware-image img:hover {
+    transform: scale(1.05);
+}
+
 .ware-name {
     color: #8B4513;
     font-family: 'Calligraphy';
     font-size: 18px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .ware-detail {
@@ -847,6 +811,18 @@
     
     .node {
         margin: 5px;
+    }
+
+    .evolution-container {
+        flex-direction: column;
+    }
+    
+    .era-section {
+        margin-bottom: 20px;
+    }
+    
+    .ware-image {
+        height: 150px;
     }
 }
 
