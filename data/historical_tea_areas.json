@@ -1,0 +1,341 @@
+{
+  "title": "中国历史茶叶产区变迁与对比",
+  "description": "从唐朝到现代的中国主要茶叶产区变化与特点对比",
+  "dynasties": [
+    {
+      "name": "唐代",
+      "period": "618-907",
+      "tea_areas": [
+        {
+          "region": "川蜀",
+          "modern_name": "四川",
+          "importance": 5,
+          "tea_types": ["散茶", "饼茶"],
+          "famous_gardens": ["蒙顶山", "峨眉山"],
+          "features": "唐代茶圣陆羽《茶经》记载：'山南诸郡，以鱼盐杂之，以形榼之，蒸成饼。'"
+        },
+        {
+          "region": "浙西",
+          "modern_name": "浙江西部",
+          "importance": 4,
+          "tea_types": ["散茶"],
+          "famous_gardens": ["天目山"],
+          "features": "陆羽曾评价：'越州上，他州次之。'"
+        },
+        {
+          "region": "湖州",
+          "modern_name": "浙江湖州",
+          "importance": 3,
+          "tea_types": ["散茶"],
+          "famous_gardens": ["顾渚紫笋"],
+          "features": "产紫笋茶，为唐代贡茶"
+        },
+        {
+          "region": "建州",
+          "modern_name": "福建武夷山",
+          "importance": 2,
+          "tea_types": ["散茶"],
+          "famous_gardens": ["建安"],
+          "features": "唐末已初具规模，为后世北苑贡茶前身"
+        }
+      ],
+      "production_scale": "小规模",
+      "policy": "茶税轻微，《茶经》促进茶文化传播"
+    },
+    {
+      "name": "宋代",
+      "period": "960-1279",
+      "tea_areas": [
+        {
+          "region": "建州北苑",
+          "modern_name": "福建建瓯",
+          "importance": 5,
+          "tea_types": ["团茶", "散茶"],
+          "famous_gardens": ["北苑贡茶园"],
+          "features": "宋徽宗《大观茶论》赞其为天下第一，是宋代官方贡茶生产基地"
+        },
+        {
+          "region": "蒙顶",
+          "modern_name": "四川名山",
+          "importance": 4,
+          "tea_types": ["散茶", "团茶"],
+          "famous_gardens": ["蒙顶山"],
+          "features": "产贡茶，为宋代名茶产区"
+        },
+        {
+          "region": "浙西湖州",
+          "modern_name": "浙江长兴、安吉",
+          "importance": 4,
+          "tea_types": ["团茶"],
+          "famous_gardens": ["顾渚"],
+          "features": "产紫笋贡茶，宋代茶马贸易重要来源"
+        },
+        {
+          "region": "江南润州",
+          "modern_name": "江苏镇江",
+          "importance": 3,
+          "tea_types": ["散茶"],
+          "famous_gardens": ["金焦"],
+          "features": "宋代著名产茶区，与顾渚、蒙顶并称"
+        }
+      ],
+      "production_scale": "中等规模",
+      "policy": "茶专卖重税，茶马贸易兴盛，贡茶制度严格"
+    },
+    {
+      "name": "元代",
+      "period": "1271-1368",
+      "tea_areas": [
+        {
+          "region": "江南诸路",
+          "modern_name": "浙江、江苏南部",
+          "importance": 4,
+          "tea_types": ["散茶", "紧压茶"],
+          "famous_gardens": ["天目", "径山"],
+          "features": "元代江南茶区仍保持繁荣，受益于早期元朝茶马贸易政策"
+        },
+        {
+          "region": "福建路",
+          "modern_name": "福建北部",
+          "importance": 5,
+          "tea_types": ["散茶", "团茶"],
+          "famous_gardens": ["武夷", "建安"],
+          "features": "武夷岩茶兴起，成为新兴茶区"
+        },
+        {
+          "region": "湖广路",
+          "modern_name": "湖北、湖南",
+          "importance": 3,
+          "tea_types": ["砖茶"],
+          "famous_gardens": ["巴陵"],
+          "features": "发展边销茶，主要供应北方少数民族"
+        }
+      ],
+      "production_scale": "扩大发展",
+      "policy": "实行茶引制度，但较宋代有所松弛，茶农逐渐摆脱专制束缚"
+    },
+    {
+      "name": "明代",
+      "period": "1368-1644",
+      "tea_areas": [
+        {
+          "region": "松萝山",
+          "modern_name": "安徽黄山",
+          "importance": 5,
+          "tea_types": ["散茶"],
+          "famous_gardens": ["松萝山茶园"],
+          "features": "产松萝茶，为明代贡茶"
+        },
+        {
+          "region": "武夷山",
+          "modern_name": "福建武夷山",
+          "importance": 5,
+          "tea_types": ["乌龙茶"],
+          "famous_gardens": ["大红袍产区"],
+          "features": "武夷岩茶兴盛，制茶工艺创新显著"
+        },
+        {
+          "region": "杭州府",
+          "modern_name": "浙江杭州西湖",
+          "importance": 4,
+          "tea_types": ["散茶"],
+          "famous_gardens": ["西湖龙井"],
+          "features": "龙井茶初具规模，逐渐成为名茶"
+        },
+        {
+          "region": "歙州",
+          "modern_name": "安徽歙县",
+          "importance": 4,
+          "tea_types": ["散茶"],
+          "famous_gardens": ["徽州茶园"],
+          "features": "产徽茶，明代重要商品茶产区"
+        },
+        {
+          "region": "广东潮州",
+          "modern_name": "广东潮州凤凰山",
+          "importance": 3,
+          "tea_types": ["乌龙茶"],
+          "famous_gardens": ["凤凰单丛产区"],
+          "features": "单丛茶兴起，茶树品种多样化"
+        }
+      ],
+      "production_scale": "大规模",
+      "policy": "逐步取消茶专卖，民间茶业迅速发展"
+    },
+    {
+      "name": "清代",
+      "period": "1644-1911",
+      "tea_areas": [
+        {
+          "region": "西湖",
+          "modern_name": "浙江杭州",
+          "importance": 5,
+          "tea_types": ["散茶"],
+          "famous_gardens": ["狮峰龙井"],
+          "features": "乾隆游览题诗后，龙井成为清代名茶"
+        },
+        {
+          "region": "武夷",
+          "modern_name": "福建武夷山",
+          "importance": 5,
+          "tea_types": ["乌龙茶", "红茶"],
+          "famous_gardens": ["正山小种产区"],
+          "features": "红茶工艺发明，推动中国茶叶出口"
+        },
+        {
+          "region": "祁门",
+          "modern_name": "安徽祁门",
+          "importance": 4,
+          "tea_types": ["红茶"],
+          "famous_gardens": ["祁门红茶产区"],
+          "features": "祁门红茶诞生，成为中国高级红茶代表"
+        },
+        {
+          "region": "信阳",
+          "modern_name": "河南信阳",
+          "importance": 3,
+          "tea_types": ["散茶"],
+          "famous_gardens": ["信阳毛尖产区"],
+          "features": "北方重要茶区，毛尖工艺形成"
+        },
+        {
+          "region": "云南普洱",
+          "modern_name": "云南西双版纳",
+          "importance": 3,
+          "tea_types": ["普洱茶"],
+          "famous_gardens": ["易武", "勐海"],
+          "features": "普洱茶贸易兴盛，成为边销茶主力"
+        }
+      ],
+      "production_scale": "大规模商业化",
+      "policy": "自由贸易，但在鸦片战争后茶叶出口受挫"
+    },
+    {
+      "name": "现代",
+      "period": "1949至今",
+      "tea_areas": [
+        {
+          "region": "杭州西湖",
+          "modern_name": "浙江杭州",
+          "importance": 5,
+          "tea_types": ["绿茶"],
+          "famous_gardens": ["西湖龙井保护区"],
+          "features": "国家地理标志保护产品，标准化生产"
+        },
+        {
+          "region": "安吉白茶",
+          "modern_name": "浙江安吉",
+          "importance": 4,
+          "tea_types": ["绿茶"],
+          "famous_gardens": ["安吉白茶产区"],
+          "features": "20世纪80年代兴起，新型名优茶代表"
+        },
+        {
+          "region": "武夷山",
+          "modern_name": "福建武夷山",
+          "importance": 5,
+          "tea_types": ["乌龙茶"],
+          "famous_gardens": ["武夷山国家级自然保护区"],
+          "features": "世界文化与自然双遗产地，岩茶工艺传承创新"
+        },
+        {
+          "region": "安溪",
+          "modern_name": "福建安溪",
+          "importance": 5,
+          "tea_types": ["乌龙茶"],
+          "famous_gardens": ["安溪铁观音产区"],
+          "features": "铁观音产量全国第一，加工技术领先"
+        },
+        {
+          "region": "祁门",
+          "modern_name": "安徽祁门",
+          "importance": 4,
+          "tea_types": ["红茶"],
+          "famous_gardens": ["祁门红茶原产地"],
+          "features": "与大吉岭、锡兰并称世界三大高香红茶"
+        },
+        {
+          "region": "普洱",
+          "modern_name": "云南西双版纳、临沧等",
+          "importance": 5,
+          "tea_types": ["普洱茶"],
+          "famous_gardens": ["班章", "易武", "冰岛"],
+          "features": "古树茶备受推崇，普洱茶收藏热潮兴起"
+        },
+        {
+          "region": "都匀",
+          "modern_name": "贵州都匀",
+          "importance": 3,
+          "tea_types": ["绿茶"],
+          "famous_gardens": ["都匀毛尖产区"],
+          "features": "高海拔茶区，生态茶园建设示范"
+        },
+        {
+          "region": "黄山",
+          "modern_name": "安徽黄山",
+          "importance": 4,
+          "tea_types": ["绿茶"],
+          "famous_gardens": ["黄山毛峰产区"],
+          "features": "利用旅游资源带动茶产业发展"
+        }
+      ],
+      "production_scale": "工业化规模生产",
+      "policy": "地理标志保护，有机认证，产业链延伸"
+    }
+  ],
+  "comparison": {
+    "area_expansion": "从唐宋时期的江南、西南为主，扩展到现代的全国17个省份",
+    "tea_types": "从唐宋时期的散茶、饼茶、团茶，发展到现代六大茶类齐全",
+    "production_methods": "从手工作坊式生产发展到现代化机械与传统工艺并存",
+    "major_shifts": [
+      "唐宋时期川蜀、建州是核心产区，现在以长江中下游和西南为主要产区",
+      "宋代北苑贡茶曾是最高级茶叶，现已没落，现代武夷岩茶、西湖龙井成为代表",
+      "古代茶区多依山傍水，自然分布；现代茶区更注重生态环境与品牌建设"
+    ]
+  },
+  "visualization_data": {
+    "map_coordinates": {
+      "唐代": [
+        {"name": "川蜀", "value": [103.9526, 30.7617, 5]},
+        {"name": "浙西", "value": [119.5, 29.0, 4]},
+        {"name": "湖州", "value": [120.0993, 30.8707, 3]},
+        {"name": "建州", "value": [118.0000, 27.7500, 2]}
+      ],
+      "宋代": [
+        {"name": "建州北苑", "value": [118.3217, 27.0834, 5]},
+        {"name": "蒙顶", "value": [103.8507, 30.0795, 4]},
+        {"name": "浙西湖州", "value": [119.9126, 30.8926, 4]},
+        {"name": "江南润州", "value": [119.4442, 32.2044, 3]}
+      ],
+      "元代": [
+        {"name": "江南诸路", "value": [120.1551, 30.2741, 4]},
+        {"name": "福建路", "value": [118.3008, 27.0614, 5]},
+        {"name": "湖广路", "value": [112.2384, 30.7378, 3]}
+      ],
+      "明代": [
+        {"name": "松萝山", "value": [118.1416, 30.1299, 5]},
+        {"name": "武夷山", "value": [117.9455, 27.7566, 5]},
+        {"name": "杭州府", "value": [120.1699, 30.2294, 4]},
+        {"name": "歙州", "value": [118.4336, 29.8675, 4]},
+        {"name": "广东潮州", "value": [116.6220, 23.6618, 3]}
+      ],
+      "清代": [
+        {"name": "西湖", "value": [120.1382, 30.2609, 5]},
+        {"name": "武夷", "value": [117.9455, 27.7566, 5]},
+        {"name": "祁门", "value": [117.7092, 29.8745, 4]},
+        {"name": "信阳", "value": [114.0913, 32.1470, 3]},
+        {"name": "云南普洱", "value": [101.0459, 22.7887, 3]}
+      ],
+      "现代": [
+        {"name": "杭州西湖", "value": [120.1382, 30.2609, 5]},
+        {"name": "安吉白茶", "value": [119.6829, 30.6344, 4]},
+        {"name": "武夷山", "value": [117.9455, 27.7566, 5]},
+        {"name": "安溪", "value": [118.1867, 25.0563, 5]},
+        {"name": "祁门", "value": [117.7092, 29.8745, 4]},
+        {"name": "普洱", "value": [100.9665, 22.8251, 5]},
+        {"name": "都匀", "value": [107.5187, 26.2573, 3]},
+        {"name": "黄山", "value": [118.3173, 29.7092, 4]}
+      ]
+    }
+  }
+} 
