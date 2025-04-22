@@ -60,90 +60,336 @@
 
     <div class="tea-ware-evolution">
         <h2>茶具演变历程</h2>
-        <div class="evolution-container">
-            <div class="era-section">
-                <div class="era-title">唐代茶具</div>
-                <div class="tea-ware-item">
-                    <div class="ware-image">
-                        <img src="{{ url_for('static', filename='images/tea_ware_tang_nian.jpg') }}" alt="鎏金银茶碾">
-                    </div>
-                    <div class="ware-name">鎏金银茶碾</div>
-                    <div class="ware-detail">
-                        <p>法门寺地宫出土，用于碾碎茶饼</p>
-                        <div class="historical-source">《茶经·四之器》："碾以橘木为之，次以梨、桑、桐、柘为之。"</div>
-                    </div>
-                </div>
-                <div class="tea-ware-item">
-                    <div class="ware-image">
-                        <img src="{{ url_for('static', filename='images/tea_ware_tang_luo.jpg') }}" alt="鎏金银茶罗">
-                    </div>
-                    <div class="ware-name">鎏金银茶罗</div>
-                    <div class="ware-detail">
-                        <p>用于筛分茶末，确保茶粉细腻</p>
-                        <div class="historical-source">《茶经·四之器》："罗末，以合盖贮之，以则置合中。"</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="era-section">
-                <div class="era-title">宋代茶具</div>
-                <div class="tea-ware-item">
-                    <div class="ware-image">
-                        <img src="{{ url_for('static', filename='images/tea_ware_song_zhan.jpg') }}" alt="建窑兔毫盏">
-                    </div>
-                    <div class="ware-name">建窑兔毫盏</div>
-                    <div class="ware-detail">
-                        <p>黑釉茶盏，适合点茶斗茶</p>
-                        <div class="historical-source">《大观茶论》："盏色贵青黑，玉毫条达者为上。"</div>
-                    </div>
-                </div>
-                <div class="tea-ware-item">
-                    <div class="ware-image">
-                        <img src="{{ url_for('static', filename='images/tea_ware_song_zhan.jpg') }}" alt="茶筅">
-                    </div>
-                    <div class="ware-name">茶筅</div>
-                    <div class="ware-detail">
-                        <p>竹制，用于击拂茶汤</p>
-                        <div class="historical-source">《茶录》："茶筅以筋竹老者为之，身欲厚重，筅欲疏劲。"</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="era-section">
-                <div class="era-title">明代茶具</div>
-                <div class="tea-ware-item">
-                    <div class="ware-image">
-                        <img src="{{ url_for('static', filename='images/tea_ware_ming_pot.jpg') }}" alt="紫砂壶">
-                    </div>
-                    <div class="ware-name">紫砂壶</div>
-                    <div class="ware-detail">
-                        <p>宜兴紫砂，适合泡散茶</p>
-                        <div class="historical-source">《阳羡茗壶系》："壶经久用，涤拭日加，自发黯然之光，入手可鉴。"</div>
-                    </div>
-                </div>
-                <div class="tea-ware-item">
-                    <div class="ware-image">
-                        <img src="{{ url_for('static', filename='images/tea_ware_ming_gaiwan.jpg') }}" alt="青花盖碗">
-                    </div>
-                    <div class="ware-name">青花盖碗</div>
-                    <div class="ware-detail">
-                        <p>景德镇瓷器，泡茶品饮</p>
-                        <div class="historical-source">《陶说》："景德镇窑，宋景德年间烧造，土白壤而埴，质薄腻，色滋润。"</div>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="dynasty-selector">
+            <button class="dynasty-btn active" data-dynasty="tang">唐代</button>
+            <button class="dynasty-btn" data-dynasty="song">宋代</button>
+            <button class="dynasty-btn" data-dynasty="yuan">元代</button>
+            <button class="dynasty-btn" data-dynasty="ming">明代</button>
+            <button class="dynasty-btn" data-dynasty="qing">清代</button>
         </div>
         
-        <!-- 添加文献查询面板 -->
-        <div class="literature-panel">
-            <h3>搜索相关信息</h3>
-            <div class="search-box">
-                <input type="text" id="baidu-search" placeholder="输入关键词搜索...">
-                <button id="search-btn">搜索</button>
+        <div class="tea-wares-container">
+            <!-- 唐代茶具 -->
+            <div class="dynasty-tea-wares tang-wares" style="display: block;">
+                <div class="dynasty-title">唐代茶具（煎茶法）</div>
+                <div class="tea-wares-grid">
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/tang_fenglu.jpg') }}" alt="风炉">
+                        </div>
+                        <h4 class="ware-name">风炉</h4>
+                        <p class="ware-desc">三足铜/铁炉，煮水专用。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/tang_fu.jpg') }}" alt="鍑">
+                        </div>
+                        <h4 class="ware-name">鍑（fù）</h4>
+                        <p class="ware-desc">大口铁锅，煎茶煮水。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/tang_chanian.jpg') }}" alt="茶碾">
+                        </div>
+                        <h4 class="ware-name">茶碾</h4>
+                        <p class="ware-desc">石制或金属制，碾碎茶饼成末。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/tang_chaluo.jpg') }}" alt="茶罗">
+                        </div>
+                        <h4 class="ware-name">茶罗（罗合）</h4>
+                        <p class="ware-desc">筛茶末的细筛，绢或纱为底。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/tang_cuogui.jpg') }}" alt="鹾簋">
+                        </div>
+                        <h4 class="ware-name">鹾簋（cuó guǐ）</h4>
+                        <p class="ware-desc">盛盐的带盖瓷罐，调味用。</p>
+                    </div>
+<!--                    <div class="tea-ware-card">-->
+<!--                        <div class="ware-image">-->
+<!--                            <img src="{{ url_for('static', filename='images/teaware/tang_shuyu.jpg') }}" alt="熟盂">-->
+<!--                        </div>-->
+<!--                        <h4 class="ware-name">熟盂</h4>-->
+<!--                        <p class="ware-desc">贮放热水的容器，调节茶汤温度。</p>-->
+<!--                    </div>-->
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/tang_chawan.jpg') }}" alt="茶碗">
+                        </div>
+                        <h4 class="ware-name">茶碗</h4>
+                        <p class="ware-desc">越窑青瓷（如玉璧底碗）、邢窑白瓷。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/tang_chatuo.jpg') }}" alt="茶托">
+                        </div>
+                        <h4 class="ware-name">茶托（盏托）</h4>
+                        <p class="ware-desc">木/漆器托盘，防烫手。</p>
+                    </div>
+                </div>
+                <div class="literature-reference">
+                    <p>文献依据：陆羽《茶经·四之器》列28种茶具，如"交床"（支鍑的木架）、"札"（刷茶末的笔）等。</p>
+                </div>
             </div>
-            <div class="search-results">
-                <div id="search-results-container">
-                    <p class="search-tip">搜索结果将显示在这里...</p>
+
+            <!-- 宋代茶具 -->
+            <div class="dynasty-tea-wares song-wares" style="display: none;">
+                <div class="dynasty-title">宋代茶具（点茶法）</div>
+                <div class="tea-wares-grid">
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/song_chaxian.jpg') }}" alt="茶筅">
+                        </div>
+                        <h4 class="ware-name">茶筅</h4>
+                        <p class="ware-desc">竹制，击拂茶汤起沫。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/song_jianzhan.jpg') }}" alt="建盏">
+                        </div>
+                        <h4 class="ware-name">建盏</h4>
+                        <p class="ware-desc">黑釉瓷盏，如兔毫盏、油滴盏、鹧鸪斑。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/song_tangping.jpg') }}" alt="汤瓶">
+                        </div>
+                        <h4 class="ware-name">汤瓶</h4>
+                        <p class="ware-desc">长流执壶，注水点茶，材质为金银或瓷。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/song_chanian.jpg') }}" alt="茶碾">
+                        </div>
+                        <h4 class="ware-name">茶碾</h4>
+                        <p class="ware-desc">小型石碾（如绿釉瓷碾）。</p>
+                    </div>
+<!--                    <div class="tea-ware-card">-->
+<!--                        <div class="ware-image">-->
+<!--                            <img src="{{ url_for('static', filename='images/teaware/song_chaluo.jpg') }}" alt="茶罗">-->
+<!--                        </div>-->
+<!--                        <h4 class="ware-name">茶罗</h4>-->
+<!--                        <p class="ware-desc">更细密的绢罗，筛出极细茶粉。</p>-->
+<!--                    </div>-->
+<!--                    <div class="tea-ware-card">-->
+<!--                        <div class="ware-image">-->
+<!--                            <img src="{{ url_for('static', filename='images/teaware/song_chajia.jpg') }}" alt="茶筴">-->
+<!--                        </div>-->
+<!--                        <h4 class="ware-name">茶筴</h4>-->
+<!--                        <p class="ware-desc">竹制夹子，炙烤茶饼。</p>-->
+<!--                    </div>-->
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/song_chalong.jpg') }}" alt="茶笼">
+                        </div>
+                        <h4 class="ware-name">茶笼</h4>
+                        <p class="ware-desc">竹编或金属制，烘干茶饼。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/song_chachi.jpg') }}" alt="茶匙">
+                        </div>
+                        <h4 class="ware-name">茶匙</h4>
+                        <p class="ware-desc">量取茶末，金银或竹制。</p>
+                    </div>
+                </div>
+                <div class="literature-reference">
+                    <p>特色：宫廷用"金法曹"（金茶碾）、"漆雕秘阁"（漆茶托）等雅称。</p>
+                </div>
+            </div>
+
+            <!-- 元代茶具 -->
+            <div class="dynasty-tea-wares yuan-wares" style="display: none;">
+                <div class="dynasty-title">元代茶具（过渡期）</div>
+                <div class="tea-wares-grid">
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/yuan_qinghuacihu.jpg') }}" alt="青花瓷壶">
+                        </div>
+                        <h4 class="ware-name">青花瓷壶</h4>
+                        <p class="ware-desc">扁壶、执壶，钴蓝纹饰（如"元青花凤首扁壶"）。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/yuan_gaozubei.jpg') }}" alt="高足杯">
+                        </div>
+                        <h4 class="ware-name">高足杯</h4>
+                        <p class="ware-desc">瓷质带柄高足，饮茶兼饮酒。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/yuan_chanian.jpg') }}" alt="茶碾">
+                        </div>
+                        <h4 class="ware-name">茶碾</h4>
+                        <p class="ware-desc">延续宋代小型石碾，但使用减少。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/yuan_chajiu.jpg') }}" alt="茶臼">
+                        </div>
+                        <h4 class="ware-name">茶臼</h4>
+                        <p class="ware-desc">石/陶制，捣碎散茶。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/yuan_chalong.jpg') }}" alt="茶笼">
+                        </div>
+                        <h4 class="ware-name">茶笼</h4>
+                        <p class="ware-desc">竹编或铜制，烘茶工具。</p>
+                    </div>
+<!--                    <div class="tea-ware-card">-->
+<!--                        <div class="ware-image">-->
+<!--                            <img src="{{ url_for('static', filename='images/teaware/yuan_heiyouzhan.jpg') }}" alt="黑釉盏">-->
+<!--                        </div>-->
+<!--                        <h4 class="ware-name">黑釉盏</h4>-->
+<!--                        <p class="ware-desc">建窑系茶盏，但品质较宋代下降。</p>-->
+<!--                    </div>-->
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/yuan_chaguan.jpg') }}" alt="茶罐">
+                        </div>
+                        <h4 class="ware-name">茶罐</h4>
+                        <p class="ware-desc">青花缠枝莲纹盖罐，储散茶。</p>
+                    </div>
+                </div>
+                <div class="literature-reference">
+                    <p>融合元素：出现蒙元特色的多穆壶（奶茶器）。</p>
+                </div>
+            </div>
+
+            <!-- 明代茶具 -->
+            <div class="dynasty-tea-wares ming-wares" style="display: none;">
+                <div class="dynasty-title">明代茶具（散茶冲泡）</div>
+                <div class="tea-wares-grid">
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/ming_zishahu.jpg') }}" alt="紫砂壶">
+                        </div>
+                        <h4 class="ware-name">紫砂壶</h4>
+                        <p class="ware-desc">时大彬制"僧帽壶""菱花壶"等。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/ming_cihu.jpg') }}" alt="瓷壶">
+                        </div>
+                        <h4 class="ware-name">瓷壶</h4>
+                        <p class="ware-desc">景德镇青花小壶（如"梨式壶"）。</p>
+                    </div>
+<!--                    <div class="tea-ware-card">-->
+<!--                        <div class="ware-image">-->
+<!--                            <img src="{{ url_for('static', filename='images/teaware/ming_chaxi.jpg') }}" alt="茶洗">-->
+<!--                        </div>-->
+<!--                        <h4 class="ware-name">茶洗</h4>-->
+<!--                        <p class="ware-desc">砂陶或瓷质，洗茶、温杯。</p>-->
+<!--                    </div>-->
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/ming_chabei.jpg') }}" alt="茶杯">
+                        </div>
+                        <h4 class="ware-name">茶杯</h4>
+                        <p class="ware-desc">白瓷"甜白釉杯"、青花小杯。</p>
+                    </div>
+<!--                    <div class="tea-ware-card">-->
+<!--                        <div class="ware-image">-->
+<!--                            <img src="{{ url_for('static', filename='images/teaware/ming_chalu.jpg') }}" alt="茶炉">-->
+<!--                        </div>-->
+<!--                        <h4 class="ware-name">茶炉</h4>-->
+<!--                        <p class="ware-desc">竹炉（文人推崇，如文徵明《品茶图》）。</p>-->
+<!--                    </div>-->
+<!--                    <div class="tea-ware-card">-->
+<!--                        <div class="ware-image">-->
+<!--                            <img src="{{ url_for('static', filename='images/teaware/ming_chaguan.jpg') }}" alt="茶罐">-->
+<!--                        </div>-->
+<!--                        <h4 class="ware-name">茶罐</h4>-->
+<!--                        <p class="ware-desc">宜兴紫砂茶叶罐、锡制茶叶罐。</p>-->
+<!--                    </div>-->
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/ming_chazhan.jpg') }}" alt="茶盏">
+                        </div>
+                        <h4 class="ware-name">茶盏</h4>
+                        <p class="ware-desc">成化斗彩鸡缸杯（后期贵族用）。</p>
+                    </div>
+<!--                    <div class="tea-ware-card">-->
+<!--                        <div class="ware-image">-->
+<!--                            <img src="{{ url_for('static', filename='images/teaware/ming_chapan.jpg') }}" alt="茶盘">-->
+<!--                        </div>-->
+<!--                        <h4 class="ware-name">茶盘</h4>-->
+<!--                        <p class="ware-desc">木制或漆器，承放茶具。</p>-->
+<!--                    </div>-->
+                </div>
+                <div class="literature-reference">
+                    <p>创新：出现专门泡茶的"茶壶"概念，取代唐宋煮水器。</p>
+                </div>
+            </div>
+
+            <!-- 清代茶具 -->
+            <div class="dynasty-tea-wares qing-wares" style="display: none;">
+                <div class="dynasty-title">清代茶具（多元发展）</div>
+                <div class="tea-wares-grid">
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/qing_gaiwan.jpg') }}" alt="盖碗">
+                        </div>
+                        <h4 class="ware-name">盖碗</h4>
+                        <p class="ware-desc">三才碗（盖、碗、托），如粉彩百蝶盖碗。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/qing_zishamingjiahu.jpg') }}" alt="紫砂名家壶">
+                        </div>
+                        <h4 class="ware-name">紫砂名家壶</h4>
+                        <p class="ware-desc">陈鸣远"南瓜壶"、邵大亨"掇球壶"。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/qing_falangcaichaju.jpg') }}" alt="珐琅彩茶具">
+                        </div>
+                        <h4 class="ware-name">珐琅彩茶具</h4>
+                        <p class="ware-desc">清宫造办处制，如乾隆珐琅彩胭脂红茶壶。</p>
+                    </div>
+<!--                    <div class="tea-ware-card">-->
+<!--                        <div class="ware-image">-->
+<!--                            <img src="{{ url_for('static', filename='images/teaware/qing_gongfu.jpg') }}" alt="工夫茶具">-->
+<!--                        </div>-->
+<!--                        <h4 class="ware-name">工夫茶具</h4>-->
+<!--                        <p class="ware-desc">孟臣壶（朱泥小壶）、若琛杯（白瓷小杯）、潮汕红泥炉等。</p>-->
+<!--                    </div>-->
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/qing_cizhichaju.jpg') }}" alt="瓷质茶具">
+                        </div>
+                        <h4 class="ware-name">瓷质茶具</h4>
+                        <p class="ware-desc">广彩人物茶壶、德化白瓷茶具。</p>
+                    </div>
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/qing_tongtaihuafalang.jpg') }}" alt="铜胎画珐琅">
+                        </div>
+                        <h4 class="ware-name">铜胎画珐琅</h4>
+                        <p class="ware-desc">宫廷御用，如铜胎珐琅茶船（茶盘）。</p>
+                    </div>
+<!--                    <div class="tea-ware-card">-->
+<!--                        <div class="ware-image">-->
+<!--                            <img src="{{ url_for('static', filename='images/teaware/qing_zhumucha.jpg') }}" alt="竹木茶具">-->
+<!--                        </div>-->
+<!--                        <h4 class="ware-name">竹木茶具</h4>-->
+<!--                        <p class="ware-desc">竹编茶籝（便携茶箱）、瘿木茶盘。</p>-->
+<!--                    </div>-->
+                    <div class="tea-ware-card">
+                        <div class="ware-image">
+                            <img src="{{ url_for('static', filename='images/teaware/qing_biyanhushichaguan.jpg') }}" alt="鼻烟壶式茶罐">
+                        </div>
+                        <h4 class="ware-name">鼻烟壶式茶罐</h4>
+                        <p class="ware-desc">小巧珐琅彩或玻璃制，储茶。</p>
+                    </div>
+                </div>
+                <div class="literature-reference">
+                    <p>特色：宫廷茶具极尽奢华，民间流行"茶担"（街头挑担茶具）。</p>
                 </div>
             </div>
         </div>
@@ -412,48 +658,68 @@
     color: #8B4513;
     font-family: 'Calligraphy';
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 28px;
 }
 
-.evolution-container {
+.dynasty-selector {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.era-section {
-    flex: 1;
+.dynasty-btn {
+    padding: 8px 20px;
     background: #f9f7f0;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #D2B48C;
+    border: 2px solid #D2B48C;
+    border-radius: 30px;
+    color: #8B4513;
+    font-family: 'Calligraphy';
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.era-title {
+.dynasty-btn.active, .dynasty-btn:hover {
+    background: #8B4513;
+    color: white;
+}
+
+.dynasty-title {
     color: #8B4513;
     font-family: 'Calligraphy';
     font-size: 24px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     padding-bottom: 10px;
     border-bottom: 2px solid #D2B48C;
 }
 
-.tea-ware-item {
+.tea-wares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
     margin-bottom: 20px;
-    padding: 15px;
-    background: white;
-    border-radius: 6px;
-    border: 1px solid #D2B48C;
+}
+
+.tea-ware-card {
+    background: #f9f7f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.tea-ware-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
 }
 
 .ware-image {
-    text-align: center;
-    margin-bottom: 15px;
-    overflow: hidden;
-    border-radius: 4px;
     height: 180px;
+    overflow: hidden;
 }
 
 .ware-image img {
@@ -469,49 +735,32 @@
 
 .ware-name {
     color: #8B4513;
+    text-align: center;
+    margin: 12px 0 8px;
     font-family: 'Calligraphy';
     font-size: 18px;
-    margin-bottom: 10px;
-    text-align: center;
 }
 
-.ware-detail {
+.ware-desc {
     color: #666;
+    padding: 0 15px 15px;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
-.historical-source {
-    margin-top: 10px;
-    padding: 8px;
+.literature-reference {
     background: rgba(139, 69, 19, 0.05);
-    border-radius: 4px;
+    padding: 12px 15px;
+    border-radius: 8px;
     border-left: 3px solid #8B4513;
+    margin-top: 10px;
+}
+
+.literature-reference p {
     color: #8B4513;
     font-style: italic;
-    font-size: 12px;
-}
-
-.era-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
-}
-
-.era-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.tea-ware-item {
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: all 0.5s ease;
-}
-
-.tea-ware-item.visible {
-    opacity: 1;
-    transform: translateX(0);
+    margin: 0;
+    line-height: 1.5;
 }
 
 /* 添加文献查询面板样式 */
@@ -1529,6 +1778,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // 响应窗口大小变化
     window.addEventListener('resize', function() {
         myChart.resize();
+    });
+});
+
+// 茶具演变历程的切换功能
+document.addEventListener('DOMContentLoaded', function() {
+    const dynastyBtns = document.querySelectorAll('.dynasty-btn');
+    const dynastyWares = document.querySelectorAll('.dynasty-tea-wares');
+    
+    dynastyBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const dynasty = this.getAttribute('data-dynasty');
+            
+            // 移除所有按钮的active类
+            dynastyBtns.forEach(b => b.classList.remove('active'));
+            
+            // 为当前按钮添加active类
+            this.classList.add('active');
+            
+            // 隐藏所有朝代茶具
+            dynastyWares.forEach(ware => ware.style.display = 'none');
+            
+            // 显示当前朝代茶具
+            document.querySelector(`.${dynasty}-wares`).style.display = 'block';
+        });
     });
 });
 </script>

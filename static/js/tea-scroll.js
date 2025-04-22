@@ -288,25 +288,48 @@ function addViewControls() {
     
     // 创建视图切换按钮
     const buttons = [
-        { id: 'all-view', text: '全部朝代', active: true },
-        { id: 'compare-view', text: '朝代茶价对比' },
-        { id: 'time-view', text: '时间轴视图' }
+        { id: 'all-view', text: '全部朝代', active: true, icon: '📜' },
+        { id: 'compare-view', text: '朝代茶价对比', icon: '📊' },
+        { id: 'time-view', text: '时间轴视图', icon: '⏳' }
     ];
     
     buttons.forEach(button => {
         const btn = document.createElement('button');
         btn.id = button.id;
         btn.className = button.active ? 'view-btn active' : 'view-btn';
-        btn.textContent = button.text;
         
+        // 创建按钮内容，添加图标和文本
+        const btnContent = document.createElement('span');
+        btnContent.innerHTML = `${button.icon} ${button.text}`;
+        btn.appendChild(btnContent);
+        
+        // 添加点击事件
         btn.addEventListener('click', () => {
-            // 移除所有按钮的活跃状态
-            document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-            // 添加当前按钮的活跃状态
-            btn.classList.add('active');
+            // 如果按钮已经是活跃状态，不执行任何操作
+            if (btn.classList.contains('active')) return;
             
-            // 根据按钮ID切换视图
-            switchView(button.id);
+            // 添加按钮点击效果
+            btn.classList.add('btn-clicked');
+            setTimeout(() => {
+                btn.classList.remove('btn-clicked');
+            }, 300);
+            
+            // 移除所有按钮的活跃状态，添加淡出效果
+            document.querySelectorAll('.view-btn').forEach(b => {
+                b.classList.remove('active');
+                b.style.opacity = '0.7';
+            });
+            
+            // 延迟添加当前按钮的活跃状态，添加淡入效果
+            setTimeout(() => {
+                btn.classList.add('active');
+                document.querySelectorAll('.view-btn').forEach(b => {
+                    b.style.opacity = '1';
+                });
+                
+                // 根据按钮ID切换视图
+                switchView(button.id);
+            }, 150);
         });
         
         controlsContainer.appendChild(btn);
@@ -346,35 +369,55 @@ function switchView(viewId) {
     const timelineContainer = document.getElementById('timeline-container');
     const introContainer = document.querySelector('.dynasty-intro-container');
     
-    // 根据选择的视图切换显示模式
-    switch(viewId) {
-        case 'all-view':
-            if (brickContainer) brickContainer.style.display = 'flex';
-            if (compareContainer) compareContainer.style.display = 'none';
-            if (timelineContainer) timelineContainer.style.display = 'none';
-            if (introContainer) introContainer.style.display = 'flex';
-            break;
-            
-        case 'compare-view':
-            if (brickContainer) brickContainer.style.display = 'none';
-            if (compareContainer) {
-                compareContainer.style.display = 'block';
-                createPriceCompareView();
-            }
-            if (timelineContainer) timelineContainer.style.display = 'none';
-            if (introContainer) introContainer.style.display = 'none';
-            break;
-            
-        case 'time-view':
-            if (brickContainer) brickContainer.style.display = 'none';
-            if (compareContainer) compareContainer.style.display = 'none';
-            if (timelineContainer) {
-                timelineContainer.style.display = 'block';
-                createTimelineView();
-            }
-            if (introContainer) introContainer.style.display = 'none';
-            break;
-    }
+    // 定义淡入淡出的动画效果
+    const fadeOut = (element) => {
+        if (!element) return;
+        element.style.opacity = '0';
+        element.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => {
+            element.style.display = 'none';
+        }, 300);
+    };
+    
+    const fadeIn = (element, displayType = 'block') => {
+        if (!element) return;
+        element.style.opacity = '0';
+        element.style.display = displayType;
+        setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.transition = 'opacity 0.5s ease';
+        }, 50);
+    };
+    
+    // 先淡出所有容器
+    if (brickContainer) fadeOut(brickContainer);
+    if (compareContainer) fadeOut(compareContainer);
+    if (timelineContainer) fadeOut(timelineContainer);
+    if (introContainer) fadeOut(introContainer);
+    
+    // 延迟后淡入选中的容器
+    setTimeout(() => {
+        switch(viewId) {
+            case 'all-view':
+                if (brickContainer) fadeIn(brickContainer, 'flex');
+                if (introContainer) fadeIn(introContainer, 'flex');
+                break;
+                
+            case 'compare-view':
+                if (compareContainer) {
+                    fadeIn(compareContainer);
+                    createPriceCompareView();
+                }
+                break;
+                
+            case 'time-view':
+                if (timelineContainer) {
+                    fadeIn(timelineContainer);
+                    createTimelineView();
+                }
+                break;
+        }
+    }, 350);
 }
 
 /**

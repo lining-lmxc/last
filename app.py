@@ -15,7 +15,7 @@ app.secret_key = os.urandom(24)
 # MySQL配置
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '991016'
+app.config['MYSQL_PASSWORD'] = '0909llll..'
 app.config['MYSQL_DB'] = 'user_imformation'
 mysql = MySQL(app)
 
@@ -149,11 +149,11 @@ def load_data():
         except Exception as e:
             logger.error(f"加载宋代茶叶生产数据失败: {str(e)}")
             song_production = []
-            
+
         # 加载历史茶叶产区数据
         try:
             historical_tea_areas = load_json(data_dir / 'historical_tea_areas.json')
-            
+
             # 处理地图数据，为每个点添加茶类信息
             for dynasty_name, points in historical_tea_areas.get('visualization_data', {}).get('map_coordinates', {}).items():
                 for point in points:
@@ -164,7 +164,7 @@ def load_data():
                                 if area['region'] == point['name']:
                                     point['tea_types'] = '、'.join(area['tea_types'])
                                     break
-            
+
             logger.info("成功加载历史茶叶产区数据")
         except Exception as e:
             logger.error(f"加载历史茶叶产区数据失败: {str(e)}")
@@ -232,7 +232,7 @@ def song_production():
         return render_template('login.html')
 
     data = load_data()
-    
+
     # 创建宋代茶工艺流程数据
     tea_process = [
         {
@@ -286,7 +286,7 @@ def song_production():
             "analysis": "宋代焙火技术讲究\"文火慢焙\"，现代则多用机械烘干，温度控制更精准但少了手工艺术感。"
         }
     ]
-    
+
     return render_template('production_process.html', process=tea_process, user_name=session.get('name'))
 
 
@@ -304,20 +304,6 @@ def culture_spread():
         f"传递文化传播数据到模板：{len(data['spread'].get('nodes', []))}个节点，{len(data['spread'].get('routes', []))}条路线")
     return render_template('culture_spread.html', spread_data=data['spread'], user_name=session.get('name'))
 
-
-@app.route('/production_area')
-def production_area():
-    if 'name' not in session:
-        return render_template('login.html')
-    
-    data = load_data()
-    if data is None or 'historical_tea_areas' not in data:
-        logger.error("无法加载历史茶叶产区数据")
-        return render_template('500.html'), 500
-        
-    return render_template('production_area.html', 
-                          tea_areas_data=data['historical_tea_areas'], 
-                          user_name=session.get('name'))
 
 
 @app.route('/tea_policy')
@@ -389,4 +375,4 @@ if __name__ == '__main__':
     # 在应用上下文中创建数据库表
     with app.app_context():
         create_tables()
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=9000)
