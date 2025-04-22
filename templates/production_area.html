@@ -2,16 +2,172 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="page-title">茶叶产地对比</h1>
-    
-    <div class="under-construction">
-        <div class="message">
-            <i class="icon">🏗️</i>
-            <h2>页面正在建设中</h2>
-            <p>我们正在为您收集整理中国各大茶叶产区的特色对比数据，敬请期待！</p>
+    <h1 class="page-title">{{ tea_areas_data.title }}</h1>
+    <p class="description">{{ tea_areas_data.description }}</p>
+
+    <div class="timeline-wrapper">
+        <div class="timeline-container">
+            <div class="timeline">
+                {% for dynasty in tea_areas_data.dynasties %}
+                <div class="timeline-item {% if dynasty.name == '现代' %}active{% endif %}" data-dynasty="{{ dynasty.name }}">
+                    <div class="timeline-content">
+                        <h3>{{ dynasty.name }}</h3>
+                        <span class="year">{{ dynasty.period }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="content-grid">
+        <div class="regions-section">
+            {% for dynasty in tea_areas_data.dynasties %}
+            <div class="dynasty-regions" data-dynasty="{{ dynasty.name }}" style="display: {% if dynasty.name == '现代' %}block{% else %}none{% endif %};">
+                <div class="regions-header">
+                    <h2>{{ dynasty.name }}时期茶叶产区分布 ({{ dynasty.period }})</h2>
+                    <div class="regions-summary">
+                        <div class="summary-item">
+                            <span class="label">生产规模：</span>
+                            <span class="value">{{ dynasty.production_scale }}</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">政策特点：</span>
+                            <span class="value">{{ dynasty.policy }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="regions-grid">
+                    <div class="region-group major">
+                        <h3>主要产区</h3>
+                        <div class="region-cards">
+                            {% for area in dynasty.tea_areas %}
+                            {% if area.importance >= 4 %}
+                            <div class="region-card">
+                                <div class="region-card-header">
+                                    <h4>{{ area.region }}</h4>
+                                    <span class="modern-name">(今{{ area.modern_name }})</span>
+                                    <div class="importance-indicator">
+                                        {% for i in range(5) %}
+                                        <span class="star {% if i < area.importance %}filled{% endif %}">★</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="region-card-content">
+                                    <div class="tea-types">
+                                        {% for type in area.tea_types %}
+                                        <span class="tea-type">{{ type }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="gardens">
+                                        {% for garden in area.famous_gardens %}
+                                        <span class="garden">{{ garden }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <p class="features">{{ area.features }}</p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="region-group minor">
+                        <h3>次要产区</h3>
+                        <div class="region-cards">
+                            {% for area in dynasty.tea_areas %}
+                            {% if area.importance < 4 %}
+                            <div class="region-card">
+                                <div class="region-card-header">
+                                    <h4>{{ area.region }}</h4>
+                                    <span class="modern-name">(今{{ area.modern_name }})</span>
+                                    <div class="importance-indicator">
+                                        {% for i in range(5) %}
+                                        <span class="star {% if i < area.importance %}filled{% endif %}">★</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="region-card-content">
+                                    <div class="tea-types">
+                                        {% for type in area.tea_types %}
+                                        <span class="tea-type">{{ type }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="gardens">
+                                        {% for garden in area.famous_gardens %}
+                                        <span class="garden">{{ garden }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <p class="features">{{ area.features }}</p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="comparison-section">
+            <h2>历史变迁与现代对比</h2>
+            <div class="comparison-cards">
+                <div class="comparison-card">
+                    <h3>产区扩展</h3>
+                    <p>{{ tea_areas_data.comparison.area_expansion }}</p>
+                </div>
+                <div class="comparison-card">
+                    <h3>茶类发展</h3>
+                    <p>{{ tea_areas_data.comparison.tea_types }}</p>
+                </div>
+                <div class="comparison-card">
+                    <h3>生产方式演变</h3>
+                    <p>{{ tea_areas_data.comparison.production_methods }}</p>
+                </div>
+            </div>
+
+            <div class="major-shifts-section">
+                <h3>主要变化与特点</h3>
+                <ul class="major-shifts">
+                    {% for shift in tea_areas_data.comparison.major_shifts %}
+                    <li>{{ shift }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 绑定时间轴点击事件
+    document.querySelectorAll('.timeline-item').forEach(el => {
+        el.addEventListener('click', function() {
+            const dynasty = this.getAttribute('data-dynasty');
+            
+            // 更新时间轴活跃状态
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // 更新区域显示
+            document.querySelectorAll('.dynasty-regions').forEach(region => {
+                region.style.display = 'none';
+            });
+            document.querySelector(`.dynasty-regions[data-dynasty="${dynasty}"]`).style.display = 'block';
+            
+            // 添加过渡动画
+            document.querySelector('.regions-section').style.opacity = '0';
+            setTimeout(() => {
+                document.querySelector('.regions-section').style.opacity = '1';
+            }, 50);
+        });
+    });
+});
+</script>
 
 <style>
 .container {
@@ -23,44 +179,415 @@
 .page-title {
     text-align: center;
     color: #8B4513;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-size: 32px;
     font-weight: normal;
     border-bottom: 2px solid #D2B48C;
     padding-bottom: 15px;
 }
 
-.under-construction {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-}
-
-.message {
+.description {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-}
-
-.icon {
-    font-size: 60px;
-    display: block;
-    margin-bottom: 20px;
-}
-
-h2 {
-    color: #4A6144;
-    margin-bottom: 20px;
-}
-
-p {
     color: #666;
+    margin-bottom: 30px;
     font-size: 18px;
+}
+
+/* 时间轴样式 */
+.timeline-wrapper {
+    position: relative;
+    margin: 30px 0;
+    padding: 0 15px;
+}
+
+.timeline-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #D2B48C transparent;
+}
+
+.timeline-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.timeline-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.timeline-container::-webkit-scrollbar-thumb {
+    background-color: #D2B48C;
+    border-radius: 3px;
+}
+
+.timeline {
+    display: flex;
+    min-width: 750px;
+    position: relative;
+    padding: 20px 0;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 4px;
+    background: #D2B48C;
+    width: calc(100% - 100px);
+    left: 50px;
+    z-index: 1;
+}
+
+.timeline-item {
+    z-index: 2;
+    background: white;
+    border: 2px solid #D2B48C;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.timeline-content {
+    text-align: center;
+    padding: 10px;
+}
+
+.timeline-item h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #8B4513;
+    font-weight: normal;
+}
+
+.timeline-item .year {
+    font-size: 12px;
+    color: #888;
+    display: block;
+    margin-top: 4px;
+}
+
+.timeline-item.active {
+    background: #8B4513;
+    transform: scale(1.1);
+    border-color: #8B4513;
+    box-shadow: 0 0 15px rgba(139, 69, 19, 0.3);
+}
+
+.timeline-item.active h3, 
+.timeline-item.active .year {
+    color: white;
+}
+
+.timeline-item:hover:not(.active) {
+    transform: scale(1.05);
+    border-color: #8B4513;
+}
+
+/* 内容网格布局 */
+.content-grid {
+    margin-top: 40px;
+}
+
+/* 区域部分样式 */
+.regions-section {
+    transition: opacity 0.3s ease;
+}
+
+.regions-header {
+    background: #f9f7f2;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.regions-header h2 {
+    color: #8B4513;
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-weight: normal;
+}
+
+.regions-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.summary-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.summary-item .label {
+    color: #8B4513;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.summary-item .value {
+    color: #666;
+}
+
+.regions-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.region-group {
+    background: #f9f7f2;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.region-group h3 {
+    color: #8B4513;
+    margin: 0 0 20px 0;
+    font-weight: normal;
+    text-align: center;
+    position: relative;
+}
+
+.region-group h3:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: #D2B48C;
+}
+
+.region-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.region-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.region-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.region-card-header {
+    margin-bottom: 15px;
+}
+
+.region-card-header h4 {
+    margin: 0;
+    color: #4a4a4a;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.modern-name {
+    font-size: 14px;
+    color: #888;
+    margin-left: 5px;
+}
+
+.importance-indicator {
+    margin-top: 8px;
+}
+
+.star {
+    color: #ddd;
+    font-size: 16px;
+}
+
+.star.filled {
+    color: #8B4513;
+}
+
+.region-card-content {
+    color: #666;
+}
+
+.tea-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.tea-type {
+    background: #f1efe7;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.gardens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.garden {
+    background: #e6f7ff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.features {
+    margin: 0;
+    padding-top: 12px;
+    border-top: 1px dashed #eee;
+    font-style: italic;
     line-height: 1.6;
+}
+
+/* 对比部分样式 */
+.comparison-section {
+    margin-top: 40px;
+    background: #f9f7f2;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.comparison-section h2 {
+    color: #8B4513;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: normal;
+    position: relative;
+}
+
+.comparison-section h2:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #D2B48C;
+}
+
+.comparison-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.comparison-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.comparison-card:hover {
+    transform: translateY(-3px);
+}
+
+.comparison-card h3 {
+    color: #8B4513;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-weight: normal;
+}
+
+.major-shifts-section {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.major-shifts-section h3 {
+    color: #8B4513;
+    margin-top: 0;
+    font-weight: normal;
+}
+
+.major-shifts {
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+.major-shifts li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 5px;
+}
+
+.major-shifts li:before {
+    content: "•";
+    color: #8B4513;
+    font-weight: bold;
+    position: absolute;
+    left: -15px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .timeline-item {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .timeline-item h3 {
+        font-size: 14px;
+    }
+    
+    .timeline-item .year {
+        font-size: 10px;
+    }
+
+    .regions-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .region-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .regions-header,
+    .region-group,
+    .comparison-section {
+        padding: 15px;
+    }
 }
 </style>
 {% endblock %} 

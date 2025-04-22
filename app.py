@@ -129,7 +129,6 @@ def load_data():
 
             spread['processed_routes'] = processed_routes
 
-            # 记录日志
             logger.info(
                 f"成功加载文化传播数据：{len(spread.get('nodes', []))}个节点，{len(spread.get('routes', []))}条路线")
         except Exception as e:
@@ -150,44 +149,46 @@ def load_data():
         except Exception as e:
             logger.error(f"加载宋代茶叶生产数据失败: {str(e)}")
             song_production = []
+            
+        # 加载历史茶叶产区数据
+        try:
+            historical_tea_areas = load_json(data_dir / 'historical_tea_areas.json')
+            
+            # 处理地图数据，为每个点添加茶类信息
+            for dynasty_name, points in historical_tea_areas.get('visualization_data', {}).get('map_coordinates', {}).items():
+                for point in points:
+                    # 从茶区数据中找到对应的茶类信息
+                    for dynasty in historical_tea_areas.get('dynasties', []):
+                        if dynasty['name'] == dynasty_name:
+                            for area in dynasty['tea_areas']:
+                                if area['region'] == point['name']:
+                                    point['tea_types'] = '、'.join(area['tea_types'])
+                                    break
+            
+            logger.info("成功加载历史茶叶产区数据")
+        except Exception as e:
+            logger.error(f"加载历史茶叶产区数据失败: {str(e)}")
+            historical_tea_areas = {
+                "title": "中国历史茶叶产区变迁与对比",
+                "description": "从唐朝到现代的中国主要茶叶产区变化与特点对比",
+                "dynasties": [],
+                "comparison": {
+                    "area_expansion": "",
+                    "tea_types": "",
+                    "production_methods": "",
+                    "major_shifts": []
+                },
+                "visualization_data": {
+                    "map_coordinates": {}
+                }
+            }
 
         return {
             'prices': prices,
             'routes': routes,
             'spread': spread,
             'song_production': song_production,
-            'process': [
-                {
-                    "step": 1,
-                    "name": "采茶",
-                    "duration": "清晨至午前",
-                    "tool": "金花银篓",
-                    "ancient_text": "撷茶以黎明，见日则止。用爪断芽，不以指揉，虑气汗熏渍，茶不鲜洁。",
-                    "source": "宋徽宗《大观茶论》",
-                    "details": "宋代采茶严格遵循时令，多在清明前后，清晨露水未干时进行。采茶工(多为妇女)须净手、漱口、着素服，选取一芽一叶或一芽二叶，指甲不可触及芽叶以免损伤。采摘后置于金花银篓内(实为精致竹篓，因其工艺精美如金银而得名)，注意通风避光。采茶讲究'宁少勿多，宁嫩勿老'，以保证茶叶品质。",
-                    "analysis": "古今对比可见，宋代的采茶工艺与现代高级茶叶采摘有诸多相似之处。宋人讲究在日出前采茶，避免阳光直射影响茶叶鲜嫩度，今日名茶产区仍保持此传统。宋代使用指甲而非指腹采茶，是为了避免手部汗液与茶叶接触，保持茶叶清洁，此做法在现代高档茶生产中亦有沿用，但现代茶农通常戴手套以确保卫生。宋代'金花银篓'的精细工艺精神在现代也体现为对茶叶初级处理器具的高标准要求。"
-                },
-                {
-                    "step": 2,
-                    "name": "蒸青",
-                    "duration": "三蒸三晾",
-                    "tool": "青铜甑釜",
-                    "ancient_text": "蒸太生则芽滑，色清而味烈；过熟则芽烂，茶色赤而不胶。",
-                    "source": "《大观茶论》",
-                    "details": "鲜叶采摘回来后，需先置通风处摊凉，然后放入青铜甑釜中蒸制。宋代讲究'三蒸三晾'法，即蒸青后摊晾，反复三次。蒸制火候掌握极为关键，火候过轻则茶性未去，内含物质未充分软化；火候过重则香气受损。蒸制至叶色转为深绿，柔韧如革，香气馥郁。此步骤可杀青、灭酶，防止氧化，保留茶叶中的芳香物质和营养成分。",
-                    "analysis": "蒸青是宋代团茶制作中的关键工序，这一工艺反映了古人对茶叶杀青温度与时间控制的精确把握。与现代制茶工艺相比，宋代蒸青法被现代的杀青工艺所替代，从蒸汽杀青发展为锅炒杀青，但核心原理相同——通过热处理破坏茶叶中的酶活性，防止氧化。宋代'三蒸三晾'法体现了精工细作的制茶理念，这种反复处理的做法虽在现代大规模生产中已少见，但在日本抹茶制作中仍有保留，可见宋代制茶技术对东亚茶文化的深远影响。"
-                },
-                {
-                    "step": 3,
-                    "name": "研膏",
-                    "duration": "昼夜捣研",
-                    "tool": "青石茶臼",
-                    "ancient_text": "小榨去水，大榨出膏。研膏以柯木杵、瓦盆，水研至细腻如膏。",
-                    "source": "《北苑别录》",
-                    "details": "蒸青后的茶叶放入青石茶臼中，由专人用木杵捣研。此过程耗时且费力，讲究技法，木杵起落有节律，需持续捣研直至茶叶成膏状。宋徽宗《大观茶论》记载:'其捣也，用木杵，起落有节，不緩不疾，务令均匀，盖一舂一捣，各有至数。'研膏过程中需不断翻拌，确保茶粉细腻均匀，无结块。研膏完成的茶粉色泽青翠如玉，质地细腻。此步是制作团茶的关键工序，决定了团茶的品质和口感。",
-                    "analysis": "研膏工艺在宋代团茶制作中体现了精细化加工的最高水平。通过小榨去水、大榨出膏的过程，宋人实现了茶叶成分的充分提取与保留。与现代工艺相比，宋代研膏过程完全依靠人力，讲究的是节奏与均匀度，这种手工艺精神在现代日本抹茶制作中仍有体现。而现代制茶多采用机械研磨，虽提高了效率，但在质感表现上与传统手工研磨仍有差异。宋代研膏成膏状的做法，为后续压型(制成团茶)奠定基础，这一整体工艺流程反映了宋代对茶叶加工的系统性思考，启发了后世茶类的多样化发展。"
-                }
-            ]
+            'historical_tea_areas': historical_tea_areas
         }
     except Exception as e:
         logger.error(f"数据加载过程中发生错误: {str(e)}")
@@ -231,7 +232,62 @@ def song_production():
         return render_template('login.html')
 
     data = load_data()
-    return render_template('production_process.html', process=data['process'], user_name=session.get('name'))
+    
+    # 创建宋代茶工艺流程数据
+    tea_process = [
+        {
+            "step": 1,
+            "name": "采茶",
+            "duration": "谷雨至立夏期间",
+            "tool": "竹篮、茶剪",
+            "source": "《茶经》",
+            "ancient_text": "凡造者，以二月、三月采之，蒸之，捣之，拍之，焙之，穿之，封之。",
+            "details": "采摘嫩芽，选取一芽一叶或一芽二叶，要求鲜嫩、无损伤。采摘时间通常在清晨露水未干时进行，以保持新鲜度。",
+            "analysis": "现代采茶更注重标准化和效率，使用专业茶剪，而宋代则主要靠手工采摘，更强调时辰与节气的配合。"
+        },
+        {
+            "step": 2,
+            "name": "蒸青",
+            "duration": "约半个时辰",
+            "tool": "蒸笼、火灶",
+            "source": "《大观茶论》",
+            "ancient_text": "既莫论燔煮蒸，蒸之中火候，既蒸讫，宜急覆以帛，收其香也。",
+            "details": "将鲜叶放入蒸笼中，用文火蒸制，使叶色变青，破坏酶的活性，防止发酵。蒸后立即覆盖保持香气。",
+            "analysis": "宋代特别讲究火候掌握，而现代多使用机械化蒸青设备，温度湿度更精确可控。"
+        },
+        {
+            "step": 3,
+            "name": "研膏",
+            "duration": "数个时辰",
+            "tool": "石臼、木杵",
+            "source": "《茶录》",
+            "ancient_text": "捣之既烂，复蒸之，蒸之既热，复捣之，凡七蒸七捣，色与膏并进。",
+            "details": "蒸青后的茶叶在石臼中用木杵捣烂，形成茶膏，需经过七蒸七捣的过程，使茶叶充分软化。",
+            "analysis": "此工序是宋代团茶的独特工艺，现代绿茶工艺已基本不使用此法，而以揉捻取代。"
+        },
+        {
+            "step": 4,
+            "name": "印模",
+            "duration": "约一个时辰",
+            "tool": "龙凤茶模、茶印",
+            "source": "《东溪试茶录》",
+            "ancient_text": "既捣既蒸，又复研之使细，然后入以茶模，印以龙凤花草之形。",
+            "details": "将茶膏置于精美的茶模中，压制成各种图案，如龙凤、花草等形状，制成饼状团茶。",
+            "analysis": "宋代团茶的艺术性极高，视为艺术品，而现代多为散茶，即使压制成饼也多为实用功能考量。"
+        },
+        {
+            "step": 5,
+            "name": "焙干",
+            "duration": "三至五日",
+            "tool": "炭火、焙笼",
+            "source": "《宣和北苑贡茶录》",
+            "ancient_text": "既以龙凤印成，慢火焙之，三日五日，视其干湿而已。",
+            "details": "将成型的团茶放入焙笼，用文火慢慢烘焙，根据干湿程度调整时间，直至完全干燥。",
+            "analysis": "宋代焙火技术讲究\"文火慢焙\"，现代则多用机械烘干，温度控制更精准但少了手工艺术感。"
+        }
+    ]
+    
+    return render_template('production_process.html', process=tea_process, user_name=session.get('name'))
 
 
 @app.route('/culture_spread')
@@ -253,8 +309,15 @@ def culture_spread():
 def production_area():
     if 'name' not in session:
         return render_template('login.html')
-
-    return render_template('production_area.html', user_name=session.get('name'))
+    
+    data = load_data()
+    if data is None or 'historical_tea_areas' not in data:
+        logger.error("无法加载历史茶叶产区数据")
+        return render_template('500.html'), 500
+        
+    return render_template('production_area.html', 
+                          tea_areas_data=data['historical_tea_areas'], 
+                          user_name=session.get('name'))
 
 
 @app.route('/tea_policy')
