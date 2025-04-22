@@ -22,6 +22,9 @@
     </div>
 </div>
 
+<!-- 引入茶叶滚动效果脚本 -->
+<script src="{{ url_for('static', filename='js/tea-scroll.js') }}"></script>
+
 <style>
 .historical-price {
     display: flex;
@@ -84,6 +87,26 @@
     gap: 15px;
     margin-bottom: 30px; /* 增加行间距 */
     flex-wrap: nowrap; /* 防止换行 */
+    overflow-x: hidden; /* 隐藏溢出部分 */
+    position: relative; /* 为动画添加定位 */
+}
+
+/* 茶叶砖块滚动容器 */
+.tea-brick-container {
+    display: flex;
+    gap: 15px;
+    min-width: 100%;
+    animation: scrollBricks 30s linear infinite;
+}
+
+/* 为茶叶砖块添加动画效果 */
+@keyframes scrollBricks {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.dynasty-row:hover .tea-brick-container {
+    animation-play-state: paused; /* 鼠标悬停时暂停动画 */
 }
 
 /* 给最后一行取消底部间距 */
@@ -418,8 +441,8 @@
             dynastyGroups[item.dynasty].push(item);
         });
         
-        // 按朝代顺序排列：唐、宋、元、明、清
-        const dynastyOrder = ['唐', '宋', '元', '明', '清'];
+        // 按朝代顺序排列：汉、唐、宋、元、明、清
+        const dynastyOrder = ['汉', '唐', '宋', '元', '明', '清'];
         
         // 为每个朝代创建砖块行
         dynastyOrder.forEach(dynasty => {
@@ -437,12 +460,24 @@
                 const row = document.createElement('div');
                 row.className = 'dynasty-row';
                 
-                // 添加砖块
+                // 创建滚动容器
+                const scrollContainer = document.createElement('div');
+                scrollContainer.className = 'tea-brick-container';
+                
+                // 添加砖块到滚动容器
                 sortedItems.forEach(item => {
                     const brick = createTeaBrick(item);
-                    row.appendChild(brick);
+                    scrollContainer.appendChild(brick);
                 });
                 
+                // 复制茶砖用于无缝循环滚动
+                sortedItems.forEach(item => {
+                    const brickCopy = createTeaBrick(item);
+                    scrollContainer.appendChild(brickCopy);
+                });
+                
+                // 将滚动容器添加到行
+                row.appendChild(scrollContainer);
                 brickContainer.appendChild(row);
             }
         });
@@ -585,7 +620,7 @@
     var chart = echarts.init(document.getElementById('priceChart'));
     var option = {
         title: {
-            text: '历代茶叶官价变化（唐-清）',
+            text: '历代茶叶官价变化（汉-清）',
             textStyle: { fontFamily: "'衡山毛笔行书', 'Calligraphy', serif", color: '#8B4513' },
             left: 'left',  // 左对齐与下方内容保持一致
             top: 0,        // 调整顶部距离

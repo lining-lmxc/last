@@ -15,7 +15,7 @@ app.secret_key = os.urandom(24)
 # MySQL配置
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '0909llll..'
+app.config['MYSQL_PASSWORD'] = '991016'
 app.config['MYSQL_DB'] = 'user_imformation'
 mysql = MySQL(app)
 
