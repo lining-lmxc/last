@@ -12284,3 +12284,440 @@ with app.app_context(). See the documentation for more information.
 2025-04-28 16:26:23,340 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 2025-04-28 16:26:23,342 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:26:23] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
 2025-04-28 16:26:23,343 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:26:23] "[33mGET /static/images/tea_horse_road_bg.jpg HTTP/1.1[0m" 404 -
+2025-04-28 16:47:15,080 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-28 16:47:15,080 - __main__ - INFO - Ó¦ÓÃÆô¶¯Ê±Ô¤¼ÓÔØÊý¾Ý
+2025-04-28 16:53:24,043 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-28 16:53:24,044 - __main__ - INFO - Ó¦ÓÃÆô¶¯Ê±Ô¤¼ÓÔØÊý¾Ý
+2025-04-28 16:58:35,835 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-28 16:58:35,835 - __main__ - INFO - Ó¦ÓÃÆô¶¯Ê±Ô¤¼ÓÔØÊý¾Ý
+2025-04-28 17:06:40,645 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-28 17:06:40,645 - __main__ - INFO - Ó¦ÓÃÆô¶¯Ê±Ô¤¼ÓÔØÊý¾Ý
+2025-04-28 17:16:41,919 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-28 17:16:41,919 - __main__ - INFO - Êý¾Ý¿â±í´´½¨/¼ì²éÍê³É
+2025-04-28 17:16:41,919 - __main__ - INFO - ×¼±¸Ô¤¼ÓÔØÊý¾Ý...
+2025-04-28 17:16:41,919 - __main__ - INFO - ¿ªÊ¼Ô¤¼ÓÔØÊý¾Ý
+2025-04-28 17:16:41,919 - __main__ - INFO - ¼ÓÔØÊý¾Ý¿ªÊ¼...
+2025-04-28 17:16:41,919 - __main__ - DEBUG - Êý¾ÝÄ¿Â¼: E:\desktop\ÏîÄ¿\data, ÊÇ·ñ´æÔÚ: True
+2025-04-28 17:16:41,919 - __main__ - DEBUG - ¼ÓÔØÀúÊ·¼Û¸ñÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_prices.csv
+2025-04-28 17:16:41,921 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý: 85Ìõ¼ÇÂ¼
+2025-04-28 17:16:41,921 - __main__ - DEBUG - ¼ÓÔØ²èµÀÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_routes.json
+2025-04-28 17:16:41,921 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý: 4¸ö½Úµã
+2025-04-28 17:16:41,921 - __main__ - DEBUG - ¼ÓÔØÎÄ»¯´«²¥Êý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\culture_spread.json
+2025-04-28 17:16:41,921 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-28 17:16:41,921 - __main__ - DEBUG - ¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\song_tea_production.csv
+2025-04-28 17:16:41,921 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý: 4Ìõ¼ÇÂ¼
+2025-04-28 17:16:41,921 - __main__ - DEBUG - ¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_process.json
+2025-04-28 17:16:41,921 - __main__ - INFO - ³É¹¦¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾Ý: 5¸ö¹¤Ðò
+2025-04-28 17:16:41,926 - __main__ - DEBUG - ¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_tea_areas.json
+2025-04-28 17:16:41,926 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾Ý: 6¸ö³¯´ú
+2025-04-28 17:16:41,926 - __main__ - INFO - ËùÓÐÊý¾Ý¼ÓÔØÍê³É
+2025-04-28 17:16:41,926 - __main__ - INFO - Êý¾ÝÔ¤¼ÓÔØ³É¹¦
+2025-04-28 17:16:41,926 - __main__ - INFO - Ô¤¼ÓÔØÊý¾ÝÍê³É£¬×¼±¸Æô¶¯Ó¦ÓÃ
+2025-04-28 17:16:41,926 - __main__ - INFO - Ó¦ÓÃÆô¶¯ÖÐ£¬¼àÌý¶Ë¿Ú9000...
+2025-04-28 17:16:41,942 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:9000
+2025-04-28 17:16:41,942 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-28 17:16:41,948 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-28 17:16:42,747 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-28 17:16:42,747 - __main__ - INFO - Êý¾Ý¿â±í´´½¨/¼ì²éÍê³É
+2025-04-28 17:16:42,747 - __main__ - INFO - ×¼±¸Ô¤¼ÓÔØÊý¾Ý...
+2025-04-28 17:16:42,747 - __main__ - INFO - ¿ªÊ¼Ô¤¼ÓÔØÊý¾Ý
+2025-04-28 17:16:42,747 - __main__ - INFO - ¼ÓÔØÊý¾Ý¿ªÊ¼...
+2025-04-28 17:16:42,747 - __main__ - DEBUG - Êý¾ÝÄ¿Â¼: E:\desktop\ÏîÄ¿\data, ÊÇ·ñ´æÔÚ: True
+2025-04-28 17:16:42,747 - __main__ - DEBUG - ¼ÓÔØÀúÊ·¼Û¸ñÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_prices.csv
+2025-04-28 17:16:42,753 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý: 85Ìõ¼ÇÂ¼
+2025-04-28 17:16:42,753 - __main__ - DEBUG - ¼ÓÔØ²èµÀÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_routes.json
+2025-04-28 17:16:42,753 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý: 4¸ö½Úµã
+2025-04-28 17:16:42,753 - __main__ - DEBUG - ¼ÓÔØÎÄ»¯´«²¥Êý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\culture_spread.json
+2025-04-28 17:16:42,753 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-28 17:16:42,753 - __main__ - DEBUG - ¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\song_tea_production.csv
+2025-04-28 17:16:42,753 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý: 4Ìõ¼ÇÂ¼
+2025-04-28 17:16:42,753 - __main__ - DEBUG - ¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_process.json
+2025-04-28 17:16:42,753 - __main__ - INFO - ³É¹¦¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾Ý: 5¸ö¹¤Ðò
+2025-04-28 17:16:42,753 - __main__ - DEBUG - ¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_tea_areas.json
+2025-04-28 17:16:42,753 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾Ý: 6¸ö³¯´ú
+2025-04-28 17:16:42,753 - __main__ - INFO - ËùÓÐÊý¾Ý¼ÓÔØÍê³É
+2025-04-28 17:16:42,753 - __main__ - INFO - Êý¾ÝÔ¤¼ÓÔØ³É¹¦
+2025-04-28 17:16:42,753 - __main__ - INFO - Ô¤¼ÓÔØÊý¾ÝÍê³É£¬×¼±¸Æô¶¯Ó¦ÓÃ
+2025-04-28 17:16:42,753 - __main__ - INFO - Ó¦ÓÃÆô¶¯ÖÐ£¬¼àÌý¶Ë¿Ú9000...
+2025-04-28 17:16:42,773 - werkzeug - WARNING -  * Debugger is active!
+2025-04-28 17:16:42,779 - werkzeug - INFO -  * Debugger PIN: 113-195-501
+2025-04-28 17:17:30,697 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:30] "GET /login HTTP/1.1" 200 -
+2025-04-28 17:17:36,221 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:36] "GET / HTTP/1.1" 200 -
+2025-04-28 17:17:36,602 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:36] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:17:36,914 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:36] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:17:37,037 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-28 17:17:37,041 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-28 17:17:37,642 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:37] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:17:37,645 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:37] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:17:40,110 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:40] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-28 17:17:40,120 - __main__ - INFO - Ê¹ÓÃ»º´æÊý¾Ý
+2025-04-28 17:17:40,128 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:40] "GET / HTTP/1.1" 200 -
+2025-04-28 17:17:40,162 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:40] "GET /static/css/song_style.css HTTP/1.1" 200 -
+2025-04-28 17:17:40,163 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:40] "GET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1" 200 -
+2025-04-28 17:17:40,166 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:40] "GET /static/js/echarts.min.js HTTP/1.1" 200 -
+2025-04-28 17:17:40,171 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:40] "GET /static/js/world.js HTTP/1.1" 200 -
+2025-04-28 17:17:40,171 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:40] "GET /static/images/seal.png HTTP/1.1" 200 -
+2025-04-28 17:17:40,172 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:40] "GET /static/js/tea-scroll.js HTTP/1.1" 200 -
+2025-04-28 17:17:40,404 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:40] "GET /static/images/tea_pattern.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:40,459 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:40] "GET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1" 200 -
+2025-04-28 17:17:44,427 - __main__ - INFO - Ê¹ÓÃ»º´æÊý¾Ý
+2025-04-28 17:17:44,443 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /trade_flow HTTP/1.1" 200 -
+2025-04-28 17:17:44,481 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:17:44,482 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-28 17:17:44,483 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-28 17:17:44,488 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-28 17:17:44,491 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-28 17:17:44,491 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/wencheng.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,549 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/tea_license.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,550 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/tea_horse_caravan.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,558 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/kangding.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,573 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/tea_routes_map.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,581 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/yaan.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,587 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/lijiang.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,597 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/lhasa.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,609 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/tea_brick.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,622 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/salt.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,630 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/silk.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,636 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/horse.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,644 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/medicine.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,650 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/gold.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,655 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-28 17:17:44,655 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "[33mGET /static/images/trade_chart.jpg HTTP/1.1[0m" 404 -
+2025-04-28 17:17:44,660 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-28 17:17:44,666 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "[33mGET /static/images/caravan_video.jpg HTTP/1.1[0m" 404 -
+2025-04-28 17:17:44,672 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/puer_making.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,678 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/tibetan_silver.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,683 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/tea_horse_song.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,693 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/tea_license_relic.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,703 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/horse_saddle.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,709 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/shop_sign.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,715 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "GET /static/images/tea_scales.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:44,719 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:17:44,721 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-28 17:17:44,724 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:17:44,725 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:44] "[33mGET /static/images/tea_horse_road_bg.jpg HTTP/1.1[0m" 404 -
+2025-04-28 17:17:47,714 - __main__ - INFO - Ê¹ÓÃ»º´æÊý¾Ý
+2025-04-28 17:17:47,726 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:47] "GET /song_production HTTP/1.1" 200 -
+2025-04-28 17:17:47,755 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:47] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:17:47,756 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:47] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-28 17:17:47,758 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:47] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-28 17:17:47,760 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:47] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-28 17:17:47,762 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:47] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-28 17:17:48,016 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:48] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:17:48,018 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:48] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:17:48,041 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:48] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:17:48,081 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:48] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:17:48,168 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:48] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:17:48,168 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:48] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:17:51,417 - __main__ - INFO - Ê¹ÓÃ»º´æÊý¾Ý
+2025-04-28 17:17:51,418 - __main__ - INFO - ·µ»ØÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å
+2025-04-28 17:17:51,443 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-28 17:17:51,474 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:17:51,478 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-28 17:17:51,479 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-28 17:17:51,479 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-28 17:17:51,484 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-28 17:17:51,487 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/tang_fenglu.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,539 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/tang_fu.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,539 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/tang_chanian.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,548 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/tang_chaluo.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,555 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/tang_cuogui.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,563 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/tang_chawan.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,567 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/tang_chatuo.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,577 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/song_chaxian.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,585 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/song_jianzhan.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,592 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/song_tangping.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,599 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/song_chanian.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,607 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/song_chalong.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,614 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/song_chachi.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,621 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/yuan_qinghuacihu.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,628 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/yuan_gaozubei.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,633 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/yuan_chanian.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,642 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/yuan_chajiu.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,650 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/yuan_chalong.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,654 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/yuan_chaguan.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,659 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/ming_zishahu.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,670 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/ming_cihu.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,675 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/ming_chabei.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,681 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/ming_chazhan.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,685 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/qing_gaiwan.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,695 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/qing_zishamingjiahu.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,704 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/qing_falangcaichaju.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,710 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/qing_cizhichaju.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,716 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/qing_tongtaihuafalang.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,724 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/teaware/qing_biyanhushichaguan.jpg HTTP/1.1" 200 -
+2025-04-28 17:17:51,737 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:51] "GET /static/images/map_back.png HTTP/1.1" 200 -
+2025-04-28 17:17:54,308 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:54] "GET /tea_policy HTTP/1.1" 200 -
+2025-04-28 17:17:54,339 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:54] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:17:54,347 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:54] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-28 17:17:54,348 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:54] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-28 17:17:54,348 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:54] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-28 17:17:54,349 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:54] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-28 17:17:54,585 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-28 17:17:54,586 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:54] "[33mGET /static/images/titleioc.png HTTP/1.1[0m" 404 -
+2025-04-28 17:17:54,621 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:54] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:17:54,654 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:54] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:17:55,317 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:55] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:17:55,324 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:17:55] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:18:56,846 - werkzeug - INFO -  * Detected change in 'E:\\desktop\\ÏîÄ¿\\app.py', reloading
+2025-04-28 17:18:56,847 - werkzeug - INFO -  * Detected change in 'E:\\desktop\\ÏîÄ¿\\app.py', reloading
+2025-04-28 17:18:57,221 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-28 17:18:57,935 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-28 17:18:57,935 - __main__ - INFO - Êý¾Ý¿â±í´´½¨/¼ì²éÍê³É
+2025-04-28 17:18:57,935 - __main__ - INFO - ×¼±¸Ô¤¼ÓÔØÊý¾Ý...
+2025-04-28 17:18:57,935 - __main__ - INFO - ¿ªÊ¼Ô¤¼ÓÔØÊý¾Ý
+2025-04-28 17:18:57,935 - __main__ - INFO - ¼ÓÔØÊý¾Ý¿ªÊ¼...
+2025-04-28 17:18:57,936 - __main__ - DEBUG - Êý¾ÝÄ¿Â¼: E:\desktop\ÏîÄ¿\data, ÊÇ·ñ´æÔÚ: True
+2025-04-28 17:18:57,936 - __main__ - DEBUG - ¼ÓÔØÀúÊ·¼Û¸ñÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_prices.csv
+2025-04-28 17:18:57,939 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý: 85Ìõ¼ÇÂ¼
+2025-04-28 17:18:57,939 - __main__ - DEBUG - ¼ÓÔØ²èµÀÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_routes.json
+2025-04-28 17:18:57,939 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý: 4¸ö½Úµã
+2025-04-28 17:18:57,939 - __main__ - DEBUG - ¼ÓÔØÎÄ»¯´«²¥Êý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\culture_spread.json
+2025-04-28 17:18:57,940 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-28 17:18:57,940 - __main__ - DEBUG - ¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\song_tea_production.csv
+2025-04-28 17:18:57,941 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý: 4Ìõ¼ÇÂ¼
+2025-04-28 17:18:57,941 - __main__ - DEBUG - ¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_process.json
+2025-04-28 17:18:57,941 - __main__ - INFO - ³É¹¦¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾Ý: 5¸ö¹¤Ðò
+2025-04-28 17:18:57,942 - __main__ - DEBUG - ¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_tea_areas.json
+2025-04-28 17:18:57,942 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾Ý: 6¸ö³¯´ú
+2025-04-28 17:18:57,942 - __main__ - INFO - ËùÓÐÊý¾Ý¼ÓÔØÍê³É
+2025-04-28 17:18:57,942 - __main__ - INFO - Êý¾ÝÔ¤¼ÓÔØ³É¹¦
+2025-04-28 17:18:57,942 - __main__ - INFO - Ô¤¼ÓÔØÊý¾ÝÍê³É£¬×¼±¸Æô¶¯Ó¦ÓÃ
+2025-04-28 17:18:57,942 - __main__ - INFO - Ó¦ÓÃÆô¶¯ÖÐ£¬¼àÌý¶Ë¿Ú9000...
+2025-04-28 17:18:57,956 - werkzeug - WARNING -  * Debugger is active!
+2025-04-28 17:18:57,959 - werkzeug - INFO -  * Debugger PIN: 113-195-501
+2025-04-28 17:19:46,381 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-28 17:19:46,381 - __main__ - INFO - Êý¾Ý¿â±í´´½¨/¼ì²éÍê³É
+2025-04-28 17:19:46,381 - __main__ - INFO - ×¼±¸Ô¤¼ÓÔØÊý¾Ý...
+2025-04-28 17:19:46,381 - __main__ - INFO - ¿ªÊ¼Ô¤¼ÓÔØÊý¾Ý
+2025-04-28 17:19:46,382 - __main__ - INFO - ¼ÓÔØÊý¾Ý¿ªÊ¼...
+2025-04-28 17:19:46,382 - __main__ - DEBUG - Êý¾ÝÄ¿Â¼: E:\desktop\ÏîÄ¿\data, ÊÇ·ñ´æÔÚ: True
+2025-04-28 17:19:46,382 - __main__ - DEBUG - ¼ÓÔØÀúÊ·¼Û¸ñÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_prices.csv
+2025-04-28 17:19:46,384 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý: 85Ìõ¼ÇÂ¼
+2025-04-28 17:19:46,384 - __main__ - DEBUG - ¼ÓÔØ²èµÀÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_routes.json
+2025-04-28 17:19:46,384 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý: 4¸ö½Úµã
+2025-04-28 17:19:46,384 - __main__ - DEBUG - ¼ÓÔØÎÄ»¯´«²¥Êý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\culture_spread.json
+2025-04-28 17:19:46,384 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-28 17:19:46,384 - __main__ - DEBUG - ¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\song_tea_production.csv
+2025-04-28 17:19:46,386 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý: 4Ìõ¼ÇÂ¼
+2025-04-28 17:19:46,386 - __main__ - DEBUG - ¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_process.json
+2025-04-28 17:19:46,386 - __main__ - INFO - ³É¹¦¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾Ý: 5¸ö¹¤Ðò
+2025-04-28 17:19:46,386 - __main__ - DEBUG - ¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_tea_areas.json
+2025-04-28 17:19:46,386 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾Ý: 6¸ö³¯´ú
+2025-04-28 17:19:46,386 - __main__ - INFO - ËùÓÐÊý¾Ý¼ÓÔØÍê³É
+2025-04-28 17:19:46,386 - __main__ - INFO - Êý¾ÝÔ¤¼ÓÔØ³É¹¦
+2025-04-28 17:19:46,386 - __main__ - INFO - Ô¤¼ÓÔØÊý¾ÝÍê³É£¬×¼±¸Æô¶¯Ó¦ÓÃ
+2025-04-28 17:19:46,386 - __main__ - INFO - Ó¦ÓÃÆô¶¯ÖÐ£¬¼àÌý¶Ë¿Ú9000...
+2025-04-28 17:19:46,401 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:9000
+2025-04-28 17:19:46,401 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-28 17:19:46,406 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-28 17:19:47,272 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-28 17:19:47,272 - __main__ - INFO - Êý¾Ý¿â±í´´½¨/¼ì²éÍê³É
+2025-04-28 17:19:47,272 - __main__ - INFO - ×¼±¸Ô¤¼ÓÔØÊý¾Ý...
+2025-04-28 17:19:47,272 - __main__ - INFO - ¿ªÊ¼Ô¤¼ÓÔØÊý¾Ý
+2025-04-28 17:19:47,273 - __main__ - INFO - ¼ÓÔØÊý¾Ý¿ªÊ¼...
+2025-04-28 17:19:47,273 - __main__ - DEBUG - Êý¾ÝÄ¿Â¼: E:\desktop\ÏîÄ¿\data, ÊÇ·ñ´æÔÚ: True
+2025-04-28 17:19:47,273 - __main__ - DEBUG - ¼ÓÔØÀúÊ·¼Û¸ñÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_prices.csv
+2025-04-28 17:19:47,275 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý: 85Ìõ¼ÇÂ¼
+2025-04-28 17:19:47,276 - __main__ - DEBUG - ¼ÓÔØ²èµÀÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_routes.json
+2025-04-28 17:19:47,276 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý: 4¸ö½Úµã
+2025-04-28 17:19:47,276 - __main__ - DEBUG - ¼ÓÔØÎÄ»¯´«²¥Êý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\culture_spread.json
+2025-04-28 17:19:47,276 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-28 17:19:47,276 - __main__ - DEBUG - ¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\song_tea_production.csv
+2025-04-28 17:19:47,277 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý: 4Ìõ¼ÇÂ¼
+2025-04-28 17:19:47,278 - __main__ - DEBUG - ¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_process.json
+2025-04-28 17:19:47,278 - __main__ - INFO - ³É¹¦¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾Ý: 5¸ö¹¤Ðò
+2025-04-28 17:19:47,278 - __main__ - DEBUG - ¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_tea_areas.json
+2025-04-28 17:19:47,278 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾Ý: 6¸ö³¯´ú
+2025-04-28 17:19:47,278 - __main__ - INFO - ËùÓÐÊý¾Ý¼ÓÔØÍê³É
+2025-04-28 17:19:47,278 - __main__ - INFO - Êý¾ÝÔ¤¼ÓÔØ³É¹¦
+2025-04-28 17:19:47,278 - __main__ - INFO - Ô¤¼ÓÔØÊý¾ÝÍê³É£¬×¼±¸Æô¶¯Ó¦ÓÃ
+2025-04-28 17:19:47,278 - __main__ - INFO - Ó¦ÓÃÆô¶¯ÖÐ£¬¼àÌý¶Ë¿Ú9000...
+2025-04-28 17:19:47,293 - werkzeug - WARNING -  * Debugger is active!
+2025-04-28 17:19:47,297 - werkzeug - INFO -  * Debugger PIN: 113-195-501
+2025-04-28 17:19:57,220 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:19:57] "GET / HTTP/1.1" 200 -
+2025-04-28 17:19:57,587 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:19:57] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:19:57,887 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:19:57] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:19:58,615 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:19:58] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:19:58,617 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:19:58] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:00,698 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:00] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-28 17:20:00,705 - __main__ - INFO - Ê¹ÓÃ»º´æÊý¾Ý
+2025-04-28 17:20:00,711 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:00] "GET / HTTP/1.1" 200 -
+2025-04-28 17:20:00,736 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:00] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:20:00,737 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:00] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-28 17:20:00,740 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:00] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:00,741 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:00] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:00,743 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:00] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-28 17:20:00,743 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:00] "[36mGET /static/js/tea-scroll.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:04,744 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:04] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:04,798 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:04] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:20:04,894 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:04] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:16,070 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-28 17:20:16,070 - __main__ - INFO - Êý¾Ý¿â±í´´½¨/¼ì²éÍê³É
+2025-04-28 17:20:16,070 - __main__ - INFO - ×¼±¸Ô¤¼ÓÔØÊý¾Ý...
+2025-04-28 17:20:16,070 - __main__ - INFO - ¿ªÊ¼Ô¤¼ÓÔØÊý¾Ý
+2025-04-28 17:20:16,070 - __main__ - INFO - ¼ÓÔØÊý¾Ý¿ªÊ¼...
+2025-04-28 17:20:16,070 - __main__ - DEBUG - Êý¾ÝÄ¿Â¼: E:\desktop\ÏîÄ¿\data, ÊÇ·ñ´æÔÚ: True
+2025-04-28 17:20:16,070 - __main__ - DEBUG - ¼ÓÔØÀúÊ·¼Û¸ñÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_prices.csv
+2025-04-28 17:20:16,072 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý: 85Ìõ¼ÇÂ¼
+2025-04-28 17:20:16,072 - __main__ - DEBUG - ¼ÓÔØ²èµÀÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_routes.json
+2025-04-28 17:20:16,072 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý: 4¸ö½Úµã
+2025-04-28 17:20:16,072 - __main__ - DEBUG - ¼ÓÔØÎÄ»¯´«²¥Êý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\culture_spread.json
+2025-04-28 17:20:16,074 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-28 17:20:16,074 - __main__ - DEBUG - ¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\song_tea_production.csv
+2025-04-28 17:20:16,075 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý: 4Ìõ¼ÇÂ¼
+2025-04-28 17:20:16,075 - __main__ - DEBUG - ¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_process.json
+2025-04-28 17:20:16,075 - __main__ - INFO - ³É¹¦¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾Ý: 5¸ö¹¤Ðò
+2025-04-28 17:20:16,075 - __main__ - DEBUG - ¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_tea_areas.json
+2025-04-28 17:20:16,076 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾Ý: 6¸ö³¯´ú
+2025-04-28 17:20:16,076 - __main__ - INFO - ËùÓÐÊý¾Ý¼ÓÔØÍê³É
+2025-04-28 17:20:16,076 - __main__ - INFO - Êý¾ÝÔ¤¼ÓÔØ³É¹¦
+2025-04-28 17:20:16,076 - __main__ - INFO - Ô¤¼ÓÔØÊý¾ÝÍê³É£¬×¼±¸Æô¶¯Ó¦ÓÃ
+2025-04-28 17:20:16,076 - __main__ - INFO - Ó¦ÓÃÆô¶¯ÖÐ£¬¼àÌý¶Ë¿Ú9000...
+2025-04-28 17:20:16,089 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:9000
+2025-04-28 17:20:16,089 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-28 17:20:16,095 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-28 17:20:16,911 - __main__ - INFO - Êý¾Ý¿â±í´´½¨³É¹¦
+2025-04-28 17:20:16,911 - __main__ - INFO - Êý¾Ý¿â±í´´½¨/¼ì²éÍê³É
+2025-04-28 17:20:16,911 - __main__ - INFO - ×¼±¸Ô¤¼ÓÔØÊý¾Ý...
+2025-04-28 17:20:16,911 - __main__ - INFO - ¿ªÊ¼Ô¤¼ÓÔØÊý¾Ý
+2025-04-28 17:20:16,911 - __main__ - INFO - ¼ÓÔØÊý¾Ý¿ªÊ¼...
+2025-04-28 17:20:16,911 - __main__ - DEBUG - Êý¾ÝÄ¿Â¼: E:\desktop\ÏîÄ¿\data, ÊÇ·ñ´æÔÚ: True
+2025-04-28 17:20:16,911 - __main__ - DEBUG - ¼ÓÔØÀúÊ·¼Û¸ñÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_prices.csv
+2025-04-28 17:20:16,914 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊý¾Ý: 85Ìõ¼ÇÂ¼
+2025-04-28 17:20:16,914 - __main__ - DEBUG - ¼ÓÔØ²èµÀÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_routes.json
+2025-04-28 17:20:16,914 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊý¾Ý: 4¸ö½Úµã
+2025-04-28 17:20:16,914 - __main__ - DEBUG - ¼ÓÔØÎÄ»¯´«²¥Êý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\culture_spread.json
+2025-04-28 17:20:16,914 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êý¾Ý£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-04-28 17:20:16,914 - __main__ - DEBUG - ¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\song_tea_production.csv
+2025-04-28 17:20:16,916 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊý¾Ý: 4Ìõ¼ÇÂ¼
+2025-04-28 17:20:16,916 - __main__ - DEBUG - ¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\tea_process.json
+2025-04-28 17:20:16,916 - __main__ - INFO - ³É¹¦¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊý¾Ý: 5¸ö¹¤Ðò
+2025-04-28 17:20:16,916 - __main__ - DEBUG - ¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾ÝÎÄ¼þ: E:\desktop\ÏîÄ¿\data\historical_tea_areas.json
+2025-04-28 17:20:16,916 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·²èÒ¶²úÇøÊý¾Ý: 6¸ö³¯´ú
+2025-04-28 17:20:16,916 - __main__ - INFO - ËùÓÐÊý¾Ý¼ÓÔØÍê³É
+2025-04-28 17:20:16,916 - __main__ - INFO - Êý¾ÝÔ¤¼ÓÔØ³É¹¦
+2025-04-28 17:20:16,916 - __main__ - INFO - Ô¤¼ÓÔØÊý¾ÝÍê³É£¬×¼±¸Æô¶¯Ó¦ÓÃ
+2025-04-28 17:20:16,917 - __main__ - INFO - Ó¦ÓÃÆô¶¯ÖÐ£¬¼àÌý¶Ë¿Ú9000...
+2025-04-28 17:20:16,929 - werkzeug - WARNING -  * Debugger is active!
+2025-04-28 17:20:16,931 - werkzeug - INFO -  * Debugger PIN: 113-195-501
+2025-04-28 17:20:18,563 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:18] "GET / HTTP/1.1" 200 -
+2025-04-28 17:20:18,973 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:18] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:19,322 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:19] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:20,035 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:20] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:21,850 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:21] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-28 17:20:21,858 - __main__ - INFO - Ê¹ÓÃ»º´æÊý¾Ý
+2025-04-28 17:20:21,864 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:21] "GET / HTTP/1.1" 200 -
+2025-04-28 17:20:21,888 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:21] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:20:21,890 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:21] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-28 17:20:21,892 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:21] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:21,894 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:21] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:21,895 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:21] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-28 17:20:21,897 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:21] "[36mGET /static/js/tea-scroll.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:22,119 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:22] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:22,178 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:22] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,600 - __main__ - INFO - Ê¹ÓÃ»º´æÊý¾Ý
+2025-04-28 17:20:27,616 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "GET /trade_flow HTTP/1.1" 200 -
+2025-04-28 17:20:27,648 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,650 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,650 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,653 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,654 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,656 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/wencheng.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,711 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/tea_license.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,716 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/tea_horse_caravan.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,716 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/kangding.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,735 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/tea_routes_map.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,737 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/yaan.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,742 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/lijiang.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,742 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/lhasa.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,752 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/tea_brick.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,759 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/salt.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,765 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/silk.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,767 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/horse.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,772 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/medicine.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,777 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/gold.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,786 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-28 17:20:27,788 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[33mGET /static/images/trade_chart.jpg HTTP/1.1[0m" 404 -
+2025-04-28 17:20:27,793 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-28 17:20:27,794 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[33mGET /static/images/caravan_video.jpg HTTP/1.1[0m" 404 -
+2025-04-28 17:20:27,800 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/puer_making.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,806 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/tibetan_silver.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,812 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/tea_horse_song.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,815 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/tea_license_relic.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,832 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/horse_saddle.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,840 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/shop_sign.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,846 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/tea_scales.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,902 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-28 17:20:27,903 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,904 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:20:27,904 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:27] "[33mGET /static/images/tea_horse_road_bg.jpg HTTP/1.1[0m" 404 -
+2025-04-28 17:20:37,296 - __main__ - INFO - Ê¹ÓÃ»º´æÊý¾Ý
+2025-04-28 17:20:37,306 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "GET /song_production HTTP/1.1" 200 -
+2025-04-28 17:20:37,332 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:20:37,333 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-28 17:20:37,335 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:37,337 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:37,337 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-28 17:20:37,567 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:20:37,567 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:37,593 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:37,638 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:37,700 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:37,706 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:37,724 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:37] "[35m[1mGET /static/videos/tea_process_intro.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:38,633 - __main__ - INFO - Ê¹ÓÃ»º´æÊý¾Ý
+2025-04-28 17:20:38,633 - __main__ - INFO - ·µ»ØÎÄ»¯´«²¥Êý¾Ýµ½Ä£°å
+2025-04-28 17:20:38,658 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "GET /culture_spread HTTP/1.1" 200 -
+2025-04-28 17:20:38,691 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,693 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,696 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,697 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,698 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,701 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/tang_fenglu.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,757 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/tang_fu.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,757 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/tang_chanian.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,769 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/tang_chaluo.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,773 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/tang_cuogui.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,780 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/tang_chawan.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,787 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/tang_chatuo.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,792 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/song_chaxian.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,798 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/song_jianzhan.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,802 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/song_tangping.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,807 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/song_chanian.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,810 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/song_chalong.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,816 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/song_chachi.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,823 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/yuan_qinghuacihu.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,827 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/yuan_gaozubei.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,833 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/yuan_chanian.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,838 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/yuan_chajiu.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,843 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/yuan_chalong.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,849 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/yuan_chaguan.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,852 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/ming_zishahu.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,861 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/ming_cihu.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,867 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/ming_chabei.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,870 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/ming_chazhan.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,876 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/qing_gaiwan.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,882 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/qing_zishamingjiahu.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,886 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/qing_falangcaichaju.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,891 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/qing_cizhichaju.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,894 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/qing_tongtaihuafalang.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,899 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/teaware/qing_biyanhushichaguan.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,923 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/tea_pattern.jpg HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,925 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/fonts/Èý¼«ÐÐ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:20:38,925 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:38] "[36mGET /static/images/map_back.png HTTP/1.1[0m" 304 -
+2025-04-28 17:20:39,501 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:39] "GET /tea_policy HTTP/1.1" 200 -
+2025-04-28 17:20:39,527 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:39] "[36mGET /static/fonts/ºâÉ½Ã«±ÊÐÐÊé.ttf HTTP/1.1[0m" 304 -
+2025-04-28 17:20:39,530 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:39] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-04-28 17:20:39,531 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:39] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:39,533 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:39] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-04-28 17:20:39,535 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:39] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-04-28 17:20:39,761 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-28 17:20:39,761 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:39] "[33mGET /static/images/titleioc.png HTTP/1.1[0m" 404 -
+2025-04-28 17:20:39,794 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:39] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:39,843 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:39] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:39,846 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:39] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-04-28 17:20:40,488 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:20:40] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
