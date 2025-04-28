@@ -1,78 +1,356 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="tea-horse-trade">
-    <h2>茶马互市与民族交往</h2>
-    <div class="trade-container">
-        <div class="trade-map">
-            <div class="trade-route">
-                <div class="route-title">茶马古道</div>
-                <div class="route-path">
-                    <div class="node" data-info="茶叶产地，贸易起点">云南</div>
-                    <div class="arrow">→</div>
-                    <div class="node" data-info="重要中转站，民族聚居地">大理</div>
-                    <div class="arrow">→</div>
-                    <div class="node" data-info="藏族聚居区，马匹产地">西藏</div>
-                    <div class="arrow">→</div>
-                    <div class="node" data-info="贸易终点，连接中亚">青海</div>
-                </div>
+<div class="tea-horse-road">
+    <!-- 首页/封面部分 -->
+    <div class="cover-section">
+        <div class="cover-content">
+            <h1 class="animated-title">茶马古道：跨越千年的汉藏文明之路</h1>
+            <div class="core-intro">
+                <p>始于唐代的茶马互市，横贯青藏高原的险峻商路，连接汉藏文明的贸易与文化纽带。</p>
+            </div>
+            <div class="scroll-down">
+                <a href="#main-content" class="scroll-arrow">
+                    <i class="arrow-icon">↓</i>
+                    <span>探索古道</span>
+                </a>
             </div>
         </div>
+    </div>
 
-        <div class="trade-history">
-            <div class="history-item">
-                <div class="era">唐代</div>
-                <div class="content">
-                    <p>设立茶马司，开始官方茶马贸易</p>
-                    <div class="source">《新唐书·食货志》："贞元中，吐蕃请茶，诏许之。"</div>
-                </div>
-            </div>
-            <div class="history-item">
-                <div class="era">宋代</div>
-                <div class="content">
-                    <p>茶马互市制度完善，设立榷场</p>
-                    <div class="source">《宋史·食货志》："凡茶之利，官得其七，商得其三。"</div>
-                </div>
-            </div>
-            <div class="history-item">
-                <div class="era">明代</div>
-                <div class="content">
-                    <p>茶马贸易达到鼎盛，形成固定路线</p>
-                    <div class="source">《明史·食货志》："茶马之政，所以驭番夷，制边陲。"</div>
-                </div>
-            </div>
+    <!-- 主导航栏 -->
+    <div class="main-navigation" id="main-content">
+        <div class="nav-container">
+            <a href="#history-section" class="nav-item">历史脉络</a>
+            <a href="#routes-section" class="nav-item">核心路线</a>
+            <a href="#trade-section" class="nav-item">贸易体系</a>
+            <a href="#heritage-section" class="nav-item">文化遗产</a>
+            <a href="#map-section" class="nav-item">互动地图</a>
         </div>
+    </div>
 
-        <div class="cultural-exchange">
-            <h3>文化交流</h3>
-            <div class="exchange-items">
-                <div class="exchange-item">
-                    <div class="title">茶马古道</div>
-                    <div class="description">
-                        <p>连接汉藏文化的重要通道</p>
-                        <p>促进民族融合与文化交流</p>
+    <!-- 历史沿革部分 -->
+    <section id="history-section" class="content-section">
+        <h2 class="section-title">历史脉络</h2>
+        <div class="timeline-container">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker tang-era"></div>
+                    <div class="timeline-content">
+                        <h3>唐代（起点）</h3>
+                        <p>文成公主入藏（641年）开创了汉藏文化交流先河</p>
+                        <div class="timeline-image">
+                            <img src="{{ url_for('static', filename='images/wencheng.jpg') }}" alt="文成公主进藏图">
+                        </div>
+                        <div class="ancient-text">
+                            <p>"贞元中，吐蕃请茶，诏许之。"——《新唐书·食货志》</p>
+                        </div>
                     </div>
                 </div>
-                <div class="exchange-item">
-                    <div class="title">贸易往来</div>
-                    <div class="description">
-                        <p>茶叶换取马匹，互通有无</p>
-                        <p>形成稳定的经济联系</p>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker song-era"></div>
+                    <div class="timeline-content">
+                        <h3>宋代（制度化）</h3>
+                        <p>宋代茶马司设立（1074年），茶马互市正式制度化</p>
+                        <div class="timeline-image">
+                            <img src="{{ url_for('static', filename='images/tea_license.jpg') }}" alt="茶引文物图">
+                        </div>
+                        <div class="ancient-text">
+                            <p>"设茶马司，以茶易马，岁得马三万匹。"——《宋史·食货志》</p>
+                        </div>
                     </div>
                 </div>
-                <div class="exchange-item">
-                    <div class="title">文化融合</div>
-                    <div class="description">
-                        <p>茶文化传播到少数民族地区</p>
-                        <p>形成独特的饮茶习俗</p>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker ming-era"></div>
+                    <div class="timeline-content">
+                        <h3>明清（鼎盛期）</h3>
+                        <p>万里茶道形成，茶马古道贸易达到历史顶峰</p>
+                        <div class="timeline-image">
+                            <img src="{{ url_for('static', filename='images/tea_horse_caravan.jpg') }}" alt="茶马古道马帮">
+                        </div>
+                        <div class="ancient-text">
+                            <p>"茶马之政，所以驭番夷，制边陲。"——《明史·食货志》</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker modern-era"></div>
+                    <div class="timeline-content">
+                        <h3>近代（衰落）</h3>
+                        <p>清代康定锅庄兴起，见证了茶马古道的繁华</p>
+                        <div class="timeline-image">
+                            <img src="{{ url_for('static', filename='images/kangding.jpg') }}" alt="1930年代康定街景">
+                        </div>
+                        <div class="ancient-text">
+                            <p>"康定锅庄起，千百年来商旅至。"——民国《康定县志》</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- 添加茶马古道智能问答区域 -->
-        <div class="tea-road-qa">
-            <h3>茶马古道智能问答</h3>
+    </section>
+
+    <!-- 核心路线部分 -->
+    <section id="routes-section" class="content-section">
+        <h2 class="section-title">核心路线与商埠</h2>
+        <div class="routes-container">
+            <div class="routes-map">
+                <div class="map-placeholder">
+                    <img src="{{ url_for('static', filename='images/tea_routes_map.jpg') }}" alt="茶马古道路线图">
+                    <div class="map-overlay">
+                        <div class="route-point" style="top: 35%; left: 20%;" data-city="雅安">
+                            <div class="point-dot"></div>
+                            <div class="point-name">雅安</div>
+                        </div>
+                        <div class="route-point" style="top: 45%; left: 35%;" data-city="康定">
+                            <div class="point-dot"></div>
+                            <div class="point-name">康定</div>
+                        </div>
+                        <div class="route-point" style="top: 60%; left: 25%;" data-city="丽江">
+                            <div class="point-dot"></div>
+                            <div class="point-name">丽江</div>
+                        </div>
+                        <div class="route-point" style="top: 30%; left: 70%;" data-city="拉萨">
+                            <div class="point-dot"></div>
+                            <div class="point-name">拉萨</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="key-points">
+                <div class="route-line">
+                    <div class="route-title">
+                        <span class="line-color" style="background-color: #8B4513;"></span>
+                        <h4>川藏线</h4>
+                    </div>
+                    <p>雅安-康定-巴塘-昌都-拉萨，茶马古道最重要的路线之一</p>
+                </div>
+                <div class="route-line">
+                    <div class="route-title">
+                        <span class="line-color" style="background-color: #228B22;"></span>
+                        <h4>滇藏线</h4>
+                    </div>
+                    <p>普洱-丽江-德钦-左贡-拉萨，茶文化交流的重要通道</p>
+                </div>
+                <div class="route-line">
+                    <div class="route-title">
+                        <span class="line-color" style="background-color: #4169E1;"></span>
+                        <h4>青藏线</h4>
+                    </div>
+                    <p>西宁-格尔木-那曲-拉萨，北方丝绸之路的延伸</p>
+                </div>
+            </div>
+            
+            <div class="trading-posts">
+                <h3>特色商埠</h3>
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="{{ url_for('static', filename='images/yaan.jpg') }}" alt="雅安茶马司">
+                        </div>
+                        <div class="post-info">
+                            <h4>雅安</h4>
+                            <p>川藏茶道起点，雅安"茶马互市"集散地</p>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="{{ url_for('static', filename='images/lijiang.jpg') }}" alt="丽江古城">
+                        </div>
+                        <div class="post-info">
+                            <h4>丽江</h4>
+                            <p>滇藏茶道重镇，纳西族木氏土司管辖的贸易枢纽</p>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="{{ url_for('static', filename='images/kangding.jpg') }}" alt="康定">
+                        </div>
+                        <div class="post-info">
+                            <h4>康定</h4>
+                            <p>藏汉贸易中心，"康定锅庄"发源地</p>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="{{ url_for('static', filename='images/lhasa.jpg') }}" alt="拉萨">
+                        </div>
+                        <div class="post-info">
+                            <h4>拉萨</h4>
+                            <p>茶马古道终点，藏区政治经济文化中心</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 贸易体系部分 -->
+    <section id="trade-section" class="content-section">
+        <h2 class="section-title">贸易体系</h2>
+        <div class="trade-container">
+            <div class="trade-flow">
+                <h3>商品流向</h3>
+                <div class="flow-diagram">
+                    <div class="flow-group">
+                        <div class="flow-title">入藏物品</div>
+                        <div class="flow-items">
+                            <div class="flow-item">
+                                <img src="{{ url_for('static', filename='images/tea_brick.jpg') }}" alt="茶砖">
+                                <span>茶砖</span>
+                            </div>
+                            <div class="flow-item">
+                                <img src="{{ url_for('static', filename='images/salt.jpg') }}" alt="盐巴">
+                                <span>盐巴</span>
+                            </div>
+                            <div class="flow-item">
+                                <img src="{{ url_for('static', filename='images/silk.jpg') }}" alt="丝绸">
+                                <span>丝绸</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flow-arrows">
+                        <div class="arrow-left">→</div>
+                        <div class="arrow-right">←</div>
+                    </div>
+                    <div class="flow-group">
+                        <div class="flow-title">出藏物品</div>
+                        <div class="flow-items">
+                            <div class="flow-item">
+                                <img src="{{ url_for('static', filename='images/horse.jpg') }}" alt="藏马">
+                                <span>藏马</span>
+                            </div>
+                            <div class="flow-item">
+                                <img src="{{ url_for('static', filename='images/medicine.jpg') }}" alt="藏药">
+                                <span>藏药</span>
+                            </div>
+                            <div class="flow-item">
+                                <img src="{{ url_for('static', filename='images/gold.jpg') }}" alt="黄金">
+                                <span>黄金</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="trade-volume">
+                <h3>贸易规模</h3>
+                <div class="volume-chart">
+                    <div class="chart-placeholder">
+                        <img src="{{ url_for('static', filename='images/trade_chart.jpg') }}" alt="历代贸易规模图表">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="trade-system">
+                <h3>政策与制度</h3>
+                <div class="system-comparison">
+                    <div class="system-item">
+                        <h4>榷茶制</h4>
+                        <p>唐宋时期官方垄断茶叶生产经营的制度</p>
+                        <div class="ancient-quote">
+                            "榷茶之法，始于开元二十二年。"——《唐书·食货志》
+                        </div>
+                    </div>
+                    <div class="system-item">
+                        <h4>引岸制</h4>
+                        <p>明清时期茶叶专卖制度，凭"茶引"合法贸易</p>
+                        <div class="ancient-quote">
+                            "岁纳茶引三千道，易马三千匹。"——《明史·食货志》
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文化遗产部分 -->
+    <section id="heritage-section" class="content-section">
+        <h2 class="section-title">文化遗产</h2>
+        <div class="heritage-container">
+            <div class="heritage-video">
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <img src="{{ url_for('static', filename='images/caravan_video.jpg') }}" alt="马帮纪录片截图">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-caption">
+                        <p>千年茶马古道：马帮驮队翻越雪山的艰辛历程</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="heritage-crafts">
+                <h3>非遗技艺</h3>
+                <div class="crafts-slider">
+                    <div class="craft-slide">
+                        <img src="{{ url_for('static', filename='images/puer_making.jpg') }}" alt="普洱茶制作">
+                        <div class="slide-info">
+                            <h4>普洱茶制作工艺</h4>
+                            <p>国家级非物质文化遗产</p>
+                        </div>
+                    </div>
+                    <div class="craft-slide">
+                        <img src="{{ url_for('static', filename='images/tibetan_silver.jpg') }}" alt="藏银工艺">
+                        <div class="slide-info">
+                            <h4>藏式银器锻造</h4>
+                            <p>传统工艺，藏族文化瑰宝</p>
+                        </div>
+                    </div>
+                    <div class="craft-slide">
+                        <img src="{{ url_for('static', filename='images/tea_horse_song.jpg') }}" alt="茶马古道民谣">
+                        <div class="slide-info">
+                            <h4>茶马古道民谣</h4>
+                            <p>口头传统，记录马帮故事</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="heritage-relics">
+                <h3>文物图库</h3>
+                <div class="relics-gallery">
+                    <div class="relic-item">
+                        <img src="{{ url_for('static', filename='images/tea_license_relic.jpg') }}" alt="茶引">
+                        <p>茶引（明代）</p>
+                    </div>
+                    <div class="relic-item">
+                        <img src="{{ url_for('static', filename='images/horse_saddle.jpg') }}" alt="马鞍">
+                        <p>藏式马鞍（清代）</p>
+                    </div>
+                    <div class="relic-item">
+                        <img src="{{ url_for('static', filename='images/shop_sign.jpg') }}" alt="商号牌匾">
+                        <p>"仁和昌"商号牌匾</p>
+                    </div>
+                    <div class="relic-item">
+                        <img src="{{ url_for('static', filename='images/tea_scales.jpg') }}" alt="茶秤">
+                        <p>古代茶秤</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 互动地图部分 -->
+    <section id="map-section" class="content-section">
+        <h2 class="section-title">互动地图</h2>
+        <div class="interactive-map-container">
+            <div id="tea-route-map" style="width: 100%; height: 500px;">
+                <div class="map-loading">
+                    <p>正在加载地图...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 保留茶马古道智能问答区域 -->
+    <section id="qa-section" class="content-section">
+        <h2 class="section-title">茶马古道智能问答</h2>
+        <div class="qa-container">
             <div class="qa-description">
                 <p>您对茶马古道还有什么疑问？在下方输入您的问题，获取详细解答。</p>
             </div>
@@ -84,170 +362,635 @@
                 <p class="response-placeholder">问答结果将显示在这里...</p>
             </div>
         </div>
-    </div>
+    </section>
 </div>
 
 <style>
-.tea-horse-trade {
+/* 基础样式 */
+.tea-horse-road {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-    background: linear-gradient(135deg, #f9f7f0 0%, #e8e6d9 100%);
+    padding: 0;
+    font-family: "思源宋体", "微软雅黑", sans-serif;
+    color: #5a3d2b;
+    background: #f9f5f0;
 }
 
-.trade-container {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
-}
-
-.trade-map {
-    margin-bottom: 30px;
-}
-
-.route-title {
-    color: #8B4513;
-    font-family: 'Calligraphy';
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.route-path {
+/* 封面区样式 */
+.cover-section {
+    height: 80vh;
+    background: url("{{ url_for('static', filename='images/tea_horse_road_bg.jpg') }}") no-repeat center center;
+    background-size: cover;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    text-align: center;
+    color: white;
 }
 
-.node {
-    background: #f9f7f0;
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: 2px solid #D2B48C;
-    color: #8B4513;
-    font-weight: bold;
-    min-width: 80px;
-    text-align: center;
+.cover-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.cover-content {
     position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.animated-title {
+    font-size: 3rem;
+    font-family: "思源宋体", serif;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.core-intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.scroll-down {
+    margin-top: 50px;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 1.5s;
+}
+
+.scroll-arrow {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.scroll-arrow:hover {
+    transform: translateY(5px);
+}
+
+.arrow-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+/* 导航栏样式 */
+.main-navigation {
+    background: #8B4513;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    color: #f9f5f0;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 1.1rem;
+    font-family: "思源宋体", serif;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.nav-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #D2B48C;
+    transition: width 0.3s;
+}
+
+.nav-item:hover::after {
+    width: 80%;
+}
+
+/* 内容区通用样式 */
+.content-section {
+    padding: 60px 20px;
+    border-bottom: 1px solid #D2B48C;
+}
+
+.section-title {
+    text-align: center;
+    font-family: "思源宋体", serif;
+    font-size: 2.2rem;
+    color: #8B4513;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #D2B48C;
+}
+
+/* 时间轴样式 */
+.timeline-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50px;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to bottom, #8B4513, #D2B48C);
+}
+
+.timeline-item {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50px;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #8B4513;
+    z-index: 1;
+}
+
+.tang-era { background: #722f37; }
+.song-era { background: #3b5278; }
+.ming-era { background: #4a752c; }
+.modern-era { background: #7b5427; }
+
+.timeline-content {
+    margin-left: 80px;
+    background: white;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(139, 69, 19, 0.1);
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #8B4513;
+    font-family: "思源宋体", serif;
+}
+
+.timeline-image {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.timeline-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 3px solid #f9f5f0;
+}
+
+.ancient-text {
+    background: #f9f5f0;
+    padding: 15px;
+    border-left: 3px solid #D2B48C;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+/* 路线部分样式 */
+.routes-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.routes-map {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.map-placeholder {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.route-point {
+    position: absolute;
+    transform: translate(-50%, -50%);
     cursor: pointer;
 }
 
-.arrow {
-    color: #8B4513;
-    font-size: 24px;
+.point-dot {
+    width: 12px;
+    height: 12px;
+    background: #D2B48C;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin: 0 auto 5px;
+    box-shadow: 0 0 0 rgba(210, 180, 140, 0.4);
+    animation: pulse 2s infinite;
 }
 
-.trade-history {
-    margin-bottom: 30px;
+.point-name {
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    font-size: 0.9rem;
 }
 
-.history-item {
+.route-line {
     display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
-    border-bottom: 1px dotted #D2B48C;
-    padding-bottom: 20px;
 }
 
-.history-item .era {
-    width: 100px;
-    color: #8B4513;
-    font-family: 'Calligraphy';
-    font-size: 24px;
-    text-align: center;
-    margin-right: 20px;
-}
-
-.history-item .content {
-    flex-grow: 1;
-}
-
-.history-item .content p {
-    color: #666;
+.route-title {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 }
 
-.history-item .source {
+.line-color {
+    width: 20px;
+    height: 5px;
+    margin-right: 10px;
+}
+
+.route-title h4 {
+    margin: 0;
+    font-family: "思源宋体", serif;
     color: #8B4513;
-    font-size: 14px;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.post-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-image {
+    height: 150px;
+    overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.post-card:hover .post-image img {
+    transform: scale(1.05);
+}
+
+.post-info {
+    padding: 15px;
+}
+
+.post-info h4 {
+    margin-top: 0;
+    color: #8B4513;
+    font-family: "思源宋体", serif;
+}
+
+.post-info p {
+    font-size: 0.9rem;
+    color: #5a3d2b;
+    margin-bottom: 0;
+}
+
+/* 贸易系统样式 */
+.trade-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.flow-diagram {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.flow-group {
+    flex: 1;
+    text-align: center;
+}
+
+.flow-title {
+    font-weight: bold;
+    color: #8B4513;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.flow-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.flow-item {
+    width: 100px;
+    text-align: center;
+}
+
+.flow-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #D2B48C;
+    margin-bottom: 8px;
+}
+
+.flow-arrows {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    margin: 0 30px;
+    color: #8B4513;
+}
+
+.volume-chart {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.system-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.system-item {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.system-item h4 {
+    color: #8B4513;
+    border-bottom: 2px solid #D2B48C;
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-family: "思源宋体", serif;
+}
+
+.ancient-quote {
+    font-style: italic;
+    color: #8B4513;
+    margin-top: 15px;
+    background: #f9f5f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* 文化遗产样式 */
+.heritage-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.video-container {
+    margin-bottom: 40px;
+}
+
+.video-placeholder {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.video-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(210, 180, 140, 0.8);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: all 0.3s;
+}
+
+.video-placeholder:hover .play-button {
+    background: rgba(139, 69, 19, 0.8);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-caption {
+    text-align: center;
+    margin-top: 15px;
     font-style: italic;
 }
 
-.cultural-exchange h3 {
-    color: #8B4513;
-    font-family: 'Calligraphy';
-    margin-bottom: 20px;
-    text-align: center;
+.crafts-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px 0;
+    margin-bottom: 40px;
 }
 
-.exchange-items {
-    display: flex;
-    flex-wrap: wrap;
+.craft-slide {
+    flex: 0 0 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.craft-slide img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.slide-info {
+    padding: 15px;
+}
+
+.slide-info h4 {
+    margin-top: 0;
+    color: #8B4513;
+    font-family: "思源宋体", serif;
+}
+
+.slide-info p {
+    font-size: 0.9rem;
+    color: #5a3d2b;
+    margin-bottom: 0;
+}
+
+.relics-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
 
-.exchange-item {
-    flex: 1;
-    min-width: 200px;
-    background: #f9f7f0;
-    padding: 20px;
+.relic-item {
+    text-align: center;
+}
+
+.relic-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
     border-radius: 8px;
-    border: 1px solid #D2B48C;
+    border: 3px solid #D2B48C;
+    transition: all 0.3s;
 }
 
-.exchange-item .title {
-    color: #8B4513;
-    font-family: 'Calligraphy';
-    font-size: 20px;
-    margin-bottom: 15px;
-    text-align: center;
+.relic-item:hover img {
+    transform: scale(1.05);
+    border-color: #8B4513;
 }
 
-.exchange-item .description p {
-    color: #666;
-    margin-bottom: 10px;
+.relic-item p {
+    margin-top: 10px;
+    font-size: 0.9rem;
 }
 
-/* 茶马古道智能问答样式 */
-.tea-road-qa {
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 2px dashed #D2B48C;
+/* 互动地图样式 */
+.interactive-map-container {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.tea-road-qa h3 {
-    color: #8B4513;
-    font-family: 'Calligraphy';
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
+#tea-route-map {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.map-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(249, 245, 240, 0.8);
+}
+
+/* 智能问答样式 */
+.qa-container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .qa-description {
     text-align: center;
-    color: #666;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .qa-form {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .qa-form textarea {
     width: 100%;
-    height: 80px;
-    padding: 12px;
+    height: 100px;
+    padding: 15px;
     border: 2px solid #D2B48C;
     border-radius: 8px;
-    font-size: 16px;
-    color: #666;
+    font-size: 1rem;
+    color: #5a3d2b;
     resize: vertical;
-    margin-bottom: 15px;
-    background-color: #f9f7f0;
+    background-color: white;
     transition: border-color 0.3s;
+    font-family: inherit;
 }
 
 .qa-form textarea:focus {
@@ -256,35 +999,30 @@
 }
 
 .qa-form button {
-    background: linear-gradient(to bottom, #8B4513, #A0522D);
+    display: block;
+    margin: 20px auto 0;
+    padding: 12px 30px;
+    background: linear-gradient(to right, #8B4513, #A0522D);
     color: white;
     border: none;
-    padding: 12px 25px;
     border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: all 0.3s;
-    display: block;
-    margin: 0 auto;
 }
 
 .qa-form button:hover {
-    background: linear-gradient(to bottom, #A0522D, #8B4513);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
 }
 
 .qa-response {
-    background: #f9f7f0;
-    border: 1px solid #D2B48C;
+    background: white;
+    padding: 25px;
     border-radius: 8px;
-    padding: 20px;
-    min-height: 120px;
-    line-height: 1.6;
-    white-space: pre-wrap;
-    color: #5a3d2b;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    min-height: 150px;
+    line-height: 1.7;
 }
 
 .response-placeholder {
@@ -293,11 +1031,11 @@
     font-style: italic;
 }
 
-/* 添加动画效果 */
-@keyframes fadeIn {
+/* 动画效果 */
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -305,115 +1043,293 @@
     }
 }
 
-.qa-response.loading {
-    position: relative;
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
-.qa-response.loading:after {
-    content: "正在思考...";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #8B4513;
-    font-style: italic;
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(210, 180, 140, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(210, 180, 140, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(210, 180, 140, 0);
+    }
 }
 
-/* 响应式调整 */
+/* 响应式设计 */
 @media (max-width: 768px) {
-    .exchange-items {
+    .animated-title {
+        font-size: 2rem;
+    }
+    
+    .core-intro {
+        font-size: 1rem;
+    }
+    
+    .system-comparison {
+        grid-template-columns: 1fr;
+    }
+    
+    .flow-diagram {
         flex-direction: column;
     }
     
-    .history-item {
-        flex-direction: column;
+    .flow-arrows {
+        flex-direction: row;
+        margin: 20px 0;
     }
     
-    .history-item .era {
-        width: 100%;
-        margin-bottom: 10px;
+    .flow-group {
+        margin-bottom: 20px;
     }
 }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // 问答功能
-    const questionForm = document.getElementById('questionForm');
-    const responseDiv = document.getElementById('response');
-    
-    questionForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const question = document.querySelector('textarea[name="question"]').value;
-        if (!question.trim()) {
-            responseDiv.innerHTML = "<p style='color: #A0522D; text-align: center;'>请输入您的问题</p>";
-            return;
-        }
-        
-        // 添加前置提示词，引导AI回答茶马古道相关问题
-        const enhancedQuestion = "我想了解关于茶马古道的以下问题，请提供详细、准确的回答：" + question;
-        
-        responseDiv.innerHTML = "<p>正在查询中，请稍候...</p>";
-        responseDiv.classList.add('loading');
-        
-        try {
-            const response = await fetch('/ask', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ question: enhancedQuestion })
-            });
-
-            const reader = response.body.getReader();
-            const decoder = new TextDecoder();
-            let answer = '';
-            responseDiv.classList.remove('loading');
-
-            while(true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-
-                const chunk = decoder.decode(value);
-                try {
-                    const data = JSON.parse(chunk);
-                    if (data.content) {
-                        answer += data.content;
-                        responseDiv.innerHTML = answer;
-                        responseDiv.style.animation = 'fadeIn 0.3s ease-in-out';
-                    }
-                    if (data.status === 'done') break;
-                } catch (e) {
-                    console.error('解析错误:', e);
-                }
+    // 平滑滚动功能
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
             }
-        } catch (error) {
-            responseDiv.classList.remove('loading');
-            responseDiv.innerHTML = `<p style='color: #A0522D;'>查询失败: ${error}</p>`;
-        }
+        });
     });
-
-    // 为节点添加悬停效果
-    const nodes = document.querySelectorAll('.node');
-    nodes.forEach(node => {
-        node.addEventListener('mouseenter', function() {
-            const info = this.getAttribute('data-info');
-            if (info) {
-                const tooltip = document.createElement('div');
-                tooltip.className = 'node-tooltip';
-                tooltip.innerText = info;
-                this.appendChild(tooltip);
+    
+    // 路线点悬停效果
+    const routePoints = document.querySelectorAll('.route-point');
+    routePoints.forEach(point => {
+        point.addEventListener('mouseenter', function() {
+            const city = this.getAttribute('data-city');
+            const tooltip = document.createElement('div');
+            tooltip.className = 'city-tooltip';
+            
+            // 为不同城市设置不同内容
+            let tooltipContent = '';
+            switch(city) {
+                case '雅安':
+                    tooltipContent = '川藏茶道起点，"茶马互市"集散地';
+                    break;
+                case '康定':
+                    tooltipContent = '茶马古道重要驿站，"康定锅庄"发源地';
+                    break;
+                case '丽江':
+                    tooltipContent = '滇藏线枢纽，马帮文化中心';
+                    break;
+                case '拉萨':
+                    tooltipContent = '茶马古道终点，藏区政治文化中心';
+                    break;
+                default:
+                    tooltipContent = '茶马古道重要节点';
+            }
+            
+            tooltip.innerHTML = `
+                <strong>${city}</strong>
+                <p>${tooltipContent}</p>
+            `;
+            
+            this.appendChild(tooltip);
+            
+            // 定位提示框，避免超出视口
+            const rect = tooltip.getBoundingClientRect();
+            if (rect.right > window.innerWidth) {
+                tooltip.style.left = 'auto';
+                tooltip.style.right = '0';
             }
         });
         
-        node.addEventListener('mouseleave', function() {
-            const tooltip = this.querySelector('.node-tooltip');
+        point.addEventListener('mouseleave', function() {
+            const tooltip = this.querySelector('.city-tooltip');
             if (tooltip) {
                 tooltip.remove();
             }
         });
     });
+    
+    // 视频播放功能模拟
+    const videoPlaceholder = document.querySelector('.video-placeholder');
+    if (videoPlaceholder) {
+        videoPlaceholder.addEventListener('click', function() {
+            alert('视频播放功能将在实际部署时启用');
+        });
+    }
+    
+    // 当页面滚动时添加元素的动画效果
+    const animateOnScroll = function() {
+        const sections = document.querySelectorAll('.content-section');
+        
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (sectionTop < windowHeight * 0.75) {
+                section.classList.add('animated');
+            }
+        });
+    };
+    
+    // 初始运行一次
+    animateOnScroll();
+    // 滚动时运行
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // 初始化互动地图（模拟）
+    const initMap = function() {
+        const mapContainer = document.getElementById('tea-route-map');
+        const mapLoading = document.querySelector('.map-loading');
+        
+        // 模拟地图加载
+        setTimeout(function() {
+            if (mapLoading) {
+                mapLoading.style.display = 'none';
+            }
+            
+            // 这里可以添加实际的地图初始化代码
+            // 例如使用ECharts或其他地图库
+            
+            // 临时显示地图加载完成的消息
+            const mapMessage = document.createElement('div');
+            mapMessage.style.textAlign = 'center';
+            mapMessage.style.padding = '150px 0';
+            mapMessage.innerHTML = '<h3 style="color: #8B4513;">互动地图将在实际部署时显示</h3>';
+            mapContainer.appendChild(mapMessage);
+        }, 1500);
+    };
+    
+    // 初始化地图
+    initMap();
+    
+    // 保留原有的智能问答功能
+    const questionForm = document.getElementById('questionForm');
+    const responseDiv = document.getElementById('response');
+    
+    if (questionForm && responseDiv) {
+        questionForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const question = document.querySelector('textarea[name="question"]').value;
+            if (!question.trim()) {
+                responseDiv.innerHTML = "<p style='color: #A0522D; text-align: center;'>请输入您的问题</p>";
+                return;
+            }
+            
+            // 添加前置提示词，引导AI回答茶马古道相关问题
+            const enhancedQuestion = "我想了解关于茶马古道的以下问题，请提供详细、准确的回答：" + question;
+            
+            responseDiv.innerHTML = "<p>正在查询中，请稍候...</p>";
+            responseDiv.classList.add('loading');
+            
+            try {
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ question: enhancedQuestion })
+                });
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let answer = '';
+                responseDiv.classList.remove('loading');
+
+                while(true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    const chunk = decoder.decode(value);
+                    try {
+                        const data = JSON.parse(chunk);
+                        if (data.content) {
+                            answer += data.content;
+                            responseDiv.innerHTML = answer;
+                            responseDiv.style.animation = 'fadeInUp 0.3s ease-in-out';
+                        }
+                        if (data.status === 'done') break;
+                    } catch (e) {
+                        console.error('解析错误:', e);
+                    }
+                }
+            } catch (error) {
+                responseDiv.classList.remove('loading');
+                responseDiv.innerHTML = `<p style='color: #A0522D;'>查询失败: ${error}</p>`;
+            }
+        });
+    } else {
+        console.error("问答表单或响应区域未找到");
+    }
+    
+    // 为城市提示框添加样式
+    const style = document.createElement('style');
+    style.textContent = `
+        .city-tooltip {
+            position: absolute;
+            top: -85px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 150px;
+            z-index: 10;
+            text-align: center;
+            color: #5a3d2b;
+            font-size: 0.85rem;
+        }
+        
+        .city-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px 8px 0;
+            border-style: solid;
+            border-color: white transparent transparent;
+        }
+        
+        .city-tooltip strong {
+            display: block;
+            color: #8B4513;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .city-tooltip p {
+            margin: 0;
+        }
+        
+        .content-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .content-section.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    `;
+    document.head.appendChild(style);
 });
 </script>
 {% endblock %}
