@@ -1,0 +1,525 @@
+/* 生产页面主样式 */
+body {
+    font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.hero {
+    background-image: url('/static/images/production-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* 工艺流程部分 */
+.production-process {
+    padding: 60px 0;
+    background-color: #f9f5e8;
+}
+
+.production-process h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #8b5a2b;
+    font-size: 2rem;
+}
+
+.process-timeline {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 20px;
+}
+
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    right: 20px;
+    height: 4px;
+    background-color: #d4b78f;
+    z-index: 1;
+}
+
+.process-step {
+    flex: 0 0 calc(14.28% - 20px);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 0 10px;
+    margin-bottom: 30px;
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    border: 4px solid #d4b78f;
+    transition: all 0.3s ease;
+}
+
+.step-icon.highlighted {
+    border-color: #8b5a2b;
+    box-shadow: 0 0 15px rgba(139, 90, 43, 0.5);
+    transform: scale(1.1);
+}
+
+.step-icon img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.step-icon:hover img {
+    transform: scale(1.1);
+}
+
+.process-step h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #8b5a2b;
+}
+
+.process-step p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 互动茶饼压制模拟器样式 */
+.interactive-tea-pressing {
+    padding: 60px 20px;
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.interactive-tea-pressing h2 {
+    text-align: center;
+    color: #8b5a2b;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.pressing-simulation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    background-color: #f9f5e8;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.pressing-simulation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/images/bamboo-texture.png');
+    background-size: 200px;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.tea-press-container {
+    flex: 0 0 45%;
+    position: relative;
+}
+
+.press-machine {
+    height: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.press-top {
+    width: 200px;
+    height: 50px;
+    background-color: #654321;
+    border-radius: 5px 5px 0 0;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.5s ease;
+    z-index: 3;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to right, #654321, #8a6642, #654321);
+}
+
+.tea-leaves {
+    width: 180px;
+    height: 140px;
+    background-color: #8a6642;
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    transition: height 0.5s ease;
+    z-index: 2;
+    background-image: url('/static/images/loose-tea.png');
+    background-size: cover;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.press-bottom {
+    width: 200px;
+    height: 50px;
+    background-color: #654321;
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to right, #654321, #8a6642, #654321);
+}
+
+.pressure-gauge {
+    margin-top: 320px;
+    text-align: center;
+}
+
+.pressure-gauge h4 {
+    margin-bottom: 10px;
+    color: #8b5a2b;
+    font-weight: bold;
+}
+
+.gauge-bar {
+    height: 30px;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.gauge-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, #f9c846, #f57f17);
+    border-radius: 15px;
+    transition: width 0.3s ease;
+}
+
+.gauge-value {
+    font-weight: bold;
+    color: #8b5a2b;
+}
+
+.press-controls {
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.progress-indicator {
+    margin-bottom: 30px;
+}
+
+.progress-indicator h4 {
+    margin-bottom: 10px;
+    color: #8b5a2b;
+    font-weight: bold;
+}
+
+.progress-bar {
+    height: 30px;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, #a5d6a7, #4caf50);
+    border-radius: 15px;
+    transition: width 0.3s ease;
+}
+
+.progress-status {
+    color: #666;
+    font-style: italic;
+    min-height: 24px;
+}
+
+.action-button {
+    padding: 15px 30px;
+    background-color: #8b5a2b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+    align-self: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-button:hover {
+    background-color: #6d4520;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.action-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.action-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.action-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.action-button:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
+    }
+}
+
+.tea-cake {
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.tea-cake.visible {
+    opacity: 1;
+    background-image: url('/static/images/tea-cake.png');
+    background-size: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: rotate(5deg);
+}
+
+/* 茶饼压制知识部分 */
+.pressing-info {
+    padding: 30px;
+    background-color: #f9f5e8;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #8b5a2b;
+}
+
+.pressing-info h3 {
+    color: #8b5a2b;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.pressing-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.pressing-info li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+    transition: transform 0.2s ease;
+}
+
+.pressing-info li:hover {
+    transform: translateX(5px);
+}
+
+.pressing-info li:before {
+    content: '●';
+    color: #8b5a2b;
+    position: absolute;
+    left: 0;
+}
+
+/* 图片展示区 */
+.production-gallery {
+    padding: 60px 20px;
+    background-color: #f9f5e8;
+}
+
+.production-gallery h2 {
+    text-align: center;
+    color: #8b5a2b;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 添加图片出现动画 */
+section.visible {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+    .process-step {
+        flex: 0 0 calc(25% - 20px);
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-step {
+        flex: 0 0 calc(33.33% - 20px);
+    }
+    
+    .pressing-simulation {
+        flex-direction: column;
+    }
+    
+    .tea-press-container, 
+    .press-controls {
+        flex: 0 0 100%;
+    }
+    
+    .tea-press-container {
+        margin-bottom: 40px;
+    }
+    
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .process-step {
+        flex: 0 0 calc(50% - 20px);
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+} 

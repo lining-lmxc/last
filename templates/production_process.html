@@ -1,436 +1,1697 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="production-process">
-    <h1 class="page-title">宋代团茶制作工艺</h1>
-    
-    <!-- 横向步骤时间轴 -->
-    <div class="steps-timeline">
-        {% for step in process %}
-        <div class="step-item" id="step-{{ step.step }}" data-step="{{ step.step }}">
-            <div class="step-icon">{{ step.step }}</div>
-            <div class="step-content">
-                <h3>{{ step.name }}</h3>
-                <p class="step-brief">{{ step.duration }}</p>
+<div class="song-tea-process">
+    <div class="header-scroll">
+        <div class="scroll-wrapper">
+            <img src="{{ url_for('static', filename='images/seal.png') }}" class="scroll-end scroll-left">
+            <div class="scroll-content">
+                <h1>宋代团茶制作工艺</h1>
+                <p class="subtitle">建炎三年（1129）至南宋末年</p>
             </div>
+            <img src="{{ url_for('static', filename='images/seal.png') }}" class="scroll-end scroll-right">
+        </div>
+    </div>
+
+    <!-- 时空导览系统 -->
+    <div class="time-navigation">
+        <div class="time-scroll">
+            <div class="time-scroll-wrapper">
+                <h3>宣和历</h3>
+                <div class="time-periods">
+        {% for step in process %}
+                    <div class="time-period" data-step="{{ step.step }}">
+                        <span class="period-name">{{ step.name }}</span>
+                        <span class="period-duration">{{ step.duration }}</span>
         </div>
         {% endfor %}
-    </div>
-    
-    <!-- 视频展示区域 -->
-    <div class="video-container">
-        <div class="video-wrapper">
-            <video id="tea-process-video" controls>
-                <source src="{{ url_for('static', filename='videos/tea_process_intro.mp4') }}" type="video/mp4">
-                您的浏览器不支持视频播放。
-            </video>
-        </div>
-        
-        <div class="video-controls">
-            <button class="play-step-btn" data-video="tea_process_cacha.mp4">观看采茶过程</button>
-            <button class="play-step-btn" data-video="tea_process_zhengqing.mp4">观看蒸青过程</button>
-            <button class="play-step-btn" data-video="tea_process_yangao.mp4">观看研膏过程</button>
-        </div>
-    </div>
-    
-    <!-- 详细步骤说明 -->
-    <div class="step-details">
-        <div class="step-detail-card active" id="detail-1">
-            <div class="detail-header">
-                <h3>采茶</h3>
-                <div class="detail-meta">
-                    <span class="duration">工序时间: {{ process[0].duration }}</span>
-                    <span class="tool">使用工具: {{ process[0].tool }}</span>
                 </div>
             </div>
+    </div>
+    
+        <div class="map-container">
+            <h3>北苑贡茶院遗址</h3>
+            <div class="map-view">
+                <div id="tea-estate-map"></div>
+                <div class="map-controls">
+                    <button class="map-btn" data-view="2d">平面图</button>
+                    <button class="map-btn" data-view="3d">三维图</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+    <!-- 工艺分解剧场 -->
+    <div class="process-theater">
+        <div class="process-stages">
+            <!-- 采择环节 -->
+            <div class="process-stage" id="stage-1">
+                <div class="stage-header">
+                    <h2>采择环节</h2>
+                    <div class="stage-tools">
+                        <span class="tool-icon" title="茶笪">🧺</span>
+                        <span class="tool-icon" title="采茶刀">✂️</span>
+        </div>
+    </div>
+    
+                <div class="stage-content">
+                    <div class="classic-text">
+                        <div class="scroll-text">
+                            <p>『采之以春，其叶乃生，其条柔嫩，采而不尽，以时春采为贵』</p>
+                            <span class="text-source">—— 陆羽《茶经》</span>
+                </div>
+            </div>
+                    
+                    <div class="interactive-section">
+                        <div class="steam-simulator">
+                            <h4>蒸茶火候模拟器</h4>
+                            <div class="simulator-container">
+                                <div class="steam-pot">
+                                    <img src="{{ url_for('static', filename='images/tea_ware_song_zhan.jpg') }}" alt="蒸锅">
+                                    <div class="steam-particles"></div>
+                                </div>
+                                <div class="bellows-control">
+                                    <img src="{{ url_for('static', filename='images/tool_1.png') }}" alt="风箱" class="bellows-img">
+                                    <input type="range" min="1" max="100" value="50" class="steam-control" id="steam-level">
+                                </div>
+                                <div class="steam-indicator">
+                                    <div class="indicator-scale">
+                                        <span class="scale-min">弱火</span>
+                                        <span class="scale-max">猛火</span>
+                                    </div>
+                                    <div class="indicator-value">火候：<span id="steam-value">适中</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stage-info">
             <div class="ancient-text">
                 <h4>古籍原文 <span class="source">（{{ process[0].source }}）</span></h4>
                 <p class="wenyanwen">{{ process[0].ancient_text }}</p>
             </div>
-            <div class="detail-content">
+                    <div class="modern-text">
                 <h4>白话译文</h4>
                 <p>{{ process[0].details }}</p>
             </div>
-            <div class="analysis-section">
-                <h4>古今对比分析</h4>
-                <p>{{ process[0].analysis }}</p>
             </div>
         </div>
         
-        <div class="step-detail-card" id="detail-2">
-            <div class="detail-header">
-                <h3>蒸青</h3>
-                <div class="detail-meta">
-                    <span class="duration">工序时间: {{ process[1].duration }}</span>
-                    <span class="tool">使用工具: {{ process[1].tool }}</span>
+            <!-- 研膏工序 -->
+            <div class="process-stage" id="stage-2">
+                <div class="stage-header">
+                    <h2>研膏工序</h2>
+                    <div class="stage-tools">
+                        <span class="tool-icon" title="石硙">🏺</span>
+                        <span class="tool-icon" title="碾杵">🔨</span>
                 </div>
             </div>
+                
+                <div class="stage-content">
+                    <div class="classic-text">
+                        <div class="scroll-text">
+                            <p>『須用石硙細推令勻，取湯泡之，隨以槐枝熟篩濾茶滓，調至清明』</p>
+                            <span class="text-source">—— 《宋史·食货志》</span>
+                        </div>
+                    </div>
+                    
+                    <div class="interactive-section">
+                        <div class="grind-simulator">
+                            <h4>研茶粒子系统</h4>
+                            <div class="simulator-container">
+                                <canvas id="grind-canvas" width="400" height="300"></canvas>
+                                <div class="grind-controls">
+                                    <button id="start-grind">开始研磨</button>
+                                    <div class="grind-pressure">
+                                        <label>研磨力度：</label>
+                                        <div class="pressure-level">
+                                            <span class="level" data-level="1">轻</span>
+                                            <span class="level" data-level="2">中</span>
+                                            <span class="level" data-level="3">重</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stage-info">
             <div class="ancient-text">
                 <h4>古籍原文 <span class="source">（{{ process[1].source }}）</span></h4>
                 <p class="wenyanwen">{{ process[1].ancient_text }}</p>
             </div>
-            <div class="detail-content">
+                    <div class="modern-text">
                 <h4>白话译文</h4>
                 <p>{{ process[1].details }}</p>
             </div>
-            <div class="analysis-section">
-                <h4>古今对比分析</h4>
-                <p>{{ process[1].analysis }}</p>
             </div>
         </div>
         
-        <div class="step-detail-card" id="detail-3">
-            <div class="detail-header">
-                <h3>研膏</h3>
-                <div class="detail-meta">
-                    <span class="duration">工序时间: {{ process[2].duration }}</span>
-                    <span class="tool">使用工具: {{ process[2].tool }}</span>
+            <!-- 制样成型 -->
+            <div class="process-stage" id="stage-3">
+                <div class="stage-banner">
+                    <h2>研茶步骤</h2>
+                    <p>用石磨将蒸制过的茶叶研磨成细腻的粉末</p>
+                </div>
+                
+                <div class="interactive-section">
+                    <div class="section-half">
+                        <h3>研磨体验</h3>
+                        <div class="tea-grinder">
+                            <canvas id="grind-canvas" width="300" height="200"></canvas>
+                            <div class="controls">
+                                <button id="start-grind" class="action-btn">开始研磨</button>
+                                <div class="pressure-levels">
+                                    <span>力度：</span>
+                                    <div class="level" data-level="1">轻柔</div>
+                                    <div class="level" data-level="2">适中</div>
+                                    <div class="level" data-level="3">用力</div>
+            </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-half">
+                        <h3>研磨知识</h3>
+                        <div class="info-card">
+                            <p>研磨是将蒸熟的茶叶碾成粉末的关键步骤。宋代茶人认为，细腻的茶粉才能充分释放茶的精华，制作出上等的点茶。</p>
+                            <div class="fact-box">
+                                <h4>历史轶事</h4>
+                                <p>宋徽宗赵佶在《大观茶论》中强调："凡茶必研如细腻粉尘，方能展现'兰蕙之香，龙涎之馨'。"</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- 第四步：成型 -->
+            <div class="process-stage" id="stage-4">
+                <div class="stage-header">
+                    <h2>制样成型</h2>
+                    <div class="stage-tools">
+                        <span class="tool-icon" title="茶模">🔲</span>
+                        <span class="tool-icon" title="印章">🟥</span>
+                    </div>
+                </div>
+                
+                <div class="stage-content">
+                    <div class="classic-text">
+                        <div class="scroll-text">
+                            <p>『置炉中以文武火烘焙，候干，入合中，以纸密封，上用滑石粉令匀，令茶气不泄』</p>
+                            <span class="text-source">—— 《东溪试茶录》</span>
+                        </div>
+                    </div>
+                    
+                    <div class="interactive-section">
+                        <div class="mold-preview">
+                            <h4>茶饼模具预览</h4>
+                            <div class="mold-container">
+                                <div class="mold-display">
+                                    <div class="mold-pattern-container">
+                                        <img src="{{ url_for('static', filename='images/tea_pattern.jpg') }}" alt="龙纹茶模" class="mold-pattern active" data-pattern="dragon">
+                                        <img src="{{ url_for('static', filename='images/tea_brick.jpg') }}" alt="凤纹茶模" class="mold-pattern" data-pattern="phoenix">
+                                        <img src="{{ url_for('static', filename='images/tea_license.jpg') }}" alt="御纹茶模" class="mold-pattern" data-pattern="imperial">
+                                    </div>
+                                </div>
+                                <div class="mold-selector">
+                                    <button class="mold-btn active" data-pattern="dragon">龙纹</button>
+                                    <button class="mold-btn" data-pattern="phoenix">凤纹</button>
+                                    <button class="mold-btn" data-pattern="imperial">御纹</button>
+                                </div>
+                                <div class="mold-info">
+                                    <p>当前模具：<span id="current-pattern-name">龙纹</span></p>
+                                    <p>纹样用途：<span id="pattern-usage">皇家贡茶专用，龙为五爪金龙，象征皇权</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interactive-tea-pressing">
+                        <h4>茶饼压制体验</h4>
+                        <div class="pressing-simulation">
+                            <div class="tea-press-container">
+                                <div class="tea-press">
+                                    <div class="press-top"></div>
+                                    <div class="press-chamber">
+                                        <div class="tea-leaves"></div>
+                                    </div>
+                                    <div class="press-bottom"></div>
+                                </div>
+                                <div class="press-controls">
+                                    <div class="pressure-gauge">
+                                        <div class="gauge-label">压力指示</div>
+                                        <div class="gauge-meter">
+                                            <div class="gauge-fill" id="pressure-fill"></div>
+                                        </div>
+                                        <div class="gauge-value"><span id="pressure-value">0</span>%</div>
+                                    </div>
+                                    <button id="press-btn" class="action-btn">开始压制</button>
+                                    <div class="press-progress">
+                                        <div class="progress-label">成型进度</div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" id="progress-fill"></div>
+                                        </div>
+                                        <div class="progress-status">状态：<span id="press-status">未开始</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tea-cake-result">
+                                <h4>成品预览</h4>
+                                <div class="tea-cake-container">
+                                    <div class="tea-cake" id="finished-tea-cake" style="display:none;">
+                                        <img src="{{ url_for('static', filename='images/tea_cake.jpg') }}" alt="成品茶饼">
+                                    </div>
+                                    <p class="tea-info">成型后的茶饼需静置7天方能包装。饼茶成型后内部水分会缓慢平衡，风味逐渐融合。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stage-info">
             <div class="ancient-text">
                 <h4>古籍原文 <span class="source">（{{ process[2].source }}）</span></h4>
                 <p class="wenyanwen">{{ process[2].ancient_text }}</p>
             </div>
-            <div class="detail-content">
+                    <div class="modern-text">
                 <h4>白话译文</h4>
                 <p>{{ process[2].details }}</p>
             </div>
-            <div class="analysis-section">
-                <h4>古今对比分析</h4>
-                <p>{{ process[2].analysis }}</p>
             </div>
         </div>
     </div>
 </div>
 
+    <!-- 茶器实验室 -->
+    <div class="tea-lab">
+        <h2>茶器实验室</h2>
+        <div class="lab-sections">
+            <div class="lab-section spectral-analysis">
+                <h3>建盏釉色光谱</h3>
+                <div class="spectral-container">
+                    <div class="tea-cup-display">
+                        <img src="{{ url_for('static', filename='images/tea_ware_song_zhan.jpg') }}" alt="建盏" class="cup-image">
+                        <div class="scanning-line"></div>
+                    </div>
+                    <div class="spectral-data">
+                        <div class="data-header">
+                            <span>成分分析</span>
+                            <button id="scan-btn">扫描</button>
+                        </div>
+                        <div class="data-content">
+                            <div class="data-row">
+                                <span class="component">铁含量:</span>
+                                <div class="value-bar" data-percentage="28.5%">
+                                    <div class="fill-bar iron-fill"></div>
+                                </div>
+                                <span class="percentage">28.5%</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="component">硅含量:</span>
+                                <div class="value-bar" data-percentage="52.3%">
+                                    <div class="fill-bar silica-fill"></div>
+                                </div>
+                                <span class="percentage">52.3%</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="component">锰含量:</span>
+                                <div class="value-bar" data-percentage="12.8%">
+                                    <div class="fill-bar manganese-fill"></div>
+                                </div>
+                                <span class="percentage">12.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lab-section whisk-simulator">
+                <h3>点茶模拟器</h3>
+                <div class="whisk-container">
+                    <div class="tea-bowl">
+                        <div class="tea-liquid">
+                            <div class="tea-foam"></div>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/tea_ware_song_chaxian.jpg') }}" alt="茶筅" class="tea-whisk">
+                    </div>
+                    <div class="whisk-controls">
+                        <button id="start-whisking">开始点茶</button>
+                        <div class="whisk-techniques">
+                            <span class="technique" data-technique="circular">圆圈点法</span>
+                            <span class="technique" data-technique="zigzag">之字点法</span>
+                            <span class="technique" data-technique="m-shape">M形点法</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 贡茶数据图谱 -->
+    <div class="tribute-tea-data">
+        <h2>贡茶数据图谱</h2>
+        <div class="data-visualization">
+            <div class="timeline-container">
+                <h3>宋代名茶时间线</h3>
+                <div class="tea-timeline">
+                    <div class="timeline-items">
+                        <div class="timeline-item" data-year="1107">
+                            <div class="year">政和七年</div>
+                            <div class="tea-info">
+                                <h4>龙团凤饼</h4>
+                                <p>徽宗赵佶创制的贡茶，以龙凤纹样区分等级</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="1120">
+                            <div class="year">宣和二年</div>
+                            <div class="tea-info">
+                                <h4>密云龙</h4>
+                                <p>北苑名茶，纹饰为云中盘龙</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="1162">
+                            <div class="year">隆兴元年</div>
+                            <div class="tea-info">
+                                <h4>龙团胜雪</h4>
+                                <p>宋高宗赵构赞誉的贡茶，色白如雪</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="region-data">
+                <h3>宋代贡茶主产区</h3>
+                <div id="tea-regions-chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
 <style>
-/* 整体布局样式 */
-.production-process {
+:root {
+    /* 宋代美学调色板 */
+    --ruware-cyan: #87CECC;       /* 汝窑天青 */
+    --dingware-white: #F0F6F6;    /* 定窑月白 */
+    --jian-black: #373737;        /* 建盏乌金 */
+    --tea-brown: #B76E57;         /* 茶汤暖褐 */
+    --imperial-gold: #D4AF37;     /* 宫廷泥金 */
+    --zhusha-red: #9D2933;        /* 朱砂红 */
+    
+    /* 渐变色 */
+    --cyan-gradient: linear-gradient(135deg, var(--ruware-cyan), var(--dingware-white));
+    --gold-gradient: linear-gradient(135deg, var(--imperial-gold), #F5E7A3);
+    --tea-gradient: linear-gradient(135deg, var(--tea-brown), #E8C3B9);
+    
+    /* 尺寸和间距 */
+    --section-padding: 2rem;
+    --border-radius: 1rem;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 基础样式 */
+.song-tea-process {
+    font-family: "思源宋体", "Source Han Serif", "Noto Serif CJK SC", serif;
+    color: var(--jian-black);
     max-width: 1200px;
     margin: 0 auto;
-    padding: 30px 20px;
-    font-family: 'Calligraphy', sans-serif;
+    padding: 0 1rem 3rem;
 }
 
-.page-title {
-    text-align: center;
-    color: #8B4513;
-    margin-bottom: 30px;
-    font-size: 32px;
+h1, h2, h3, h4 {
+    font-family: "汉仪松阳体", "HYSongYangTi", "楷体", "KaiTi", serif;
     font-weight: normal;
-    border-bottom: 2px solid #D2B48C;
-    padding-bottom: 15px;
 }
 
-/* 横向时间轴样式 */
-.steps-timeline {
-    display: flex;
-    justify-content: space-between;
-    margin: 30px 0;
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--jian-black);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 1rem;
+    color: var(--tea-brown);
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin: 1rem 0 0.8rem;
+    color: var(--jian-black);
+}
+
+h4 {
+    font-size: 1.1rem;
+    margin: 0.8rem 0 0.5rem;
+    color: var(--tea-brown);
+}
+
+p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+/* 卷轴标题样式 */
+.header-scroll {
+    margin: 2rem 0;
     position: relative;
-    padding: 20px 0;
 }
 
-.steps-timeline:before {
-    content: '';
+.scroll-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--dingware-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-wrapper::before {
+    content: "";
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: #D2B48C;
-    z-index: 0;
+    height: 10px;
+    background: var(--cyan-gradient);
+    opacity: 0.7;
 }
 
-.step-item {
+.scroll-content {
+    padding: 2rem 3rem;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.scroll-end {
+    height: 100px;
+    opacity: 0.9;
+    width: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--tea-brown);
+    margin-top: 0.5rem;
+}
+
+/* 时空导览系统 */
+.time-navigation {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.time-scroll, .map-container {
+    background: var(--dingware-white);
+    border-radius: var(--border-radius);
+    padding: var(--section-padding);
+    box-shadow: var(--box-shadow);
+}
+
+.time-scroll-wrapper {
+    border-left: 3px solid var(--tea-brown);
+    padding-left: 1.5rem;
+}
+
+.time-periods {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+}
+
+.time-period {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    width: 33.333%;
-    position: relative;
-    z-index: 1;
+    padding: 0.8rem 1rem;
+    border-radius: 0.5rem;
+    background: rgba(183, 110, 87, 0.1);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.step-item:hover {
-    transform: translateY(-5px);
+.time-period:hover, .time-period.active {
+    background: rgba(183, 110, 87, 0.2);
+    transform: translateX(5px);
 }
 
-.step-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(45deg, #8B4513, #D2B48C);
+.period-name {
+    font-weight: bold;
+    color: var(--tea-brown);
+}
+
+.period-duration {
+    color: var(--jian-black);
+    font-size: 0.9rem;
+}
+
+.map-view {
+    background: rgba(135, 206, 204, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    position: relative;
+}
+
+#tea-estate-map {
+    height: 300px;
+    border-radius: 0.5rem;
+    background-image: url('../static/images/tea_routes_map.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.map-controls {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.map-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.map-btn:hover, .map-btn.active {
+    background: var(--ruware-cyan);
+    color: white;
+}
+
+/* 工艺分解剧场 */
+.process-theater {
+    margin: 3rem 0;
+}
+
+.process-stage {
+    background: var(--dingware-white);
+    border-radius: var(--border-radius);
+    padding: var(--section-padding);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.stage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(183, 110, 87, 0.3);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stage-tools {
+    display: flex;
+    gap: 1rem;
+}
+
+.tool-icon {
+    font-size: 1.8rem;
+    background: rgba(135, 206, 204, 0.1);
+    padding: 0.5rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: help;
+}
+
+.stage-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.classic-text {
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-text {
+    font-family: "FangSong", "STFangsong", serif;
+    padding: 1rem 2rem;
+    background: var(--dingware-white);
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+
+.scroll-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-weight: 500;
+    color: var(--jian-black);
+}
+
+.text-source {
+    display: block;
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--tea-brown);
+    margin-top: 1rem;
+}
+
+.interactive-section {
+    background: var(--dingware-white);
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.simulator-container {
+    background: rgba(55, 55, 55, 0.03);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* 蒸茶火候模拟器 */
+.steam-simulator {
+    text-align: center;
+}
+
+.steam-pot {
+    position: relative;
+    width: 150px;
+    margin: 0 auto 2rem;
+}
+
+.steam-pot img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.steam-particles {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50% 50% 0 0;
+    opacity: 0.7;
+    transition: all 0.5s ease;
+}
+
+.bellows-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.bellows-img {
+    width: 100px;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.steam-control {
+    width: 200px;
+    appearance: none;
+    height: 8px;
+    background: linear-gradient(to right, #D2B48C, #B76E57);
+    border-radius: 4px;
+    outline: none;
+}
+
+.steam-control::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--tea-brown);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.steam-indicator {
+    margin-top: 1rem;
+}
+
+.indicator-scale {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--jian-black);
+    margin-bottom: 0.5rem;
+}
+
+.indicator-value {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--tea-brown);
+}
+
+/* 研茶粒子系统 */
+.grind-simulator {
+    text-align: center;
+}
+
+#grind-canvas {
+    background: #f5f5f5;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.grind-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#start-grind {
+    background: var(--tea-brown);
     color: white;
-    font-size: 24px;
-    margin-bottom: 15px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    border: 3px solid #FFF;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
     transition: all 0.3s ease;
 }
 
-.step-item.active .step-icon,
-.step-item:hover .step-icon {
-    background: linear-gradient(45deg, #6B3E00, #B08C5B);
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+#start-grind:hover {
+    background: var(--zhusha-red);
+    transform: translateY(-2px);
 }
 
-.step-content {
+.grind-pressure {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pressure-level {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.level {
+    padding: 0.3rem 1rem;
+    border-radius: 0.3rem;
+    background: #f0f0f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.level:hover, .level.active {
+    background: var(--ruware-cyan);
+    color: white;
+}
+
+/* 茶饼模具预览 */
+.mold-preview {
     text-align: center;
-    background: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;
 }
 
-.step-content h3 {
-    margin: 0 0 5px 0;
-    color: #8B4513;
-    font-size: 18px;
+.mold-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 }
 
-.step-brief {
-    margin: 0;
-    color: #666;
-    font-size: 14px;
-}
-
-/* 视频区域样式 */
-.video-container {
-    margin: 40px 0;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-}
-
-.video-wrapper {
-    width: 100%;
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9比例 */
-    height: 0;
+.mold-display {
+    width: 250px;
+    height: 250px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-    margin-bottom: 20px;
-    background: #000;
-    border-radius: 8px;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.video-wrapper video {
+.mold-pattern-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.mold-pattern {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    object-fit: cover;
 }
 
-.video-controls {
+.mold-pattern.active {
+    opacity: 1;
+}
+
+.mold-selector {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+    gap: 1rem;
 }
 
-.play-step-btn {
-    background: linear-gradient(to bottom, #4A6144, #5D7A57);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
+.mold-btn {
+    background: var(--dingware-white);
+    border: 1px solid var(--ruware-cyan);
+    color: var(--jian-black);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
     cursor: pointer;
-    font-family: 'Calligraphy';
-    font-size: 16px;
+    font-family: inherit;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.play-step-btn:hover {
-    background: linear-gradient(to bottom, #3E5138, #4E6647);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+.mold-btn:hover, .mold-btn.active {
+    background: var(--ruware-cyan);
+    color: white;
 }
 
-/* 详细步骤卡片 */
-.step-details {
-    margin-top: 40px;
+.mold-info {
+    background: rgba(135, 206, 204, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: left;
+    width: 100%;
 }
 
-.step-detail-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-    display: none;
-    border-left: 5px solid #D2B48C;
+.mold-info p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
 }
 
-.step-detail-card.active {
-    display: block;
-    animation: fadeIn 0.5s ease;
+.stage-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
 
-/* 新增样式：古籍原文和分析部分 */
-.ancient-text, .detail-content, .analysis-section {
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 8px;
+.ancient-text, .modern-text {
+    padding: 1.5rem;
+    border-radius: 0.8rem;
 }
 
 .ancient-text {
-    background-color: #F7F1E3;
-    border-left: 3px solid #8B4513;
+    background: rgba(212, 175, 55, 0.05);
+    border-left: 3px solid var(--imperial-gold);
 }
 
-.detail-content {
-    background-color: #F9F9F9;
-    border-left: 3px solid #5D7A57;
-}
-
-.analysis-section {
-    background-color: #EFF5ED;
-    border-left: 3px solid #4A6144;
-}
-
-h4 {
-    color: #8B4513;
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-weight: 600;
-    font-size: 18px;
-}
-
-.source {
-    font-size: 14px;
-    color: #666;
-    font-weight: normal;
+.modern-text {
+    background: rgba(183, 110, 87, 0.05);
+    border-left: 3px solid var(--tea-brown);
 }
 
 .wenyanwen {
     font-family: "FangSong", "STFangsong", serif;
-    font-size: 18px;
+    font-size: 1.1rem;
     line-height: 1.8;
-    color: #444;
-    margin: 0;
 }
 
+.source {
+    font-size: 0.9rem;
+    color: var(--tea-brown);
+    font-weight: normal;
+}
+
+/* 茶器实验室 */
+.tea-lab {
+    margin: 3rem 0;
+}
+
+.lab-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.lab-section {
+    background: var(--dingware-white);
+    border-radius: var(--border-radius);
+    padding: var(--section-padding);
+    box-shadow: var(--box-shadow);
+}
+
+/* 建盏光谱分析仪 */
+.spectral-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tea-cup-display {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(55, 55, 55, 0.05);
+    border-radius: 0.8rem;
+}
+
+.cup-image {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.scanning-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(212, 175, 55, 0.8);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    display: none;
+}
+
+@keyframes scan {
+    from { top: 0; }
+    to { top: 100%; }
+}
+
+.spectral-data {
+    padding: 1rem;
+    background: rgba(55, 55, 55, 0.02);
+    border-radius: 0.8rem;
+}
+
+.data-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#scan-btn {
+    background: var(--jian-black);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+#scan-btn:hover {
+    background: var(--imperial-gold);
+}
+
+.data-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.data-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.component {
+    width: 80px;
+    font-size: 0.9rem;
+}
+
+.value-bar {
+    flex-grow: 1;
+    height: 12px;
+    background: #f0f0f0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.fill-bar {
+    height: 100%;
+    width: 0;
+    transition: width 1s ease;
+}
+
+.iron-fill {
+    background: linear-gradient(to right, #8B4513, #A52A2A);
+}
+
+.silica-fill {
+    background: linear-gradient(to right, #87CECC, #5F9EA0);
+}
+
+.manganese-fill {
+    background: linear-gradient(to right, #9D2933, #800000);
+}
+
+.percentage {
+    width: 50px;
+    text-align: right;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* 点茶模拟器 */
+.whisk-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tea-bowl {
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(to right, #8B4513, #A52A2A);
+    border-radius: 50% / 20%;
+    position: relative;
+    overflow: hidden;
+}
+
+.tea-liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(to bottom, rgba(139, 69, 19, 0.7), rgba(165, 42, 42, 0.9));
+    border-radius: 50% / 20%;
+}
+
+.tea-foam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(244, 228, 204, 0.8);
+    transition: all 1s ease;
+    opacity: 0;
+}
+
+.tea-whisk {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    transition: all 0.3s ease;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.whisking {
+    animation: whisk 0.5s infinite;
+}
+
+@keyframes whisk {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    25% { transform: translateX(-60%) rotate(-5deg); }
+    50% { transform: translateX(-40%) rotate(5deg); }
+    75% { transform: translateX(-60%) rotate(-5deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+.circular-whisk {
+    animation: circular 2s infinite linear;
+}
+
+@keyframes circular {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+.zigzag-whisk {
+    animation: zigzag 1s infinite ease-in-out;
+}
+
+@keyframes zigzag {
+    0% { transform: translateX(-70%) rotate(-10deg); }
+    50% { transform: translateX(-30%) rotate(10deg); }
+    100% { transform: translateX(-70%) rotate(-10deg); }
+}
+
+.m-shape-whisk {
+    animation: mshape 2s infinite ease-in-out;
+}
+
+@keyframes mshape {
+    0% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+    25% { transform: translateX(-70%) translateY(10px) rotate(-10deg); }
+    50% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+    75% { transform: translateX(-30%) translateY(10px) rotate(10deg); }
+    100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+}
+
+.whisk-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#start-whisking {
+    background: var(--jian-black);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#start-whisking:hover {
+    background: var(--imperial-gold);
+    transform: translateY(-2px);
+}
+
+.whisk-techniques {
+    display: flex;
+    gap: 1rem;
+}
+
+.technique {
+    padding: 0.5rem 1rem;
+    background: rgba(183, 110, 87, 0.1);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.technique:hover, .technique.active {
+    background: var(--tea-brown);
+    color: white;
+}
+
+/* 贡茶数据图谱 */
+.tribute-tea-data {
+    margin: 3rem 0;
+}
+
+.data-visualization {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.timeline-container, .region-data {
+    background: var(--dingware-white);
+    border-radius: var(--border-radius);
+    padding: var(--section-padding);
+    box-shadow: var(--box-shadow);
+}
+
+.tea-timeline {
+    margin-top: 1.5rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.tea-timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background: var(--tea-gradient);
+}
+
+.timeline-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2rem;
+    width: 1rem;
+    height: 1rem;
+    background: var(--tea-brown);
+    border-radius: 50%;
+    border: 3px solid var(--dingware-white);
+}
+
+.year {
+    color: var(--tea-brown);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.tea-info {
+    background: rgba(183, 110, 87, 0.05);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.tea-info h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--jian-black);
+}
+
+.tea-info p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+#tea-regions-chart {
+    height: 300px;
+    margin-top: 1.5rem;
+    background: rgba(135, 206, 204, 0.05);
+    border-radius: 0.5rem;
+}
+
+/* 动画 */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 /* 响应式调整 */
+@media (max-width: 992px) {
+    .time-navigation, .process-stage .stage-content, .process-stage .stage-info, .lab-sections, .data-visualization {
+        grid-template-columns: 1fr;
+    }
+    
+    .stage-content, .stage-info {
+        gap: 1.5rem;
+    }
+    
+    .spectral-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 768px) {
-    .steps-timeline {
+    .scroll-content {
+        padding: 1.5rem;
+    }
+    
+    .scroll-end {
+        height: 100px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .mold-selector {
         flex-direction: column;
-        gap: 20px;
     }
     
-    .steps-timeline:before {
-        display: none;
-    }
-    
-    .step-item {
-        width: 100%;
-        flex-direction: row;
-        gap: 15px;
-    }
-    
-    .step-content {
-        text-align: left;
-        width: auto;
-    }
-    
-    .video-controls {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .play-step-btn {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    
-    .detail-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .detail-meta {
-        margin-top: 10px;
-    }
-    
-    .detail-meta span {
-        display: block;
-        margin-left: 0;
-        margin-bottom: 5px;
+    .mold-display {
+        width: 200px;
+        height: 200px;
     }
 }
 </style>
+{% endblock %}
 
+{% block extra_js %}
 <script>
-    var processData = {{ process|tojson }};
-    
+// 这里将放置JavaScript代码
     document.addEventListener('DOMContentLoaded', function() {
-        const videoElement = document.getElementById('tea-process-video');
-        const stepItems = document.querySelectorAll('.step-item');
-        const stepDetailCards = document.querySelectorAll('.step-detail-card');
-        const playButtons = document.querySelectorAll('.play-step-btn');
-        
-        // 设置默认活动步骤
-        setActiveStep(1);
-        
-        // 步骤点击事件
-        stepItems.forEach(function(item) {
-            item.addEventListener('click', function() {
-                const step = parseInt(this.getAttribute('data-step'));
-                setActiveStep(step);
-                
-                // 播放对应视频
-                const videoFileName = `tea_process_${step === 1 ? 'cacha' : step === 2 ? 'zhengqing' : 'yangao'}.mp4`;
-                changeVideo(videoFileName);
-            });
-        });
-        
-        // 视频按钮点击事件
-        playButtons.forEach(function(button, index) {
-            button.addEventListener('click', function() {
-                // 设置活动步骤
-                setActiveStep(index + 1);
-                
-                // 播放对应视频
-                const videoFileName = this.getAttribute('data-video');
-                changeVideo(videoFileName);
-            });
-        });
-        
-        // 设置活动步骤
-        function setActiveStep(step) {
-            // 更新步骤样式
-            stepItems.forEach(function(item) {
-                item.classList.remove('active');
-            });
-            document.getElementById(`step-${step}`).classList.add('active');
+    // 时间轴互动
+    const timePeriods = document.querySelectorAll('.time-period');
+    const processStages = document.querySelectorAll('.process-stage');
+    
+    timePeriods.forEach(period => {
+        period.addEventListener('click', function() {
+            const step = this.getAttribute('data-step');
             
-            // 更新详情卡片
-            stepDetailCards.forEach(function(card) {
-                card.classList.remove('active');
+            // 设置活动时期
+            timePeriods.forEach(p => p.classList.remove('active'));
+            this.classList.add('active');
+            
+            // 显示对应工序
+            processStages.forEach(stage => {
+                stage.style.display = 'none';
             });
-            document.getElementById(`detail-${step}`).classList.add('active');
+            document.getElementById(`stage-${step}`).style.display = 'block';
+            });
+        });
+        
+    // 默认显示第一个工序
+    timePeriods[0].classList.add('active');
+    processStages.forEach((stage, index) => {
+        if (index > 0) {
+            stage.style.display = 'none';
+        }
+    });
+    
+    // 蒸茶火候模拟器
+    const steamLevel = document.getElementById('steam-level');
+    const steamValue = document.getElementById('steam-value');
+    const steamParticles = document.querySelector('.steam-particles');
+    
+    if (steamLevel) {
+        steamLevel.addEventListener('input', function() {
+            const value = this.value;
+            let descriptor = '微弱';
+            
+            if (value < 20) {
+                descriptor = '微弱';
+                steamParticles.style.opacity = '0.3';
+                steamParticles.style.height = '50px';
+            } else if (value < 40) {
+                descriptor = '偏弱';
+                steamParticles.style.opacity = '0.5';
+                steamParticles.style.height = '80px';
+            } else if (value < 60) {
+                descriptor = '适中';
+                steamParticles.style.opacity = '0.7';
+                steamParticles.style.height = '120px';
+            } else if (value < 80) {
+                descriptor = '偏强';
+                steamParticles.style.opacity = '0.8';
+                steamParticles.style.height = '150px';
+            } else {
+                descriptor = '猛烈';
+                steamParticles.style.opacity = '1';
+                steamParticles.style.height = '180px';
+            }
+            
+            steamValue.textContent = descriptor;
+        });
+    }
+    
+    // 研茶粒子系统
+    const canvas = document.getElementById('grind-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let isGrinding = false;
+        let grindingPressure = 2;
+        
+        // 设置粒子
+        function setupParticles() {
+            particles = [];
+            for (let i = 0; i < 100; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 3 + 1,
+                    color: `rgba(${Math.floor(183 + Math.random() * 20)}, ${Math.floor(110 + Math.random() * 20)}, ${Math.floor(87 + Math.random() * 20)}, ${Math.random() * 0.5 + 0.5})`,
+                    vx: 0,
+                    vy: 0,
+                    friction: 0.95
+                });
+            }
         }
         
-        // 更换视频源
-        function changeVideo(videoFileName) {
-            const videoPath = `{{ url_for('static', filename='videos/') }}${videoFileName}`;
-            videoElement.src = videoPath;
-            videoElement.load();
-            videoElement.play();
+        // 绘制粒子
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // 画背景
+            ctx.fillStyle = '#f5f5f5';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // 画茶叶粒子
+            particles.forEach(particle => {
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                ctx.fillStyle = particle.color;
+                ctx.fill();
+            });
+            
+            // 如果正在研磨，更新粒子位置
+            if (isGrinding) {
+                updateParticles();
+            }
+            
+            requestAnimationFrame(drawParticles);
+        }
+        
+        // 更新粒子位置
+        function updateParticles() {
+            particles.forEach(particle => {
+                // 添加随机力度，基于研磨力度
+                const forceX = (Math.random() - 0.5) * grindingPressure;
+                const forceY = (Math.random() - 0.5) * grindingPressure;
+                
+                particle.vx += forceX;
+                particle.vy += forceY;
+                
+                // 应用摩擦力
+                particle.vx *= particle.friction;
+                particle.vy *= particle.friction;
+                
+                // 更新位置
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                
+                // 边界检查
+                if (particle.x < 0) particle.x = 0;
+                if (particle.x > canvas.width) particle.x = canvas.width;
+                if (particle.y < 0) particle.y = 0;
+                if (particle.y > canvas.height) particle.y = canvas.height;
+            });
+        }
+        
+        // 初始化
+        setupParticles();
+        drawParticles();
+        
+        // 添加研磨按钮事件
+        const startGrindBtn = document.getElementById('start-grind');
+        if (startGrindBtn) {
+            startGrindBtn.addEventListener('click', function() {
+                if (!isGrinding) {
+                    isGrinding = true;
+                    this.textContent = '停止研磨';
+                } else {
+                    isGrinding = false;
+                    this.textContent = '开始研磨';
+                }
+            });
+        }
+        
+        // 设置研磨力度
+        const pressureLevels = document.querySelectorAll('.level');
+        if (pressureLevels.length > 0) {
+            pressureLevels.forEach(level => {
+                level.addEventListener('click', function() {
+                    const levelValue = parseInt(this.getAttribute('data-level'));
+                    
+                    // 更新选中状态
+                    pressureLevels.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 设置研磨力度
+                    grindingPressure = levelValue * 2;
+                });
+            });
+            
+            // 默认选中中等力度
+            pressureLevels[1].classList.add('active');
+        }
+    }
+    
+    // 模具选择器
+    const moldBtns = document.querySelectorAll('.mold-btn');
+    const moldPatterns = document.querySelectorAll('.mold-pattern');
+    const currentPatternName = document.getElementById('current-pattern-name');
+    const patternUsage = document.getElementById('pattern-usage');
+    
+    if (moldBtns.length > 0) {
+        moldBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const pattern = this.getAttribute('data-pattern');
+                
+                // 更新按钮状态
+                moldBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 更新显示的模具
+                moldPatterns.forEach(p => p.classList.remove('active'));
+                document.querySelector(`.mold-pattern[data-pattern="${pattern}"]`).classList.add('active');
+                
+                // 更新信息
+                currentPatternName.textContent = this.textContent;
+                
+                // 设置不同模具的用途说明
+                if (pattern === 'dragon') {
+                    patternUsage.textContent = '皇家贡茶专用，龙为五爪金龙，象征皇权';
+                } else if (pattern === 'phoenix') {
+                    patternUsage.textContent = '宫廷贵妃茶，凤纹象征尊贵与华美';
+                } else if (pattern === 'imperial') {
+                    patternUsage.textContent = '御制茶饼，纹有"政和"年号，为最高等级贡茶';
+                }
+            });
+        });
+    }
+    
+    // 点茶模拟器
+    const startWhiskingBtn = document.getElementById('start-whisking');
+    const teaWhisk = document.querySelector('.tea-whisk');
+    const teaFoam = document.querySelector('.tea-foam');
+    const whiskTechniques = document.querySelectorAll('.technique');
+    
+    if (startWhiskingBtn) {
+        startWhiskingBtn.addEventListener('click', function() {
+            // 开始点茶动画
+            teaWhisk.classList.add('whisking');
+            
+            // 3秒后出现茶沫
+            setTimeout(() => {
+                teaFoam.style.opacity = '1';
+                teaFoam.style.height = '30px';
+            }, 3000);
+            
+            // 5秒后结束点茶
+            setTimeout(() => {
+                teaWhisk.classList.remove('whisking');
+                this.textContent = '再次点茶';
+            }, 5000);
+        });
+        
+        // 切换点茶技法
+        whiskTechniques.forEach(technique => {
+            technique.addEventListener('click', function() {
+                const techniqueType = this.getAttribute('data-technique');
+                
+                // 更新技法样式
+                whiskTechniques.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 为茶筅添加相应的动画类
+                teaWhisk.className = 'tea-whisk'; // 清除现有类
+                if (techniqueType === 'circular') {
+                    teaWhisk.classList.add('circular-whisk');
+                } else if (techniqueType === 'zigzag') {
+                    teaWhisk.classList.add('zigzag-whisk');
+                } else if (techniqueType === 'm-shape') {
+                    teaWhisk.classList.add('m-shape-whisk');
+                }
+            });
+        });
+    }
+    
+    // 扫描按钮
+    const scanBtn = document.getElementById('scan-btn');
+    const scanningLine = document.querySelector('.scanning-line');
+    const fillBars = document.querySelectorAll('.fill-bar');
+    
+    if (scanBtn) {
+        scanBtn.addEventListener('click', function() {
+            // 开始扫描动画
+            scanningLine.style.display = 'block';
+            scanningLine.style.animation = 'none';
+            
+            // 重新触发动画
+            setTimeout(() => {
+                scanningLine.style.animation = 'scan 2s linear';
+            }, 10);
+            
+            // 扫描结束后显示数据
+            setTimeout(() => {
+                scanningLine.style.display = 'none';
+                
+                // 显示成分条
+                fillBars.forEach(bar => {
+                    const percentage = bar.parentElement.getAttribute('data-percentage');
+                    if (percentage) {
+                        bar.style.width = percentage;
+                    }
+                });
+            }, 2000);
+        });
+    }
+    
+    // 初始化地图
+    const mapBtns = document.querySelectorAll('.map-btn');
+    if (mapBtns.length > 0) {
+        mapBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const view = this.getAttribute('data-view');
+                
+                // 更新按钮状态
+                mapBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 切换地图视图（这里只是UI变化，实际3D效果需要WebGL实现）
+                if (view === '3d') {
+                    document.getElementById('tea-estate-map').style.transform = 'perspective(1000px) rotateX(20deg)';
+                } else {
+                    document.getElementById('tea-estate-map').style.transform = 'none';
+                }
+            });
+        });
+        
+        // 默认选中2D视图
+        mapBtns[0].classList.add('active');
+    }
+    
+    // 初始化地区图表（简化版本）
+    const regionsChart = document.getElementById('tea-regions-chart');
+    if (regionsChart) {
+        regionsChart.innerHTML = `
+            <div style="height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                <div style="background: rgba(183, 110, 87, 0.7); width: 90%; height: 30px; margin: 5px 0; border-radius: 5px; position: relative;">
+                    <span style="position: absolute; left: 10px; top: 5px; color: white;">福建建安</span>
+                    <span style="position: absolute; right: 10px; top: 5px; color: white;">32%</span>
+                </div>
+                <div style="background: rgba(183, 110, 87, 0.5); width: 75%; height: 30px; margin: 5px 0; border-radius: 5px; position: relative;">
+                    <span style="position: absolute; left: 10px; top: 5px; color: white;">浙江湖州</span>
+                    <span style="position: absolute; right: 10px; top: 5px; color: white;">26%</span>
+                </div>
+                <div style="background: rgba(183, 110, 87, 0.3); width: 60%; height: 30px; margin: 5px 0; border-radius: 5px; position: relative;">
+                    <span style="position: absolute; left: 10px; top: 5px; color: white;">四川蒙顶</span>
+                    <span style="position: absolute; right: 10px; top: 5px; color: white;">18%</span>
+                </div>
+                <div style="background: rgba(183, 110, 87, 0.2); width: 40%; height: 30px; margin: 5px 0; border-radius: 5px; position: relative;">
+                    <span style="position: absolute; left: 10px; top: 5px; color: white;">江西饶州</span>
+                    <span style="position: absolute; right: 10px; top: 5px; color: white;">14%</span>
+                </div>
+                <div style="background: rgba(183, 110, 87, 0.1); width: 25%; height: 30px; margin: 5px 0; border-radius: 5px; position: relative;">
+                    <span style="position: absolute; left: 10px; top: 5px; color: #B76E57;">其他产区</span>
+                    <span style="position: absolute; right: 10px; top: 5px; color: #B76E57;">10%</span>
+                </div>
+            </div>
+        `;
         }
     });
 </script>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普洱茶生产制作 - 茶叶加工技术</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/production.css">
+    <style>
+        /* 增强图标点击效果 */
+        .step-icon {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .step-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(139, 90, 43, 0.7);
+        }
+        
+        /* 添加淡入效果 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 增强画廊效果 */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+        
+        /* 模态框样式 */
+        .gallery-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            border: 5px solid #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .modal-caption {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="普洱茶logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">首页</a></li>
+                <li><a href="/history">历史文化</a></li>
+                <li><a href="/varieties">茶叶品种</a></li>
+                <li><a href="/production" class="active">生产制作</a></li>
+                <li><a href="/brewing">冲泡技艺</a></li>
+                <li><a href="/health">健康功效</a></li>
+                <li><a href="/market">市场行情</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content fade-in">
+                <h1>普洱茶生产与制作工艺</h1>
+                <p>探索传统与现代结合的普洱茶制作全过程，从鲜叶采摘到最终成品</p>
+            </div>
+        </section>
+
+        <section class="production-process">
+            <h2 class="fade-in">普洱茶制作工艺流程</h2>
+            <div class="process-timeline">
+                <div class="process-step fade-in">
+                    <div class="step-icon">
+                        <img src="/static/images/picking.png" alt="采摘">
+                    </div>
+                    <h3>鲜叶采摘</h3>
+                    <p>选择云南大叶种茶树的新芽和嫩叶，遵循"一芽一叶"或"一芽二叶"的采摘标准，以保证茶叶品质。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-icon">
+                        <img src="/static/images/withering.png" alt="晒青">
+                    </div>
+                    <h3>晒青萎凋</h3>
+                    <p>将鲜叶在阳光下摊晾，使叶片水分蒸发，软化叶片组织，为后续加工做准备。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-icon">
+                        <img src="/static/images/killing-green.png" alt="杀青">
+                    </div>
+                    <h3>杀青</h3>
+                    <p>通过高温破坏鲜叶中的酶活性，停止氧化，锁定茶叶的内含物质，并散发部分水分。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-icon">
+                        <img src="/static/images/rolling.png" alt="揉捻">
+                    </div>
+                    <h3>揉捻</h3>
+                    <p>通过揉捻，破坏茶叶细胞组织，使茶汁析出附着于叶表，并塑造茶叶形状。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-icon">
+                        <img src="/static/images/drying.png" alt="干燥">
+                    </div>
+                    <h3>干燥</h3>
+                    <p>将揉捻后的茶叶进行干燥处理，使水分降至适宜程度，形成毛茶。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-icon highlighted">
+                        <img src="/static/images/pressing.png" alt="压制成饼">
+                    </div>
+                    <h3>压制成饼</h3>
+                    <p>将毛茶蒸软后放入模具中压制成圆饼、方砖、沱茶等不同形状。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-icon">
+                        <img src="/static/images/aging.png" alt="陈化">
+                    </div>
+                    <h3>自然陈化</h3>
+                    <p>储存于适宜环境中进行后发酵，随着时间的推移，品质逐渐转化提升。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="interactive-tea-pressing fade-in">
+            <h2>普洱茶饼压制互动体验</h2>
+            <p class="section-intro">体验传统普洱茶饼的压制过程，从松散茶叶到紧实茶饼的神奇转变</p>
+            
+            <div class="pressing-simulation">
+                <div class="tea-press-container">
+                    <div class="press-machine">
+                        <div class="press-top"></div>
+                        <div class="tea-leaves"></div>
+                        <div class="press-bottom"></div>
+                    </div>
+                    
+                    <div class="pressure-gauge">
+                        <h4>压力</h4>
+                        <div class="gauge-bar">
+                            <div class="gauge-fill"></div>
+                        </div>
+                        <div class="gauge-value">0%</div>
+                    </div>
+                </div>
+                
+                <div class="press-controls">
+                    <div class="progress-indicator">
+                        <h4>茶饼成型进度</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-status">等待开始...</div>
+                    </div>
+                    
+                    <button id="startPressBtn" class="action-button">开始压制</button>
+                    
+                    <div class="tea-cake">
+                        <!-- 完成的茶饼将在此显示 -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pressing-info fade-in">
+                <h3>普洱茶饼压制知识</h3>
+                <ul>
+                    <li><strong>传统石磨压制：</strong>古法使用石磨和人力，需要多人合作完成一个茶饼的压制</li>
+                    <li><strong>现代液压机：</strong>现代工艺采用液压设备，能精确控制压力和形状</li>
+                    <li><strong>蒸汽软化：</strong>压制前需使用蒸汽软化茶叶，使其更容易成型且不破坏品质</li>
+                    <li><strong>模具多样化：</strong>根据需要可压制成饼茶(357g/400g)、沱茶、砖茶等形状</li>
+                    <li><strong>茶饼包装：</strong>成型后的茶饼通常会包裹棉纸，并印制相关信息</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="production-gallery fade-in">
+            <h2>普洱茶生产工艺图集</h2>
+            <div class="gallery-container">
+                <!-- 添加图片展示区内容 -->
+                <div class="gallery-item">
+                    <img src="/static/images/tea-picking.jpg" alt="云南高山茶园采茶">
+                    <div class="gallery-caption">云南高山茶园采茶场景</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/static/images/tea-withering.jpg" alt="茶叶晒青工艺">
+                    <div class="gallery-caption">传统晒青工艺</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/static/images/tea-rolling.jpg" alt="茶叶揉捻过程">
+                    <div class="gallery-caption">茶叶揉捻过程</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/static/images/tea-pressing-traditional.jpg" alt="传统石磨压茶">
+                    <div class="gallery-caption">传统石磨压茶技艺</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/static/images/tea-cakes-various.jpg" alt="各种形状的普洱茶饼">
+                    <div class="gallery-caption">各种形状的普洱茶饼</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/static/images/tea-aging.jpg" alt="普洱茶陈化仓库">
+                    <div class="gallery-caption">普洱茶陈化仓库</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="/static/images/logo.png" alt="普洱茶logo">
+            </div>
+            <div class="footer-links">
+                <h3>网站导航</h3>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/history">历史文化</a></li>
+                    <li><a href="/varieties">茶叶品种</a></li>
+                    <li><a href="/production">生产制作</a></li>
+                    <li><a href="/brewing">冲泡技艺</a></li>
+                    <li><a href="/health">健康功效</a></li>
+                    <li><a href="/market">市场行情</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>联系我们</h3>
+                <p>电子邮件: info@puercha.com</p>
+                <p>电话: +86 123 4567 8910</p>
+                <div class="social-icons">
+                    <a href="#"><img src="/static/images/wechat.png" alt="微信"></a>
+                    <a href="#"><img src="/static/images/weibo.png" alt="微博"></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 普洱茶文化与工艺. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/production.js"></script>
+</body>
+</html> 

@@ -285,8 +285,8 @@ def song_production():
         return render_template('login.html')
 
     data = load_data()
-    # 使用从文件加载的茶工艺流程数据
-    return render_template('production_process.html', process=data['tea_process'], user_name=session.get('name'))
+    # 使用新的宋代团茶工艺模板
+    return render_template('song_tea_process.html', process=data['tea_process'], user_name=session.get('name'))
 
 
 @app.route('/culture_spread')

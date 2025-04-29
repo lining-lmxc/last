@@ -52,6 +52,7 @@
             border-radius: 10px;
         }
     </style>
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <div class="header">
@@ -80,5 +81,7 @@
         <p>数据来源：中国历代茶政文献数字工程</p>
         <p>技术支持：Python/Flask/ECharts</p>
     </div>
+    
+    {% block extra_js %}{% endblock %}
 </body>
 </html>
