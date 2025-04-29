@@ -36,6 +36,20 @@
         nav a {
             margin-right: 20px;
             white-space: nowrap;
+            padding: 5px 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        nav a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-bottom: 2px solid #fff;
+            font-weight: bold;
+            transform: translateY(-3px);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -44,11 +58,11 @@
         <img src="{{ url_for('static', filename='images/seal.png') }}" class="seal">
         <h1>中华茶文化数字典藏（唐-1911）</h1>
         <nav>
-            <a href="/">茶价演变</a>
-            <a href="/trade_flow">茶马古道</a>
-            <a href="/song_production">宋茶工艺</a>
-            <a href="/culture_spread">文化传播</a>
-            <a href="/tea_policy">茶叶政策</a>
+            <a href="/" {% if request.path == '/' %}class="active"{% endif %}>茶价演变</a>
+            <a href="/trade_flow" {% if request.path == '/trade_flow' %}class="active"{% endif %}>茶马古道</a>
+            <a href="/song_production" {% if request.path == '/song_production' %}class="active"{% endif %}>宋茶工艺</a>
+            <a href="/culture_spread" {% if request.path == '/culture_spread' %}class="active"{% endif %}>文化传播</a>
+            <a href="/tea_policy" {% if request.path == '/tea_policy' %}class="active"{% endif %}>茶叶政策</a>
         </nav>
         {% if user_name %}
         <div class="user-info">
