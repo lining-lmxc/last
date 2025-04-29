@@ -12,11 +12,12 @@
     <style>
         .user-info {
             position: absolute;
-            top: 10px;
+            top: 15px;
             right: 20px;
             color: #fff;
             display: flex;
             align-items: center;
+            z-index: 10;
         }
         .user-info a {
             color: #fff;
@@ -25,31 +26,12 @@
             border: 1px solid #fff;
             padding: 5px 10px;
             border-radius: 3px;
+            transition: all 0.3s ease;
         }
         .user-info a:hover {
             background-color: rgba(255, 255, 255, 0.2);
-        }
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        nav a {
-            margin-right: 20px;
-            white-space: nowrap;
-            padding: 5px 10px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        nav a.active {
-            background-color: rgba(255, 255, 255, 0.3);
-            border-bottom: 2px solid #fff;
-            font-weight: bold;
-            transform: translateY(-3px);
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
     </style>
     {% block extra_css %}{% endblock %}
