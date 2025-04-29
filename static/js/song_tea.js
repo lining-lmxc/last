@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始化节气信息
     showSeasonalInfo();
     
+    // 初始化视频播放器
+    initVideoPlayers();
+    
     // 添加页面动画效果
     addAnimationEffects();
     
@@ -142,6 +145,55 @@ function initSteamingSimulator() {
     
     if (!steamSlider) return;
     
+    // 添加茶叶元素和蒸制效果显示区域
+    const steamPot = document.querySelector('.steam-pot');
+    if (steamPot) {
+        // 添加茶叶元素
+        const teaLeaves = document.createElement('div');
+        teaLeaves.classList.add('tea-leaves-container');
+        teaLeaves.innerHTML = `
+            <div class="tea-leaves-visual"></div>
+            <div class="tea-moisture-indicator">
+                <div class="moisture-level" style="width: 100%"></div>
+            </div>
+        `;
+        steamPot.appendChild(teaLeaves);
+        
+        // 添加火焰效果
+        const fireContainer = document.createElement('div');
+        fireContainer.classList.add('fire-container');
+        fireContainer.innerHTML = `
+            <div class="fire-base"></div>
+            <div class="flames">
+                <div class="flame flame-1"></div>
+                <div class="flame flame-2"></div>
+                <div class="flame flame-3"></div>
+                <div class="flame flame-4"></div>
+                <div class="flame flame-5"></div>
+            </div>
+        `;
+        steamPot.after(fireContainer);
+        
+        // 添加蒸制完成度指示器
+        const simulatorContainer = document.querySelector('.simulator-container');
+        const completionIndicator = document.createElement('div');
+        completionIndicator.classList.add('steaming-completion');
+        completionIndicator.innerHTML = `
+            <div class="completion-track">
+                <div class="completion-progress" style="width: 0%"></div>
+            </div>
+            <div class="completion-label">蒸制进度: <span id="completion-value">0%</span></div>
+            <div class="steaming-result">茶叶状态: <span id="tea-status">未蒸制</span></div>
+        `;
+        simulatorContainer.appendChild(completionIndicator);
+    }
+    
+    // 蒸制状态变量
+    let steamingActive = false;
+    let steamingProgress = 0;
+    let steamingInterval = null;
+    let moistureLevel = 100; // 初始水分含量100%
+    
     // 更新蒸汽效果
     function updateSteamEffect(value) {
         // 根据滑块值更新蒸汽效果
@@ -175,12 +227,254 @@ function initSteamingSimulator() {
             steamParticles.appendChild(particle);
         }
         
+        // 更新火焰效果
+        updateFireEffect(value);
+        
         // 更新显示值
         let displayText = '适中';
         if (value < 30) displayText = '弱火';
         else if (value > 70) displayText = '猛火';
         
         steamValue.textContent = displayText;
+        
+        // 更新蒸制速度（如果蒸制过程正在进行）
+        if (steamingActive) {
+            updateSteamingRate(value);
+        }
+    }
+    
+    // 更新火焰效果
+    function updateFireEffect(value) {
+        const flames = document.querySelectorAll('.flame');
+        const fireBase = document.querySelector('.fire-base');
+        
+        if (!flames.length || !fireBase) return;
+        
+        // 火候强度 (0-1)
+        const intensity = value / 100;
+        
+        // 更新火焰底座颜色
+        const baseColor = intensity < 0.3 ? 
+            'rgba(255, 140, 0, 0.7)' : 
+            (intensity > 0.7 ? 'rgba(255, 50, 0, 0.9)' : 'rgba(255, 80, 0, 0.8)');
+        fireBase.style.backgroundColor = baseColor;
+        
+        // 更新火焰尺寸和动画速度
+        flames.forEach((flame, index) => {
+            // 根据火候调整火焰高度
+            const baseHeight = 30 + (index * 5); // 基础高度
+            const heightMultiplier = 0.7 + (intensity * 0.6); // 高度倍率
+            flame.style.height = `${baseHeight * heightMultiplier}px`;
+            
+            // 根据火候调整火焰宽度
+            const baseWidth = 15 + (index * 3); // 基础宽度
+            const widthMultiplier = 0.8 + (intensity * 0.4); // 宽度倍率
+            flame.style.width = `${baseWidth * widthMultiplier}px`;
+            
+            // 根据火候调整火焰颜色
+            if (intensity < 0.3) {
+                // 弱火: 橙色偏黄
+                flame.style.backgroundColor = `rgba(255, ${150 + (index * 20)}, 0, 0.${7 - index})`;
+            } else if (intensity > 0.7) {
+                // 强火: 红色偏蓝
+                flame.style.backgroundColor = `rgba(255, ${100 - (index * 10)}, ${index * 15}, 0.${8 - index})`;
+            } else {
+                // 中火: 标准橙黄
+                flame.style.backgroundColor = `rgba(255, ${120 + (index * 15)}, 0, 0.${7 - index})`;
+            }
+            
+            // 根据火候调整火焰动画速度
+            const animationDuration = intensity < 0.3 ? 3 - (index * 0.2) : (intensity > 0.7 ? 1.5 - (index * 0.1) : 2 - (index * 0.15));
+            flame.style.animationDuration = `${animationDuration}s`;
+        });
+    }
+    
+    // 添加开始蒸制按钮
+    const controlsArea = document.querySelector('.slider-control');
+    if (controlsArea) {
+        const startButton = document.createElement('button');
+        startButton.id = 'start-steaming';
+        startButton.className = 'interactive-button';
+        startButton.textContent = '开始蒸制';
+        controlsArea.after(startButton);
+        
+        // 绑定开始/停止蒸制事件
+        startButton.addEventListener('click', function() {
+            if (!steamingActive) {
+                startSteaming();
+                this.textContent = '停止蒸制';
+            } else {
+                stopSteaming();
+                this.textContent = '开始蒸制';
+            }
+        });
+    }
+    
+    // 开始蒸制过程
+    function startSteaming() {
+        if (steamingActive) return;
+        
+        steamingActive = true;
+        steamingProgress = 0;
+        moistureLevel = 100;
+        updateSteamingDisplay();
+        
+        // 根据当前火候设置蒸制速度
+        updateSteamingRate(steamSlider.value);
+    }
+    
+    // 停止蒸制过程
+    function stopSteaming() {
+        if (!steamingActive) return;
+        
+        steamingActive = false;
+        if (steamingInterval) {
+            clearInterval(steamingInterval);
+            steamingInterval = null;
+        }
+        
+        // 显示最终状态
+        evaluateTeaQuality();
+    }
+    
+    // 更新蒸制速度
+    function updateSteamingRate(value) {
+        // 清除现有间隔
+        if (steamingInterval) {
+            clearInterval(steamingInterval);
+        }
+        
+        // 计算蒸制速度 - 火候适中时速度最佳
+        let steamingSpeed;
+        if (value >= 40 && value <= 60) {
+            // 最佳火候范围
+            steamingSpeed = 30; // 毫秒
+        } else if (value < 40) {
+            // 火候不足
+            steamingSpeed = 50 + (40 - value); // 速度变慢
+        } else {
+            // 火候过猛
+            steamingSpeed = 40 + (value - 60) * 0.5; // 速度稍微变慢
+        }
+        
+        // 设置新的间隔
+        steamingInterval = setInterval(updateSteamingProgress, steamingSpeed);
+    }
+    
+    // 更新蒸制进度
+    function updateSteamingProgress() {
+        if (!steamingActive) return;
+        
+        // 增加进度
+        steamingProgress += 0.2;
+        
+        // 更新水分含量
+        if (steamSlider.value > 70) {
+            // 火候过猛，水分流失更快
+            moistureLevel -= 0.3;
+        } else if (steamSlider.value < 30) {
+            // 火候不足，水分流失更慢
+            moistureLevel -= 0.1;
+        } else {
+            // 火候适中，正常水分流失
+            moistureLevel -= 0.2;
+        }
+        
+        // 限制范围
+        moistureLevel = Math.max(0, moistureLevel);
+        
+        // 更新显示
+        updateSteamingDisplay();
+        
+        // 检查是否完成
+        if (steamingProgress >= 100 || moistureLevel <= 0) {
+            stopSteaming();
+        }
+    }
+    
+    // 更新蒸制显示
+    function updateSteamingDisplay() {
+        // 更新进度条
+        const progressBar = document.querySelector('.completion-progress');
+        const progressValue = document.getElementById('completion-value');
+        if (progressBar && progressValue) {
+            const progress = Math.min(100, steamingProgress);
+            progressBar.style.width = `${progress}%`;
+            progressValue.textContent = `${Math.round(progress)}%`;
+        }
+        
+        // 更新水分指示器
+        const moistureBar = document.querySelector('.moisture-level');
+        if (moistureBar) {
+            moistureBar.style.width = `${moistureLevel}%`;
+            moistureBar.style.backgroundColor = getMoistureColor(moistureLevel);
+        }
+        
+        // 更新茶叶颜色
+        const teaLeavesVisual = document.querySelector('.tea-leaves-visual');
+        if (teaLeavesVisual) {
+            const greenness = Math.max(0, Math.min(100, 120 - steamingProgress));
+            teaLeavesVisual.style.backgroundColor = `rgb(${120 - greenness * 0.4}, ${100 + greenness}, ${20})`;
+        }
+        
+        // 更新茶叶状态描述
+        updateTeaStatus();
+    }
+    
+    // 根据水分含量获取颜色
+    function getMoistureColor(level) {
+        if (level > 70) return '#3498db'; // 蓝色 - 水分充足
+        if (level > 40) return '#2ecc71'; // 绿色 - 水分适中
+        if (level > 20) return '#f39c12'; // 橙色 - 水分偏低
+        return '#e74c3c'; // 红色 - 水分不足
+    }
+    
+    // 更新茶叶状态描述
+    function updateTeaStatus() {
+        const teaStatus = document.getElementById('tea-status');
+        if (!teaStatus) return;
+        
+        if (steamingProgress < 20) {
+            teaStatus.textContent = '开始变软';
+        } else if (steamingProgress < 40) {
+            teaStatus.textContent = '香气开始释放';
+        } else if (steamingProgress < 60) {
+            teaStatus.textContent = '叶色变深';
+        } else if (steamingProgress < 80) {
+            teaStatus.textContent = '形态稳定';
+        } else if (steamingProgress < 100) {
+            teaStatus.textContent = '即将完成';
+        } else {
+            teaStatus.textContent = '蒸制完成';
+        }
+    }
+    
+    // 评估茶叶质量
+    function evaluateTeaQuality() {
+        const teaStatus = document.getElementById('tea-status');
+        if (!teaStatus) return;
+        
+        // 根据火候和蒸制进度评估质量
+        const fireLevel = parseInt(steamSlider.value);
+        
+        if (steamingProgress < 60) {
+            teaStatus.textContent = '蒸制不足，茶性未稳';
+            teaStatus.style.color = '#e74c3c';
+        } else if (steamingProgress > 95) {
+            if (fireLevel >= 40 && fireLevel <= 60) {
+                teaStatus.textContent = '蒸制完美，色香俱佳';
+                teaStatus.style.color = '#27ae60';
+            } else if (fireLevel > 60) {
+                teaStatus.textContent = '火候过猛，香气流失';
+                teaStatus.style.color = '#e67e22';
+            } else {
+                teaStatus.textContent = '火候不足，未能去青';
+                teaStatus.style.color = '#f1c40f';
+            }
+        } else {
+            teaStatus.textContent = '蒸制基本完成';
+            teaStatus.style.color = '#3498db';
+        }
     }
     
     // 初始更新
@@ -753,4 +1047,42 @@ function addAnimationEffects() {
     
     // 滚动时检查
     window.addEventListener('scroll', checkScrollPosition);
+}
+
+/**
+ * 初始化视频播放器
+ */
+function initVideoPlayers() {
+    const videoPlayers = document.querySelectorAll('.video-player');
+    
+    videoPlayers.forEach(player => {
+        const video = player.querySelector('video');
+        if (!video) return;
+        
+        // 设置视频预加载策略
+        video.preload = 'metadata';
+        
+        // 添加视频加载事件监听
+        video.addEventListener('loadedmetadata', function() {
+            console.log('视频元数据已加载:', video.src);
+            // 确保视频尺寸与容器匹配
+            player.style.height = 'auto';
+        });
+        
+        // 添加视频播放错误处理
+        video.addEventListener('error', function() {
+            console.error('视频加载失败:', video.src);
+            // 显示错误信息
+            const errorMessage = document.createElement('div');
+            errorMessage.className = 'video-error';
+            errorMessage.textContent = '视频加载失败，请刷新页面重试';
+            player.appendChild(errorMessage);
+        });
+        
+        // 添加播放完成事件处理
+        video.addEventListener('ended', function() {
+            console.log('视频播放完成:', video.src);
+            // 可以在这里添加播放完成后的逻辑，比如显示重播按钮等
+        });
+    });
 } 

@@ -238,20 +238,34 @@ a:hover {
     min-width: 40%;
 }
 
+/* 视频播放器样式 */
 .video-player {
-    width: 100%;
-    height: 200px;
-    background-color: #000;
-    border-radius: 5px;
-    margin-bottom: 20px;
     position: relative;
+    width: 100%;
+    border-radius: 8px;
     overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-content {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
 }
 
 .video-thumbnail {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+.video-player:hover .video-thumbnail {
+    filter: brightness(1.1);
 }
 
 .play-button {
@@ -261,21 +275,22 @@ a:hover {
     transform: translate(-50%, -50%);
     width: 60px;
     height: 60px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(139, 69, 19, 0.7);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .play-button::after {
     content: '';
     width: 0;
     height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-left: 25px solid white;
+    border-style: solid;
+    border-width: 12px 0 12px 20px;
+    border-color: transparent transparent transparent #fff;
     margin-left: 5px;
 }
 
@@ -773,4 +788,21 @@ a:hover {
 .pressure-level .level.active {
     background-color: var(--celadon);
     color: white;
+}
+
+.video-error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    border-radius: 8px;
 } 

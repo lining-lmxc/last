@@ -2,6 +2,14 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/song_tea_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/song_tea.css') }}">
+<style>
+    body {
+        background-image: url('{{ url_for('static', filename='images/paper_texture.jpg') }}');
+        background-repeat: repeat;
+        background-color: var(--rice-white);
+    }
+</style>
 {% endblock %}
 
 {% block content %}
@@ -60,15 +68,17 @@
                 <div class="annotation-dot"></div>
                 <div class="annotation-text">鲜嫩芽叶</div>
             </div>
-            <div class="annotation" style="top: 60%; left: 70%;">
+            <div class="annotation" style="top: 14%; left: 40%;">
                 <div class="annotation-dot"></div>
                 <div class="annotation-text">宋代采茶竹篮</div>
             </div>
         </div>
         <div class="details-area">
             <div class="video-player">
-                <img src="{{ url_for('static', filename='images/video-thumbnail-picking.jpg') }}" class="video-thumbnail" alt="采茶视频缩略图">
-                <div class="play-button"></div>
+                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-picking.jpg') }}">
+                    <source src="{{ url_for('static', filename='videos/video-thumbnail-picking.mp4') }}" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频播放。
+                </video>
             </div>
             
             <div class="poetry-box">
@@ -110,10 +120,6 @@
                 <div class="annotation-dot"></div>
                 <div class="annotation-text">蒸笼</div>
             </div>
-            <div class="annotation" style="top: 65%; left: 60%;">
-                <div class="annotation-dot"></div>
-                <div class="annotation-text">蒸气上升通道</div>
-            </div>
         </div>
         <div class="details-area">
             <div class="interactive-element">
@@ -121,7 +127,6 @@
                 <div class="steam-simulator">
                     <div class="simulator-container">
                         <div class="steam-pot">
-                            <img src="{{ url_for('static', filename='images/steaming-pot.jpg') }}" alt="蒸茶器具">
                             <div class="steam-particles"></div>
                         </div>
                         <div class="slider-control">
@@ -159,10 +164,6 @@
                 <div class="annotation-dot"></div>
                 <div class="annotation-text">石磨研茶</div>
             </div>
-            <div class="annotation" style="top: 70%; left: 65%;">
-                <div class="annotation-dot"></div>
-                <div class="annotation-text">研膏痕迹</div>
-            </div>
         </div>
         <div class="details-area">
             <div class="interactive-element">
@@ -197,7 +198,7 @@
     
     <div class="step-details" id="step-details-4" style="display: none;">
         <div class="illustration-area">
-            <img src="{{ url_for('static', filename='images/tea-molding.jpg') }}" class="illustration-img" alt="印模工艺图">
+            <img src="{{ url_for('static', filename='images/tea-molding.png') }}" class="illustration-img" alt="印模工艺图">
             <div class="annotation" style="top: 20%; left: 25%;">
                 <div class="annotation-dot"></div>
                 <div class="annotation-text">龙凤纹饼模</div>
@@ -240,17 +241,16 @@
             <img src="{{ url_for('static', filename='images/tea-baking.jpg') }}" class="illustration-img" alt="焙干工艺图">
             <div class="annotation" style="top: 30%; left: 30%;">
                 <div class="annotation-dot"></div>
-                <div class="annotation-text">焙笼</div>
+                <div class="annotation-text">烘干</div>
             </div>
-            <div class="annotation" style="top: 70%; left: 60%;">
-                <div class="annotation-dot"></div>
-                <div class="annotation-text">炭火</div>
-            </div>
+
         </div>
         <div class="details-area">
             <div class="video-player">
-                <img src="{{ url_for('static', filename='images/video-thumbnail-baking.jpg') }}" class="video-thumbnail" alt="焙干视频缩略图">
-                <div class="play-button"></div>
+                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-baking.jpg') }}">
+                    <source src="{{ url_for('static', filename='videos/video-thumbnail-baking.mp4') }}" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频播放。
+                </video>
             </div>
             
             <div class="poetry-box">
@@ -290,17 +290,15 @@
             <img src="{{ url_for('static', filename='images/tea-storing.jpg') }}" class="illustration-img" alt="封存工艺图">
             <div class="annotation" style="top: 25%; left: 25%;">
                 <div class="annotation-dot"></div>
-                <div class="annotation-text">茶仓</div>
-            </div>
-            <div class="annotation" style="top: 65%; left: 70%;">
-                <div class="annotation-dot"></div>
                 <div class="annotation-text">茶叶纸包装</div>
             </div>
         </div>
         <div class="details-area">
             <div class="video-player">
-                <img src="{{ url_for('static', filename='images/video-thumbnail-storing.jpg') }}" class="video-thumbnail" alt="封存视频缩略图">
-                <div class="play-button"></div>
+                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-storing.jpg') }}">
+                    <source src="{{ url_for('static', filename='videos/video-thumbnail-storing.mp4') }}" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频播放。
+                </video>
             </div>
             
             <div class="poetry-box">
