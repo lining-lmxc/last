@@ -9,6 +9,60 @@
         background-repeat: repeat;
         background-color: var(--rice-white);
     }
+
+    /* 增加样式以平衡两侧内容 */
+    .illustration-area, .details-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .illustration-area {
+        position: relative;
+    }
+
+    .annotation-group {
+        position: relative;
+        flex-grow: 1;
+        margin-top: 15px;
+    }
+
+    .illustration-desc {
+        margin-top: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        border-left: 3px solid var(--celadon);
+    }
+
+    .video-player {
+        margin-bottom: 15px;
+    }
+
+    .compact-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .compact-content > div {
+        flex: 1;
+    }
+
+    .ancient-text {
+        margin-top: 15px;
+    }
+    
+    .tool-cards {
+        margin-top: 10px;
+    }
+    
+    .steam-simulator, .grinding-simulator, .mold-selector {
+        margin-bottom: 15px;
+    }
 </style>
 {% endblock %}
 
@@ -64,30 +118,7 @@
     <div class="step-details" id="step-details-1">
         <div class="illustration-area">
             <img src="{{ url_for('static', filename='images/tea-picking.jpg') }}" class="illustration-img" alt="采茶工艺图">
-            <div class="annotation" style="top: 30%; left: 20%;">
-                <div class="annotation-dot"></div>
-                <div class="annotation-text">鲜嫩芽叶</div>
-            </div>
-            <div class="annotation" style="top: 14%; left: 40%;">
-                <div class="annotation-dot"></div>
-                <div class="annotation-text">宋代采茶竹篮</div>
-            </div>
-        </div>
-        <div class="details-area">
-            <div class="video-player">
-                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-picking.jpg') }}">
-                    <source src="{{ url_for('static', filename='videos/video-thumbnail-picking.mp4') }}" type="video/mp4">
-                    您的浏览器不支持 HTML5 视频播放。
-                </video>
-            </div>
-            
-            <div class="poetry-box">
-                <p>数骑莫随金騕褭，一身闲向玉华游。<br>
-                   采茶人在春山里，明月闻歌夜半愁。</p>
-                <div class="poetry-source">—— 宋·苏轼《采茶歌》</div>
-            </div>
-            
-            <div class="interactive-element">
+            <div class="illustration-desc">
                 <h3>采茶知识</h3>
                 <div class="tool-cards">
                     <div class="tool-card">
@@ -104,11 +135,27 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="details-area">
+            <div class="video-player">
+                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-picking.jpg') }}">
+                    <source src="{{ url_for('static', filename='videos/video-thumbnail-picking.mp4') }}" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频播放。
+                </video>
+            </div>
             
-            <div class="ancient-text">
-                <h4>古籍描述</h4>
-                <p>{{ process[0].ancient_text }}</p>
-                <div class="text-source">—— {{ process[0].source }}</div>
+            <div class="compact-content">
+                <div class="poetry-box">
+                    <p>数骑莫随金騕褭，一身闲向玉华游。<br>
+                       采茶人在春山里，明月闻歌夜半愁。</p>
+                    <div class="poetry-source">—— 宋·苏轼《采茶歌》</div>
+                </div>
+                
+                <div class="ancient-text">
+                    <h4>古籍描述</h4>
+                    <p>{{ process[0].ancient_text }}</p>
+                    <div class="text-source">—— {{ process[0].source }}</div>
+                </div>
             </div>
         </div>
     </div>
@@ -116,9 +163,12 @@
     <div class="step-details" id="step-details-2" style="display: none;">
         <div class="illustration-area">
             <img src="{{ url_for('static', filename='images/tea-steaming.jpg') }}" class="illustration-img" alt="蒸青工艺图">
-            <div class="annotation" style="top: 25%; left: 15%;">
-                <div class="annotation-dot"></div>
-                <div class="annotation-text">蒸笼</div>
+            <div class="illustration-desc">
+                <div class="poetry-box">
+                    <p>蒸叶趁新芽，手不停揉捻。<br>
+                       茶魂藏匣中，待客来品鉴。</p>
+                    <div class="poetry-source">—— 宋·黄庭坚《茶诗》</div>
+                </div>
             </div>
         </div>
         <div class="details-area">
@@ -143,12 +193,6 @@
                 </div>
             </div>
             
-            <div class="poetry-box">
-                <p>蒸叶趁新芽，手不停揉捻。<br>
-                   茶魂藏匣中，待客来品鉴。</p>
-                <div class="poetry-source">—— 宋·黄庭坚《茶诗》</div>
-            </div>
-            
             <div class="ancient-text">
                 <h4>古籍描述</h4>
                 <p>{{ process[1].ancient_text }}</p>
@@ -160,9 +204,12 @@
     <div class="step-details" id="step-details-3" style="display: none;">
         <div class="illustration-area">
             <img src="{{ url_for('static', filename='images/tea-grinding.jpg') }}" class="illustration-img" alt="研膏工艺图">
-            <div class="annotation" style="top: 30%; left: 20%;">
-                <div class="annotation-dot"></div>
-                <div class="annotation-text">石磨研茶</div>
+            <div class="illustration-desc">
+                <div class="poetry-box">
+                    <p>碾雕白玉尘，罗织红纱细。<br>
+                       夜后圆荷叶，晨前嫩藕丝。</p>
+                    <div class="poetry-source">—— 宋·苏轼《汲江煎茶》</div>
+                </div>
             </div>
         </div>
         <div class="details-area">
@@ -182,12 +229,6 @@
                 </div>
             </div>
             
-            <div class="poetry-box">
-                <p>碾雕白玉尘，罗织红纱细。<br>
-                   夜后圆荷叶，晨前嫩藕丝。</p>
-                <div class="poetry-source">—— 宋·苏轼《汲江煎茶》</div>
-            </div>
-            
             <div class="ancient-text">
                 <h4>古籍描述</h4>
                 <p>{{ process[2].ancient_text }}</p>
@@ -199,13 +240,13 @@
     <div class="step-details" id="step-details-4" style="display: none;">
         <div class="illustration-area">
             <img src="{{ url_for('static', filename='images/tea-molding.png') }}" class="illustration-img" alt="印模工艺图">
-            <div class="annotation" style="top: 20%; left: 25%;">
-                <div class="annotation-dot"></div>
-                <div class="annotation-text">龙凤纹饼模</div>
-            </div>
-            <div class="annotation" style="top: 60%; left: 70%;">
-                <div class="annotation-dot"></div>
-                <div class="annotation-text">成型茶饼</div>
+
+            <div class="illustration-desc">
+                <div class="poetry-box">
+                    <p>团姿龙凤纹，饼形匀且圆。<br>
+                       宫中赐贵客，天子念丹诚。</p>
+                    <div class="poetry-source">—— 宋·欧阳修《观茶贡》</div>
+                </div>
             </div>
         </div>
         <div class="details-area">
@@ -222,12 +263,6 @@
                 <p class="mold-description">宋代贡茶多以龙凤纹样为尊，御用团茶有"双龙戏珠"等纹饰，寓意吉祥祈福。</p>
             </div>
             
-            <div class="poetry-box">
-                <p>团姿龙凤纹，饼形匀且圆。<br>
-                   宫中赐贵客，天子念丹诚。</p>
-                <div class="poetry-source">—— 宋·欧阳修《观茶贡》</div>
-            </div>
-            
             <div class="ancient-text">
                 <h4>古籍描述</h4>
                 <p>{{ process[3].ancient_text }}</p>
@@ -239,28 +274,8 @@
     <div class="step-details" id="step-details-5" style="display: none;">
         <div class="illustration-area">
             <img src="{{ url_for('static', filename='images/tea-baking.jpg') }}" class="illustration-img" alt="焙干工艺图">
-            <div class="annotation" style="top: 30%; left: 30%;">
-                <div class="annotation-dot"></div>
-                <div class="annotation-text">烘干</div>
-            </div>
 
-        </div>
-        <div class="details-area">
-            <div class="video-player">
-                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-baking.jpg') }}">
-                    <source src="{{ url_for('static', filename='videos/video-thumbnail-baking.mp4') }}" type="video/mp4">
-                    您的浏览器不支持 HTML5 视频播放。
-                </video>
-            </div>
-            
-            <div class="poetry-box">
-                <p>云脚低时见石楼，茶烟轻处是林幽。<br>
-                   炭焰三更煨活火，文火缓缓焙新茶。</p>
-                <div class="poetry-source">—— 宋·陆游《焙茶》</div>
-            </div>
-            
-            <div class="interactive-element">
-                <h3>焙干知识</h3>
+            <div class="illustration-desc">
                 <div class="tool-cards">
                     <div class="tool-card">
                         <div class="tool-name">
@@ -276,11 +291,27 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="details-area">
+            <div class="video-player">
+                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-baking.jpg') }}">
+                    <source src="{{ url_for('static', filename='videos/video-thumbnail-baking.mp4') }}" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频播放。
+                </video>
+            </div>
             
-            <div class="ancient-text">
-                <h4>古籍描述</h4>
-                <p>{{ process[4].ancient_text }}</p>
-                <div class="text-source">—— {{ process[4].source }}</div>
+            <div class="compact-content">
+                <div class="poetry-box">
+                    <p>云脚低时见石楼，茶烟轻处是林幽。<br>
+                       炭焰三更煨活火，文火缓缓焙新茶。</p>
+                    <div class="poetry-source">—— 宋·陆游《焙茶》</div>
+                </div>
+                
+                <div class="ancient-text">
+                    <h4>古籍描述</h4>
+                    <p>{{ process[4].ancient_text }}</p>
+                    <div class="text-source">—— {{ process[4].source }}</div>
+                </div>
             </div>
         </div>
     </div>
@@ -288,27 +319,8 @@
     <div class="step-details" id="step-details-6" style="display: none;">
         <div class="illustration-area">
             <img src="{{ url_for('static', filename='images/tea-storing.jpg') }}" class="illustration-img" alt="封存工艺图">
-            <div class="annotation" style="top: 25%; left: 25%;">
-                <div class="annotation-dot"></div>
-                <div class="annotation-text">茶叶纸包装</div>
-            </div>
-        </div>
-        <div class="details-area">
-            <div class="video-player">
-                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-storing.jpg') }}">
-                    <source src="{{ url_for('static', filename='videos/video-thumbnail-storing.mp4') }}" type="video/mp4">
-                    您的浏览器不支持 HTML5 视频播放。
-                </video>
-            </div>
-            
-            <div class="poetry-box">
-                <p>藏茶待客来，开封香满室。<br>
-                   岁月沉淀味，唯向知音说。</p>
-                <div class="poetry-source">—— 宋·王安石《存茶》</div>
-            </div>
-            
-            <div class="interactive-element">
-                <h3>封存知识</h3>
+
+            <div class="illustration-desc">
                 <div class="tool-cards">
                     <div class="tool-card">
                         <div class="tool-name">
@@ -324,11 +336,27 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="details-area">
+            <div class="video-player">
+                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-storing.jpg') }}">
+                    <source src="{{ url_for('static', filename='videos/video-thumbnail-storing.mp4') }}" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频播放。
+                </video>
+            </div>
             
-            <div class="ancient-text">
-                <h4>古籍描述</h4>
-                <p>茶之贮藏，忌焦热，忌风燥，忌烟熏，忌腥秽。火燥则色黑，风燥则味薄，烟熏则气变，腥秽则味败。</p>
-                <div class="text-source">—— 《宣和北苑贡茶录》</div>
+            <div class="compact-content">
+                <div class="poetry-box">
+                    <p>藏茶待客来，开封香满室。<br>
+                       岁月沉淀味，唯向知音说。</p>
+                    <div class="poetry-source">—— 宋·王安石《存茶》</div>
+                </div>
+                
+                <div class="ancient-text">
+                    <h4>古籍描述</h4>
+                    <p>茶之贮藏，忌焦热，忌风燥，忌烟熏，忌腥秽。火燥则色黑，风燥则味薄，烟熏则气变，腥秽则味败。</p>
+                    <div class="text-source">—— 《宣和北苑贡茶录》</div>
+                </div>
             </div>
         </div>
     </div>
