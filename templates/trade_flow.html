@@ -25,7 +25,7 @@
             <a href="#routes-section" class="nav-item">核心路线</a>
             <a href="#trade-section" class="nav-item">贸易体系</a>
             <a href="#heritage-section" class="nav-item">文化遗产</a>
-            <a href="#map-section" class="nav-item">互动地图</a>
+<!--            <a href="#map-section" class="nav-item">互动地图</a>-->
         </div>
     </div>
 
@@ -100,24 +100,24 @@
             <div class="routes-map">
                 <div class="map-placeholder">
                     <img src="{{ url_for('static', filename='images/tea_routes_map.jpg') }}" alt="茶马古道路线图">
-                    <div class="map-overlay">
-                        <div class="route-point" style="top: 35%; left: 20%;" data-city="雅安">
-                            <div class="point-dot"></div>
-                            <div class="point-name">雅安</div>
-                        </div>
-                        <div class="route-point" style="top: 45%; left: 35%;" data-city="康定">
-                            <div class="point-dot"></div>
-                            <div class="point-name">康定</div>
-                        </div>
-                        <div class="route-point" style="top: 60%; left: 25%;" data-city="丽江">
-                            <div class="point-dot"></div>
-                            <div class="point-name">丽江</div>
-                        </div>
-                        <div class="route-point" style="top: 30%; left: 70%;" data-city="拉萨">
-                            <div class="point-dot"></div>
-                            <div class="point-name">拉萨</div>
-                        </div>
-                    </div>
+<!--                    <div class="map-overlay">-->
+<!--                        <div class="route-point" style="top: 35%; left: 20%;" data-city="雅安">-->
+<!--                            <div class="point-dot"></div>-->
+<!--                            <div class="point-name">雅安</div>-->
+<!--                        </div>-->
+<!--                        <div class="route-point" style="top: 45%; left: 35%;" data-city="康定">-->
+<!--                            <div class="point-dot"></div>-->
+<!--                            <div class="point-name">康定</div>-->
+<!--                        </div>-->
+<!--                        <div class="route-point" style="top: 60%; left: 25%;" data-city="丽江">-->
+<!--                            <div class="point-dot"></div>-->
+<!--                            <div class="point-name">丽江</div>-->
+<!--                        </div>-->
+<!--                        <div class="route-point" style="top: 30%; left: 70%;" data-city="拉萨">-->
+<!--                            <div class="point-dot"></div>-->
+<!--                            <div class="point-name">拉萨</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </div>
             
@@ -275,11 +275,15 @@
             <div class="heritage-video">
                 <div class="video-container">
                     <div class="video-placeholder">
-                        <img src="{{ url_for('static', filename='images/caravan_video.jpg') }}" alt="马帮纪录片截图">
+<!--                        <img src="{{ url_for('static', filename='images/caravan_video.jpg') }}" alt="马帮纪录片截图">-->
+                        <video id="tea-road-video" controls style="width: 100%; height: 100%; display: none;">
+                            <source src="{{ url_for('static', filename='videos/茶马古道.mp4') }}" type="video/mp4">
+                            您的浏览器不支持视频播放。
+                        </video>
                         <div class="play-button">▶</div>
                     </div>
                     <div class="video-caption">
-                        <p>千年茶马古道：马帮驮队翻越雪山的艰辛历程</p>
+                        <p>千年茶马古道</p>
                     </div>
                 </div>
             </div>
@@ -335,17 +339,17 @@
         </div>
     </section>
 
-    <!-- 互动地图部分 -->
-    <section id="map-section" class="content-section">
-        <h2 class="section-title">互动地图</h2>
-        <div class="interactive-map-container">
-            <div id="tea-route-map" style="width: 100%; height: 500px;">
-                <div class="map-loading">
-                    <p>正在加载地图...</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!--    &lt;!&ndash; 互动地图部分 &ndash;&gt;-->
+<!--    <section id="map-section" class="content-section">-->
+<!--        <h2 class="section-title">互动地图</h2>-->
+<!--        <div class="interactive-map-container">-->
+<!--            <div id="tea-route-map" style="width: 100%; height: 500px;">-->
+<!--                <div class="map-loading">-->
+<!--                    <p>正在加载地图...</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
     
     <!-- 保留茶马古道智能问答区域 -->
     <section id="qa-section" class="content-section">
@@ -530,32 +534,58 @@
 
 .timeline {
     position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
 }
 
 .timeline::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 50px;
+    left: 50%;
     height: 100%;
     width: 4px;
     background: linear-gradient(to bottom, #8B4513, #D2B48C);
+    transform: translateX(-50%);
+    z-index: 0;
 }
 
 .timeline-item {
-    margin-bottom: 50px;
     position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.timeline-item:nth-child(odd) {
+    grid-column: 1;
+    justify-self: end;
+    padding-right: 40px;
+}
+
+.timeline-item:nth-child(even) {
+    grid-column: 2;
+    justify-self: start;
+    padding-left: 40px;
 }
 
 .timeline-marker {
     position: absolute;
-    left: 50px;
-    transform: translateX(-50%);
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background: #8B4513;
     z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-marker {
+    right: -10px;
+    top: 30px;
+}
+
+.timeline-item:nth-child(even) .timeline-marker {
+    left: -10px;
+    top: 30px;
 }
 
 .tang-era { background: #722f37; }
@@ -564,37 +594,51 @@
 .modern-era { background: #7b5427; }
 
 .timeline-content {
-    margin-left: 80px;
     background: white;
-    padding: 25px;
+    padding: 15px;
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(139, 69, 19, 0.1);
+    position: relative;
 }
 
 .timeline-content h3 {
     margin-top: 0;
+    margin-bottom: 8px;
     color: #8B4513;
     font-family: "思源宋体", serif;
+    font-size: 1.2rem;
+}
+
+.timeline-content p {
+    margin: 0 0 10px 0;
+    font-size: 0.95rem;
 }
 
 .timeline-image {
-    margin: 15px 0;
+    margin: 10px 0;
     text-align: center;
 }
 
 .timeline-image img {
     max-width: 100%;
     height: auto;
+    max-height: 160px;
+    object-fit: cover;
     border-radius: 5px;
-    border: 3px solid #f9f5f0;
+    border: 2px solid #f9f5f0;
 }
 
 .ancient-text {
     background: #f9f5f0;
-    padding: 15px;
+    padding: 10px;
     border-left: 3px solid #D2B48C;
     font-style: italic;
-    margin-top: 15px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.ancient-text p {
+    margin: 0;
 }
 
 /* 路线部分样式 */
@@ -833,9 +877,13 @@
     position: relative;
     width: 100%;
     height: 400px;
+    background-color: #000;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .video-placeholder img {
@@ -849,20 +897,21 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
-    background: rgba(210, 180, 140, 0.8);
+    font-size: 64px;
     color: white;
+    background-color: rgba(139, 69, 19, 0.7);
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    transition: all 0.3s;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.video-placeholder:hover .play-button {
-    background: rgba(139, 69, 19, 0.8);
+.play-button:hover {
+    background-color: rgba(139, 69, 19, 0.9);
     transform: translate(-50%, -50%) scale(1.1);
 }
 
@@ -1093,6 +1142,30 @@
     .flow-group {
         margin-bottom: 20px;
     }
+    
+    .timeline {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline::before {
+        left: 30px;
+        transform: none;
+    }
+    
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        grid-column: 1;
+        justify-self: start;
+        padding-left: 50px;
+        padding-right: 0;
+        width: calc(100% - 50px);
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-marker,
+    .timeline-item:nth-child(even) .timeline-marker {
+        left: 20px;
+        right: auto;
+    }
 }
 </style>
 
@@ -1166,9 +1239,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 视频播放功能模拟
     const videoPlaceholder = document.querySelector('.video-placeholder');
-    if (videoPlaceholder) {
+    const teaRoadVideo = document.getElementById('tea-road-video');
+    const playButton = document.querySelector('.play-button');
+    
+    if (videoPlaceholder && teaRoadVideo) {
         videoPlaceholder.addEventListener('click', function() {
-            alert('视频播放功能将在实际部署时启用');
+            teaRoadVideo.style.display = 'block';
+            playButton.style.display = 'none';
+            teaRoadVideo.play();
         });
     }
     

@@ -52,33 +52,66 @@ body {
     background: #f0f0e1 url('../images/tea_pattern.jpg');
     font-family: '衡山毛笔行书', 'Calligraphy', serif;
     color: #3a3a3a;
+    margin: 0;
+    padding: 0;
 }
 
+/* 美化标题样式，使各页面统一 */
 .header {
     background: linear-gradient(to right, #7b8d6d, #a4b899);
     padding: 20px;
     border-bottom: 3px double #4a6144;
     position: relative;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+    font-size: 2.8rem;
+    margin: 0 0 15px 0;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.1em;
 }
 
 .seal {
     position: absolute;
     right: 20px;
-    top: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 80px;
     opacity: 0.8;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 nav a {
     color: #fff;
     margin: 0 15px;
     text-decoration: none;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 nav a:hover {
-    border-bottom-color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+nav a.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid #fff;
+    font-weight: bold;
+    transform: translateY(-3px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .chart-container {
@@ -93,19 +126,7 @@ nav a:hover {
     padding: 20px;
     margin: 20px 0;
     position: relative;
-} */
-
-/* /* .timeline-icon {
-    background: #7b8d6d;
-    color: #fff;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    text-align: center;
-    position: absolute;
-    left: -16px;
-    top: 0;
-} */
+}
 
 .footer {
     text-align: center;
@@ -113,6 +134,7 @@ nav a:hover {
     border-top: 1px solid #7b8d6d;
     margin-top: 50px;
     color: #666;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .error-container {

@@ -24,6 +24,11 @@ mysql = MySQL(app)
 # 将mysql实例添加到app.extensions中，以便在Blueprint中访问
 app.extensions['mysql'] = mysql
 
+# 添加模板上下文处理器，确保request对象在所有模板中可用
+@app.context_processor
+def inject_request():
+    return {'request': request}
+
 # 配置日志
 logging.basicConfig(
     level=logging.DEBUG,  # 改为DEBUG级别以获取更多信息
@@ -280,8 +285,8 @@ def song_production():
         return render_template('login.html')
 
     data = load_data()
-    # 使用从文件加载的茶工艺流程数据
-    return render_template('production_process.html', process=data['tea_process'], user_name=session.get('name'))
+    # 使用新的宋代团茶工艺模板
+    return render_template('song_tea_process.html', process=data['tea_process'], user_name=session.get('name'))
 
 
 @app.route('/culture_spread')
@@ -368,18 +373,18 @@ if __name__ == '__main__':
     with app.app_context():
         try:
             create_tables()
-            logger.info("数据库表创建/检查完成")
+            # logger.info("数据库表创建/检查完成")
         except Exception as e:
             logger.error(f"数据库表创建失败: {str(e)}", exc_info=True)
     
     # 预加载数据
     try:
-        logger.info("准备预加载数据...")
+        # logger.info("准备预加载数据...")
         preload_data()
-        logger.info("预加载数据完成，准备启动应用")
+        # logger.info("预加载数据完成，准备启动应用")
     except Exception as e:
         logger.error(f"预加载数据过程中出错: {str(e)}", exc_info=True)
     
     # 启动Flask应用
-    logger.info("应用启动中，监听端口9000...")
+    # logger.info("应用启动中，监听端口9000...")
     app.run(debug=True, port=9000)
