@@ -584,7 +584,7 @@
             <div class="detail-section">
                 <div class="price-info">
                     <p>官价：<span>${item.price_liang}两/斤</span></p>
-                    <p>出处：《${item.source}》</p>
+                    <p>出处：${item.source}</p>
                 </div>
                 <h4>历史背景</h4>
                 <p>${getHistoricalContext(item.year, item.dynasty)}</p>
@@ -714,7 +714,7 @@
             smooth: true,
             lineStyle: { color: '#8B4513', width: 3 },
             symbol: 'circle',
-            symbolSize: 10,
+            symbolSize: 8,
             itemStyle: {
                 color: '#D2B48C',
                 borderColor: '#8B4513',
@@ -733,6 +733,11 @@
                         offset: 1, color: 'rgba(210, 180, 140, 0)'
                     }]
                 }
+            },
+            // 基本动画
+            animationDuration: 1500,
+            animationDelay: function (idx) {
+                return idx * 50;
             }
         }]
     };
