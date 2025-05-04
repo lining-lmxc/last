@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, session, request, Response
+from flask import Flask, render_template, jsonify, session, request, Response, redirect
 import pandas as pd
 import json
 import logging
@@ -10,6 +10,9 @@ from functools import lru_cache
 import time
 
 app = Flask(__name__)
+
+
+
 
 # 配置密钥用于session
 app.secret_key = os.urandom(24)
@@ -68,6 +71,19 @@ def create_tables():
                 password VARCHAR(100) NOT NULL
             )
         ''')
+        
+        # 创建答题分数表
+        cur.execute('''
+            CREATE TABLE IF NOT EXISTS quiz_scores (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                user_name VARCHAR(100) NOT NULL,
+                score INT NOT NULL,
+                total INT NOT NULL,
+                date_taken VARCHAR(20) NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+        
         mysql.connection.commit()
         logger.info("数据库表创建成功")
     except Exception as e:
@@ -126,6 +142,20 @@ def load_data():
             }
         }
         tea_process = []
+        traditional_cultures = {
+            "title": "中国传统文化数字展览馆",
+            "subtitle": "1911年前非物质文化遗产保护与传承",
+            "description": "集中展示1911年前的中国传统文化与非物质文化遗产",
+            "categories": [],
+            "cultures": [],
+            "timeline": [],
+            "regions": []
+        }
+        tea_quiz = {
+            "title": "中华茶文化知识答题系统",
+            "description": "测试您对1911年前中国茶文化的了解程度",
+            "questions": []
+        }
 
         # 加载历史价格数据
         prices_file = data_dir / 'historical_prices.csv'
@@ -215,6 +245,20 @@ def load_data():
                                     break
 
             logger.info(f"成功加载历史茶叶产区数据: {len(historical_tea_areas.get('dynasties', []))}个朝代")
+            
+        # 加载传统文化数据
+        cultures_file = data_dir / 'traditional_cultures.json'
+        if os.path.exists(cultures_file):
+            logger.debug(f"加载传统文化数据文件: {cultures_file}")
+            traditional_cultures = load_json(cultures_file)
+            logger.info(f"成功加载传统文化数据: {len(traditional_cultures.get('cultures', []))}个传统文化项目")
+
+        # 加载茶文化答题系统数据
+        quiz_file = data_dir / 'tea_quiz.json'
+        if os.path.exists(quiz_file):
+            logger.debug(f"加载茶文化答题系统数据文件: {quiz_file}")
+            tea_quiz = load_json(quiz_file)
+            logger.info(f"成功加载茶文化答题题库: {len(tea_quiz.get('questions', []))}道题目")
 
         # 保存到缓存
         _data_cache = {
@@ -223,7 +267,9 @@ def load_data():
             'spread': spread,
             'song_production': song_production,
             'historical_tea_areas': historical_tea_areas,
-            'tea_process': tea_process
+            'tea_process': tea_process,
+            'traditional_cultures': traditional_cultures,
+            'tea_quiz': tea_quiz
         }
         
         logger.info("所有数据加载完成")
@@ -238,7 +284,20 @@ def load_data():
             'spread': {'nodes': [], 'routes': [], 'historical_events': []},
             'song_production': [],
             'historical_tea_areas': {},
-            'tea_process': []
+            'tea_process': [],
+            'traditional_cultures': {
+                "title": "中国传统文化数字展览馆",
+                "description": "数据加载错误",
+                "categories": [],
+                "cultures": [],
+                "timeline": [],
+                "regions": []
+            },
+            'tea_quiz': {
+                "title": "中华茶文化知识答题系统",
+                "description": "数据加载错误",
+                "questions": []
+            }
         }
 
 
@@ -311,6 +370,81 @@ def tea_policy():
     return render_template('tea_policy.html', user_name=session.get('name'))
 
 
+@app.route('/tea_quiz')
+def tea_quiz():
+    if 'name' not in session:
+        return render_template('login.html')
+    
+    data = load_data()
+    if data is None or 'tea_quiz' not in data:
+        logger.error("无法加载茶文化答题系统数据")
+        return render_template('500.html'), 500
+        
+    logger.info("返回茶文化答题系统数据到模板")
+    return render_template('tea_quiz.html', quiz_data=data['tea_quiz'], user_name=session.get('name'))
+
+
+@app.route('/save_quiz_score', methods=['POST'])
+def save_quiz_score():
+    if 'name' not in session:
+        return jsonify({"success": False, "error": "未登录"}), 401
+        
+    try:
+        data = request.get_json()
+        score = data.get('score', 0)
+        total = data.get('total', 0)
+        date = data.get('date', '')
+        
+        # 获取当前用户
+        user_name = session.get('name')
+        
+        # 保存得分到数据库
+        cur = mysql.connection.cursor()
+        cur.execute(
+            "INSERT INTO quiz_scores (user_name, score, total, date_taken) VALUES (%s, %s, %s, %s)",
+            (user_name, score, total, date)
+        )
+        mysql.connection.commit()
+        cur.close()
+        
+        return jsonify({"success": True})
+    except Exception as e:
+        logger.error(f"保存答题得分时出错: {str(e)}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route('/get_quiz_scores')
+def get_quiz_scores():
+    if 'name' not in session:
+        return jsonify({"success": False, "error": "未登录"}), 401
+        
+    try:
+        # 获取当前用户
+        user_name = session.get('name')
+        
+        # 从数据库获取得分记录
+        cur = mysql.connection.cursor()
+        cur.execute(
+            "SELECT score, total, date_taken FROM quiz_scores WHERE user_name = %s ORDER BY date_taken DESC LIMIT 10",
+            (user_name,)
+        )
+        scores = cur.fetchall()
+        cur.close()
+        
+        result = []
+        for score in scores:
+            result.append({
+                "score": score[0],
+                "total": score[1],
+                "date": score[2]
+            })
+            
+        return jsonify({"success": True, "scores": result})
+    except Exception as e:
+        logger.error(f"获取答题得分记录时出错: {str(e)}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 @app.route('/ask', methods=['POST'])
 def ask():
     question = request.get_json().get('question', '')
@@ -354,6 +488,46 @@ def generate_stream(question):
                             yield json.dumps({"status": "done"})
     except Exception as e:
         yield json.dumps({"error": f"API请求失败: {str(e)}"})
+
+
+@app.route('/traditional_cultures')
+def traditional_cultures():
+    if 'name' not in session:
+        return render_template('login.html')
+
+    data = load_data()
+    if data is None or 'traditional_cultures' not in data:
+        logger.error("无法加载传统文化数据")
+        return render_template('500.html'), 500
+
+    logger.info("返回传统文化数据到模板")
+    return render_template('traditional_cultures.html', cultures_data=data['traditional_cultures'], user_name=session.get('name'))
+
+
+@app.route('/culture/<culture_id>')
+def culture_detail(culture_id):
+    if 'name' not in session:
+        return render_template('login.html')
+
+    data = load_data()
+    if data is None or 'traditional_cultures' not in data:
+        logger.error("无法加载传统文化数据")
+        return render_template('500.html'), 500
+
+    # 查找匹配的文化项目
+    culture_item = None
+    for item in data['traditional_cultures']['cultures']:
+        if item['id'] == culture_id:
+            culture_item = item
+            break
+
+    if not culture_item:
+        logger.error(f"找不到ID为{culture_id}的传统文化详情")
+        # 重定向到百度搜索
+        search_term = culture_id.replace('_', ' ')
+        return redirect(f"https://www.baidu.com/s?wd={search_term}")
+
+    return render_template('culture_detail.html', culture=culture_item, user_name=session.get('name'))
 
 
 @app.errorhandler(404)

@@ -49,7 +49,9 @@ p, li, .timeline-content p, .historical-context p {
 }
 
 body {
-    background: #f0f0e1 url('../images/tea_pattern.jpg');
+    background-color: #f5f1e6;  /* 米白色背景 */
+    background-image: url('../images/paper_texture.jpg');
+    background-repeat: repeat;
     font-family: '衡山毛笔行书', 'Calligraphy', serif;
     color: #3a3a3a;
     margin: 0;
