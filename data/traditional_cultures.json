@@ -1,0 +1,290 @@
+{
+    "title": "中国传统文化数字展览馆",
+    "subtitle": "1911年前非物质文化遗产保护与传承",
+    "description": "集中展示1911年前的中国传统文化与非物质文化遗产，通过多维度分类引导用户探索中华文明的丰富内涵。",
+    "categories": [
+        {
+            "id": "literature",
+            "name": "文学艺术",
+            "icon": "literature.png",
+            "description": "包含书法、绘画、诗词等传统文学艺术形式"
+        },
+        {
+            "id": "craft",
+            "name": "工艺技艺",
+            "icon": "craft.png",
+            "description": "涵盖织锦、陶瓷、漆器等传统手工艺"
+        },
+        {
+            "id": "music",
+            "name": "音乐舞蹈",
+            "icon": "music.png",
+            "description": "传统乐器、戏曲、民间舞蹈等表演艺术"
+        },
+        {
+            "id": "medicine",
+            "name": "医药养生",
+            "icon": "medicine.png",
+            "description": "中医理论、针灸、草药等传统医学体系"
+        },
+        {
+            "id": "philosophy",
+            "name": "哲学思想",
+            "icon": "philosophy.png",
+            "description": "儒释道思想体系与实践智慧"
+        },
+        {
+            "id": "folk",
+            "name": "民俗礼仪",
+            "icon": "folk.png",
+            "description": "传统节日、礼仪规范、婚丧嫁娶习俗"
+        }
+    ],
+    "cultures": [
+        {
+            "id": "calligraphy",
+            "name": "书法艺术",
+            "category": "literature",
+            "dynasty": "秦汉至明清",
+            "time_period": "前221年-1911年",
+            "region": "全国",
+            "intro": "书法是中国特有的一种传统艺术，是以毛笔为工具书写汉字的艺术，包含篆、隶、楷、行、草五种基本字体，被誉为无声的诗、无行的舞、无图的画。",
+            "img": "calligraphy.jpg",
+            "detail_url": "/culture/calligraphy",
+            "significance": "书法体现了中国传统哲学中的'天人合一'思想，融合了文学、绘画与哲学于一体，是中华文明的重要载体。",
+            "representative_figures": ["王羲之", "颜真卿", "欧阳询", "柳公权", "赵孟頫", "董其昌"],
+            "landmarks": ["兰亭", "颜氏家庙", "书圣故里"],
+            "modern_status": "被列入国家级非物质文化遗产名录，在全球范围内影响深远，是中国文化符号之一。"
+        },
+        {
+            "id": "guqin",
+            "name": "古琴艺术",
+            "category": "music",
+            "dynasty": "周朝至清末",
+            "time_period": "约前1000年-1911年",
+            "region": "中原地区",
+            "intro": "古琴，又称瑶琴、七弦琴，是中国最古老的弹拨乐器之一，被列为琴棋书画四艺之首。有着三千多年的历史，现存三千余首古琴曲谱。",
+            "img": "guqin.jpg",
+            "detail_url": "/culture/guqin",
+            "significance": "古琴音乐蕴含儒家中庸之道、道家清净无为的思想，是文人修身养性的重要方式。",
+            "representative_figures": ["嵇康", "蔡邕", "钟子期", "俞伯牙", "郭楚望"],
+            "landmarks": ["九嶷山古琴台", "龙门琴派遗址"],
+            "modern_status": "2003年被联合国教科文组织列入人类非物质文化遗产代表作名录，在现代有复兴趋势。"
+        },
+        {
+            "id": "porcelain",
+            "name": "瓷器工艺",
+            "category": "craft",
+            "dynasty": "汉至清朝",
+            "time_period": "约公元25年-1911年",
+            "region": "景德镇、龙泉、磁州、钧州等",
+            "intro": "中国瓷器以其精美的造型、绚丽的色彩和悠久的历史闻名于世，青瓷、白瓷、青花瓷、五彩瓷等工艺各具特色，是中华物质文明的重要见证。",
+            "img": "porcelain.jpg",
+            "detail_url": "/culture/porcelain",
+            "significance": "瓷器是中国对世界物质文明的重大贡献，英文'China'同时表示中国和瓷器，足见其影响力。",
+            "representative_figures": ["唐英", "蒋祈", "谭泥"],
+            "landmarks": ["景德镇古窑址", "龙泉青瓷遗址", "磁州窑址"],
+            "modern_status": "传统制瓷技艺被列入国家级非物质文化遗产，景德镇瓷器继续在世界享有盛誉。"
+        },
+        {
+            "id": "traditional_chinese_medicine",
+            "name": "中医药",
+            "category": "medicine",
+            "dynasty": "上古时期至清末",
+            "time_period": "约前2000年-1911年",
+            "region": "全国",
+            "intro": "中医药学是中华民族数千年医疗实践经验的结晶，以阴阳五行理论为基础，包含中药、针灸、推拿、气功等多种治疗方法，强调整体观念和辨证施治。",
+            "img": "tcm.jpg",
+            "detail_url": "/culture/traditional_chinese_medicine",
+            "significance": "中医理论体系完整，方法独特，体现了中国人对生命、健康的哲学思考，是东方医学智慧的代表。",
+            "representative_figures": ["黄帝", "扁鹊", "张仲景", "华佗", "李时珍", "孙思邈"],
+            "landmarks": ["本草纲目原稿", "黄帝内经传本", "针灸铜人"],
+            "modern_status": "仍是中国医疗体系的重要组成部分，针灸、中药等在全球范围内得到认可和应用。"
+        },
+        {
+            "id": "confucianism",
+            "name": "儒家思想",
+            "category": "philosophy",
+            "dynasty": "春秋至清末",
+            "time_period": "前551年-1911年",
+            "region": "全国",
+            "intro": "儒家思想是由孔子创立、后经孟子、荀子等人发展的一套伦理道德、政治哲学体系，强调仁、义、礼、智、信，主张修身齐家治国平天下。",
+            "img": "confucianism.jpg",
+            "detail_url": "/culture/confucianism",
+            "significance": "儒家思想是中国传统文化的主流，塑造了中国人的价值观念和行为规范，对东亚文化圈影响深远。",
+            "representative_figures": ["孔子", "孟子", "荀子", "朱熹", "王阳明"],
+            "landmarks": ["孔庙", "曲阜三孔", "白鹿洞书院"],
+            "modern_status": "虽经历近代质疑，但核心价值观仍影响当代中国社会，新儒学思潮在学术界持续发展。"
+        },
+        {
+            "id": "silk_weaving",
+            "name": "丝绸织造",
+            "category": "craft",
+            "dynasty": "新石器时代至清末",
+            "time_period": "约前5000年-1911年",
+            "region": "江浙、四川、广东等地",
+            "intro": "中国丝绸织造技艺历史悠久，包括缂丝、蜀锦、宋锦、云锦等多种工艺，以其精细的工艺和华美的纹样闻名于世，是古代丝绸之路的重要贸易品。",
+            "img": "silk.jpg",
+            "detail_url": "/culture/silk",
+            "significance": "丝绸发明是中国对世界文明的杰出贡献，推动了东西方文化交流，影响了世界服饰和纺织业的发展。",
+            "representative_figures": ["黄道婆", "朱缨"],
+            "landmarks": ["杭州丝绸博物馆", "苏州丝绸研究所"],
+            "modern_status": "南京云锦、苏州缂丝等被列为国家级非物质文化遗产，在现代高端服饰中仍有应用。"
+        },
+        {
+            "id": "peking_opera",
+            "name": "京剧",
+            "category": "music",
+            "dynasty": "清朝",
+            "time_period": "约1790年-1911年",
+            "region": "北京",
+            "intro": "京剧是中国最具代表性的戏曲剧种之一，融合了唱、念、做、打多种艺术表现形式，以其程式化的表演、独特的脸谱和华丽的服饰著称。",
+            "img": "peking_opera.jpg",
+            "detail_url": "/culture/peking_opera",
+            "significance": "京剧被誉为'国粹'，集中国戏曲艺术之大成，体现了中国人的审美情趣和价值取向。",
+            "representative_figures": ["程长庚", "谭鑫培", "梅兰芳", "程砚秋"],
+            "landmarks": ["湖广会馆", "三庆园", "同仁堂药号戏楼"],
+            "modern_status": "2010年被列入人类非物质文化遗产代表作名录，在政府支持下仍有传承发展。"
+        },
+        {
+            "id": "paper_cutting",
+            "name": "剪纸艺术",
+            "category": "folk",
+            "dynasty": "汉至清朝",
+            "time_period": "约公元前5世纪-1911年",
+            "region": "全国各地",
+            "intro": "剪纸是中国民间流传的一种用剪刀或刻刀在纸上刻出各种图案的手工艺术，题材广泛，技法多样，具有强烈的地域特色。",
+            "img": "paper_cutting.jpg",
+            "detail_url": "/culture/paper_cutting",
+            "significance": "剪纸艺术是中国民间智慧的结晶，体现了劳动人民的审美追求和生活愿望，具有鲜明的民族特色。",
+            "representative_figures": ["鲁氏剪纸传人", "阳洪玉"],
+            "landmarks": ["陕西延川剪纸村", "河北蔚县剪纸馆"],
+            "modern_status": "2009年被列入人类非物质文化遗产代表作名录，在民间仍有广泛传承。"
+        },
+        {
+            "id": "chinese_painting",
+            "name": "中国画",
+            "category": "literature",
+            "dynasty": "战国至清末",
+            "time_period": "前475年-1911年",
+            "region": "全国",
+            "intro": "中国画是以毛笔、墨、国画颜料、宣纸为主要工具和材料，创作于纸、绢等材质上的平面绘画，主要分山水画、花鸟画、人物画三大类。",
+            "img": "chinese_painting.jpg",
+            "detail_url": "/culture/chinese_painting",
+            "significance": "中国画强调意境与神韵，讲究笔墨精神，体现了中国传统哲学中的人与自然和谐共生理念。",
+            "representative_figures": ["顾恺之", "吴道子", "王维", "范宽", "郭熙", "李唐", "马远", "夏圭", "倪瓒", "黄公望", "王蒙", "吴镇", "文征明", "唐寅", "仇英", "石涛", "朱耷"],
+            "landmarks": ["敦煌莫高窟壁画", "永乐宫壁画", "故宫藏画"],
+            "modern_status": "作为主流艺术形式继续发展，中国画技法被列入国家级非物质文化遗产名录。"
+        },
+        {
+            "id": "tai_chi",
+            "name": "太极拳",
+            "category": "medicine",
+            "dynasty": "宋至清朝",
+            "time_period": "约12世纪-1911年",
+            "region": "河南、山西等地",
+            "intro": "太极拳是一种内外兼修、柔和缓慢、刚柔相济的中国传统武术，强调以意导气、以气运身，既是武术技击术，也是养生保健功法。",
+            "img": "ai_chi.jpg",
+            "detail_url": "/culture/tai_chi",
+            "significance": "太极拳融合了中国古代哲学、中医理论与武术实践，是中华传统文化的重要组成部分。",
+            "representative_figures": ["张三丰(传说)", "陈王廷", "杨露禅", "武禹襄", "孙禄堂"],
+            "landmarks": ["陈家沟", "永年县", "温县"],
+            "modern_status": "2020年被列入人类非物质文化遗产代表作名录，在全球范围内广泛传播。"
+        },
+        {
+            "id": "tea_culture",
+            "name": "茶文化",
+            "category": "folk",
+            "dynasty": "唐至清朝",
+            "time_period": "约公元618年-1911年",
+            "region": "全国",
+            "intro": "中国茶文化是以茶为媒介，包含茶道、茶艺、茶具、茶学和茶德等物质和精神内容的综合文化体系，经历了煮茶、点茶、泡茶三个发展阶段。",
+            "img": "tea_culture.jpg",
+            "detail_url": "/tea_policy",
+            "significance": "茶文化是中华民族生活方式和审美情趣的重要体现，强调和谐、静心、尊重，影响了东亚多国。",
+            "representative_figures": ["陆羽", "赵佶", "朱权"],
+            "landmarks": ["武夷山茶区", "杭州龙井", "洞庭碧螺春产区"],
+            "modern_status": "传统制茶技艺被列入国家级非物质文化遗产，茶文化在现代仍有广泛影响。"
+        },
+        {
+            "id": "bronze_art",
+            "name": "青铜艺术",
+            "category": "craft",
+            "dynasty": "夏商周至汉",
+            "time_period": "前2070年-公元220年",
+            "region": "中原地区",
+            "intro": "中国青铜艺术始于夏代，盛于商周，以青铜礼器和乐器为主，铸造技术精湛，纹饰丰富，体现了早期中国的高超冶金技术和独特审美观念。",
+            "img": "bronze_art.jpg",
+            "detail_url": "/culture/bronze_art",
+            "significance": "青铜器是早期中华文明的重要象征，记录了古代礼乐制度和信仰体系，是研究中国早期历史的重要实物资料。",
+            "representative_figures": ["后母戊鼎铸造者", "毛公鼎铸造者"],
+            "landmarks": ["殷墟", "三星堆", "金沙遗址"],
+            "modern_status": "大量珍贵青铜器被保存在各大博物馆，传统铸造技艺有限度传承。"
+        }
+    ],
+    "timeline": [
+        {
+            "period": "夏商周时期",
+            "start_year": "-2070",
+            "end_year": "-221",
+            "notable_cultures": ["青铜艺术", "诗经", "礼乐制度"]
+        },
+        {
+            "period": "秦汉时期",
+            "start_year": "-221",
+            "end_year": "220",
+            "notable_cultures": ["书法艺术", "丝绸织造", "汉赋"]
+        },
+        {
+            "period": "魏晋南北朝",
+            "start_year": "220",
+            "end_year": "589",
+            "notable_cultures": ["玄学", "书法艺术", "青瓷"]
+        },
+        {
+            "period": "隋唐五代",
+            "start_year": "581",
+            "end_year": "979",
+            "notable_cultures": ["唐诗", "茶文化", "唐三彩"]
+        },
+        {
+            "period": "宋辽金元",
+            "start_year": "960",
+            "end_year": "1368",
+            "notable_cultures": ["宋词", "程朱理学", "宋瓷"]
+        },
+        {
+            "period": "明清时期",
+            "start_year": "1368",
+            "end_year": "1911",
+            "notable_cultures": ["京剧", "明清小说", "景德镇瓷器"]
+        }
+    ],
+    "regions": [
+        {
+            "name": "北方",
+            "coordinates": [116.4, 39.9],
+            "cultures": ["京剧", "杨柳青年画", "北方民歌"]
+        },
+        {
+            "name": "江南",
+            "coordinates": [120.2, 30.3],
+            "cultures": ["丝绸织造", "园林艺术", "江南丝竹"]
+        },
+        {
+            "name": "岭南",
+            "coordinates": [113.3, 23.1],
+            "cultures": ["粤剧", "广绣", "岭南建筑"]
+        },
+        {
+            "name": "巴蜀",
+            "coordinates": [104.1, 30.7],
+            "cultures": ["蜀锦", "川剧", "蜀绣"]
+        },
+        {
+            "name": "中原",
+            "coordinates": [113.6, 34.8],
+            "cultures": ["少林功夫", "中原官话", "豫剧"]
+        }
+    ]
+} 

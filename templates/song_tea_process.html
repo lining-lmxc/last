@@ -1,0 +1,440 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/song_tea_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/song_tea.css') }}">
+<style>
+    body {
+        background-image: url('{{ url_for('static', filename='images/paper_texture.jpg') }}');
+        background-repeat: repeat;
+        background-color: var(--rice-white);
+    }
+
+    /* 增加样式以平衡两侧内容 */
+    .illustration-area, .details-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .illustration-area {
+        position: relative;
+    }
+
+    .annotation-group {
+        position: relative;
+        flex-grow: 1;
+        margin-top: 15px;
+    }
+
+    .illustration-desc {
+        margin-top: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        border-left: 3px solid var(--celadon);
+    }
+
+    .video-player {
+        margin-bottom: 15px;
+    }
+
+    .compact-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .compact-content > div {
+        flex: 1;
+    }
+
+    .ancient-text {
+        margin-top: 15px;
+    }
+    
+    .tool-cards {
+        margin-top: 10px;
+    }
+    
+    .steam-simulator, .grinding-simulator, .mold-selector {
+        margin-bottom: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1 class="page-title">宋代团茶工艺</h1>
+        <p class="page-subtitle">探索12世纪的制茶技艺，传承千年茶道精髓</p>
+    </div>
+    
+    <!-- 节气提示 -->
+    <div class="seasonal-info fade-in">
+        <!-- 节气信息将由JavaScript动态填充 -->
+    </div>
+    
+    <!-- 横向时间轴导航 -->
+    <div class="timeline-nav">
+        <div class="timeline-steps">
+            <div class="timeline-step" data-step="1">
+                <div class="step-icon">🌿</div>
+                <div class="step-name">采茶</div>
+                <div class="step-desc">{{ process[0].duration }}</div>
+            </div>
+            <div class="timeline-step" data-step="2">
+                <div class="step-icon">🍃</div>
+                <div class="step-name">蒸青</div>
+                <div class="step-desc">{{ process[1].duration }}</div>
+            </div>
+            <div class="timeline-step" data-step="3">
+                <div class="step-icon">🌀</div>
+                <div class="step-name">研膏</div>
+                <div class="step-desc">{{ process[2].duration }}</div>
+            </div>
+            <div class="timeline-step" data-step="4">
+                <div class="step-icon">🎴</div>
+                <div class="step-name">印模</div>
+                <div class="step-desc">{{ process[3].duration }}</div>
+            </div>
+            <div class="timeline-step" data-step="5">
+                <div class="step-icon">🔥</div>
+                <div class="step-name">焙干</div>
+                <div class="step-desc">{{ process[4].duration }}</div>
+            </div>
+            <div class="timeline-step" data-step="6">
+                <div class="step-icon">🍵</div>
+                <div class="step-name">封存</div>
+                <div class="step-desc">数月至数年</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 步骤内容区 -->
+    <div class="step-details" id="step-details-1">
+        <div class="illustration-area">
+            <img src="{{ url_for('static', filename='images/tea-picking.jpg') }}" class="illustration-img" alt="采茶工艺图">
+            <div class="illustration-desc">
+                <h3>采茶知识</h3>
+                <div class="tool-cards">
+                    <div class="tool-card">
+                        <div class="tool-name">
+                            <span class="tool-icon">🧺</span>竹篮
+                        </div>
+                        <div class="tool-desc">宋代茶农采用竹编茶篮，透气防潮，保持鲜叶新鲜。</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-name">
+                            <span class="tool-icon">✂️</span>茶剪
+                        </div>
+                        <div class="tool-desc">精致木柄茶剪，用于采摘一芽一叶，避免损伤茶株。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="details-area">
+            <div class="video-player">
+                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-picking.jpg') }}">
+                    <source src="{{ url_for('static', filename='videos/video-thumbnail-picking.mp4') }}" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频播放。
+                </video>
+            </div>
+            
+            <div class="compact-content">
+                <div class="poetry-box">
+                    <p>数骑莫随金騕褭，一身闲向玉华游。<br>
+                       采茶人在春山里，明月闻歌夜半愁。</p>
+                    <div class="poetry-source">—— 宋·苏轼《采茶歌》</div>
+                </div>
+                
+                <div class="ancient-text">
+                    <h4>古籍描述</h4>
+                    <p>{{ process[0].ancient_text }}</p>
+                    <div class="text-source">—— {{ process[0].source }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="step-details" id="step-details-2" style="display: none;">
+        <div class="illustration-area">
+            <img src="{{ url_for('static', filename='images/tea-steaming.jpg') }}" class="illustration-img" alt="蒸青工艺图">
+            <div class="illustration-desc">
+                <div class="poetry-box">
+                    <p>蒸叶趁新芽，手不停揉捻。<br>
+                       茶魂藏匣中，待客来品鉴。</p>
+                    <div class="poetry-source">—— 宋·黄庭坚《茶诗》</div>
+                </div>
+            </div>
+        </div>
+        <div class="details-area">
+            <div class="interactive-element">
+                <h3>蒸茶火候模拟器</h3>
+                <div class="steam-simulator">
+                    <div class="simulator-container">
+                        <div class="steam-pot">
+                            <div class="steam-particles"></div>
+                        </div>
+                        <div class="slider-control">
+                            <input type="range" min="1" max="100" value="50" id="steam-level">
+                            <div class="slider-labels">
+                                <span>弱火</span>
+                                <span>适中</span>
+                                <span>猛火</span>
+                            </div>
+                        </div>
+                        <div class="indicator-value">火候：<span id="steam-value">适中</span></div>
+                        <p class="tip-text">宋代蒸青讲究"候火之中"，火力过猛茶叶失香，过弱则不能去青定形</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ancient-text">
+                <h4>古籍描述</h4>
+                <p>{{ process[1].ancient_text }}</p>
+                <div class="text-source">—— {{ process[1].source }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="step-details" id="step-details-3" style="display: none;">
+        <div class="illustration-area">
+            <img src="{{ url_for('static', filename='images/tea-grinding.jpg') }}" class="illustration-img" alt="研膏工艺图">
+            <div class="illustration-desc">
+                <div class="poetry-box">
+                    <p>碾雕白玉尘，罗织红纱细。<br>
+                       夜后圆荷叶，晨前嫩藕丝。</p>
+                    <div class="poetry-source">—— 宋·苏轼《汲江煎茶》</div>
+                </div>
+            </div>
+        </div>
+        <div class="details-area">
+            <div class="interactive-element">
+                <h3>研茶体验</h3>
+                <div class="grinding-simulator">
+                    <canvas id="grind-canvas" width="400" height="300"></canvas>
+                    <div class="grind-controls">
+                        <button id="start-grind" class="interactive-button">开始研磨</button>
+                        <div class="pressure-level">
+                            <span>力度：</span>
+                            <span class="level" data-level="1">轻柔</span>
+                            <span class="level" data-level="2">适中</span>
+                            <span class="level" data-level="3">用力</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ancient-text">
+                <h4>古籍描述</h4>
+                <p>{{ process[2].ancient_text }}</p>
+                <div class="text-source">—— {{ process[2].source }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="step-details" id="step-details-4" style="display: none;">
+        <div class="illustration-area">
+            <img src="{{ url_for('static', filename='images/tea-molding.png') }}" class="illustration-img" alt="印模工艺图">
+
+            <div class="illustration-desc">
+                <div class="poetry-box">
+                    <p>团姿龙凤纹，饼形匀且圆。<br>
+                       宫中赐贵客，天子念丹诚。</p>
+                    <div class="poetry-source">—— 宋·欧阳修《观茶贡》</div>
+                </div>
+            </div>
+        </div>
+        <div class="details-area">
+            <div class="interactive-element">
+                <h3>茶饼纹样选择</h3>
+                <div class="mold-selector">
+                    <div class="mold-buttons">
+                        <button class="mold-btn interactive-button active" data-mold="dragon">龙纹</button>
+                        <button class="mold-btn interactive-button" data-mold="phoenix">凤纹</button>
+                        <button class="mold-btn interactive-button" data-mold="flower">花卉纹</button>
+                    </div>
+                    <div class="mold-preview" style="background-image: url('/static/images/mold-dragon.jpg');"></div>
+                </div>
+                <p class="mold-description">宋代贡茶多以龙凤纹样为尊，御用团茶有"双龙戏珠"等纹饰，寓意吉祥祈福。</p>
+            </div>
+            
+            <div class="ancient-text">
+                <h4>古籍描述</h4>
+                <p>{{ process[3].ancient_text }}</p>
+                <div class="text-source">—— {{ process[3].source }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="step-details" id="step-details-5" style="display: none;">
+        <div class="illustration-area">
+            <img src="{{ url_for('static', filename='images/tea-baking.jpg') }}" class="illustration-img" alt="焙干工艺图">
+
+            <div class="illustration-desc">
+                <div class="tool-cards">
+                    <div class="tool-card">
+                        <div class="tool-name">
+                            <span class="tool-icon">🥢</span>竹筷
+                        </div>
+                        <div class="tool-desc">焙茶师使用细竹筷翻动茶饼，保证受热均匀</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-name">
+                            <span class="tool-icon">🧰</span>焙笼
+                        </div>
+                        <div class="tool-desc">双层设计，上层置茶，下层藏火，文火慢焙</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="details-area">
+            <div class="video-player">
+                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-baking.jpg') }}">
+                    <source src="{{ url_for('static', filename='videos/video-thumbnail-baking.mp4') }}" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频播放。
+                </video>
+            </div>
+            
+            <div class="compact-content">
+                <div class="poetry-box">
+                    <p>云脚低时见石楼，茶烟轻处是林幽。<br>
+                       炭焰三更煨活火，文火缓缓焙新茶。</p>
+                    <div class="poetry-source">—— 宋·陆游《焙茶》</div>
+                </div>
+                
+                <div class="ancient-text">
+                    <h4>古籍描述</h4>
+                    <p>{{ process[4].ancient_text }}</p>
+                    <div class="text-source">—— {{ process[4].source }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="step-details" id="step-details-6" style="display: none;">
+        <div class="illustration-area">
+            <img src="{{ url_for('static', filename='images/tea-storing.jpg') }}" class="illustration-img" alt="封存工艺图">
+
+            <div class="illustration-desc">
+                <div class="tool-cards">
+                    <div class="tool-card">
+                        <div class="tool-name">
+                            <span class="tool-icon">📜</span>茶叶纸
+                        </div>
+                        <div class="tool-desc">宋代特制韧纸，防潮保香，常印有产地与年份</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-name">
+                            <span class="tool-icon">🏺</span>陶瓮
+                        </div>
+                        <div class="tool-desc">高级团茶常用陶瓮封存，严格控制温湿度</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="details-area">
+            <div class="video-player">
+                <video class="video-content" controls poster="{{ url_for('static', filename='images/video-thumbnail-storing.jpg') }}">
+                    <source src="{{ url_for('static', filename='videos/video-thumbnail-storing.mp4') }}" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频播放。
+                </video>
+            </div>
+            
+            <div class="compact-content">
+                <div class="poetry-box">
+                    <p>藏茶待客来，开封香满室。<br>
+                       岁月沉淀味，唯向知音说。</p>
+                    <div class="poetry-source">—— 宋·王安石《存茶》</div>
+                </div>
+                
+                <div class="ancient-text">
+                    <h4>古籍描述</h4>
+                    <p>茶之贮藏，忌焦热，忌风燥，忌烟熏，忌腥秽。火燥则色黑，风燥则味薄，烟熏则气变，腥秽则味败。</p>
+                    <div class="text-source">—— 《宣和北苑贡茶录》</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 茶器博物馆 -->
+    <div class="tea-museum fade-in">
+        <div class="museum-heading">
+            <h2 class="museum-title">宋代茶器博物馆</h2>
+            <div class="museum-nav">
+                <button class="museum-nav-btn active" data-category="all">全部</button>
+                <button class="museum-nav-btn" data-category="grind">研磨类</button>
+                <button class="museum-nav-btn" data-category="mold">成型类</button>
+                <button class="museum-nav-btn" data-category="brew">点茶类</button>
+            </div>
+        </div>
+        
+        <div class="tea-ware-gallery">
+            <div class="tea-ware-item" data-category="grind">
+                <img src="{{ url_for('static', filename='images/tea-ware-1.jpg') }}" class="tea-ware-img" alt="宋代茶碾">
+                <div class="tea-ware-info">
+                    <h3 class="tea-ware-name">宋代茶碾</h3>
+                    <div class="tea-ware-period">北宋晚期 (1100-1127)</div>
+                    <p class="tea-ware-desc">用于研磨蒸青后的茶叶，精巧可调节，现藏故宫博物院</p>
+                </div>
+            </div>
+            
+            <div class="tea-ware-item" data-category="mold">
+                <img src="{{ url_for('static', filename='images/tea-ware-2.jpg') }}" class="tea-ware-img" alt="龙凤茶模">
+                <div class="tea-ware-info">
+                    <h3 class="tea-ware-name">龙凤茶模</h3>
+                    <div class="tea-ware-period">南宋中期 (1162-1189)</div>
+                    <p class="tea-ware-desc">木质茶饼压模，雕有精细龙凤纹饰，为皇家贡茶专用</p>
+                </div>
+            </div>
+            
+            <div class="tea-ware-item" data-category="brew">
+                <img src="{{ url_for('static', filename='images/tea-ware-3.jpg') }}" class="tea-ware-img" alt="建窑茶盏">
+                <div class="tea-ware-info">
+                    <h3 class="tea-ware-name">建窑茶盏</h3>
+                    <div class="tea-ware-period">南宋 (1127-1279)</div>
+                    <p class="tea-ware-desc">"黑瓷白花"茶盏，宋代最负盛名的点茶器皿之一</p>
+                </div>
+            </div>
+            
+            <div class="tea-ware-item" data-category="grind">
+                <img src="{{ url_for('static', filename='images/tea-ware-4.jpg') }}" class="tea-ware-img" alt="石质茶磨">
+                <div class="tea-ware-info">
+                    <h3 class="tea-ware-name">石质茶磨</h3>
+                    <div class="tea-ware-period">北宋 (960-1127)</div>
+                    <p class="tea-ware-desc">圆形石磨，粗细可调，用于宋代"七碾七罗"工艺</p>
+                </div>
+            </div>
+            
+            <div class="tea-ware-item" data-category="brew">
+                <img src="{{ url_for('static', filename='images/tea-ware-5.jpg') }}" class="tea-ware-img" alt="点茶茶筅">
+                <div class="tea-ware-info">
+                    <h3 class="tea-ware-name">点茶茶筅</h3>
+                    <div class="tea-ware-period">南宋 (1127-1279)</div>
+                    <p class="tea-ware-desc">竹制茶筅，用于点茶时搅拌茶粉，创造茶面花纹</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 诗词弹幕墙 -->
+    <div class="poetry-wall float-up">
+        <h3 class="poetry-title">宋代茶诗弹幕</h3>
+        <div class="poetry-container">
+            <!-- 诗词弹幕将由JavaScript动态添加 -->
+        </div>
+        <form class="poetry-form">
+            <input type="text" class="poetry-input" placeholder="写下你知道的茶诗句...">
+            <button type="submit" class="poetry-submit">发送</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/song_tea.js') }}"></script>
+{% endblock %} 

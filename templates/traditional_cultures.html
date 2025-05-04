@@ -1,0 +1,352 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/traditional_cultures.css') }}">
+<style>
+    .culture-recommendations {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 30px;
+        margin: 60px 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .culture-recommendations h2 {
+        text-align: center;
+        color: #4a6144;
+        margin-bottom: 25px;
+        position: relative;
+        font-size: 1.8rem;
+    }
+    
+    .culture-recommendations h2:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(to right, #7b8d6d, #a4b899);
+    }
+    
+    .recommendations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+    
+    .recommendation-card {
+        background: #f9f9f5;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .recommendation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    .recommendation-card h3 {
+        color: #4a6144;
+        margin-bottom: 12px;
+        font-size: 1.3rem;
+    }
+    
+    .recommendation-card p {
+        color: #666;
+        line-height: 1.6;
+    }
+    
+    .recommendation-card:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(to bottom, #7b8d6d, #a4b899);
+    }
+    
+    .culture-intro {
+        padding: 40px;
+        margin: 30px 0;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .culture-intro p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #444;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .culture-intro em {
+        font-style: italic;
+        color: #4a6144;
+        font-weight: 500;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="culture-container">
+    <!-- 页面标题 -->
+    <div class="page-title">
+        <h1>{{ cultures_data.title }}</h1>
+        <p>{{ cultures_data.description }}</p>
+    </div>
+    
+    <!-- 文化简介 -->
+    <div class="culture-intro">
+        <p>中华文明绵延五千年，形成了独具特色的传统文化体系。这里集中展示了<em>1911年前</em>具有代表性的传统文化，从<em>文学艺术</em>到<em>工艺技艺</em>，从<em>哲学思想</em>到<em>民俗礼仪</em>，每一项都承载着中华民族的智慧结晶与精神内涵。</p>
+    </div>
+
+    <!-- 分类筛选 -->
+    <div class="category-filter">
+        <button class="category-btn active" data-category="all">全部</button>
+        {% for category in cultures_data.categories %}
+        <button class="category-btn" data-category="{{ category.id }}">{{ category.name }}</button>
+        {% endfor %}
+    </div>
+
+    <!-- 文化卡片网格 -->
+    <div class="culture-grid">
+        {% for item in cultures_data.cultures %}
+        <div class="culture-card" data-category="{{ item.category }}">
+            <img src="{{ url_for('static', filename='images/cultures/' + item.img) }}" alt="{{ item.name }}" 
+                 onerror="this.onerror=null; this.src='{{ url_for('static', filename='images/tea_pattern.jpg') }}';">
+            <div class="culture-card-content">
+                <h3>{{ item.name }}</h3>
+                <div class="culture-card-meta">
+                    <span>{{ item.dynasty }}</span>
+                    <span>{{ item.region }}</span>
+                </div>
+                <p>{{ item.intro[:80] }}...</p>
+                <div class="button-container">
+                    <a href="https://www.baidu.com/s?wd={{ item.name }}" class="btn-external" target="_blank">相关资源 →</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- 时间轴部分 -->
+    <div class="timeline-section">
+        <h2>中国传统文化发展时间轴</h2>
+        <div class="timeline-container" id="culture-timeline"></div>
+    </div>
+    
+    <!-- 传统文化传承建议 -->
+    <div class="culture-recommendations">
+        <h2>传统文化传承建议</h2>
+        <div class="recommendations-grid">
+            <div class="recommendation-card">
+                <h3>日常生活中的传统文化</h3>
+                <p>将传统文化元素融入日常生活，如练习书法、参与传统节日活动、品茶、欣赏传统音乐等，让传统文化在日常点滴中得到传承。</p>
+            </div>
+            <div class="recommendation-card">
+                <h3>传统技艺学习</h3>
+                <p>鼓励年轻一代学习至少一项传统技艺，如剪纸、刺绣、古琴、书法等，通过亲身体验感受传统文化的精髓。</p>
+            </div>
+            <div class="recommendation-card">
+                <h3>经典阅读计划</h3>
+                <p>制定经典阅读计划，从《论语》、《道德经》等经典著作开始，循序渐进了解中国传统思想文化的精华。</p>
+            </div>
+            <div class="recommendation-card">
+                <h3>数字化保护</h3>
+                <p>运用现代技术对传统文化进行数字化记录和保存，建立数字档案库，让濒危的传统技艺得以永久保存。</p>
+            </div>
+            <div class="recommendation-card">
+                <h3>创新性传承</h3>
+                <p>鼓励传统文化的创新性发展，将传统元素与现代设计、技术相结合，赋予传统文化新的生命力和表现形式。</p>
+            </div>
+            <div class="recommendation-card">
+                <h3>跨文化交流</h3>
+                <p>促进中国传统文化与其他文化的交流互鉴，在开放包容中展现中华文化的独特魅力，增强文化自信。</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // 分类筛选功能
+    document.addEventListener('DOMContentLoaded', function() {
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const cultureCards = document.querySelectorAll('.culture-card');
+        
+        // 添加淡入效果
+        cultureCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            setTimeout(() => {
+                card.style.opacity = '1';
+            }, 100 + (index * 50)); // 错开显示时间，产生逐个显示的效果
+        });
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 移除所有按钮的active类
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                
+                // 为当前点击的按钮添加active类
+                btn.classList.add('active');
+                
+                // 获取当前选择的分类
+                const category = btn.dataset.category;
+                
+                // 根据分类显示或隐藏文化卡片，添加动画效果
+                cultureCards.forEach((card, index) => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50 * index);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // 初始化时间轴
+        initTimeline();
+    });
+
+    // 初始化时间轴
+    function initTimeline() {
+        const timelineChart = echarts.init(document.getElementById('culture-timeline'));
+        
+        const timelineData = {{ cultures_data.timeline|tojson }};
+        
+        const timelineOptions = {
+            tooltip: {
+                trigger: 'axis',
+                formatter: function(params) {
+                    const data = params[0].data;
+                    return '<div style="font-weight:bold;margin-bottom:5px;">' + data.period + '</div>' +
+                           '<div>时间: ' + formatYear(data.start_year) + ' - ' + formatYear(data.end_year) + '</div>' +
+                           '<div>代表性文化: ' + data.notable_cultures.join('、') + '</div>';
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '10%',
+                top: '10%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'time',
+                boundaryGap: false,
+                axisLabel: {
+                    formatter: function(value) {
+                        const year = new Date(value).getFullYear();
+                        return formatYear(year);
+                    }
+                }
+            },
+            yAxis: {
+                type: 'category',
+                data: ['时期'],
+                axisLine: { show: false },
+                axisTick: { show: false },
+                axisLabel: { show: false }
+            },
+            series: [
+                {
+                    name: '中国传统文化演变',
+                    type: 'scatter',
+                    symbolSize: 20,
+                    itemStyle: {
+                        color: '#7b8d6d'
+                    },
+                    data: timelineData.map(item => {
+                        return {
+                            name: item.period,
+                            value: [
+                                formatTimelineYear(item.start_year), 
+                                0
+                            ],
+                            period: item.period,
+                            start_year: item.start_year,
+                            end_year: item.end_year,
+                            notable_cultures: item.notable_cultures
+                        };
+                    })
+                },
+                {
+                    name: '时间段',
+                    type: 'line',
+                    symbolSize: 0,
+                    itemStyle: {
+                        color: '#a4b899'
+                    },
+                    lineStyle: {
+                        width: 10,
+                        cap: 'round'
+                    },
+                    data: timelineData.map(item => {
+                        return [
+                            { 
+                                name: item.period + '开始',
+                                value: [formatTimelineYear(item.start_year), 0]
+                            },
+                            { 
+                                name: item.period + '结束',
+                                value: [formatTimelineYear(item.end_year), 0] 
+                            }
+                        ];
+                    }).flat()
+                }
+            ]
+        };
+        
+        timelineChart.setOption(timelineOptions);
+        
+        // 响应窗口大小变化
+        window.addEventListener('resize', function() {
+            timelineChart.resize();
+        });
+    }
+    
+    // 格式化年份显示
+    function formatYear(year) {
+        if (year < 0) {
+            return '公元前' + Math.abs(year) + '年';
+        } else {
+            return '公元' + year + '年';
+        }
+    }
+    
+    // 格式化时间轴的年份数据
+    function formatTimelineYear(year) {
+        // 将"-2070"这样的字符串转换为Date对象
+        // 注意：JavaScript的Date对象对公元前日期支持有限
+        // 这里使用一个近似处理方式
+        const numYear = parseInt(year);
+        if (numYear < 0) {
+            // 公元前年份，使用0年作为基准加上偏移
+            return new Date(Math.abs(numYear) + 1970, 0, 1);
+        } else {
+            // 公元后年份
+            return new Date(numYear, 0, 1);
+        }
+    }
+</script>
+{% endblock %} 

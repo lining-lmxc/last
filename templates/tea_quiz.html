@@ -1,0 +1,452 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/tea_quiz.css') }}">
+<style>
+    .quiz-intro {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        padding: 30px;
+        margin: 30px auto;
+        max-width: 800px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .quiz-intro h1 {
+        color: #4a6144;
+        margin-bottom: 15px;
+        font-size: 2.2rem;
+    }
+    
+    .quiz-intro p {
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .start-quiz-btn {
+        background: linear-gradient(to right, #7b8d6d, #a4b899);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1.2rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: '衡山毛笔行书', 'Calligraphy', serif;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .start-quiz-btn:hover {
+        background: linear-gradient(to right, #4a6144, #7b8d6d);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="quiz-container">
+    <!-- 介绍部分 -->
+    <div class="quiz-intro" id="quiz-intro">
+        <h1>{{ quiz_data.title }}</h1>
+        <p>{{ quiz_data.description }}</p>
+        <button class="start-quiz-btn" id="start-quiz">开始答题</button>
+    </div>
+    
+    <!-- 问题部分 -->
+    <div class="quiz-area" id="quiz-area" style="display: none;">
+        <div class="progress-info">
+            <div class="question-number">问题 <span id="current-question">1</span>/<span id="total-questions">10</span></div>
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+        </div>
+        
+        <div class="question-card">
+            <div class="question-text" id="question-text"></div>
+            <div class="options-list" id="options-list"></div>
+        </div>
+        
+        <div class="explanation-card" id="explanation-card" style="display: none;">
+            <div class="result-indicator" id="result-indicator"></div>
+            <div class="correct-answer" id="correct-answer"></div>
+            <div class="explanation-text" id="explanation-text"></div>
+            <button class="next-btn" id="next-question">下一题</button>
+        </div>
+    </div>
+    
+    <!-- 结果部分 -->
+    <div class="result-area" id="result-area" style="display: none;">
+        <div class="result-card">
+            <h2>测试结果</h2>
+            <div class="score-display">
+                <div class="score-circle">
+                    <span id="final-score">0</span>
+                </div>
+                <p>总分: <span id="total-score">100</span></p>
+            </div>
+            <div class="score-message" id="score-message"></div>
+            <div class="result-actions">
+                <button class="retry-btn" id="retry-quiz">再次挑战</button>
+            </div>
+        </div>
+        
+        <div class="history-card">
+            <h3>历史成绩</h3>
+            <div class="chart-container" id="history-chart"></div>
+            <div class="no-data-message" id="no-data-message" style="display: none;">
+                暂无历史记录，继续答题挑战自己！
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取所有问题
+        const allQuestions = {{ quiz_data.questions|tojson }};
+        // 将要使用的问题(随机抽取10题)
+        let quizQuestions = [];
+        // 当前问题索引
+        let currentQuestionIndex = 0;
+        // 得分
+        let score = 0;
+        // 每题分数
+        const pointsPerQuestion = 10;
+        // 用户选择的答案
+        let userAnswers = [];
+        
+        // DOM元素
+        const quizIntro = document.getElementById('quiz-intro');
+        const quizArea = document.getElementById('quiz-area');
+        const resultArea = document.getElementById('result-area');
+        const startQuizBtn = document.getElementById('start-quiz');
+        const questionText = document.getElementById('question-text');
+        const optionsList = document.getElementById('options-list');
+        const currentQuestionSpan = document.getElementById('current-question');
+        const totalQuestionsSpan = document.getElementById('total-questions');
+        const progressBar = document.getElementById('progress-bar');
+        const explanationCard = document.getElementById('explanation-card');
+        const resultIndicator = document.getElementById('result-indicator');
+        const correctAnswer = document.getElementById('correct-answer');
+        const explanationText = document.getElementById('explanation-text');
+        const nextQuestionBtn = document.getElementById('next-question');
+        const finalScoreSpan = document.getElementById('final-score');
+        const totalScoreSpan = document.getElementById('total-score');
+        const scoreMessage = document.getElementById('score-message');
+        const retryQuizBtn = document.getElementById('retry-quiz');
+        const historyChart = document.getElementById('history-chart');
+        const noDataMessage = document.getElementById('no-data-message');
+        
+        // 随机抽取10个问题
+        function selectRandomQuestions() {
+            // 复制问题数组
+            const questionsCopy = [...allQuestions];
+            // 打乱数组顺序
+            for (let i = questionsCopy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [questionsCopy[i], questionsCopy[j]] = [questionsCopy[j], questionsCopy[i]];
+            }
+            // 选择前10个问题
+            return questionsCopy.slice(0, 10);
+        }
+        
+        // 初始化测验
+        function initQuiz() {
+            quizQuestions = selectRandomQuestions();
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = [];
+            
+            // 更新UI
+            totalQuestionsSpan.textContent = quizQuestions.length;
+            totalScoreSpan.textContent = quizQuestions.length * pointsPerQuestion;
+            
+            // 显示第一个问题
+            showQuestion(currentQuestionIndex);
+            
+            // 隐藏介绍，显示问题区域
+            quizIntro.style.display = 'none';
+            quizArea.style.display = 'block';
+            resultArea.style.display = 'none';
+        }
+        
+        // 显示问题
+        function showQuestion(index) {
+            const question = quizQuestions[index];
+            
+            // 更新问题文本
+            questionText.textContent = question.question;
+            
+            // 清空选项列表
+            optionsList.innerHTML = '';
+            
+            // 添加选项
+            question.options.forEach((option, i) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.innerHTML = `
+                    <input type="radio" id="option-${i}" name="answer" value="${i}">
+                    <label for="option-${i}">${option}</label>
+                `;
+                optionsList.appendChild(optionDiv);
+                
+                // 添加点击事件
+                optionDiv.querySelector('input').addEventListener('change', function() {
+                    // 禁用所有选项
+                    document.querySelectorAll('.option input').forEach(input => {
+                        input.disabled = true;
+                    });
+                    
+                    // 记录用户答案
+                    userAnswers[index] = parseInt(this.value);
+                    
+                    // 检查答案
+                    checkAnswer(index, parseInt(this.value));
+                });
+            });
+            
+            // 更新进度信息
+            currentQuestionSpan.textContent = index + 1;
+            progressBar.style.width = `${((index + 1) / quizQuestions.length) * 100}%`;
+            
+            // 隐藏解释卡片
+            explanationCard.style.display = 'none';
+        }
+        
+        // 检查答案
+        function checkAnswer(questionIndex, userAnswer) {
+            const question = quizQuestions[questionIndex];
+            const isCorrect = userAnswer === question.answer;
+            
+            // 如果回答正确，增加分数
+            if (isCorrect) {
+                score += pointsPerQuestion;
+            }
+            
+            // 高亮正确和错误选项
+            document.querySelectorAll('.option').forEach((option, i) => {
+                if (i === question.answer) {
+                    option.classList.add('correct');
+                } else if (i === userAnswer && !isCorrect) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            // 显示解释卡片
+            resultIndicator.textContent = isCorrect ? '回答正确！' : '回答错误！';
+            resultIndicator.className = 'result-indicator ' + (isCorrect ? 'correct' : 'incorrect');
+            
+            correctAnswer.textContent = `正确答案: ${question.options[question.answer]}`;
+            explanationText.textContent = question.explanation;
+            explanationCard.style.display = 'block';
+            
+            // 如果是最后一个问题，改变下一题按钮文本
+            if (questionIndex === quizQuestions.length - 1) {
+                nextQuestionBtn.textContent = '查看结果';
+            }
+        }
+        
+        // 保存得分到服务器
+        function saveScore() {
+            const today = new Date();
+            const date = today.toISOString().split('T')[0]; // 格式: YYYY-MM-DD
+            
+            fetch('/save_quiz_score', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    score: score,
+                    total: quizQuestions.length * pointsPerQuestion,
+                    date: date
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('得分保存成功');
+                    loadScoreHistory();
+                } else {
+                    console.error('保存得分失败:', data.error);
+                }
+            })
+            .catch(error => {
+                console.error('保存得分出错:', error);
+            });
+        }
+        
+        // 加载分数历史记录
+        function loadScoreHistory() {
+            fetch('/get_quiz_scores')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    if (data.scores && data.scores.length > 0) {
+                        renderScoreChart(data.scores);
+                        noDataMessage.style.display = 'none';
+                    } else {
+                        noDataMessage.style.display = 'block';
+                        historyChart.style.display = 'none';
+                    }
+                } else {
+                    console.error('获取得分记录失败:', data.error);
+                    noDataMessage.style.display = 'block';
+                    historyChart.style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('获取得分记录出错:', error);
+                noDataMessage.style.display = 'block';
+                historyChart.style.display = 'none';
+            });
+        }
+        
+        // 渲染分数历史图表
+        function renderScoreChart(scores) {
+            // 反转数组，使最早的记录在左侧
+            const reversedScores = [...scores].reverse();
+            
+            // 准备数据
+            const dates = reversedScores.map(item => item.date);
+            const scoreValues = reversedScores.map(item => item.score);
+            const totals = reversedScores.map(item => item.total);
+            
+            // 初始化图表
+            const scoreChart = echarts.init(historyChart);
+            const option = {
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: function(params) {
+                        const scoreData = params[0];
+                        const totalData = params[1];
+                        return `日期: ${scoreData.name}<br/>
+                                得分: ${scoreData.value}<br/>
+                                总分: ${totalData.value}<br/>
+                                正确率: ${Math.round((scoreData.value / totalData.value) * 100)}%`;
+                    }
+                },
+                legend: {
+                    data: ['得分', '总分']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: dates,
+                    axisLabel: {
+                        rotate: 45
+                    }
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name: '得分',
+                        type: 'line',
+                        data: scoreValues,
+                        itemStyle: {
+                            color: '#7b8d6d'
+                        },
+                        areaStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 0, color: 'rgba(123, 141, 109, 0.5)'
+                                }, {
+                                    offset: 1, color: 'rgba(123, 141, 109, 0.1)'
+                                }]
+                            }
+                        }
+                    },
+                    {
+                        name: '总分',
+                        type: 'line',
+                        data: totals,
+                        itemStyle: {
+                            color: '#a4b899'
+                        },
+                        lineStyle: {
+                            type: 'dashed'
+                        }
+                    }
+                ]
+            };
+            
+            scoreChart.setOption(option);
+            historyChart.style.display = 'block';
+            
+            // 响应窗口大小变化
+            window.addEventListener('resize', function() {
+                scoreChart.resize();
+            });
+        }
+        
+        // 显示测验结果
+        function showResult() {
+            // 更新UI
+            finalScoreSpan.textContent = score;
+            
+            // 根据得分显示不同消息
+            const percentage = (score / (quizQuestions.length * pointsPerQuestion)) * 100;
+            let message = '';
+            
+            if (percentage >= 90) {
+                message = '太棒了！您是茶文化大师！';
+            } else if (percentage >= 70) {
+                message = '不错！您对茶文化有很好的理解！';
+            } else if (percentage >= 50) {
+                message = '及格！您对茶文化有基本了解。';
+            } else {
+                message = '继续努力！多了解一些茶文化知识吧。';
+            }
+            
+            scoreMessage.textContent = message;
+            
+            // 保存得分
+            saveScore();
+            
+            // 隐藏问题区域，显示结果区域
+            quizArea.style.display = 'none';
+            resultArea.style.display = 'block';
+        }
+        
+        // 事件监听器
+        startQuizBtn.addEventListener('click', initQuiz);
+        
+        nextQuestionBtn.addEventListener('click', function() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                // 显示下一题
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+            } else {
+                // 显示结果
+                showResult();
+            }
+        });
+        
+        retryQuizBtn.addEventListener('click', initQuiz);
+        
+        // 页面加载时加载历史记录
+        loadScoreHistory();
+    });
+</script>
+{% endblock %} 

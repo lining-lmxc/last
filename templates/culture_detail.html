@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/traditional_cultures.css') }}">
+<style>
+    .significance-quote {
+        font-style: italic;
+        padding: 20px;
+        background: #f5f3e7;
+        border-left: 4px solid #7b8d6d;
+        margin: 20px 0;
+        border-radius: 0 10px 10px 0;
+    }
+    
+    .history-timeline {
+        position: relative;
+        margin: 30px 0;
+        padding-left: 30px;
+        border-left: 3px solid #a4b899;
+    }
+    
+    .history-event {
+        position: relative;
+        margin-bottom: 30px;
+    }
+    
+    .history-event::before {
+        content: '';
+        position: absolute;
+        left: -36px;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        background: #4a6144;
+        border: 3px solid #f5f3e7;
+        border-radius: 50%;
+    }
+    
+    .history-event h4 {
+        margin-bottom: 10px;
+        color: #4a6144;
+    }
+    
+    .landmarks-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .landmark-item {
+        background: #f0f0e1;
+        padding: 10px 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .landmark-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="culture-detail-container">
+    <!-- 返回按钮 -->
+    <a href="{{ url_for('traditional_cultures') }}" class="back-button">← 返回传统文化馆</a>
+    
+    <!-- 文化标题和基本信息 -->
+    <div class="culture-header">
+        <img src="{{ url_for('static', filename='images/cultures/' + culture.img) }}" alt="{{ culture.name }}" class="culture-header-image">
+        <div class="culture-header-content">
+            <h1>{{ culture.name }}</h1>
+            <div class="culture-header-meta">
+                <div class="culture-header-meta-item">所属分类：{{ culture.category }}</div>
+                <div class="culture-header-meta-item">历史时期：{{ culture.dynasty }}</div>
+                <div class="culture-header-meta-item">年代：{{ culture.time_period }}</div>
+                <div class="culture-header-meta-item">地域分布：{{ culture.region }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 文化简介 -->
+    <div class="culture-section">
+        <h2>文化简介</h2>
+        <p>{{ culture.intro }}</p>
+        
+        <div class="significance-quote">
+            <p><strong>文化意义：</strong>{{ culture.significance }}</p>
+        </div>
+    </div>
+    
+    <!-- 历史发展 -->
+    <div class="culture-section">
+        <h2>历史传承</h2>
+        <div class="history-timeline">
+            <div class="history-event">
+                <h4>起源</h4>
+                <p>{{ culture.name }}起源于{{ culture.dynasty.split("至")[0] }}时期，{{ culture.intro.split("。")[0] }}。</p>
+            </div>
+            
+            <div class="history-event">
+                <h4>发展</h4>
+                <p>经过长期的历史发展，{{ culture.name }}形成了独特的艺术风格和文化内涵，成为中华民族传统文化的重要组成部分。</p>
+            </div>
+            
+            <div class="history-event">
+                <h4>现代传承</h4>
+                <p>{{ culture.modern_status }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 代表人物 -->
+    {% if culture.representative_figures %}
+    <div class="culture-section">
+        <h2>代表人物</h2>
+        <div class="figures-list">
+            {% for figure in culture.representative_figures %}
+            <div class="figure-item">{{ figure }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- 重要遗址/物品 -->
+    {% if culture.landmarks %}
+    <div class="culture-section">
+        <h2>重要遗址/代表作</h2>
+        <div class="landmarks-list">
+            {% for landmark in culture.landmarks %}
+            <div class="landmark-item">{{ landmark }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- 返回按钮 -->
+    <a href="{{ url_for('traditional_cultures') }}" class="back-button">← 返回传统文化馆</a>
+</div>
+{% endblock %} 

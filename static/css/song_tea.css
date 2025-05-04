@@ -1,0 +1,331 @@
+/* 蒸茶火候模拟器样式 */
+.steam-simulator {
+    margin: 20px 0;
+}
+
+.simulator-container {
+    position: relative;
+    background: rgba(245, 240, 230, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.steam-pot {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 20px;
+    overflow: visible;
+    z-index: 2; /* 确保锅比火焰层级高 */
+}
+
+.steam-pot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #d2b48c;
+}
+
+.steam-particles {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    pointer-events: none;
+    transition: opacity 0.3s, height 0.5s;
+}
+
+.steam-particle {
+    position: absolute;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: rise 3s ease-out infinite;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-80px) scale(2);
+        opacity: 0;
+    }
+}
+
+/* 火焰效果 */
+.fire-container {
+    position: relative;
+    width: 140px;
+    height: 120px;
+    margin: -60px auto 0;
+    z-index: 1;
+}
+
+.fire-base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 20px;
+    background-color: rgba(255, 80, 0, 0.8);
+    border-radius: 50%;
+    filter: blur(5px);
+    z-index: 1;
+}
+
+.flames {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 2;
+}
+
+.flame {
+    position: absolute;
+    bottom: 0;
+    width: 15px;
+    height: 30px;
+    background-color: rgba(255, 120, 0, 0.7);
+    border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
+    filter: blur(2px);
+    transform-origin: center bottom;
+    animation: flicker 2s ease-in-out infinite alternate;
+}
+
+.flame-1 {
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
+    z-index: 5;
+}
+
+.flame-2 {
+    left: 45%;
+    transform: translateX(-50%) rotate(-5deg);
+    height: 45px;
+    animation-delay: 0.1s;
+    animation-duration: 1.8s;
+    z-index: 4;
+}
+
+.flame-3 {
+    left: 55%;
+    transform: translateX(-50%) rotate(5deg);
+    height: 40px;
+    animation-delay: 0.15s;
+    animation-duration: 1.9s;
+    z-index: 3;
+}
+
+.flame-4 {
+    left: 40%;
+    transform: translateX(-50%) rotate(-8deg);
+    height: 35px;
+    animation-delay: 0.2s;
+    animation-duration: 2.1s;
+    z-index: 2;
+}
+
+.flame-5 {
+    left: 60%;
+    transform: translateX(-50%) rotate(8deg);
+    height: 35px;
+    animation-delay: 0.25s;
+    animation-duration: 2.2s;
+    z-index: 1;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        transform: translateX(-50%) rotate(0) scale(1);
+    }
+    25% {
+        transform: translateX(-51%) rotate(-1deg) scale(1.05);
+    }
+    50% {
+        transform: translateX(-49%) rotate(1deg) scaleY(0.98);
+    }
+    75% {
+        transform: translateX(-52%) rotate(-2deg) scale(0.99);
+    }
+}
+
+.tea-leaves-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.tea-leaves-visual {
+    height: 40px;
+    background-color: #7d9e51;
+    border-radius: 0 0 8px 8px;
+    transition: background-color 0.5s;
+}
+
+.tea-moisture-indicator {
+    height: 6px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.moisture-level {
+    height: 100%;
+    background-color: #3498db;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+.slider-control {
+    width: 80%;
+    margin: 0 auto 15px;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    color: #8b4513;
+    font-size: 0.9em;
+}
+
+.indicator-value {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #8b4513;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.tip-text {
+    font-size: 0.9em;
+    color: #a67c52;
+    text-align: center;
+    font-style: italic;
+    margin: 0;
+}
+
+.steaming-completion {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(139, 69, 19, 0.3);
+}
+
+.completion-track {
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.completion-progress {
+    height: 100%;
+    background: linear-gradient(to right, #f1c40f, #e67e22, #27ae60);
+    width: 0;
+    transition: width 0.3s;
+}
+
+.completion-label, .steaming-result {
+    text-align: center;
+    font-size: 0.95em;
+    margin-bottom: 5px;
+    color: #5d4037;
+}
+
+#completion-value, #tea-status {
+    font-weight: bold;
+    color: #8b4513;
+}
+
+#steam-level {
+    width: 100%;
+    height: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(to right, #85c1e9, #f1c40f, #e74c3c);
+    border-radius: 4px;
+    outline: none;
+}
+
+#steam-level::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #8b4513;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#steam-level::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #8b4513;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+#start-steaming {
+    display: block;
+    margin: 15px auto;
+    padding: 8px 20px;
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#start-steaming:hover {
+    background-color: #a0522d;
+}
+
+#start-steaming:active {
+    background-color: #6d3611;
+}
+
+/* 互动按钮通用样式 */
+.interactive-button {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.interactive-button:hover {
+    background-color: #a0522d;
+}
+
+.interactive-button:active {
+    background-color: #6d3611;
+} 
