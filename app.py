@@ -11,9 +11,6 @@ import time
 
 app = Flask(__name__)
 
-
-
-
 # 配置密钥用于session
 app.secret_key = os.urandom(24)
 

@@ -10,6 +10,38 @@
         background-color: var(--rice-white);
     }
 
+    /* 确保欢迎用户字体样式与其他页面一致 */
+    .user-info {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        z-index: 10;
+    }
+    
+    .user-info span {
+        font-family: inherit; /* 使用默认字体 */
+        font-size: 14px; /* 统一字体大小 */
+    }
+    
+    .user-info a {
+        color: #fff;
+        margin-left: 15px;
+        text-decoration: none;
+        border: 1px solid #fff;
+        padding: 5px 10px;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+    
+    .user-info a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
     /* 增加样式以平衡两侧内容 */
     .illustration-area, .details-area {
         flex: 1;
@@ -253,12 +285,12 @@
             <div class="interactive-element">
                 <h3>茶饼纹样选择</h3>
                 <div class="mold-selector">
-                    <div class="mold-buttons">
-                        <button class="mold-btn interactive-button active" data-mold="dragon">龙纹</button>
-                        <button class="mold-btn interactive-button" data-mold="phoenix">凤纹</button>
-                        <button class="mold-btn interactive-button" data-mold="flower">花卉纹</button>
+                    <div class="mold-preview" style="background-image: url('/static/images/mold-dragon.jpg'); margin-bottom: 20px;"></div>
+                    <div class="mold-buttons" style="margin-top: 15px;">
+                        <button class="mold-btn interactive-button active" data-mold="dragon">龙纹</button></a>
+                        <button class="mold-btn interactive-button" data-mold="phoenix">凤纹</button></a>
+                        <button class="mold-btn interactive-button" data-mold="flower">花卉纹</button></a>
                     </div>
-                    <div class="mold-preview" style="background-image: url('/static/images/mold-dragon.jpg');"></div>
                 </div>
                 <p class="mold-description">宋代贡茶多以龙凤纹样为尊，御用团茶有"双龙戏珠"等纹饰，寓意吉祥祈福。</p>
             </div>

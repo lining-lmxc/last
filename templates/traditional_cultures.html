@@ -133,7 +133,33 @@
                 </div>
                 <p>{{ item.intro[:80] }}...</p>
                 <div class="button-container">
-                    <a href="https://www.baidu.com/s?wd={{ item.name }}" class="btn-external" target="_blank">相关资源 →</a>
+                    {% if item.name == "书法艺术" %}
+                        <a href="https://virtual.shanghaimuseum.net:8080/handwriting/" class="btn-external" target="_blank">相关资源 →</a>
+                    {% elif item.name == "古琴艺术" %}
+                        <a href="https://www.ihchina.cn/project_details/12494" class="btn-external" target="_blank">相关资源 →</a>
+                    {% elif item.name == "瓷器工艺" %}
+                        <a href="http://digital.zgtcbwg.com/#/" class="btn-external" target="_blank">相关资源 →</a>
+                    {% elif item.name == "中医药" %}
+                        <a href="https://www.chnmuseum.cn/Portals/0/web/vr/202301zhzg/hzruntime/main.html?cfg=index" class="btn-external" target="_blank">相关资源 →</a>
+                    {% elif item.name == "儒家思想" %}
+                        <a href="https://m.chnmuseum.cn/portals/0/web/zt/20191227kongzi/" class="btn-external" target="_blank">相关资源 →</a>
+                    {% elif item.name == "丝绸织造" %}
+                        <a href="https://www.chinasilkmuseum.com/Cloudzl/list_367.aspx" class="btn-external" target="_blank">相关资源 →</a>
+                    {% elif item.name == "京剧" %}
+                        <a href="http://sxsjjy.com.cn/museum-vr/" class="btn-external" target="_blank">相关资源 →</a>
+                    {% elif item.name == "剪纸艺术" %}
+                        <a href="https://www.ihchina.cn/jianzhi.html" class="btn-external" target="_blank">相关资源 →</a>
+                    {% elif item.name == "中国画" %}
+                        <a href="https://www.chnmuseum.cn/portals/0/web/zt/202210ssxd/index.html" class="btn-external" target="_blank">相关资源 →</a>
+                    {% elif item.name == "太极拳" %}
+                        <a href="https://www.ihchina.cn/tjq_home.html" class="btn-external" target="_blank">相关资源 →</a>
+                    {% elif item.name == "茶文化" %}
+                        <a href="https://ggzlquanjing.dpm.org.cn/scene/DEoDOmCa6NVaG4ADQ218cw87AV1WSwfD/20230911_csj/tour.html?from=onlinegugong&exhibit_id=164DQ218cw87AV1WSwfD/20230911_csj/tour.html?from=onlinegugong&exhibit_id=164" class="btn-external" target="_blank">相关资源 →</a>
+                    {% elif item.name == "青铜艺术" %}
+                        <a href="http://www.ezhongding.com/index.php?m=exhibits&type=0" class="btn-external" target="_blank">相关资源 →</a>
+                    {% else %}
+                        <a href="https://www.baidu.com/s?wd={{ item.name }}" class="btn-external" target="_blank">相关资源 →</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
