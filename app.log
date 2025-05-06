@@ -32621,3 +32621,109 @@ with app.app_context(). See the documentation for more information.
 2025-05-06 17:41:32,961 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 17:41:32] "[33mGET /static/images/paper_texture.jpg HTTP/1.1[0m" 404 -
 2025-05-06 17:41:32,962 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 17:41:32] "[36mGET /static/fonts/Èı¼«ĞĞ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
 2025-05-06 17:41:32,964 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 17:41:32] "[36mGET /static/images/map_back.png HTTP/1.1[0m" 304 -
+2025-05-06 18:00:31,753 - __main__ - INFO - Êı¾İ¿â±í´´½¨³É¹¦
+2025-05-06 18:00:31,753 - __main__ - INFO - ¿ªÊ¼Ô¤¼ÓÔØÊı¾İ
+2025-05-06 18:00:31,753 - __main__ - INFO - ¼ÓÔØÊı¾İ¿ªÊ¼...
+2025-05-06 18:00:31,753 - __main__ - DEBUG - Êı¾İÄ¿Â¼: E:\desktop\ÏîÄ¿\data, ÊÇ·ñ´æÔÚ: True
+2025-05-06 18:00:31,753 - __main__ - DEBUG - ¼ÓÔØÀúÊ·¼Û¸ñÊı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\historical_prices.csv
+2025-05-06 18:00:31,756 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ: 85Ìõ¼ÇÂ¼
+2025-05-06 18:00:31,756 - __main__ - DEBUG - ¼ÓÔØ²èµÀÊı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\tea_routes.json
+2025-05-06 18:00:31,756 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ: 4¸ö½Úµã
+2025-05-06 18:00:31,756 - __main__ - DEBUG - ¼ÓÔØÎÄ»¯´«²¥Êı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\culture_spread.json
+2025-05-06 18:00:31,757 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-05-06 18:00:31,757 - __main__ - DEBUG - ¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\song_tea_production.csv
+2025-05-06 18:00:31,758 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ: 4Ìõ¼ÇÂ¼
+2025-05-06 18:00:31,758 - __main__ - DEBUG - ¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\tea_process.json
+2025-05-06 18:00:31,758 - __main__ - INFO - ³É¹¦¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊı¾İ: 5¸ö¹¤Ğò
+2025-05-06 18:00:31,758 - __main__ - DEBUG - ¼ÓÔØÀúÊ·²èÒ¶²úÇøÊı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\historical_tea_areas.json
+2025-05-06 18:00:31,759 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·²èÒ¶²úÇøÊı¾İ: 6¸ö³¯´ú
+2025-05-06 18:00:31,759 - __main__ - DEBUG - ¼ÓÔØ´«Í³ÎÄ»¯Êı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\traditional_cultures.json
+2025-05-06 18:00:31,759 - __main__ - INFO - ³É¹¦¼ÓÔØ´«Í³ÎÄ»¯Êı¾İ: 12¸ö´«Í³ÎÄ»¯ÏîÄ¿
+2025-05-06 18:00:31,759 - __main__ - DEBUG - ¼ÓÔØ²èÎÄ»¯´ğÌâÏµÍ³Êı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\tea_quiz.json
+2025-05-06 18:00:31,760 - __main__ - INFO - ³É¹¦¼ÓÔØ²èÎÄ»¯´ğÌâÌâ¿â: 100µÀÌâÄ¿
+2025-05-06 18:00:31,760 - __main__ - INFO - ËùÓĞÊı¾İ¼ÓÔØÍê³É
+2025-05-06 18:00:31,760 - __main__ - INFO - Êı¾İÔ¤¼ÓÔØ³É¹¦
+2025-05-06 18:00:31,774 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:9000
+2025-05-06 18:00:31,774 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-06 18:00:31,780 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-05-06 18:00:32,624 - __main__ - INFO - Êı¾İ¿â±í´´½¨³É¹¦
+2025-05-06 18:00:32,624 - __main__ - INFO - ¿ªÊ¼Ô¤¼ÓÔØÊı¾İ
+2025-05-06 18:00:32,624 - __main__ - INFO - ¼ÓÔØÊı¾İ¿ªÊ¼...
+2025-05-06 18:00:32,625 - __main__ - DEBUG - Êı¾İÄ¿Â¼: E:\desktop\ÏîÄ¿\data, ÊÇ·ñ´æÔÚ: True
+2025-05-06 18:00:32,625 - __main__ - DEBUG - ¼ÓÔØÀúÊ·¼Û¸ñÊı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\historical_prices.csv
+2025-05-06 18:00:32,627 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·¼Û¸ñÊı¾İ: 85Ìõ¼ÇÂ¼
+2025-05-06 18:00:32,627 - __main__ - DEBUG - ¼ÓÔØ²èµÀÊı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\tea_routes.json
+2025-05-06 18:00:32,627 - __main__ - INFO - ³É¹¦¼ÓÔØ²èµÀÊı¾İ: 4¸ö½Úµã
+2025-05-06 18:00:32,628 - __main__ - DEBUG - ¼ÓÔØÎÄ»¯´«²¥Êı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\culture_spread.json
+2025-05-06 18:00:32,628 - __main__ - INFO - ³É¹¦¼ÓÔØÎÄ»¯´«²¥Êı¾İ£º7¸ö½Úµã£¬3ÌõÂ·Ïß
+2025-05-06 18:00:32,628 - __main__ - DEBUG - ¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\song_tea_production.csv
+2025-05-06 18:00:32,629 - __main__ - INFO - ³É¹¦¼ÓÔØËÎ´ú²èÒ¶Éú²úÊı¾İ: 4Ìõ¼ÇÂ¼
+2025-05-06 18:00:32,630 - __main__ - DEBUG - ¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\tea_process.json
+2025-05-06 18:00:32,630 - __main__ - INFO - ³É¹¦¼ÓÔØ²è¹¤ÒÕÁ÷³ÌÊı¾İ: 5¸ö¹¤Ğò
+2025-05-06 18:00:32,630 - __main__ - DEBUG - ¼ÓÔØÀúÊ·²èÒ¶²úÇøÊı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\historical_tea_areas.json
+2025-05-06 18:00:32,630 - __main__ - INFO - ³É¹¦¼ÓÔØÀúÊ·²èÒ¶²úÇøÊı¾İ: 6¸ö³¯´ú
+2025-05-06 18:00:32,630 - __main__ - DEBUG - ¼ÓÔØ´«Í³ÎÄ»¯Êı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\traditional_cultures.json
+2025-05-06 18:00:32,631 - __main__ - INFO - ³É¹¦¼ÓÔØ´«Í³ÎÄ»¯Êı¾İ: 12¸ö´«Í³ÎÄ»¯ÏîÄ¿
+2025-05-06 18:00:32,631 - __main__ - DEBUG - ¼ÓÔØ²èÎÄ»¯´ğÌâÏµÍ³Êı¾İÎÄ¼ş: E:\desktop\ÏîÄ¿\data\tea_quiz.json
+2025-05-06 18:00:32,632 - __main__ - INFO - ³É¹¦¼ÓÔØ²èÎÄ»¯´ğÌâÌâ¿â: 100µÀÌâÄ¿
+2025-05-06 18:00:32,632 - __main__ - INFO - ËùÓĞÊı¾İ¼ÓÔØÍê³É
+2025-05-06 18:00:32,632 - __main__ - INFO - Êı¾İÔ¤¼ÓÔØ³É¹¦
+2025-05-06 18:00:32,645 - werkzeug - WARNING -  * Debugger is active!
+2025-05-06 18:00:32,647 - werkzeug - INFO -  * Debugger PIN: 984-687-397
+2025-05-06 18:00:34,301 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:34] "GET / HTTP/1.1" 200 -
+2025-05-06 18:00:34,664 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:34] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-05-06 18:00:34,971 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:34] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-05-06 18:00:36,514 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:36] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-05-06 18:00:36,516 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:36] "[35m[1mGET /static/videos/splash.mp4 HTTP/1.1[0m" 206 -
+2025-05-06 18:00:39,039 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:39] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-05-06 18:00:39,047 - __main__ - INFO - Ê¹ÓÃ»º´æÊı¾İ
+2025-05-06 18:00:39,056 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:39] "GET / HTTP/1.1" 200 -
+2025-05-06 18:00:39,079 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:39] "GET /static/css/song_style.css HTTP/1.1" 200 -
+2025-05-06 18:00:39,079 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:39] "GET /static/fonts/ºâÉ½Ã«±ÊĞĞÊé.ttf HTTP/1.1" 200 -
+2025-05-06 18:00:39,085 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:39] "GET /static/js/world.js HTTP/1.1" 200 -
+2025-05-06 18:00:39,086 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:39] "GET /static/js/echarts.min.js HTTP/1.1" 200 -
+2025-05-06 18:00:39,096 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:39] "GET /static/images/seal.png HTTP/1.1" 200 -
+2025-05-06 18:00:39,097 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:39] "GET /static/js/tea-scroll.js HTTP/1.1" 200 -
+2025-05-06 18:00:39,295 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-06 18:00:39,297 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:39] "[33mGET /static/images/paper_texture.jpg HTTP/1.1[0m" 404 -
+2025-05-06 18:00:39,352 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:39] "GET /static/fonts/Èı¼«ĞĞ¿¬¼òÌå-´Ö.ttf HTTP/1.1" 200 -
+2025-05-06 18:00:41,339 - __main__ - INFO - Ê¹ÓÃ»º´æÊı¾İ
+2025-05-06 18:00:41,339 - __main__ - INFO - ·µ»Ø²èÎÄ»¯´ğÌâÏµÍ³Êı¾İµ½Ä£°å
+2025-05-06 18:00:41,350 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:41] "GET /tea_quiz HTTP/1.1" 200 -
+2025-05-06 18:00:41,376 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:41] "[36mGET /static/fonts/ºâÉ½Ã«±ÊĞĞÊé.ttf HTTP/1.1[0m" 304 -
+2025-05-06 18:00:41,376 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:41] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-05-06 18:00:41,380 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:41] "[36mGET /static/css/tea_quiz.css HTTP/1.1[0m" 304 -
+2025-05-06 18:00:41,381 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:41] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-05-06 18:00:41,382 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:41] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-05-06 18:00:41,386 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:41] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-05-06 18:00:41,593 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-06 18:00:41,594 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:41] "[33mGET /static/images/paper_texture.jpg HTTP/1.1[0m" 404 -
+2025-05-06 18:00:41,595 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:41] "[36mGET /static/fonts/Èı¼«ĞĞ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
+2025-05-06 18:00:41,605 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:00:41] "GET /get_quiz_scores HTTP/1.1" 200 -
+2025-05-06 18:01:05,159 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:05] "POST /save_quiz_score HTTP/1.1" 200 -
+2025-05-06 18:01:05,167 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:05] "GET /get_quiz_scores HTTP/1.1" 200 -
+2025-05-06 18:01:28,626 - __main__ - INFO - Ê¹ÓÃ»º´æÊı¾İ
+2025-05-06 18:01:28,626 - __main__ - INFO - ·µ»Ø´«Í³ÎÄ»¯Êı¾İµ½Ä£°å
+2025-05-06 18:01:28,652 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "GET /traditional_cultures HTTP/1.1" 200 -
+2025-05-06 18:01:28,679 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/fonts/ºâÉ½Ã«±ÊĞĞÊé.ttf HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,682 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/css/traditional_cultures.css HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,685 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/css/song_style.css HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,687 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/js/world.js HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,688 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/js/echarts.min.js HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,697 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/seal.png HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,698 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/calligraphy.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,755 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/guqin.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,755 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/porcelain.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,767 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/tcm.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,775 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/confucianism.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,783 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/silk.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,788 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/peking_opera.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,794 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/paper_cutting.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,801 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/chinese_painting.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,812 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/ai_chi.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,819 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/tea_culture.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,826 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/images/cultures/bronze_art.jpg HTTP/1.1[0m" 304 -
+2025-05-06 18:01:28,904 - __main__ - WARNING - ·ÃÎÊÁË²»´æÔÚµÄÒ³Ãæ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-06 18:01:28,905 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[33mGET /static/images/paper_texture.jpg HTTP/1.1[0m" 404 -
+2025-05-06 18:01:28,905 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 18:01:28] "[36mGET /static/fonts/Èı¼«ĞĞ¿¬¼òÌå-´Ö.ttf HTTP/1.1[0m" 304 -
