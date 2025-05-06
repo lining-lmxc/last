@@ -748,94 +748,30 @@ function initMoldingSimulator() {
     
     if (!moldButtons.length || !moldPreview) return;
     
-    // 为所有按钮添加事件监听
-    moldButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // 移除所有激活状态
-            moldButtons.forEach(b => b.classList.remove('active'));
-            
-            // 添加激活状态
-            this.classList.add('active');
-            
-            // 获取模具类型
-            const moldType = this.getAttribute('data-mold');
-            
-            // 更新预览图和说明文字
-            updateMoldPreview(moldType);
-            updateMoldDescription(moldType);
+    const moldInfo = {
+        dragon: {
+            image: '/static/mold-dragon.jpg',
+            description: '宋代龙纹茶饼为皇室特供纹样，以五爪蟠龙象征真龙天子。其纹样取形《营造法式》夔龙图谱，龙身盘绕参照汴京御道九曲规制，鳞片鎏金工艺需经十二道火候淬炼。茶饼中心龙目嵌辰砂朱泥，暗合"紫微临照"星象，专用于祭天、新帝登基等国家大典。据《玉海》记载，元丰年间曾造"九龙团茶"，龙首方位对应北斗九星，冲泡时可见游龙逐水雾的奇观，现存故宫的鎏金银茶笼便饰有此纹。'
+        },
+        phoenix: {
+            image: '/static/mold-phoenix.jpg',
+            description: '凤纹茶饼承载宋代祥瑞文化，双凤衔芝造型源自《宣和贡茶图》。每片凤羽采用"叠晕技法"，由青白渐变色釉呈现百鸟之王仪态，尾翎镶嵌和田玉髓形成光影流转效果。此类茶饼多用于婚仪、科举琼林宴等吉庆场合，《东京梦华录》载"公主出降赐凤团"的礼制。特殊设计的凤目经茶汤浸润可显三重瞳色，暗喻"凤鸣三重吉"，苏州虎丘塔地宫出土的鎏金茶罗子即完整保留着此类纹样。'
+        }
+    };
+
+    moldButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const moldType = button.dataset.mold;
+            if (moldInfo[moldType]) {
+                moldPreview.style.backgroundImage = `url('${moldInfo[moldType].image}')`;
+                moldDescription.textContent = moldInfo[moldType].description;
+                
+                // 更新按钮状态
+                moldButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            }
         });
     });
-    
-    // 更新模具预览图
-    function updateMoldPreview(moldType) {
-        // 添加淡出效果
-        moldPreview.classList.add('fade-out');
-        
-        // 获取左侧茶饼图片
-        const moldImage = document.getElementById('mold-image');
-        
-        // 等待淡出完成后更新图片并淡入
-        setTimeout(() => {
-            // 更新右侧预览图 - 检查flower类型，如果没有则默认使用dragon
-            const imageType = moldType === "flower" ? "dragon" : moldType;
-            moldPreview.style.backgroundImage = `url('/static/images/mold-${imageType}.jpg')`;
-            moldPreview.classList.remove('fade-out');
-            moldPreview.classList.add('fade-in');
-            
-            // 由于没有单独的茶饼图片，使用相同的模具图片
-            if (moldImage) {
-                moldImage.classList.add('fade-out');
-                setTimeout(() => {
-                    // 使用tea-molding.png作为基础图片，而不是尝试加载不存在的文件
-                    moldImage.src = `/static/images/tea-molding.png`;
-                    moldImage.classList.remove('fade-out');
-                    moldImage.classList.add('fade-in');
-                    
-                    setTimeout(() => {
-                        moldImage.classList.remove('fade-in');
-                    }, 500);
-                }, 300);
-            }
-            
-            // 移除淡入效果
-            setTimeout(() => {
-                moldPreview.classList.remove('fade-in');
-            }, 500);
-        }, 300);
-    }
-    
-    // 更新模具描述文字
-    function updateMoldDescription(moldType) {
-        if (!moldDescription) return;
-        
-        // 根据模具类型设置相应的描述文字
-        let descriptionText = "";
-        
-        if (moldType === "dragon") {
-            descriptionText = "龙纹团茶：宋代御用茶饼，多采用双龙戏珠图案，象征皇权与太平盛世。制作时将茶膏填入木模，用力按压成型，使图案清晰凸显。龙纹茶饼常作为贡品和国礼，制作工艺极为精湛。";
-        } else if (moldType === "phoenix") {
-            descriptionText = "凤纹团茶：宋代贵族茶饼，凤纹象征祥瑞与文雅。制作工艺需要温度与湿度的精准控制，使茶膏均匀分布在模具内，确保凤凰羽毛纹理清晰可辨。此类茶饼多用于宫廷宴饮和重要礼仪场合。";
-        } else if (moldType === "flower") {
-            descriptionText = "花卉纹团茶：宋代平民常用茶饼，多以菊花、梅花等为纹样，寓意四季平安。制作相对简易，需将茶膏压入木模后轻轻脱模，再经文火慢烘而成。此类茶饼价格适中，风味醇厚。";
-        } else {
-            descriptionText = "宋代贡茶多以龙凤纹样为尊，御用团茶有双龙戏珠等纹饰，寓意吉祥祈福。";
-        }
-        
-        // 添加淡出效果
-        moldDescription.classList.add('fade-out');
-        
-        // 延迟更新文本内容
-        setTimeout(() => {
-            moldDescription.textContent = descriptionText;
-            moldDescription.classList.remove('fade-out');
-            moldDescription.classList.add('fade-in');
-            
-            // 移除淡入效果
-            setTimeout(() => {
-                moldDescription.classList.remove('fade-in');
-            }, 500);
-        }, 300);
-    }
 }
 
 /**
