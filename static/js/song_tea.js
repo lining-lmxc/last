@@ -744,11 +744,13 @@ function initGrindingSimulator() {
 function initMoldingSimulator() {
     const moldButtons = document.querySelectorAll('.mold-btn');
     const moldPreview = document.querySelector('.mold-preview');
+    const moldDescription = document.querySelector('.mold-description');
     
     if (!moldButtons.length || !moldPreview) return;
     
+    // 为所有按钮添加事件监听
     moldButtons.forEach(btn => {
-        btn.addEventListener('click', function(event) {
+        btn.addEventListener('click', function() {
             // 移除所有激活状态
             moldButtons.forEach(b => b.classList.remove('active'));
             
@@ -758,27 +760,79 @@ function initMoldingSimulator() {
             // 获取模具类型
             const moldType = this.getAttribute('data-mold');
             
-            // 更新预览图
+            // 更新预览图和说明文字
             updateMoldPreview(moldType);
-            
-
+            updateMoldDescription(moldType);
         });
     });
     
-    // 更新模具预览
+    // 更新模具预览图
     function updateMoldPreview(moldType) {
         // 添加淡出效果
         moldPreview.classList.add('fade-out');
         
+        // 获取左侧茶饼图片
+        const moldImage = document.getElementById('mold-image');
+        
         // 等待淡出完成后更新图片并淡入
         setTimeout(() => {
-            moldPreview.style.backgroundImage = `url('/static/images/mold-${moldType}.jpg')`;
+            // 更新右侧预览图 - 检查flower类型，如果没有则默认使用dragon
+            const imageType = moldType === "flower" ? "dragon" : moldType;
+            moldPreview.style.backgroundImage = `url('/static/images/mold-${imageType}.jpg')`;
             moldPreview.classList.remove('fade-out');
             moldPreview.classList.add('fade-in');
+            
+            // 由于没有单独的茶饼图片，使用相同的模具图片
+            if (moldImage) {
+                moldImage.classList.add('fade-out');
+                setTimeout(() => {
+                    // 使用tea-molding.png作为基础图片，而不是尝试加载不存在的文件
+                    moldImage.src = `/static/images/tea-molding.png`;
+                    moldImage.classList.remove('fade-out');
+                    moldImage.classList.add('fade-in');
+                    
+                    setTimeout(() => {
+                        moldImage.classList.remove('fade-in');
+                    }, 500);
+                }, 300);
+            }
             
             // 移除淡入效果
             setTimeout(() => {
                 moldPreview.classList.remove('fade-in');
+            }, 500);
+        }, 300);
+    }
+    
+    // 更新模具描述文字
+    function updateMoldDescription(moldType) {
+        if (!moldDescription) return;
+        
+        // 根据模具类型设置相应的描述文字
+        let descriptionText = "";
+        
+        if (moldType === "dragon") {
+            descriptionText = "龙纹团茶：宋代御用茶饼，多采用双龙戏珠图案，象征皇权与太平盛世。制作时将茶膏填入木模，用力按压成型，使图案清晰凸显。龙纹茶饼常作为贡品和国礼，制作工艺极为精湛。";
+        } else if (moldType === "phoenix") {
+            descriptionText = "凤纹团茶：宋代贵族茶饼，凤纹象征祥瑞与文雅。制作工艺需要温度与湿度的精准控制，使茶膏均匀分布在模具内，确保凤凰羽毛纹理清晰可辨。此类茶饼多用于宫廷宴饮和重要礼仪场合。";
+        } else if (moldType === "flower") {
+            descriptionText = "花卉纹团茶：宋代平民常用茶饼，多以菊花、梅花等为纹样，寓意四季平安。制作相对简易，需将茶膏压入木模后轻轻脱模，再经文火慢烘而成。此类茶饼价格适中，风味醇厚。";
+        } else {
+            descriptionText = "宋代贡茶多以龙凤纹样为尊，御用团茶有双龙戏珠等纹饰，寓意吉祥祈福。";
+        }
+        
+        // 添加淡出效果
+        moldDescription.classList.add('fade-out');
+        
+        // 延迟更新文本内容
+        setTimeout(() => {
+            moldDescription.textContent = descriptionText;
+            moldDescription.classList.remove('fade-out');
+            moldDescription.classList.add('fade-in');
+            
+            // 移除淡入效果
+            setTimeout(() => {
+                moldDescription.classList.remove('fade-in');
             }, 500);
         }, 300);
     }

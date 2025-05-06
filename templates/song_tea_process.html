@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/song_tea.css') }}">
 <style>
     body {
-        background-image: url('{{ url_for('static', filename='images/paper_texture.jpg') }}');
+        /*background-image: url('{{ url_for('static', filename='images/paper_texture.jpg') }}');*/
         background-repeat: repeat;
         background-color: var(--rice-white);
     }
@@ -94,6 +94,25 @@
     
     .steam-simulator, .grinding-simulator, .mold-selector {
         margin-bottom: 15px;
+    }
+
+    /* 淡入淡出动画效果 */
+    .fade-in {
+        animation: fadeIn 0.5s ease-in-out forwards;
+    }
+    
+    .fade-out {
+        animation: fadeOut 0.3s ease-in-out forwards;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
     }
 </style>
 {% endblock %}
@@ -272,7 +291,7 @@
     
     <div class="step-details" id="step-details-4" style="display: none;">
         <div class="illustration-area">
-            <img src="{{ url_for('static', filename='images/tea-molding.png') }}" class="illustration-img" alt="印模工艺图">
+            <img src="{{ url_for('static', filename='images/tea-molding.png') }}" class="illustration-img" alt="印模工艺图" id="mold-image">
 
             <div class="illustration-desc">
                 <div class="poetry-box">
@@ -288,12 +307,13 @@
                 <div class="mold-selector">
                     <div class="mold-preview" style="background-image: url('/static/images/mold-dragon.jpg'); margin-bottom: 20px;"></div>
                     <div class="mold-buttons" style="margin-top: 15px;">
-                        <button class="mold-btn interactive-button active" data-mold="dragon">龙纹</button></a>
-                        <button class="mold-btn interactive-button" data-mold="phoenix">凤纹</button></a>
-                        <button class="mold-btn interactive-button" data-mold="flower">花卉纹</button></a>
+                        <button class="mold-btn interactive-button active" data-mold="dragon">龙纹</button>
+                        <button class="mold-btn interactive-button" data-mold="phoenix">凤纹</button>
+                    </div>
+                    <div class="mold-description-container" style="margin-top: 15px; padding: 10px; background: rgba(255, 255, 255, 0.8); border-radius: 5px; border-left: 3px solid var(--celadon);">
+                        <p class="mold-description">宋代贡茶多以龙凤纹样为尊，御用团茶有"双龙戏珠"等纹饰，寓意吉祥祈福。</p>
                     </div>
                 </div>
-                <p class="mold-description">宋代贡茶多以龙凤纹样为尊，御用团茶有"双龙戏珠"等纹饰，寓意吉祥祈福。</p>
             </div>
             
             <div class="ancient-text">
