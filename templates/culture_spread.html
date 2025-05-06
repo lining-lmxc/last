@@ -276,7 +276,7 @@
         </div>
     </div>
     <div class="literature-reference">
-        <p>特点：散茶冲泡定型，壶盏组合确立；景德镇白瓷“甜白”与宜兴紫砂并兴；茶具简化至8-23件。</p>
+        <p>特点：散茶冲泡定型，壶盏组合确立；景德镇白瓷"甜白"与宜兴紫砂并兴；茶具简化至8-23件。</p>
     </div>
 </div>
 
@@ -1566,7 +1566,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return {
                     name: item.name,
                     value: item.value,
-                    symbolSize: 10,
+                    symbolSize: 8, // 稍微减小点的大小
                     itemStyle: {
                         color: '#8B4513',
                         borderColor: '#fff',
@@ -1583,8 +1583,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 color: '#5a3d2b',
                 backgroundColor: 'rgba(255, 255, 255, 0.7)',
                 padding: [3, 5],
-                borderRadius: 3
-            }
+                borderRadius: 3,
+                emphasis: {
+                    show: true,
+                    position: 'top',
+                    distance: 15
+                },
+                // 添加最小间距以避免重叠
+                minMargin: 10,
+                // 开启标签避障
+                avoidLabelOverlap: true
+            },
+            // 为城市点添加z轴层级
+            zlevel: 2
         }];
         
         // 添加路线
@@ -1617,13 +1628,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: route.name + ' 动效',
                 type: 'lines',
                 coordinateSystem: 'geo',
-                zlevel: 2,
+                zlevel: 1, // 确保不会盖住时间标签
                 effect: {
                     show: true,
                     period: 6,
                     trailLength: 0.5,
                     symbol: 'arrow',
-                    symbolSize: 8
+                    symbolSize: 6, // 减小箭头大小
+                    color: '#fff'
                 },
                 lineStyle: {
                     color: route.lineStyle.color,
@@ -1637,39 +1649,67 @@ document.addEventListener('DOMContentLoaded', function() {
                 }]
             });
             
-            // 添加时间标注
-            var midIndex = Math.floor(route.coords.length / 2) - 1;
-            if (midIndex < 0) midIndex = 0;
-            
-            var midCoord = route.coords[midIndex];
-            var nextCoord = route.coords[midIndex + 1];
-            var labelPos = [
-                (midCoord[0] + nextCoord[0]) / 2,
-                (midCoord[1] + nextCoord[1]) / 2
-            ];
-            
-            series.push({
-                type: 'scatter',
-                coordinateSystem: 'geo',
-                data: [{
-                    name: route.time,
-                    value: [labelPos[0], labelPos[1]],
-                    symbolSize: 0
-                }],
-                label: {
-                    show: true,
-                    formatter: route.time,
-                    position: 'middle',
-                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                    padding: [5, 10],
-                    borderRadius: 4,
-                    fontSize: 14,
-                    color: '#8B4513',
-                    fontWeight: 'bold',
-                    borderColor: '#D2B48C',
-                    borderWidth: 1
+            // 为每条路线创建固定样式的时间标签
+            if (route.time) {
+                // 判断路线是否足够长来显示标签
+                if (route.coords.length >= 2) {
+                    // 为不同方向的路线计算不同的标签位置
+                    var startPoint = route.coords[0];
+                    var endPoint = route.coords[route.coords.length - 1];
+                    var direction = endPoint[0] > startPoint[0] ? 1 : -1; // 判断是向东还是向西
+                    
+                    // 根据方向计算标签的位置
+                    var midIndex = Math.floor(route.coords.length / 2);
+                    if (midIndex >= route.coords.length) midIndex = route.coords.length - 1;
+                    if (midIndex < 0) midIndex = 0;
+                    
+                    var labelPoint = route.coords[midIndex];
+                    
+                    // 对长度为2的路线，使用起点和终点的中点
+                    if (route.coords.length === 2) {
+                        labelPoint = [
+                            (startPoint[0] + endPoint[0]) / 2,
+                            (startPoint[1] + endPoint[1]) / 2
+                        ];
+                    }
+                    
+                    // 添加偏移，避免与路线和城市标签重叠
+                    var offsetX = direction * (Math.random() * 3 + 3);
+                    var offsetY = (Math.random() * 2 - 1) * 5;
+                    
+                    series.push({
+                        type: 'scatter',
+                        coordinateSystem: 'geo',
+                        zlevel: 4, // 最高层级
+                        data: [{
+                            name: route.time,
+                            value: [labelPoint[0] + offsetX, labelPoint[1] + offsetY],
+                            symbolSize: 0.1 // 几乎不可见的点
+                        }],
+                        label: {
+                            show: true,
+                            formatter: function() {
+                                return '{a|' + route.time + '}';
+                            },
+                            position: 'top',
+                            distance: 2,
+                            rich: {
+                                a: {
+                                    padding: [3, 5],
+                                    borderRadius: 3,
+                                    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                                    color: route.lineStyle.color,
+                                    fontSize: 11,
+                                    fontWeight: 'bold',
+                                    lineHeight: 16,
+                                    shadowColor: 'rgba(0, 0, 0, 0.2)',
+                                    shadowBlur: 3
+                                }
+                            }
+                        }
+                    });
                 }
-            });
+            }
         });
         
         var option = {
@@ -1714,6 +1754,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     borderColor: 'rgba(210, 180, 140, 0.5)'
                 },
                 backgroundColor: 'transparent'
+            },
+            // 添加标签布局配置
+            labelLayout: {
+                hideOverlap: true, // 隐藏重叠标签
+                draggable: false    // 禁用拖拽避免误操作
             },
             series: series
         };
