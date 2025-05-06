@@ -195,12 +195,19 @@
     <div class="step-details" id="step-details-2" style="display: none;">
         <div class="illustration-area">
             <img src="{{ url_for('static', filename='images/tea-steaming.jpg') }}" class="illustration-img" alt="蒸青工艺图">
+
             <div class="illustration-desc">
                 <div class="poetry-box">
                     <p>蒸叶趁新芽，手不停揉捻。<br>
                        茶魂藏匣中，待客来品鉴。</p>
                     <div class="poetry-source">—— 宋·黄庭坚《茶诗》</div>
                 </div>
+            </div>
+
+            <div class="ancient-text">
+                <h4>古籍描述</h4>
+                <p>{{ process[1].ancient_text }}</p>
+                <div class="text-source">—— {{ process[1].source }}</div>
             </div>
         </div>
         <div class="details-area">
@@ -223,12 +230,6 @@
                         <p class="tip-text">宋代蒸青讲究"候火之中"，火力过猛茶叶失香，过弱则不能去青定形</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="ancient-text">
-                <h4>古籍描述</h4>
-                <p>{{ process[1].ancient_text }}</p>
-                <div class="text-source">—— {{ process[1].source }}</div>
             </div>
         </div>
     </div>

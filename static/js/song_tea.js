@@ -761,20 +761,7 @@ function initMoldingSimulator() {
             // 更新预览图
             updateMoldPreview(moldType);
             
-            // 添加百度搜索功能
-            let searchTerm = "";
-            if (moldType === "dragon") {
-                searchTerm = "宋代茶饼龙纹";
-            } else if (moldType === "phoenix") {
-                searchTerm = "宋代茶饼凤纹";
-            } else if (moldType === "flower") {
-                searchTerm = "宋代茶饼花卉纹";
-            }
-            
-            // 在新窗口打开百度搜索
-            if (searchTerm) {
-                window.open(`https://www.baidu.com/s?wd=${searchTerm}`, '_blank');
-            }
+
         });
     });
     
