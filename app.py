@@ -99,14 +99,12 @@ def load_json(path):
         return {}
 
 # 简化版数据加载函数
+# 修改全局缓存变量为LRU缓存
+from functools import lru_cache
+
+@lru_cache(maxsize=1)
 def load_data():
-    global _data_cache
-    
-    # 如果缓存存在，直接返回
-    if _data_cache:
-        logger.info("使用缓存数据")
-        return _data_cache
-    
+    # 移除 global _data_cache 声明
     logger.info("加载数据开始...")
     try:
         data_dir = Path(__file__).parent / 'data'
@@ -410,22 +408,21 @@ def save_quiz_score():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+# 在MySQL配置后添加连接池配置
+app.config['MYSQL_POOL_SIZE'] = 5
+app.config['MYSQL_POOL_RECYCLE'] = 300
+
+# 修改路由中的数据库操作（以get_quiz_scores为例）
 @app.route('/get_quiz_scores')
 def get_quiz_scores():
-    if 'name' not in session:
-        return jsonify({"success": False, "error": "未登录"}), 401
-        
     try:
-        # 获取当前用户
-        user_name = session.get('name')
-        
-        # 从数据库获取得分记录
-        cur = mysql.connection.cursor()
-        cur.execute(
-            "SELECT score, total, date_taken FROM quiz_scores WHERE user_name = %s ORDER BY date_taken DESC LIMIT 10",
-            (user_name,)
-        )
-        scores = cur.fetchall()
+        with mysql.connection.cursor() as cur:  # 使用with自动管理连接
+            cur.execute(
+                "SELECT score, total, date_taken FROM quiz_scores...",
+                (user_name,)
+            )
+            scores = cur.fetchall()
+        # 不需要手动关闭连接
         cur.close()
         
         result = []
