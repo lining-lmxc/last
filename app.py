@@ -416,12 +416,16 @@ app.config['MYSQL_POOL_RECYCLE'] = 300
 @app.route('/get_quiz_scores')
 def get_quiz_scores():
     try:
-        with mysql.connection.cursor() as cur:  # 使用with自动管理连接
+        user_name = session.get('name')
+        logger.debug(f"正在查询用户 {user_name} 的成绩记录")  # 添加调试日志
+        
+        with mysql.connection.cursor() as cur:
             cur.execute(
-                "SELECT score, total, date_taken FROM quiz_scores...",
+                "SELECT score, total, date_taken FROM quiz_scores WHERE user_name = %s ORDER BY created_at DESC",
                 (user_name,)
             )
             scores = cur.fetchall()
+            logger.debug(f"查询到 {len(scores)} 条记录")  # 记录查询结果数量
         # 不需要手动关闭连接
         cur.close()
         
