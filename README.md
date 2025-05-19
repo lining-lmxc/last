@@ -144,4 +144,48 @@ python app.py
 └── templates/
     ├── song_tea_process.html  # 宋代团茶工艺模板
     └── culture_spread.html    # 茶文化传播模板
-``` 
+```
+
+## 主要第三方依赖包
+
+1. **Flask** - Web框架
+   - 核心库: `flask`
+   - 扩展模块: `flask-mysqldb`（MySQL连接）
+
+2. **数据库相关**
+   - `flask-mysqldb` - Flask的MySQL连接扩展
+   - `pymysql` - Python的MySQL客户端库(作为备选驱动)
+
+3. **数据处理**
+   - `pandas` - 数据分析和操作库
+
+4. **安全相关**
+   - `bcrypt` - 密码加密
+   - `python-dotenv` - 环境变量管理（推测用于管理配置）
+
+5. **HTTP请求**
+   - `requests` - HTTP库，用于API调用
+
+## Python标准库
+
+1. **Web和数据**
+   - `json` - JSON数据处理
+   - `time` - 时间相关函数
+   - `logging` - 日志记录
+   - `functools` (lru_cache) - 缓存装饰器
+
+2. **文件和系统**
+   - `os` - 操作系统接口
+   - `pathlib` (Path) - 面向对象的文件系统路径
+   - `shutil` - 高级文件操作
+
+## 建议的requirements.txt内容
+
+```
+flask==3.0.3
+flask-mysqldb==1.0.1
+pandas==2.2.3
+bcrypt==4.2.1
+python-dotenv==1.0.0
+requests==2.32.3
+pymysql==1.1.0 

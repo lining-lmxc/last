@@ -1,7 +1,0 @@
-flask==3.0.3
-flask-mysqldb==1.0.1
-pandas==2.2.3
-bcrypt==4.2.1
-python-dotenv==1.0.0 
-requests==2.32.3
-pymysql==1.1.0
